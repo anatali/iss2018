@@ -3,25 +3,23 @@
  * mbotControl.qa
  * ==============================================================
  */ 
-System mbotControl
+System mbotControl 
 Event usercmd     : usercmd(CMD)
 Event sonar  	  : sonar(SONAR, TARGET, DISTANCE)	//From (virtual) sonar
 Event sonarDetect : sonarDetect(X)					//From (virtual robot) sonar
 Event realSonar   : sonar( DISTANCE )				//From real sonar on real robot
-
 Dispatch polarMsg : p( Distance, Angle  )
 
-pubSubServer  "tcp://test.mosquitto.org:1883"
-
-Context ctxMbotControl ip [ host="192.168.1.19"  port=8029 ] -httpserver  
+Context ctxMbotControl   ip [ host="localhost"    port=8029 ]  -httpserver  //192.168.43.80 
+Context ctxRadarBase     ip [ host="localhost"   port=8033 ]  -standalone 
 
 QActor rover context ctxMbotControl { 
 	Plan init normal [    
 	    	println("rover START");	    	
- 	    	connectUnity "192.168.1.19";
+ 	    	connectUnity "localhost";
  	    	createUnityObject "rover" ofclass "Prefabs/CustomActor" ;
 //	    	javaOp "it.unibo.rover.MbotConnArduino.initPc(this)" ;
-//     		javaOp "it.unibo.rover.MbotConnArduino.initRasp(this)" ;
+     		javaOp "it.unibo.rover.MbotConnArduino.initRasp(this)" ;
   			backwards 70 time ( 800 ) ;    	
    	    	right 70 time ( 1000 )   //position
   	    ] 
@@ -105,34 +103,29 @@ QActor rover context ctxMbotControl {
 }  
 
 QActor sonardetector context ctxMbotControl{
-	Plan init normal [ 
-		connectAsPublisher "unibo/mqtt/radar" ;
-		//just to see that it works
-		publishMSg "unibo/mqtt/radar" for "radarguimqtt" -m polarMsg : p( 20, 90  );
-		delay 1000;
-		publishMSg "unibo/mqtt/radar" for "radarguimqtt" -m polarMsg : p( 40, 90  );
-		delay 1000;
-		publishMSg "unibo/mqtt/radar" for "radarguimqtt" -m polarMsg : p( 60, 90  );
-		delay 1000;
-		publishMSg "unibo/mqtt/radar" for "radarguimqtt" -m polarMsg : p( 80, 90  )
-	]
+	Plan init normal [ ]
 	switchTo waitForEvents
 	
 	Plan waitForEvents[ ]
   	transition stopAfter 600000    
  		whenEvent sonar       ->  sendToRadar,
-  		whenEvent sonarDetect  :  sonarDetect(TARGET) do println( sonarDetect(TARGET) ),
+  		whenEvent sonarDetect ->  sendToRadar,
  		whenEvent realSonar   ->  sendToRadar
   	finally repeatPlan 
 	
 	Plan sendToRadar resumeLastPlan [  
 		printCurrentEvent; 
-		//onMsg polarMsg : p( DISTANCE, 90  ) -> println( p( DISTANCE, 90  ) );
 		onEvent realSonar  : sonar( DISTANCE ) ->
-			publishMSg "unibo/mqtt/radar" for "radarguimqtt" -m polarMsg : p( DISTANCE, 0  );
+			sendto radarguibase in ctxRadarBase -m polarMsg : p( DISTANCE, 0  );		 
 		onEvent sonar  : sonar(sonar1, TARGET, DISTANCE ) ->
-			publishMSg "unibo/mqtt/radar" for "radarguimqtt" -m polarMsg : p( DISTANCE, 30  );
+			sendto radarguibase in ctxRadarBase -m polarMsg : p( DISTANCE, 30  );
 		onEvent sonar  : sonar(sonar2, TARGET, DISTANCE ) ->
-			publishMSg "unibo/mqtt/radar" for "radarguimqtt" -m polarMsg : p( DISTANCE, 120  )
+			sendto radarguibase in ctxRadarBase -m polarMsg : p( DISTANCE, 120  );
+		onEvent sonarDetect  : sonarDetect(TARGET)  -> switchTo showObstcle			
+	]
+	
+	Plan showObstcle resumeLastPlan[
+		println( "found obstacle" );
+		sendto radarguibase in ctxRadarBase -m polarMsg : p( 30, 90  )
 	]
 }
