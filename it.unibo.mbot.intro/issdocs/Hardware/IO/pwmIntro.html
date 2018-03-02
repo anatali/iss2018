@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="../../css/plainStyle.css">
+<link rel="stylesheet" type="text/css" href="../../css/robotTabStyle.css">   
+<script type="text/javascript" src="../../css/issStyle.js"></script>
+<head>
+
+<title>PWM</title></head><body>
+    
+<div class="container wrapper"> 
+
+<div id="top">
+<h3 id="h3">Pulse Width Modulation</h3>
+<p></p>
+</div> 
+
+
+    
+<div class="wrapper">
+    
+ 
+    
+ 
+<div id="main">
+<p>
+A  <i id="i">Pulse-Width Modulation</i> ( <tt>PWM</tt> ) signal is a square waveform and is used in electronic control systems .
+    Two important parameters are the <i id="i">frequency</i> and the <i id="i">duty cycle</i>. 
+<ul>
+    <li>Frequency is the number of repeating cycles a waveform makes in one second.</li>
+    <li>Duty cycle represents the percentage of time that a signal is high versus low. The resulting average value of the waveform sets the amount of power delivered to the load.</li>
+    </ul>
+ <center> 
+    <img src="oscilloscope1.jpg" alt="pwm" width="411" height="119"/> <br/>
+     Frequency <tt>50Hz</tt> dutyfree <tt>50%</tt>
+</center>
+
+</p><p>
+So if you have a frequency of 50 Hz and a duty cycle of 50%, it means that every <tt>1/50th</tt> (<tt>0.02</tt>) of a second a new pulse starts and that pulse is switched off half way through that time period (after <tt>1/100th</tt> or <tt>0.01s</tt>).
+</p><p>
+
+<h3>PWM on  Raspberry Pi</h3>
+There is only one PWM hardware pin available on the Raspberry Pi: <tt>GPIO18</tt> Other PWM pins are occupied by the 3.5mm audio connector
+PWM can be performed in a number of ways on the Raspberry Pi:
+</p><p>
+    <ul>
+    <li><b>Inbuilt hardware</b>.The Pi can perform PWM in hardware, but this can only be done on one pin (GPIO18) and when enabled it interferes with the audio jack. It is also hard to get working. Last time I looked, you had to recompile the kernel.</li>
+        <li><b>Software</b>.
+PWM can be performed in software. This is a very easy option.  It isn't as precise  as hardware PWM however in most instances software PWM will do.</li>
+        <li><b>External hardware</b>.
+There are external components that can be used to perform PWM.  Eg  Adafruit 16-Channel 12-bit PWM/Servo Driver - I2C interface - PCA96855.   </li>
+    </ul>
+
+<a name="pwmPi4j"></a><h3>PWM with WiringPi</h3>
+<a href="../../Tools/WiringPi/wriringpiIntro.html">WiringPi</a> includes a software-driven PWM handler capable of outputting a PWM signal on any of the Raspberry Pi's GPIO pins. 
+    </p><p>To maintain a low CPU usage, the minimum pulse width is <tt>100microS</tt>. 
+    That combined with the default suggested range of <tt>100</tt> gives a PWM frequency of <tt>100Hz</tt>. 
+    </p><p>You can lower the range to get a higher frequency, at the expense of resolution, or increase to get more resolution, but that will lower the frequency. 
+    </p><p>If you change the pulse-width in the driver code, then be aware that at delays of less than 100μS wiringPi does it in a software loop, which means that CPU usage will rise dramatically, and controlling more than one pin will be almost impossible.
+    </p><p>
+    You must initialize wiringPi with one of <tt>wiringPiSetup()</tt> or <tt>wiringPiSetupGpio()</tt> functions beforehand. 
+<tt>wiringPiSetupSys()</tt> is not fast enough, so you must run your programs with <tt>sudo</tt>.
+
+<a name="pi-blaster"/>
+        <h3>Pi-blaster</h3>
+The pi-blaster project is based on the  work of  : 
+    <a href="https://github.com/sarfata/pi-blaster">Tomas Sarlandie</a> and the modifications/updates made by :
+     <a href="https://github.com/mvitousek/pi-blaster">Michael Vitousek</a>. 
+Pi-blaster project is based on the excellent work of  <a href="https://github.com/richardghirst/PiBits">Richard Hirst</a> for ServoBlaster 
+</p><p>
+This project enables PWM on the GPIO pins you request of a Raspberry Pi. The technique used is extremely efficient: does not use the CPU and gives very stable pulses.
+pi-blaster creates a special file (FIFO) in <tt>/dev/pi-blaster</tt>. Any application on your Raspberry Pi can write to it (this means that only pi-blaster needs to be root, your application can run as a normal user).
+</p><p>
+To start pi-blaster and have it relaunched automatically on every reboot.<br/>
+Important: when using pi-blaster, the GPIO pins you send to it are configured as output.
+</p><p>
+To set the value of a PIN, you write a command to <tt>/dev/pi-blaster</tt> in the form 
+    <tt>&lt;GPIOPinName>=&lt;value></tt> where <tt>&lt;value></tt>  must be a number between <tt>0</tt> and <tt>1</tt> (included).
+    <pre>
+sudo /home/pi/pi-blaster/pi-blaster
+cd /home/pi/pi-blaster/
+make
+sudo ./pi-blaster
+Set GPIO pin 17 to a PWM of 20%
+echo "17=0.2" > /dev/pi-blaster
+    </pre>
+If you start pi-blaster without any parameters, it will enable PWM on the default pins.
+
+The default pins are;
+    <pre>
+Channel number    GPIO number   Pin in P1 header
+      0               4             P1-7
+      1              17             P1-11
+      2              18             P1-12
+      3              21             P1-13
+      4              22             P1-15
+      5              23             P1-16
+      6              24             P1-18
+      7              25             P1-22
+    </pre>
+<!--To enable PWM only on pins 22, 24, 17 and 16;-->
+
+    
+    </p><p>
+    
+
+ 
+</p>
+    
+<center>
+     
+</center> 
+</div>
+    
+
+
+    
+
+<div id="bottom">
+By AN - SG Unibo-DISI    
+</div>
+    
+</div>
+</div>    
+ 
+</body></html>

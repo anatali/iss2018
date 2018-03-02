@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="../css/plainStyle.css"> 
+    <link rel="stylesheet" type="text/css" href="../css/robotTabStyle.css">
+<script type="text/javascript" src="../css/issStyle.js"></script>
+<head>
+
+<title>raspberryProjectsHL</title></head><body>
+    
+<div class="container wrapper"> 
+
+<div id="top">
+<h3 id="h3"Raspberry BLCS high level projects</h3>
+<p></p>
+</div> 
+ 
+
+    
+<div class="wrapper">
+    
+    
+    
+ 
+<div id="main">
+<p>
+ 
+    
+    
+<a name="HL"></a><h4>HIGH-LEVEL BLS projects on RaspberryPi</h4>
+    
+<img src="./BLSAllDevices.jpg" alt="show" width="544" height="408"/>
+    </p><p>    
+   
+    
+
+    
+The following projects show how a high-level logic architecture can be used to build both a BLS in Java on
+    a single processing unit (a PC  with 'virtual devices' or on a RaspberryPi with 'phisical devices')
+    and a distributed system in which each (virtual or phisical ) device is handled by a different processing unit.
+<a name="prjarch"></a>
+    
+<h3>Logic architecture: LOCAL</h3>
+    <img src="../../../it.unibo.buttonLedSystem.raspberry/docs/BLSRaspLocal.jpg" alt="show" width="429" height="210"/>
+    
+<h3>Logic architecture: DSITRIBUTED</h3>
+    The following design architecture puts the control on the Led site by motivating this choice with
+    a sort of 'control-locality' principle. But problem analysis should state that the Led is just an
+    <b>actuator</b> that requires <i>remote control</i>. In this case the control could/should be allocated in the 
+    Button node (or in some other node).<br/><br/>
+    <img src="../../../it.unibo.buttonLedSystem.raspberry/docs/BLSRaspDistributed.jpg" alt="show" width="485" height="427"/>
+   </p><p>    
+    
+    
+<h3>Project <i><b>it.unibo.buttonLedSystemHL</b></i></h3>
+
+<table id="robots"> 
+  <tr class="alt">
+    <th>Package</th>
+    <th>Entry</th>
+   <th>Goal</th>
+   </tr>
+  <tr>
+    <td>it.unibo.buttonLedSystem</td>
+    <td><a href="../../../it.unibo.buttonLedSystemHL/src/it/unibo/buttonLedSystem/BLSHLConfig.java">BLSHLConfig</a></td> 
+    <td>Build a LOGIC BLS system by using the  <a href="../Appls/ButtonLed/buttonLedHighLevelEntry.html" target="lecture">logical architecture</a> defined at the end of the analysis (or project) phase</td>
+   </tr>
+ 
+ </table> 
+    
+<a name="BLSFActory"></a><h3>Project <i><b>it.unibo.buttonLedSystem.factory</b> </i></h3>
+
+<table id="robots">
+  <tr class="alt">
+    <th>Package</th>
+    <th>Entry</th>
+   <th>Goal</th>
+   </tr>
+    <tr class="alt">
+    <td>it.unibo.buttonLedSystem.factory</td>
+    <td><a href="../../../it.unibo.buttonLedSystem.factory/src/it/unibo/buttonLedSystem/factory/BLSFactory.java" target="code">BLSFactory</a></td> 
+    <td>A factoy that depends on many technogy-dependent libraries in order to build different BLS (distributed) configurations. </td>
+   </tr>
+
+ </table>   
+    
+    <h3>Project logical architecture: DSITRIBUTED</h3>  
+
+The following 'three-layers architecture' logically  decouples the control from the Button and from the Led,
+    and des introduce some device (in green) to provide  interavtion over a network:<br/><br/>
+    
+<img src="../Appls/ButtonLed/BLSDitributedArch.jpg" alt="show" width="573" height="118"/>
+<h3>Project architecture: Raspberry site </h3>
+On a Raspberry node we can implement the entire Button-Led system by providing supports for a physical Button and
+    a physical Led by using the <tt>Pi4j</tt> library. The point is to provide also a rspource (the <tt>DeviceButtonServer</tt>) that allows the reception
+    of commands comimg form 'renmote buttons':<br/><br/>
+
+   <img src="../../../it.unibo.buttonLedSystem.raspberry/docs/BLSRaspRemoteButton.jpg" alt="show" width="782" height="411"/>
+
+<h3>Project architecture: PC site </h3>
+On a Raspberry node we must transform a command coming form a local button into a message to sent over the network to the <tt>DeviceButtonServer</tt> on the Raspberry:<br/><br/>
+    <img src="../../../it.unibo.buttonLedSystem.raspberry/docs/BLSRemoteLed.jpg" alt="show" width="821" height="380"/>
+
+ <a name="BLSRasp"></a>
+  <h3>Project <i><b>it.unibo.buttonLedSystem.raspberry</b></i></h3>
+<i>BLS all on Raspberry</i>
+<table id="robots">
+  <tr>
+    <th>Package</th>
+    <th>Entry</th>
+   <th>Goal</th>
+   </tr>
+  <tr class="alt">
+    <td>it.unibo.bls.raspberry</td>
+    <td><a href="../../../it.unibo.buttonLedSystem.raspberry/src/it/unibo/bls/raspberry/BLSRaspberryMain.java">BLSRaspberryMain</a> </td> 
+    <td>The BLS impemented in Java on the RaspberryPi.</td>
+   </tr>
+  <tr>
+    <td>it.unibo.buttonLedSystem.raspberry</td>
+    <td><a href="../../../it.unibo.buttonLedSystem.raspberry/src/it/unibo/bls/raspberry/components/DeviceLedPi4j.java">DeviceLedPi4j</a> </td> 
+    <td>The Led impemented in Java on the RaspberryPi via Pi4j.</td>
+   </tr>
+  <tr class="alt">
+    <td>it.unibo.bls.raspberry</td>
+    <td><a href="../../../it.unibo.buttonLedSystem.raspberry/src/it/unibo/bls/raspberry/components/DeviceButtonPi4J.java">DeviceButtonPi4J</a> </td> 
+    <td>The Button  impemented in Java on the RaspberryPi  via Pi4j.</td>
+   </tr>
+ 
+ </table>  
+
+<i>A device on Raspberry</i>
+<table id="robots">
+  <tr>
+    <th>Package</th>
+    <th>Entry</th>
+   <th>Goal</th>
+   </tr>
+  <tr class="alt">
+    <td>it.unibo.bls.raspberry.proxy</td>
+    <td><a href="../../../it.unibo.buttonLedSystem.raspberry/src/it/unibo/bls/raspberry/proxy/BLSRaspWithButtonServerMain.java">BLSRaspWithButtonServerMain</a></td> 
+    <td>BLS with the Led on the RaspebrryPi and a remote Button </td>
+   </tr>
+ <tr >
+  <tr>
+    <td>it.unibo.bls.raspberry.proxy</td>
+    <td><a href="../../../it.unibo.buttonLedSystem.raspberry/src/it/unibo/bls/raspberry/proxy/BLSRaspWithLedProxyMain.java">BLSRaspWithLedProxyMain</a></td> 
+    <td>BLS with the Buton on the RaspebrryPi and a remote Led</td>
+   </tr>
+ <tr >
+ </table>      
+
+  <h3>Project <i><b>it.unibo.buttonLedSystem.arduino</b></i></h3>
+    <i>A device on Arduino</i>
+<table id="robots">
+  <tr>
+    <th>Package</th>
+    <th>Entry</th>
+   <th>Goal</th>
+   </tr>
+   <tr >
+    <td>it.unibo.buttonLedSystem.arduino</td>
+    <td><a href="../../../it.unibo.buttonLedSystem.arduino/arduino/blsPollingUno/blsPollingUno.ino">blsPollingUno.ino</a></td> 
+    <td>The code on Arduino: a Led server and a Button proxy in functional style (no C++)</td>
+   </tr>
+    
+          
+
+  <tr class="alt">
+    <td>it.unibo.bls.buttonOnArduino</td>
+    <td><a href="../../../it.unibo.buttonLedSystem.raspberry/src/it/unibo/bls/buttonOnArduino/BLSButtonOnArduinoMain.java">BLSButtonOnArduinoMain</a></td> 
+    <td>BLS over RaspberryPi with the Button on Arduino</td>
+   </tr>
+   <tr >
+    <td>it.unibo.bls.ledOnArduino</td>
+    <td><a href="../../../it.unibo.buttonLedSystem.raspberry/src/it/unibo/bls/ledOnArduino/BLSLedOnArduinoMain.java">BLSLedOnArduinoMain</a></td> 
+    <td>BLS over RaspberryPi with the Led on Arduino</td>
+   </tr>
+
+ </table>  
+
+  
+    <h4>VERY HIGH-LEVEL</h4>
+ <img src="../Appls/ButtonLed/BLSDitributedMsg.jpg" alt="show" width="573" height="118"/>
+     </p><p>    
+The presence of a <i>Mediator</i> is a design choiche, since the Button can exchange messages with the Led directly.
+    The mediator could suggest the usage of a publish-subscribe protocol like MQTT.
+
+     <h3>A solution based on QActors</h3>
+ 
+    
+<table id="robots">
+  <tr>
+    <th>Package</th>
+    <th>Entry</th>
+   <th>Goal</th>
+   </tr>
+   <tr >
+    <td>it.unibo.buttonLedSystem.qactor</td>
+    <td><a href="../../../it.unibo.buttonLedSystem.qactor/src/it/unibo/buttonLedSystem/qactor/QActorButton.java">QActorButton</a></td> 
+    <td>The Button as a QActor</td>
+   </tr>
+   <tr class="alt">
+    <td>it.unibo.buttonLedSystem.qactor</td>
+    <td><a href="../../../it.unibo.buttonLedSystem.qactor/src/it/unibo/buttonLedSystem/qactor/QActorLed.java">QActorLed</a></td> 
+    <td>The Led as a QActor</td>
+   </tr>
+   <tr >
+    <td>it.unibo.buttonLedSystem.qactor</td>
+    <td><a href="../../../it.unibo.buttonLedSystem.qactor/src/it/unibo/buttonLedSystem/qactor/CtxOfButton.java">CtxOfButton</a></td> 
+    <td>The node of the Button </td>
+   </tr>
+   <tr class="alt">
+    <td>it.unibo.buttonLedSystem.qactor</td>
+    <td><a href="../../../it.unibo.buttonLedSystem.qactor/src/it/unibo/buttonLedSystem/qactor/CtxOfLed.java">CtxOfLed</a></td> 
+    <td>The node of the Led </td>
+   </tr>
+    <tr >
+    <td>it.unibo.buttonLedSystem.qactor</td>
+    <td><a href="../../../it.unibo.buttonLedSystem.qactor/blsKb.pl">blsKb</a></td> 
+    <td>The bls system description</td>
+   </tr>
+  </table>  
+
+     <h3>A solution based on the custom metamodel <tt>qa</tt></h3>
+    TO DO by the reader
+</p> 
+    
+</div>
+    
+ 
+<!--
+    <a href="https://www.youtube.com/watch?v=o9lVVr5p0nM"> Video Alicata-Bezzi-Desantis-Gamberini</a>
+
+-->
+
+<div id="bottom">
+By AN Unibo-DISI    
+</div>
+    
+</div>
+</div>    
+ 
+</body></html>

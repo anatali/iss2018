@@ -1,0 +1,81 @@
+	<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="../css/issStyle1.css">  
+<script type="text/javascript" src="../css/issStyle.js"></script>
+<head>
+
+<title>Arduino</title></head><body>
+<body onload="loadInMain('arduino.html')">    
+<div class="container wrapper"> 
+
+<div id="top">
+<h1>Arduino</h1>
+</div>  
+    
+<div class="wrapper">
+    
+<div id="menubar">
+<img src="../imgs/hw/ArduinoUNO.jpg" alt="show" width="102" height="102"/>
+<ul id="menulist">
+    <li class="menuitem" onclick="loadInMain('arduino.html')">Arduino</li>
+    <li class="menuitem" onclick="loadInMain('ArduinoUno.html')">ArduinoUno</li>
+   <li class="menuitem" onclick="loadInMain('ArduinoMicro.html')">ArduinoMicro</li>
+   <li class="menuitem" onclick="loadInMain('SparkfunProMicro.html')">SparkfunProMicro</li>
+<h3>Examples</h3>  
+<li class="menuitem" onclick="loadWithMsg('Hello world with a built-in Led ',
+'../../../it.unibo.arduino.intro/Arduino/programs/Output/Output.ino')">Output.ino (LED)</li>    
+
+<li class="menuitem" onclick="loadWithMsg('Button input in polling mode', '../../../it.unibo.arduino.intro/Arduino/programs/buttonPolling/buttonPolling.ino')">buttonPolling.ino</li>
+    
+<li class="menuitem" onclick="loadWithMsg('Hello world with a built-in Led ', 
+'../../../it.unibo.arduino.intro/Arduino/programs/buttonInterrupt/buttonInterrupt.ino')">buttonInterrupt.ino</li>    
+
+    <h3>ButtonLed</h3>    
+<!--
+    <li class="menuitem" onclick="loadWithMsg('A polling-based solution on Arduino',
+'../../../it.unibo.buttonLedSystem/arduino/blsPollingUno/blsPollingUno.ino')">ArduinoUno Polling </li>
+       <li class="menuitem" onclick="loadWithMsg('A interrupt-based solution on Arduino',
+'../../../it.unibo.buttonLedSystem/arduino/joystickInterrupt/joystickInterrupt.ino')">ArduinoUno Interrupt</li>
+-->
+    <li class="menuitem" onclick="loadWithMsg('BLS all together',
+'../../../it.unibo.arduino.intro/Arduino/programs/bls/bls.ino')">bls.ino (All)</li>
+    <li class="menuitem" onclick="loadWithMsg('BLS : domain specification ',
+'../../../it.unibo.arduino.intro/Arduino/programs/blsMain/bls.h')">bls.h (Spec)</li>
+    <li class="menuitem" onclick="loadWithMsg('BLS : domain implementation ',
+'../../../it.unibo.arduino.intro/Arduino/programs/blsMain/bls.cpp')">bls.cpp (Impl)</li>
+    <li class="menuitem" onclick="loadWithMsg('BLS : configuration and start',
+'../../../it.unibo.arduino.intro/Arduino/programs/blsMain/blsMain.ino')">blsMain.ino (Main)</li>
+    
+</ul>
+</div>
+    
+<div id="menutop">
+<center>
+<button onclick="window.location.href='../Material/entry.html'">Home</button>
+<button onclick="window.location.href='../Devices/devs.html'">Devices</button>
+<button onclick="window.location.href='../Appls/ButtonLed/buttonLedEntry.html'">ButtonLed</button>   
+<button onclick="window.location.href='../Hardware/boards.html'">Boards</button>
+<button onclick="window.location.href='../Appls/applsEntry.html'">LAB</button>
+</center>
+</div>        
+ 
+<div id="main">
+<p>
+</p>
+</div>
+    
+<div id="sidebar">
+<h3>Readings</h3>
+<li><a href="http://arduino.cc/en/Tutorial/HomePage" target="code">TutorialArduino-></a></li>
+<li><a href="http://arduino.cc/en/Guide/ArduinoLeonardoMicro" target="code">ArduinoMicro-></a></li>
+
+</div>
+
+<div id="bottom">
+By AN Unibo-DISI    
+</div>
+    
+</div>
+</div>    
+ 
+</body></html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="../../css/issStyle1.css">   
+<script type="text/javascript" src="../../css/issStyle.js"></script>
+<head>
+
+<title>Input</title></head>
+<body onload=loadInMain('../ButtonLed/devBridge.html')>
+    
+<div class="container wrapper"> 
+
+<div id="top">
+<h1>(Input)Device model (ISS-DISI-Unibo)</h1>
+</div> 
+
+    
+<div class="wrapper">
+    
+<div id="menubar">
+<img src="../../imgs/DevInput.jpg" alt="show" width="119" height="105"/> 
+
+<ul id="menulist">
+ <li class="menuitem" onclick=" 
+ loadWithMsg('The domain model for (IOT) Devices ', '../ButtonLed/devBridge.html')">Device model</li>
+ <li class="menuitem" onclick=" 
+ loadWithMsg('Input devices', '../ButtonLed/InputHandling.pdf')">InputHandling.pdf</li>
+ 
+  	<u5>Interfaces (Logical) </u5>
+ <li class="menuitem" onclick="loadWithMsg('An observable entity (<tt>IObservable</tt>)',
+ 	'../../../../it.unibo.interfaces/src/it/unibo/is/interfaces/IObservable.java')">IObservable.java</li> 
+<li class="menuitem" onclick="loadWithMsg('An observer entity (<tt>IObserver</tt>)',
+	'../../../../it.unibo.interfaces/src/it/unibo/is/interfaces/IObserver.java')">IObserver.java</li> 
+ 
+<li class="menuitem" onclick="loadWithMsg('<tt>DevButtonImpl</tt>: an (observable) <tt>SituatedPlainObject</tt> that can observer (some low-level device) ',
+ '../../../../it.unibo.interfaces/src/it/unibo/iot/interfaces/IDeviceIot.java')">IDeviceIot</li> 
+
+ 
+  <li class="menuitem" onclick="
+loadWithMsg('<tt>IDevInput</tt>: an observable IOT device that can observe (some low-level device)',
+'../../../../it.unibo.buttonLedSystemHL/src/it/unibo/bls/highLevel/interfaces/IDevInput.java')">IDevInput.java</li>
+  <li class="menuitem" onclick="
+loadWithMsg('<tt>IDevInput</tt>: an observable IOT device that can observe (some low-level device)',
+'../../../../it.unibo.buttonLedSystemHL/src/it/unibo/bls/highLevel/interfaces/IDevOutput.java')">IDevOutput.java</li>
+
+  <li class="menuitem" onclick="
+loadWithMsg('<tt>IDevButton</tt>: a <tt>IDevButton</tt>  ',
+'../../../../it.unibo.buttonLedSystemHL/src/it/unibo/bls/highLevel/interfaces/IDevButton.java')">IDevButton.java</li>
+  <li class="menuitem" onclick="
+loadWithMsg('<tt>IDevButton</tt>: a <tt>IDevLed</tt> device with two-states (pressed/unpressed) ',
+'../../../../it.unibo.buttonLedSystemHL/src/it/unibo/bls/highLevel/interfaces/IDevLed.java')">IDevLed.java</li>
+
+
+  
+
+ 	<u5>Interfaces (concrete) </u5>
+ <li class="menuitem" onclick="loadWithMsg('<tt>IDevInputImpl </tt> the base class for concrete implementations of IOT input devices. ',
+ '../../../../it.unibo.buttonLedSystemHL/src/it/unibo/bls/lowLevel/interfaces/IDeviceInputImpl.java')">IDeviceInputImpl</li> 
+<li class="menuitem" onclick="loadWithMsg('<tt>IDevInputImpl </tt> the base class for concrete implementations of IOT input devices. ',
+ '../../../../it.unibo.buttonLedSystemHL/src/it/unibo/bls/lowLevel/interfaces/IDeviceOutputImpl.java')">IDeviceOutputImpl</li> 
+   <li class="menuitem" onclick="
+loadWithMsg('A generic device.',
+'../../../../it.unibo.buttonLedSystemHL/src/it/unibo/bls/lowLevel/interfaces/IDeviceLedImpl.java')">IDeviceLedImpl.java</li>
+  <li class="menuitem" onclick=" 
+ loadWithMsg('A result of requirement analysis (<b>Domain modelling</b>)',
+ '../../../../it.unibo.buttonLedSystemHL/src/it/unibo/bls/lowLevel/interfaces/IDeviceButtonImpl.java')">IDeviceButtonImpl.java</li>
+ 
+  	<u5>Concrete button</u5>
+  <li class="menuitem" onclick="loadWithMsg('<tt>DevButtonImpl</tt>: an (observable) <tt>SituatedPlainObject</tt> that can observer (some low-level device) ',
+ '../../../../it.unibo.buttonLedSystemHL/src/it/unibo/buttonLed/components/DeviceButtonImpl.java')">DeviceButtonImpl</li> 
+ 
+   
+ 
+  	<u5>GUI-based components</u5>
+  	
+  <li class="menuitem" onclick="loadWithMsg('<tt>IDevButtonGui </tt>',
+ '../../../../it.unibo.buttonLedSystem.gui/src/it/unibo/buttonLedSystem/gui/interfaces/IDeviceButtonGui.java')">IDeviceButtonGui</li> 
+  <li class="menuitem" onclick="loadWithMsg('<tt>IDevButtonGui </tt>',
+ '../../../../it.unibo.buttonLedSystem.gui/src/it/unibo/buttonLedSystem/gui/interfaces/IDeviceLedGui.java')">IDeviceLedGui</li> 
+     <li class="menuitem" onclick="loadWithMsg('DevButtonGui',
+ '../../../../it.unibo.buttonLedSystem.gui/src/it/unibo/buttonLedSystem/gui/DeviceLedGui.java')">DeviceLedGui.java</li>   	
+      <li class="menuitem" onclick="loadWithMsg('DevButtonGui',
+ '../../../../it.unibo.buttonLedSystem.gui/src/it/unibo/buttonLedSystem/gui/DeviceButtonGui.java')">DeviceButtonGui.java</li> 
+  <li class="menuitem" onclick="loadWithMsg('<tt>IActivityBase</tt>: interface of an entity that can execute an action',
+ '../../../../it.unibo.interfaces/src/it/unibo/is/interfaces/IActivityBase.java')">IActivityBase.java</li> 
+    <li class="menuitem" onclick="loadWithMsg('<tt>SituatedPlainObject</tt>',
+ '../../../../it.unibo.noawtsupports/src/it/unibo/system/SituatedPlainObject.java')">SituatedPlainObject</li> 
+   	
+  
+  
+  ------------------
+  
+
+
+ 
+
+  <li class="menuitem" onclick=" 
+ loadWithMsg('<tt>IDevButtonPi4J</tt>.',
+'../../../../it.unibo.buttonLedSystem/src/it/unibo/domain/interfaces/IDevButtonPi4J.java')">IDevButtonPi4J.java</li>
+  <li class="menuitem" onclick=" 
+ loadWithMsg('<tt>IGpioPi4j</tt>.',
+'../../../../it.unibo.buttonLedSystem/src/it/unibo/gpio/base/IGpioPi4j.java')">IGpioPi4j.java</li>
+   <li class="menuitem" onclick=" 
+ loadWithMsg('<tt>IDevButtonArduino </tt>.',
+'../../../../it.unibo.buttonLedSystem/src/it/unibo/domain/interfaces/IDevButtonArduino.java')">IDevButtonArduino.java</li>
+ 
+  
+      <li class="menuitem" onclick="
+loadWithMsg('A generic device.','../../../../it.unibo.buttonLedSystemHL/src/it/unibo/bls/lowLevel/interfaces/IDevice.java')">IDevice.java</li>
+  <li class="menuitem" onclick="
+loadWithMsg('A generic input device.',
+'../../../../it.unibo.buttonLedSystemHL/src/it/unibo/bls/lowLevel/interfaces/IDeviceInput.java')">IDeviceInput.java</li>
+  
+   
+</ul>
+</div>
+    
+<div id="menutop">
+<center>
+<button onclick="window.location.href='../../Material/entry.html'">Home</button>
+<button onclick="loadWithMsg('<tt>Pi4j</tt>  ','../../Raspberry/pi4j.html')">Pi4J</button>
+<button onclick="window.location.href='../ButtonLed/buttonLedHighLevelEntry.html'">ButtonLedHL</button>
+<button onclick="window.location.href='../../Frameworks/FramwCustomAppl.html'">ApplicationFramework</button>    
+<button onclick="window.location.href='../../Frameworks/FramwCustomComm.html'">ComunicationFramework</button>    
+<button onclick="window.location.href='../applsEntry.html'">LAB</button>
+</center>
+</div> 
+    
+<div id="main">
+<p> 
+    
+
+</p>
+</div>
+    
+<div id="sidebar">
+ 
+    
+
+<u5>BLS on Raspberry</u5> 
+ 
+ <li class="menuitem" onclick="loadWithMsg('<tt>GpioOnPi4j</tt>: provider of GPIO Pi4j resources',
+ '../../../../it.unibo.buttonLedSystem/src/it/unibo/gpio/base/GpioOnPi4j.java')">GpioOnPi4j.java</li> 
+ 
+<li class="menuitem" onclick="loadWithMsg('<tt>DevButtonGpioPi4J</tt>  a concrete button that register a <i>GpioPinListenerDigital</i> listener ',
+ '../../../../it.unibo.buttonLedSystem/src/it/unibo/button/bridge/impl/DevButtonGpioPi4J.java')">DevButtonGpioPi4J</li> 
+
+<u5>Button on Arduino</u5> 
+<li class="menuitem" onclick="loadWithMsg('<tt>DevButtonArduino</tt>  receives <tt>arduino(button(X),value(V))</tt> via arduino serial line',
+ '../../../../it.unibo.buttonLedSystem/src/it/unibo/button/bridge/impl/DevButtonArduino.java')">DevButtonArduino</li> 
+<li class="menuitem" onclick="loadWithMsg('Button (and LED) handling on <tt>Arduino</tt> via polling',
+ '../../../../it.unibo.buttonLedSystem/arduino/blsPollingUno/blsPollingUno.ino')">Ard Button Polling</li> 
+<li class="menuitem" onclick="loadWithMsg('Button  (and LED)  handling on <tt>Arduino</tt> via interrupt',
+ '../../../../it.unibo.buttonLedSystem/arduino/normalButton/blsInterruptUnoNormalButton/blsInterruptUnoNormalButton.ino')">Ard Button interrupt</li>  
+ <i>Serial comm supports</i> <br/>   
+ <li class="menuitem" onclick="loadWithMsg('<tt>ISerialPortInteraction </tt>   ',
+ '../../../../it.unibo.noawtsupports/src/it/unibo/arduino/serial/ISerialPortInteraction.java')">ISerialPortInteraction </li> 
+<li class="menuitem" onclick="loadWithMsg('<tt>SerialPortConnSupport</tt> : a support to send/receive info via a arduino serial line',
+ '../../../../it.unibo.noawtsupports/src/it/unibo/arduino/serial/SerialPortConnSupport.java')">SerialPortConnSupport </li> 
+    
+ 
+</div>
+    
+
+<div id="bottom">
+By AN - SG Unibo-DISI    
+</div>
+    
+</div>
+</div>    
+
+</body></html>

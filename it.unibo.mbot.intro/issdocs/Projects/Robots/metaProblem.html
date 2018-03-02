@@ -1,0 +1,73 @@
+    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="../../css/plainStyle.css">
+<link rel="stylesheet" type="text/css" href="../../css/robotTabStyle.css">   
+<script type="text/javascript" src="../../css/issStyle.js"></script>
+<head>
+
+<title>RobotMetaProblem</title></head>
+    <body>
+    
+<div class="container wrapper"> 
+
+<div id="top">
+<p></p>
+</div> 
+
+
+    
+<div class="wrapper">
+    
+ 
+    
+ 
+<div id="main">
+    <h3 id="h3">Robot makers</h3>
+    
+    <a href="../../Material/costiMaker.pdf">costiMaker.pdf</a>
+    
+    <h3 id="h3">The robot (meta)problem</h3>
+
+<p>
+A (differential drive) <b>robot</b> is able to execute a set of <b>move-commands</b>. 
+A move-command can be sent by some element external to the robot, called <b>Mind</b>.
+<p></p> 
+    The robot Mind can run on the same computational support of the robot or on a different computational node. 
+    In the first case we say the robot is controlled in <b>Embedded-mode</b>, while in second case 
+    we say that the ronbot is controlled in <b>Avatar-mode</b>.
+<p></p> 
+    A sequence of movement commands emitted by the Mind is called a <b>Plan</b>.
+    During the execution of a Plan, the robot must be able to:
+    
+    <ul>
+    <li>react to <b>alarms</b> emitted by other Minds, by other robots,
+     by sensors embedded in the robot or by external devices 
+    (e.g. a <a href="../Radar/radarEntry.html">radar</a>);</li>
+    <li>accept (as soon as possible) a command (called <b>Halt</b>) able to immediately
+        block any movement in the robot, whatever be its current task, including the
+        handling of an alarm.
+    </li>
+    </ul>
+    
+    The handling of an alarm can be a simple (atomic) move (e.g. a <tt>stop</tt>) or the execution of some <b>alternative plan</b>. When an alternative (alarm handling) plan is ternminated, the robot could return to (<b>resume</b>) the completion of the plan interrupted by the alarm.
+<p></p>    
+
+</p>
+    
+<center>
+     
+</center> 
+</div>
+    
+
+
+    
+
+<div id="bottom">
+By AN  Unibo-DISI    
+</div>
+    
+</div>
+</div>    
+ 
+</body></html>

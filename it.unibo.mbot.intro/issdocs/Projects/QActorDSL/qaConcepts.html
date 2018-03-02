@@ -1,0 +1,129 @@
+    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="../../css/plainStyle.css">
+<link rel="stylesheet" type="text/css" href="../../css/robotTabStyle.css">   
+<script type="text/javascript" src="../../css/issStyle.js"></script>
+<head>
+
+<title>qaConcepts</title>
+</head>
+    <body>
+    
+<div class="container wrapper"> 
+<div id="top">
+</div> 
+     
+<div class="wrapper"> 
+<div id="main">
+ 
+
+<h3><a name="QASystem"></a>QASystem</h3>
+A <b>QActor system</b> is composed of a set of <b>Messages</b>, <b>QActors</b> and <b>Context</b>.
+Each <b>QActor</b> is part of a <b>Context</b> and  interacts with other <b>QActors</b> by exchanging 
+    one or more of the declared <b>Messages</b> <br/> 
+    
+    
+<img src="../../../../it.unibo.xtext.qactor/img/qas1.jpg" alt="qas1" width="693" height="374"/>    
+ <br/>      
+    
+<h3><a name="Message"></a>Message</h3>
+A <b>Message</b> is a data structure represented in Prolog syntax
+<img src="../../../../it.unibo.xtext.qactor/img/qasMessageContact.jpg" alt="qasMessageContact" width="600" height="350"/>    
+     
+ 
+
+<h3><a name="Context"></a>Context</h3>    
+A <b>Context</b> is the logical counterpart of an elaboration support (e.g. a Processor, a Java Virtual Machine,  etc)
+associated to a network address (<b>ip</b>) <br/> 
+A <b>Context</b> can include n>=0 <b>handlers</b> of events.    
+ <img src="../../../../it.unibo.xtext.qactor/img/qasContext.jpg" alt="qasContext" width="645" height="347"/>    
+ <br/>     
+ 
+    
+<h3><a name="EventHandler"></a>EventHandler</h3>    
+A <b>EventHandler</b> is an operation that is put in execution by the
+    platform when one of its associated events happens. <br/> 
+ <img src="../../../../it.unibo.xtext.qactor/img/qasEventHandlers.jpg" alt="qasEventHandlers" width="605" height="466"/>    
+ <br/>
+    
+    
+<h3><a name="QActor"></a>QActor</h3>
+A <b>QActor</b> is an active software component (see 
+    <button onclick="window.location.href='../../Frameworks/FramwCustomActor.html'">qactor</button>)
+that can perform applicative Actions (defined by the application designer)
+    and proactive/reactive behavior expressed as a <b>Plan</b>.<br/>
+    
+<img src="../../../../it.unibo.xtext.qactor/img/qasQActor.jpg" alt="action" width="660" height="235"/>    
+ <br/>     
+ 
+<h3><a name="Plan"></a>Plan</h3>
+    A <b>Plan</b> is the specification of the behavior of a <b>QActor</b>. It composed of a
+    sequence of <b>PlanAction</b>, each composed of a sequence of <b>Moves</b>. 
+<br/><br/>    
+While executing a <b>PlanAction</b>, a <b>QActor</b> should be conceptually able to <b>react</b> to  
+     <button onclick="window.location.href='../../Frameworks/FramwCustomEvent.html'">events</button>.
+<br/>
+<img src="../../../../it.unibo.xtext.qactor/img/qasPlan.jpg" alt="action" width="661" height="255"/>    
+
+    
+<h3><a name="Move"></a>Move</h3>    
+ A <b>Move</b> is an action that takes some finite time to be executed (thus, it must terminate). 
+  <br/>  
+<img src="../../../../it.unibo.xtext.qactor/img/qasMove.jpg" alt="action" width="662" height="287"/>           
+   
+
+    
+    <h3><a name="MessageMove"></a>MessageMove</h3>    
+A <b>MessageMove</b> is a <b>Move</b> that allows a <b>QActor</b> to send/receive messages.
+<img src="../../../../it.unibo.xtext.qactor/img/qasMessageMove.jpg" alt="action" width="709" height="376"/>       
+    
+    <h3><a name="ExtensionMove"></a>ExtensionMove</h3>    
+A <b>ExtensionMove</b> is a <b>Move</b> that could take some time to be executed and that can be launched as
+    an <b>asynchrnous action</b> that emits an event at the end of the execution
+<img src="../../../../it.unibo.xtext.qactor/img/qasExtensionMove.jpg" alt="action" width="500" height="198"/><br/>       
+    This kind of action
+    allows a <b>QActor</b> to play asound, take a photo or a video, etc. "in background"<br/>    
+
+    <h3><a name="Guard"></a>Guard</h3>    
+A <b>Guard</b> is  a non-atomic Prolog-like term that can be dynamically evalutaed before executing a
+    PlanAction. <br/> 
+ <img src="../../../../it.unibo.xtext.qactor/img/qasGuard.jpg" alt="qasGuard" width="339" height="265"/>    
+ <br/>   
+
+    <!--
+-------------------------------------------------
+WORLD THEORY
+-------------------------------------------------
+-->
+<h3><a name="WorldTheory"></a>World theory</h3> 
+The <b>World theory</b> is a Prolog theory whose facts and rules give a symbolic representation of 
+    the environment (<i>world</i>) in which a Qactor is working.<br/>
+This theory is used to store the rules that can be used to define  <a href="#Guard">Guards</a>.<br/>
+
+    
+<h3><a name="PStruct"></a>PStruct</h3>    
+A <b>PStruct</b> is  a non-atomic Prolog-like term. <br/> 
+ <img src="../../../../it.unibo.xtext.qactor/img/qasPstruct.jpg" alt="qasPstruct" width="341" height="190"/>    
+ <br/>   
+    
+ <!--
+-------------------------------------------------
+OVERVIEW
+-------------------------------------------------
+-->
+<h3><a name="OverviewJpg"></a>Overview</h3>
+     <img src="../../../../it.unibo.xtext.qactor/img/qaAll.jpg" alt="qasAll" width="762" height="702"/>       
+     <!--  <img src="../../../../it.unibo.xtext.qactor/img/qaAll.jpg" alt="qasAll" width="685" height="425"/>   -->      
+ 
+    </div>
+    </div>
+        </div>
+        
+    
+<div id="bottom">
+By AN  Unibo-DISI    
+</div>
+    
+    
+ 
+</body></html>

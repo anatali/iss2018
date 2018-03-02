@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="../css/issStyle1.css">  
+<script type="text/javascript" src="../css/issStyle.js"></script>
+<head>
+
+<title>Raspberry</title></head><body>
+<body onload="loadInMain('RaspberryPi.html')">    
+<div class="container wrapper"> 
+
+<div id="top">
+<h1>RaspberryPi</h1>
+</div> 
+    
+<div class="wrapper">
+    
+<div id="menubar">
+<img src="../imgs/hw/RaspFront.jpg" alt="show" width="137" height="91"/>
+<ul id="menulist">
+    <li class="menuitem" onclick="loadInMain('RaspberryPi.html')">RaspberryPi</li>
+     <li class="menuitem" onclick="loadInMain('../Tools/WiringPi/wriringpiIntro.html')">The library WiringPi</li>
+    <li class="menuitem" onclick="loadInMain('pi4j.html')">The library Pi4j</li>
+    <li class="menuitem" onclick="loadInMain('../Hardware/IO/pwmIntro.html')">PWM</li>
+
+<h5>Basic GPIO custom supprt</h5> 
+    <li class="menuitem" onclick="loadWithMsg('The utility class <tt>GpioOnSys</tt>',
+'../../../it.unibo.buttonLedSystem/src/it/unibo/gpio/base/GpioOnSys.java')">GpioOnSys.java</li>
+    <li class="menuitem" onclick="loadWithMsg('The interface <tt>IGpio</tt>',
+'../../../it.unibo.buttonLedSystem/src/it/unibo/gpio/base/IGpio.java')">IGpio.java</li>
+    <li class="menuitem" onclick="loadInMain('../Raspberry/InputHandlingLinux.html')">InputHandlingLinux.html</li>
+
+</ul> 
+</div> 
+    
+<div id="menutop">
+<center>
+<button onclick="window.location.href='../Material/entry.html'">Home</button>
+<button onclick=loadInMain('raspberryProjects.html')>RaspPiProjects LOW</button>
+<button onclick=loadInMain('raspberryProjectsHL.html')>RaspPiProjects HIGH</button>
+<button onclick="window.location.href='../Appls/ButtonLed/buttonLedEntry.html'">ButtonLed</button>   
+<button onclick="window.location.href='../Appls/MotorDrive/motorDriveEntry.html'">MotorDrive</button>   
+<button onclick="window.location.href='../Hardware/boards.html'">Boards</button>
+<button onclick="window.location.href='../Devices/devs.html'">Devices</button>
+<button onclick="window.location.href='../Appls/applsEntry.html'">LAB</button>
+</center>
+</div>        
+ 
+<div id="main">
+<p>
+     
+    </p>
+    
+ 
+</div>
+    
+<div id="sidebar">
+<h3>RPi_Hub </h3>
+<p>
+   <a href="http://elinux.org/RPi_Hub" target="show"> RPi_Hub  --></a><br/>
+    <a href="http://elinux.org/RPi_Low-level_peripherals" target="show">RPI Peripherals --></a><br/>
+<h3>Useful</h3>
+    
+    <a href="http://raspberrywebserver.com/linux-basics/" target="show">Linux basics --></a><br/>
+   <a href="http://www.raspbian.org/" target="show"> raspbian --></a><br/>
+ <a href="http://raspberrywebserver.com/gpio/" target="show">GPIO --></a>  <br/><br/> 
+    
+ <a href=" http://raspberrypi-aa.github.io/session2/input.html" target="show">A ButtonLed --></a><br/>
+    </p>
+</div>
+
+<div id="bottom">
+By AN Unibo-DISI    
+</div>
+    
+</div>
+</div>    
+ 
+</body></html>

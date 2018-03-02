@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="../css/issStyle1.css">
+<script type="text/javascript" src="../css/issStyle.js"></script>
+<head>
+
+<title>t1</title></head>
+    
+<body>
+<div class="container wrapper"> 
+
+<div id="top">
+<h1>Robot Remote Web-Cmd (ISS-DISI-Unibo)</h1>
+<p></p>
+</div> 
+
+
+    
+<div class="wrapper">
+
+<div id="menubar">
+    <img src="../imgs/robot/customRobots.jpg" alt="DevcustomRobotsices" width="148" height="108"/>
+<h3>ROBOTS</h3>
+<ul id="menulist">
+     <li class="menuitem" onclick="setAdd('Mock=>127.0.0.1');callRobot(); ">MOCK</li>
+<li class="menuitem" onclick="setAdd('BBB=>192.168.43.18');callRobot();">BBB</li>
+<li class="menuitem" onclick="setAdd('COMPASS=>192.168.43.224');callRobot();">COMPASS</li>
+<li class="menuitem" onclick="setAdd('GOTO=>192.168.43.55');callRobot();">GOTO</li>
+<li class="menuitem" onclick="setAdd('Initio=>192.168.43.219');callRobot();">Initio</li>
+<li class="menuitem" onclick="setAdd('Nat=>192.168.43.220');callRobot();">Nat</li>
+<li class="menuitem" onclick="setAdd('ORB=>192.168.43.22');callRobot();">ORB</li>
+</ul>
+    
+</div>
+
+<div id="menutop">
+<center>
+<button onclick="window.location.href='../Material/entry.html'">Home</button>
+<button onclick="window.location.href='../Robots/robotEntry.html'">Robots</button> 
+<button onclick="window.location.href='../Appls/applsEntry.html'">LAB</button>
+</center>
+</div> 
+      
+<div id="main">
+<p>
+ 
+<b>Remember</b> to activate the robot  ...
+     <input size=20 type="text" id="robotAddress" value="127.0.0.1">robot address </input>
+     <p id="showrobotAddress"></p>
+</p>
+</div>
+    
+<div id="sidebar">
+<h3>Readings</h3>
+<p><a href="../Material/IntroLM.pdf">Introduction</a></p>
+ </ul>    
+</div>
+    
+
+<div id="bottom">
+By AN, SG Unibo-DISI    
+</div>
+    
+<script>
+    function setAdd(add){
+        document.getElementById('showrobotAddress').innerHTML= add;
+    }
+function callRobot(){
+    var add = document.getElementById('robotAddress').value;
+    var address = " http://"+ add +":8080";
+    //alert(address);
+    loadInMain(address);
+}
+ 
+</script>    
+</div>
+</div>    
+    
+
+</body></html>

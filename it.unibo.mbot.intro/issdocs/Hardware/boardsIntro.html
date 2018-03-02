@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="../../css/plainStyle.css">
+<link rel="stylesheet" type="text/css" href="../../css/robotTabStyle.css">   
+<script type="text/javascript" src="../../css/issStyle.js"></script>
+<head>
+
+<title>Boards</title></head>
+<body>
+    
+<div class="container wrapper"> 
+
+<div id="top">
+</div> 
+
+
+<div class="wrapper">
+    
+ 
+    
+ 
+<div id="main">
+<h3>Windows 7 as hotspot WIFI </h3>
+<p>
+Open a DOS window as <b>administrator</b> and insert the following commands:
+    <pre>
+    netsh
+    wlan set hostednetwork mode=allow (or disallow)
+    wlan set hostednetwork ssid=natspot
+    wlan set hostednetwork key=123456789 keyUsage=persistent
+    wlan start hostednetwork
+     </pre> 
+Now you can check for the presence in <i>Microsoft Device Manager</i> of a <b>Virtual WiFi Miniport Adaptor</b>.
+</p><p>
+By opening <i>Centro connessioni di rete e condivisione</i> you should see a second adapter of wireless network.
+</p><p>
+Ora con tasto destro del mouse sulla scheda di rete "reale"
+(quella che il computer utilizza per accedere ad Internet) scegliere la voce Proprietà.
+Nella scheda Condivisione, bisognerà spuntare la casella 
+Consenti ad altri utenti in rete di collegarsi tramite la connessione Internet di questo computer, 
+disattivare Consenti ad altri utenti in rete di controllare o disabilitare la connessione Internet condivisa 
+quindi selezionare - dal menù a tendina Connessione rete domestica - la rete utilizzata dal computer Windows 7 
+per connettersi ad Internet:
+</p><p>
+To close and stop
+     <pre>
+    netsh
+    wlan stop hostednetwork
+    wlan set hostednetwork mode=disallow
+    </pre> 
+
+Disinstallare the second adapter of wireless network per consentire la connessione con Raspberry su IP 
+<tt>192.168.137.2</tt>.
+
+<h3>USB Tethering on Raspberry</h3>
+    <pre>
+    sudo nano /etc/network/interfaces
+    auto eth0
+    iface eth0 inet dhcp
+    iface usb0 inet dhcp   
+    sudo ifup usb0   
+    sudo reboot   
+    </pre>
+    
+  
+</p>
+    
+<center>
+     
+</center> 
+</div>
+    
+
+
+    
+
+<div id="bottom">
+By AN - SG Unibo-DISI    
+</div>
+    
+</div>
+</div>    
+ 
+</body></html>

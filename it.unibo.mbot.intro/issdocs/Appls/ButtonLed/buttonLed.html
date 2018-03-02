@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="../../css/plainStyle.css"> 
+<script type="text/javascript" src="../../css/issStyle.js"></script>
+<head>
+
+<title>ButtonLed</title></head><body>
+    
+<div class="container wrapper"> 
+
+<div id="top">
+</div> 
+<div class="wrapper">
+<div id="main">
+<p>
+<h3>The ButtonLed system: Requirements</h3>
+    <ol>
+    <li>Design and build a <i id="i">ButtonLed</i> software system (<tt>BLS</tt>) in which a <b>Led</b> is turned on 
+    and off each time a <b>Button</b> is pressed (by an human user). 
+    The system should run on a a single support, e.g. aConventional PC, a RaspberryPi or Arduino. 
+    </li>
+    <li>
+    After step 1, modify the software system so that the <b>Led</b> could be turned on/off by a remote program.</li>
+<!--
+    <li>After step 2, add to the system (now named <i id="i">ButtonCounterLed</i>)  a <b>Counter</b> and increment the counter each time 
+    the <b>Led</b> is turned-on.</li>
+     <li>After step 3, design and build a system in which the <b>Button</b> is controlled by 
+     Arduino and the  <b>Counter</b>  works on a conventional pc.</li>
+-->
+        More generally, the <tt>BLS</tt> should have different local or distributed configurations, 
+        like those shown in the following picture:<br/>
+
+<img src="./blsall.jpg" alt="show" width="450" height="226"/>        
+<!--
+     <li>After step 3, design and build a system in which the <b>Led</b> is controlled by 
+     RaspberryPi and the rest of the system works on a conventional pc.</li>
+    -->
+    </ol>
+     
+     </p><p>
+    <h3>Hardware</h3>
+Let us report here some basic hardware configuration on a RaspberryPi and on a Arduino Uno:
+ <table>
+<tr><td>   
+<img src="BLonRasp.jpg" alt="show" width="326" height="244"/> 
+</td>
+<td>
+    <i>Raspberry connections</i> 
+<img src="../../imgs/appls/butLedRasp.jpg" alt="show" width="226" height="226"/> </td>
+</tr>
+<table>
+
+<!-- <img src="../../imgs/appls/butLedRasp.jpg" alt="show" width="395" height="314"/>  -->
+<table>
+<tr><td>
+<img src="../../imgs/appls/ButtonLedArduino.jpg" alt="show" width="326" height="244"/> </td>
+<td>
+<ul>
+<li>Joystick <tt>GND</tt>: Arduino <tt>GND</tt> </li>
+<li>Joystick <tt>+5V</tt>: Arduino <tt>+5V</tt> </li>
+<li>Joystick <tt>SW</tt>:  Arduino <tt>3</tt> (interrupt 1) </li>
+</ul>
+<ul>
+<li>LED <tt>cathod (GND)</tt>: Arduino <tt>GND</tt> </li>
+<li>LED <tt>anode</tt>: Arduino <tt>13</tt> (also LED on board)</li>
+</ul>
+</td>
+</tr>
+<table>
+
+    <h3>Basic steps (just to start ...)</h3>
+ <ol>
+    <li>Open an new Eclispe workspace.</li> 
+    <li>Create the project <tt>it.unibo.buttonLed</tt></li> 
+     <li>Create the <i id="i">packages</i> <tt>it.unibo.buttonLed</tt>, <tt>it.unibo.buttonLed.interfaces</tt>,   
+     <tt>it.unibo.buttonLed.impl</tt>, <tt>it.unibo.buttonLed.docs</tt></li> 
+     <li>Create the project <tt>it.unibo.buttonLed.test</tt> that depends on the previous one and on <tt>JUnit</tt>.</li> 
+     <li>Define the <i id="i">domain model</i>, i.e. the models of the entities <i id="i">Led</i> 
+     and <i id="i">Button</i> as conventional <i id="i">"Plain Old Java Object"</i> (<tt>POJO</tt>). 
+     The model must include the interfaces <tt>ILed</tt> and <tt>IButton</tt> 
+     (written in Java on in the selected implementation language).</li> 
+     <li>Define (in the  <tt>it.unibo.buttonLed.test</tt> project) the <i id="i">test plans</i>
+      for the interfaces <tt>ILed</tt> and <tt>IButton</tt>. </li> 
+ </ol>   
+    
+    
+</p> 
+</div>
+    
+
+
+    
+
+<div id="bottom">
+By AN-SG Unibo-DISI    
+</div>
+    
+</div>
+</div>    
+ 
+</body></html>

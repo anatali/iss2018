@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="../../css/issStyle1.css">   
+<script type="text/javascript" src="../../css/issStyle.js"></script>
+<head>
+<title>ButtobLedHL</title>
+</head>
+<body >   
+<div class="container wrapper"> 
+<div id="top">
+<h1>ButtonLed system : a top-down approach  (ISS-DISI-Unibo)</h1>
+</div> 
+<div class="wrapper">    
+<div id="menubar">
+<img src="./blsall.jpg" alt="show" width="120" height="68"/> 
+<ul id="menulist">
+ 
+<u5>Architecture</u5>
+<li class="menuitem" onclick="window.location.href='buttonLedHighLevelEntry.html'">Logic architecture</li> 
+ 
+<li class="menuitem" onclick="window.location.href='designArch.html'">Design architecture</li> 
+ 
+    <u5>MODELS</u5>
+    
+  <li class="menuitem" onclick="window.location.href='../Input/input.html'">Device model</li>
+
+ 
+
+   
+   <u5>Interfaces</u5>
+   <li class="menuitem" onclick="
+loadWithMsg('<tt>IDevButton</tt>: a <tt>IDevButton</tt>  ',
+'../../../../it.unibo.buttonLedSystemHL/src/it/unibo/bls/highLevel/interfaces/IDevButton.java')">IDevButton.java</li>
+  <li class="menuitem" onclick="
+loadWithMsg('<tt>IDevButton</tt>: a <tt>IDevLed</tt> device with two-states (pressed/unpressed) ',
+'../../../../it.unibo.buttonLedSystemHL/src/it/unibo/bls/highLevel/interfaces/IDevLed.java')">IDevLed.java</li>
+  
+ <li class="menuitem" onclick="loadWithMsg('<tt>IBLSControl</tt>: A result of problem analysis (after requirement analysis) ',
+ '../../../../it.unibo.buttonLedSystemHL/src/it/unibo/bls/highLevel/interfaces/IBLSControl.java')">IBLSControl</li> 
+
+    
+    <u5>Test (plans) for system</u5>
+<li class="menuitem" onclick="loadWithMsg('A system that uses <b>logical devices</b> implmented as mock objects',
+ '../../../../it.unibo.buttonLedSytem.tests/src/it/unibo/buttonLedSytem/tests/TestHighLevelLogic.java')">TestHighLevelLogic</li> 
+
+    
+   	<u5>High Level Components</u5>
+       
+<li class="menuitem" onclick="loadWithMsg('<tt>DevButton</tt>: an (observable) <tt>SituatedPlainObject</tt> that can observe (some low-level device) ',
+ '../../../../it.unibo.buttonLedSystemHL/src/it/unibo/buttonLed/components/DevButton.java')">DevButton</li>
+    
+  <li class="menuitem" onclick="loadWithMsg('<tt>DevButtonImpl</tt>: an (observable) <tt>SituatedPlainObject</tt> that can observer (some low-level device) ',
+ '../../../../it.unibo.buttonLedSystemHL/src/it/unibo/buttonLed/components/DeviceButtonImpl.java')">DeviceButtonImpl</li> 
+ <li class="menuitem" onclick="loadWithMsg('<tt>BLSControlNaive</tt>:',
+ '../../../../it.unibo.buttonLedSystemHL/src/it/unibo/buttonLed/components/BLSControlNaive.java')">BLSControlNaive</li> 
+ <li class="menuitem" onclick="loadWithMsg('<tt>BLSControlFSM</tt>:',
+ '../../../../it.unibo.buttonLedSystemHL/src/it/unibo/buttonLed/components/BLSControlFSM.java')">BLSControlFSM</li> 
+ 
+ <li class="menuitem" onclick="loadWithMsg('<tt>BLSPlatformIndependent</tt>:',
+ '../../../../it.unibo.buttonLedSystemHL/src/it/unibo/buttonLedSystem/BLSPlatformIndependent.java')">BLSPlatformIndependent</li> 
+ 
+  
+ 
+
+   
+    <u5>BLS Factory</u5>
+     <li class="menuitem" onclick="loadWithMsg('<b>BLSFactory</b>  ',
+ '../../../../it.unibo.buttonLedSystem.factory/src/it/unibo/buttonLedSystem/factory/BLSFactory.java')">BLSFactory</li> 
+    <u5>HIGH level project</u5>
+   <li class="menuitem" onclick="loadWithMsg(
+   'BLCS Hgigh Level in RaspberryPi ',
+'../../Raspberry/raspberryProjectsHL.html')">Raspberry projects</li>
+
+     </ul>
+</div>
+    
+     
+<div id="menutop"> 
+<center>
+<button onclick="window.location.href='../../Material/entry.html'">Home</button>
+<button onclick="window.location.href='../ButtonLed/buttonLedEntry.html'">BLS Requirements</button>
+<button onclick="window.location.href='../ButtonLed/buttonLedLowLevel.html'">BLS Low-level</button>
+<button onclick="window.location.href='../ButtonLed/buttonLedHighLevelPrototypes.html'">BLS HL Prototypes</button>
+<button onclick="window.location.href='../../Frameworks/Frameworks.html'">Frameworks</button>
+<button onclick="window.location.href='../../Hardware/boards.html'">Boards</button>
+<button onclick="window.location.href='../applsEntry.html'">LAB</button>
+</center>
+</div> 
+    
+<div id="main">
+<p>     
+<h4>Logic architecture</h4>
+    <table id="robots">
+  <tr class="alt">
+<td> <center>
+<img src="logicArchBase.jpg" alt="show" width="381" height="305"/> 
+</center>   
+</td>
+<td>The Led and the Button are modeled as logical devices and 
+    should be implemented according to the 
+    <a href="http://www.tutorialspoint.com/design_pattern/bridge_pattern.htm" target="code">bridge design pattern</a>
+    in order to <i id="i">decouple the abstraction from its implementation</i>.
+</td>
+   </tr>
+   </table> 
+    
+     <h3 id="h3">High level Button (BRIDGE pattern)</h3>    
+    The program <a href="../../../../it.unibo.buttonLedSystem.gui/src/it/unibo/buttonLedSystem/gui/BLSWithGuiMain.java" target="code">BLSWithGuiMain</a>
+ defines a prototype based on concrete devices (Button and Led) by using the 
+    <button onclick="window.location.href='../../Frameworks/FramwCustomAppl.html'">custom application framework</button>
+    defined in the project <i>it.unibo.envBaseAwt</i>. The following picture shows the architecture of the ssystem in which
+    the Button and Led are implemented as a GUI or via <tt>System.stdin</tt> .
+    
+ <img src="./protoBLSBridge.jpg" alt="protoBLSBridge" width="750" height="387"/>          
+</p><p>    
+   
+      <h3>PROJECTS</h3>
+<ol>
+<li><tt>it.unibo.buttonLedSystemHL</tt>: defines the interfaces and the high-level components. See
+    <ul>
+    <li><a href="../../../../it.unibo.buttonLedSystemHL/src/it/unibo/buttonLedSystem/BLSPlatformIndependent.java" target="code">BLSPlatformIndependent</a></li>
+        <li><a href="../../../../it.unibo.buttonLedSystemHL/src/it/unibo/buttonLedSystem/BLSHLConfig.java" target="code">BLSHLConfig</a></li>
+     <li>  
+          <a href="../../../../it.unibo.buttonLedSystemHL/src/it/unibo/buttonLed/components/BLSControlSwitch.java" target="code">BLSControlSwitch</a> and
+ <a href="../../../../it.unibo.buttonLedSystemHL/src/it/unibo/buttonLed/components/BLSControlFSM.java" target="code">BLSControlFSM</a>          
+        </li>
+    </ul>
+    
+    </li>
+<li><tt>it.unibo.buttonLedSystem.gui</tt>: defines a prototype of the system working on a PC.
+    We use the <i id="i">uniboEnvBaseAwt.jar</i> library of <a href="../../Frameworks/FramwCustomAppl.html" target="code">uniboEnv</a>. See <a href="../../../../it.unibo.buttonLedSystem.gui/src/it/unibo/buttonLedSystem/gui/BLSWithGuiSwitchMain.java" target="code">BLSWithGuiSwitchMain</a>.</li>
+    
+<li><tt>it.unibo.buttonLedSystem.arduino</tt>: defines  prototypes of the BLCS system with a device (the Button or the Led) on Arduino and the other one on the PC connected to Arduino. The communication support is the serial line.
+    We use the <i id="i">unibonoawtsupports.jar</i> library of <a href="../../Frameworks/FramwCustomComm.html" target="code">uniboComm</a>. See <a href="../../../../it.unibo.buttonLedSystem.arduino/src/it/unibo/bls/buttonOnArduino/BLSButtonOnArduinoMain.java" target="code">BLSButtonOnArduinoMain</a> and
+    <a href="../../../../it.unibo.buttonLedSystem.arduino/src/it/unibo/bls/buttonOnArduino/DeviceButtonArduino.java" target="code">DeviceButtonArduino</a> 
+    </li>
+  
+<li><tt>it.unibo.buttonLedSystem.proxy</tt>: defines a proxy and a server for the button and the led and provides an example of usage on a single PC. The communication support is a network connection based on TCP or UDP.
+    We use the <i id="i">unibonoawtsupports.jar</i> library of <a href="../../Frameworks/FramwCustomComm.html" target="code">uniboComm</a>.   
+    <a href="../../../../it.unibo.buttonLedSystem.proxy/src/it/unibo/buttonLedSystem/proxy/example/BLSRemoteLed.java" target="code">BLSRemoteLed</a> and
+<a href="../../../../it.unibo.buttonLedSystem.proxy/src/it/unibo/buttonLedSystem/proxy/example/BLSRemoteButton.java" target="code">BLSRemoteButton</a><br/></li>
+    
+<li><tt>it.unibo.buttonLedSystem.raspbery</tt>: defines prototypes of the BLCS system with two devices or just one device connected to the Raspberry (the other one to PC or to Arduino). See <a href="../../Raspberry/raspberryProjectsHL.html">raspberryProjectsHL</a>
+    
+    </li>
+</ol>   
+   
+     
+</p>
+</div>
+    
+<div id="sidebar">
+
+<h3>Design patterns</h3>
+<ul id="menulist">
+<li class="menuitem" onclick="window.location.href='http://www.tutorialspoint.com/design_pattern/'">Tutorial</li>
+<li class="menuitem" onclick="window.location.href='http://www.vincehuston.org/dp/'">Houston site</li>
+
+
+  	<u5>BLS GUI-based</u5>
+  	
+  <li class="menuitem" onclick="loadWithMsg('<tt>IDevButtonGui </tt>',
+ '../../../../it.unibo.buttonLedSystem.gui/src/it/unibo/buttonLedSystem/gui/interfaces/IDeviceButtonGui.java')">IDeviceButtonGui</li> 
+  <li class="menuitem" onclick="loadWithMsg('<tt>IDevButtonGui </tt>',
+ '../../../../it.unibo.buttonLedSystem.gui/src/it/unibo/buttonLedSystem/gui/interfaces/IDeviceLedGui.java')">IDeviceLedGui</li> 
+     <li class="menuitem" onclick="loadWithMsg('DevButtonGui',
+ '../../../../it.unibo.buttonLedSystem.gui/src/it/unibo/buttonLedSystem/gui/DeviceLedGui.java')">DeviceLedGui.java</li>   	
+      <li class="menuitem" onclick="loadWithMsg('DevButtonGui',
+ '../../../../it.unibo.buttonLedSystem.gui/src/it/unibo/buttonLedSystem/gui/DeviceButtonGui.java')">DeviceButtonGui.java</li> 
+  <li class="menuitem" onclick="loadWithMsg('<tt>IActivityBase</tt>: interface of an entity that can execute an action',
+ '../../../../it.unibo.interfaces/src/it/unibo/is/interfaces/IActivityBase.java')">IActivityBase.java</li> 
+    <li class="menuitem" onclick="loadWithMsg('<tt>SituatedPlainObject</tt>',
+ '../../../../it.unibo.noawtsupports/src/it/unibo/system/SituatedPlainObject.java')">SituatedPlainObject</li> 
+   	
+    <li class="menuitem" onclick="loadWithMsg('BLSWithGuiMain',
+ '../../../../it.unibo.buttonLedSystem.gui/src/it/unibo/buttonLedSystem/gui/BLSWithGuiMain.java')">BLSWithGuiMain.java</li>   	
+<li class="menuitem" onclick="loadWithMsg('The GUI interface of the GUI-based prototype',
+ ' Prototipo1.jpg')">ProtoGUI</li> 
+</ul>     
+ 
+    
+    
+    </div>
+    
+
+<div id="bottom">
+By AN   Unibo-DISI    
+</div>
+    
+</div>
+</div>    
+
+</body></html>

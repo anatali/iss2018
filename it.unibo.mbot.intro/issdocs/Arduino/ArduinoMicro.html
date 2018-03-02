@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="../css/plainStyle.css">
+<link rel="stylesheet" type="text/css" href="../css/robotTabStyle.css">   
+<head>
+
+<title>ArdunioMicro</title></head><body>
+<script type="text/javascript" src="../css/issStyle.js"></script>
+    
+<div class="container wrapper"> 
+
+<div id="top">
+<h3 id="h3">ArdunioMicro</h3>
+<p></p>
+</div> 
+
+
+    
+<div class="wrapper">
+    
+ 
+    
+ 
+<div id="main">
+<p>
+    The Arduino Micro is a microcontroller board based on the ATmega32u4, developed in conjunction with Adafruit. It has 20 digital input/output pins (of which 7 can be used as PWM outputs and 12 as analog inputs), a 16 MHz crystal oscillator, a micro USB connection, an ICSP header, and a reset button. It contains everything needed to support the microcontroller; simply connect it to a computer with a micro USB cable to get started. It has a form factor that enables it to be easily placed on a breadboard.
+</p><p>
+    The Micro is similar to the Arduino Leonardo in that the ATmega32u4 has built-in USB communication, eliminating the need for a secondary processor. This allows the Micro to appear to a connected computer as a mouse and keyboard, in addition to a virtual (CDC) serial / COM port. It also has other implications for the behavior of the board; these are detailed on the getting started page.
+</p><p>    
+    The Leonardo and Micro differ from other Arduino boards in that they use a single microcontroller to both run your sketches and for USB communication with the computer. The Uno and other boards use separate microcontrollers for these two functions, meaning that the USB connection to the computer remains established regardless of the state of the main microcontroller.  
+<br/>  
+    Since the boards do not have a dedicated chip to handle serial communication, it means that the <b>serial port is virtual</b> -- it's a software routine, both on your operating system, and on the board itself. Just as your computer creates an instance of the serial port driver when you plug in any Arduino, the Leonardo/Micro creates a serial instance whenever it runs its bootloader. The board is an instance of USB's Connected Device Class (CDC) driver.
+This means that every time you reset the board, the USB serial connection will be broken and re-established. The board will disappear from the list of serial ports, and the list will re-enumerate. Any program that has an open serial connection to the Leonardo will lose its connection. 
+    </p>
+    
+<center>
+    <img src="../imgs/hw/ardunioMicro.jpg" alt="ardunioMicro" width="800" height="600"/>
+</center> 
+</div>
+    
+
+
+    
+
+<div id="bottom">
+By AN - SG Unibo-DISI    
+</div>
+    
+</div>
+</div>    
+ 
+</body></html>

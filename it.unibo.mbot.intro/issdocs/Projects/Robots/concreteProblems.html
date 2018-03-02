@@ -1,0 +1,151 @@
+    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="../../css/plainStyle.css">
+<link rel="stylesheet" type="text/css" href="../../css/robotTabStyle.css">   
+<script type="text/javascript" src="../../css/issStyle.js"></script>
+<head>
+
+<title>robotconcreteProblems</title></head>
+    <body>
+    
+<div class="container wrapper"> 
+
+<div id="top">
+<p></p>
+</div> 
+
+
+    
+<div class="wrapper">
+     
+ 
+<div id="main">
+<p>    
+    
+<!-- <center><h2><tt>*** Examples ***</tt> </h2> </center> See in project <tt>it.unibo.qactor.robot</tt>:     -->
+<ol>
+<li><b>Robot usage</b>:<br/> Build a software system that sends <b>commands</b> to move a (nano)
+    <a href="RobotNano0.jpg" width="845" height="469" target="lecture">Robot</a>:<br/>
+      <a href="../../../../it.unibo.lab.baseRobot.example/src/it/unibo/robotUsage/naive/BasicRobotUsageNaive.java" target="code">BasicRobotUsageNaive.java</a> : a basic robot that executes some moves and handles a
+        distance sensor 
+     
+    </li>    
+    
+
+<li>
+<h2><a name="takePhoto">Proposal for an application</a> </h2>
+    
+<b>User story</b>: <b>As</b> a <i>user</i>,  <b>I want</b> to (<tt>R1</tt>) move a <i>robot</i> 
+according to a prefixed route.
+    While the robot is moving, <b>I want</b> that (<tt>R2</tt>) the <i>robot</i> 
+    takes a photo of the world in front of it, every PT (e.g PT=3) seconds. 
+    After each shoot, the photo (<tt>R3</tt>) must be scanned in the attempt to recognize 
+    a conventional <i>marker</i>. 
+    If the marker is found, <b>I want</b> that the <i>robot</i> (<tt>R4</tt>) stops, 
+    by sending (<tt>R5</tt>) the photo to me, (<tt>R6</tt>) tagged with the current date and time.
+
+    <h2>Proposal for a product backlog</h2>
+    <ol>
+    
+    <li>Build a simple <b>framework</b> to make a <i>robot</i> able to take a photo with reference to some multi-media technology, with the goal to build a prototype in ashort time and to change later (it it is the case, and without a big effort) the technology.</li>
+    <li>'Inject' the framework into our <a href="../../Robots/robotEntry.html" target="lecture">ddr robot</a></li>
+    <li><b>Define a DSL</b> to express synchrnous/asynchrnous reactive actions to take photos (and videos).</li>
+    </ol>
+</li>
+</ol>
+<!-- 
+<li><b>Robot Avatar</b>:<br/> Use a RobotActor to be controlled as an <b>Avatar</b>:<br/>
+ 
+ <a href="../../../../it.unibo.qactor.robot.avatar/src/avatar.ddr" target="code">avatar.ddr</a>,
+ <a href="../../../../it.unibo.qactor.robot.avatar/src/it/unibo/robotUsage/avatar/CtxRobotAvatar.java" target="code">CtxRobotAvatar.java</a>,
+    <a href="../../../../it.unibo.qactor.robot/src/it/unibo/robotUsage/avatar/RobotHttpServer.java" target="code">RobotHttpServer.java</a>, 
+    <a href="../../../../it.unibo.qactor.robot/src/it/unibo/robotUsage/avatar/RobotAvatar.java" target="code">RobotAvatar.java</a> and
+    <a href="../../../../it.unibo.qactor.robot/src/it/unibo/qactor/robot/RobotActor.java" target="code">RobotActor.java</a>  : a basic robot that executes remote commands sent by a web interface and handles a distance sensor     
+     
+    </li>  
+<li><b>Robot reactive</b>:<br/>  Build a software system that allows a  robot to execute a move 
+    while being able to react (as soon as possible) to a 'alarms'  sent by a (user) console 
+    (see <a href="../../../../it.unibo.qactor.robot/src/it/unibo/qactor/robot/test/react/RobotActorReact.java" target="code">RobotActorReact.java</a>);   
+</li>
+
+    <li>><b>Robot ddr</b>:<br/>
+        A ddr version of the robot controlled as an <b>Avatar</b>:
+    <a href="../../../../it.unibo.ddr.avatar/src/avatar.ddr" target="code">avatar.ddr</a> <br/>
+        A ddr versione of the reactive robot:
+        <a href="../../../../it.unibo.ddr.react/src/reactiveRobot.ddr" target="code">reactiveRobot.ddr</a>
+    </li>
+     
+    
+<li><b>Robot using external sensors</b>:<br/>  Build a software system that allows a  robot to <i id="i">acquire sensor data</i> from a <b>Android</b> smart device
+    (see <a href="../../../../it.unibo.qevents.intro/src/it/unibo/qevents/example/usb/USBTetherClient.java">USBTetherClient</a> in <button onclick="window.location.href='../AndroSensors/androSensorEntry.html'">AndroSensors</button>)</li>    
+<li><b>Robot sensored</b>:<br/>    Build a software system that allows a  robot to acquire sensor data from <i id="i">on-board</i> sensors
+</li>    
+<li><b>Robot reactive</b>:<br/> Build a software system that allows a robot to 
+execute a <b>Plan</b> in some <i id="i">unsafe</i> environment (including ather robots) 
+and to <i id="i">react</i> (as soon as possible) to abnormal situations of the environment</li>    
+<li><b>Robot coopetrating</b>:<br/> Build a software system that allows a  
+robot to cooperate with other robots to achieve some <i id="i">common goal</i></li>   
+
+-->
+
+<!--    
+<h3 id="h3">Robot usage</h3>
+    Build a software system that sends <b>commands</b> to move a base 
+    <button onclick="window.location.href='../../Robots/robotEntry.html'">Robot</button>  
+<h3 id="h3">Robot (remote) control</h3>
+    Build a software system that allows an user to send <b>commands</b> to move a base robot  
+    (i.e. robot controlled in <b>Avatar-mode</b>.
+-- see <a href="../../../../it.unibo.lab.robotUsage/src/it/unibo/robotUsage/intro/ui/CtxRobotBrainWithGui.java">CtxRobotBrainWithGui</a>
+    in project <tt>it.unibo.lab.robotUsage</tt>)--
+<h3 id="h3">Robot using Android sensor data</h3>
+    Build a software system that allows a  robot to <i id="i">acquire sensor data</i> from a <b>Android</b> smart device
+    (see <a href="../../../../it.unibo.qevents.intro/src/it/unibo/qevents/example/usb/USBTetherClient.java">USBTetherClient</a> in <button onclick="window.location.href='../AndroSensors/androSensorEntry.html'">AndroSensors</button>)
+<h3 id="h3">Robot using datastreams from Android sensors data</h3>
+    Build a software system that allows a  robot to work with  <i id="i">sensor data streams</i> built from sensor data sent by a <b>Android</b> smart device via <tt>USB</tt> <br/>
+    (TODO: build i) a <tt>IConnInteraction</tt> based on USB and ii) a sensor source 
+    in <button onclick="window.location.href='../../Frameworks/FramwCustomEvStream.html'">QStreams</button>)
+
+    <h3 id="h3">Robot using local sensors</h3>
+    Build a software system that allows a  robot to acquire sensor data from <i id="i">on-board</i> sensors
+<h3 id="h3">Robot proactive</h3>
+    Build a software system that allows a  robot to execute a <i id="i">Plan</i> (defined as a sequence of moves)
+    in a <i id="i">protected</i> environment
+ --
+(see <a href="robotAvatar.html">RobotAvatar</a>)
+--
+<h3 id="h3">Robot proactive-reactive</h3>
+    Build a software system that allows a  robot to execute a <b>Plan</b> in a <i id="i">protected</i> environment and to react (as soon as possible) to a <b>halt</b> command sent by a remote (user)console 
+ --
+(see <a href="robotPlanning.html">RobotPlanning</a>)
+--
+<h3 id="h3">Many Robots</h3>
+    Build a software system that allows <i id="i">many</i> robots to work in the same <i id="i">protected</i> environment without interference among them
+<h3 id="h3">Robot autonomus</h3>
+    Build a software system that allows a robot to execute a <b>Plan</b> in some <i id="i">unsafe</i> environment (inclduign ather robots) and to <i id="i">react</i> (as soon as possible) to abnormal situations of the environment
+<h3 id="h3">Robot cooperative</h3>
+    Build a software system that allows a  robot to cooperate with other robots to achieve a <i id="i">common goal</i>
+-->    
+
+
+</p>
+<!--    
+<center>
+     nanohttpd
+     usb-serial-android (GIT HUB) per some arduino chip
+    Raspberry A+ non porta Ethernet
+</center> 
+-->
+</div>
+    
+
+
+    
+
+<div id="bottom">
+By AN  Unibo-DISI    
+</div>
+    
+</div>
+</div>    
+ 
+</body></html>

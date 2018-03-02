@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="../../css/issStyle1.css">   
+<script type="text/javascript" src="../../css/issStyle.js"></script>
+<head>
+<title>MotorDrive</title>
+</head> 
+<body onload="loadInMain('motorDrive.html')">   
+<div class="container wrapper"> 
+<div id="top"> 
+<h1>Motor drive system (MDS): a bottom-up approach (ISS-DISI-Unibo)</h1> 
+</div> 
+<div class="wrapper">     
+<div id="menubar">
+<img src="raspberry_pi_motorc.jpg" alt="show" width="119" height="105"/> 
+<ul id="menulist">
+<li class="menuitem" onclick="loadInMain('motorDrive.html')">MotorDrive</li>
+        <u5>Low level</u5>
+    <li class="menuitem" onclick="loadWithMsg('A polling-based solution on Arduino',
+'../../../../it.unibo.motorDriveSystem/arduino/mdsPollingUno/mdsPollingUno.ino')">ArduinoUno Polling</li>
+
+   <li class="menuitem" onclick="loadWithMsg('Motor control using Linux ',
+'../../../../it.unibo.motorDriveSystem/raspberry/shellMotorDrive.sh')">Rasp(no button): shell</li>
+
+   <li class="menuitem" onclick="loadWithMsg('Motor control using GPIO ', 
+'../../../../it.unibo.motorDriveSystem/raspberry/gpioMotorDrive.sh')">Rasp(no button): wpi</li>
+  
+    <u5>Motor control with Pi4j</u5>
+    <li class="menuitem" onclick="loadWithMsg('A motor controller based on Pi4j', 
+'../../../../it.unibo.motorDriveSystem/src/it/unibo/motorDriveSystem/MotorControlPi4j.java')">MotorControlPi4j</li>
+
+ <li class="menuitem" onclick="loadWithMsg('A motor controller based on Pi4j PWM', 
+'../../../../it.unibo.motorDriveSystem/src/it/unibo/motorDriveSystem/MotorCtrlWPiSoftPWM.java')">MotorCtrlWPiSoftPWM </li>
+         
+
+        <u5>Distributed</u5>
+  <li class="menuitem" onclick="loadWithMsg('A button (simulator) working as client ', 
+'../../../../it.unibo.motorDriveSystem/src/it/unibo/motorDriveSystem/distributed/MDSCmdRemoteMain.java')">MDSCmdRemoteMain</li>
+    
+  <li class="menuitem" onclick="loadWithMsg('A general purpose server that receives remote commands ', 
+'../../../../it.unibo.motorDriveSystem/src/it/unibo/motorDriveSystem/distributed/CmdServer.java')">CmdServer</li>
+  <li class="menuitem" onclick="loadWithMsg('An intepreter of (button) commands that calls the the motor (control) ', 
+'../../../../it.unibo.motorDriveSystem/src/it/unibo/motorDriveSystem/distributed/CmdInterpreter.java')">CmdInterpreter</li>
+  <li class="menuitem" onclick="loadWithMsg('A button (simulator) working as client ', 
+'../../../../it.unibo.motorDriveSystem/src/it/unibo/motorDriveSystem/distributed/DeviceButtonProxyMain.java')">DeviceButtonProxyMain</li>
+  <li class="menuitem" onclick="loadWithMsg('A button (simulator) working as client ', 
+'../../../../it.unibo.motorDriveSystem/arduino/mdsPollingUno/mdsPollingUno.ino')">mdsPollingUno</li>
+       </ul>
+    
+    
+</div>
+    
+     
+<div id="menutop">
+<center>
+<button onclick="window.location.href='../../Material/entry.html'">Home</button>
+<button onclick="window.location.href='../../Frameworks/Frameworks.html'">Frameworks</button>
+<button onclick="window.location.href='../../Hardware/boards.html'">Boards</button>
+<button onclick="window.location.href='../applsEntry.html'">LAB</button>
+</center>
+</div> 
+    
+<div id="main">
+<p> 
+ 
+</p>
+</div>
+    
+<div id="sidebar">
+<h3>Readings</h3>
+    
+    <a href="../../../../it.unibo.iss.libs/docs/Pi4jCoreDoc/index.html" target="code">Pi4jCoreDoc</a>
+ <li class="menuitem" onclick="loadInMain('../../Hardware/IO/pwmIntro.html#pwmPi4j')">PWM Pi4j</li>
+    
+    <h3>About interaction</h3> 
+<ul id="menulist">
+  <li class="menuitem" onclick="loadInMain('../../NatMolBook/content/book/sistemi/interazioneSistemi.html')"> Interaction termonology  <li class="menuitem" onclick="loadInMain('../../NatMolBook/content/book/interazione/esempiInterazione.html#ISLang')"> Interaction beyond UML </li>
+ 
+</ul>     
+
+</div>
+    
+
+<div id="bottom">
+By AN - SG Unibo-DISI    
+</div>
+    
+</div>
+</div>    
+
+</body></html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="../css/plainStyle.css"> 
+    <link rel="stylesheet" type="text/css" href="../css/robotTabStyle.css">
+<script type="text/javascript" src="../css/issStyle.js"></script>
+<head>
+
+<title>RaspiStartup</title></head><body>
+    
+<div class="container wrapper"> 
+
+<div id="top">
+<h3 id="h3"Raspberry basic projects</h3>
+<p></p>
+</div> 
+
+
+    
+<div class="wrapper">
+    
+    
+    
+ 
+<div id="main">
+<p>
+    <h4>LOW-LEVEL</h4>
+The following project is a very simple introduction to the usage of RaspberryPi GPIO by means of
+    bash commands, gpio library and Python.
+    
+    <h3>Project <i><b>it.unibo.raspIntro</b></i></h3>
+        <i>Shell</i> (see <a href="https://luketopia.net/2013/07/28/raspberry-pi-gpio-via-the-shell/">Raspberry Pi GPIO via the Shell</a>)
+    
+<table id="robots">
+  <tr>
+    <th>Package</th>
+    <th>Entry</th>
+   <th>Goal</th>
+   </tr>
+  <tr class="alt">
+    <td>it.unibo.bls.bash</td>
+    <td><a href="../../../it.unibo.raspIntro/src/it/unibo/bls/bash/led25OnOff.sh">led25OnOff.sh</a></td> 
+    <td>manage a Led connected on the GPIO pin by reading/writing a (virtual) file associated with that pin</td>
+   </tr>
+ <tr >
+  <tr>
+    <td>it.unibo.bls.bash</td>
+    <td><a href="../../../it.unibo.raspIntro/src/it/unibo/bls/bash/buttonOn24Click.sh">buttonOn24Click.sh</a></td> 
+    <td>manage a Button connected on the GPIO pin by reading/writing a (virtual) file associated with that pin</td>
+   </tr>
+ <tr >
+  <tr class="alt">
+    <td>it.unibo.bls.bash</td>
+    <td><a href="../../../it.unibo.raspIntro/src/it/unibo/bls/bash/buttonLed.sh">buttonLed.sh</a></td> 
+    <td>the BLS system implemented by reading/writing some (virtual) file associated with the device pins</td>
+   </tr>
+ <tr >
+ </table> 
+<br/>
+    <i>gpio library</i> (see <a href="http://wiringpi.com/the-gpio-utility/">Command-line utility gpio</a>)
+<table id="robots">
+  <tr  class="alt">
+    <th>Package</th>
+    <th>Entry</th>
+   <th>Goal</th>
+   </tr> 
+  <tr>
+    <td>it.unibo.bls.bash.gpio</td>
+    <td><a href="../../../it.unibo.raspIntro/src/it/unibo/bls/bash/gpio/led25Gpio.sh">led25Gpio.sh</a></td> 
+    <td>manage in bash a LED connected on a GPIO pin 25 (Wpi 6)  by using the GPIO library</td>
+   </tr>
+ <tr >
+  <tr>
+    <td>it.unibo.bls.bash.gpio</td>
+    <td><a href="../../../it.unibo.raspIntro/src/it/unibo/bls/bash/gpio/button24Gpio.sh">button24Gpio.sh</a></td> 
+    <td>manage in bash a Button connected on a GPIO pin 24 (Wpi 5)  by using the GPIO library</td>
+   </tr>
+ <tr >
+  <tr>
+    <td>it.unibo.bls.gpio</td>
+    <td><a href="../../../it.unibo.raspIntro/src/it/unibo/bls/gpio/BLSGpio.java">BLSGpio.java</a></td> 
+    <td>manage in Java a LED connected on a GPIO pin 25 (Wpi 6)  by using the GPIO library</td>
+   </tr>
+ <tr >
+ </table>  
+<br/>
+    <i>python</i> (see <a href="http://makezine.com/projects/tutorial-raspberry-pi-gpio-pins-and-python/">gpio-pins-and-python</a>)
+<table id="robots">
+  <tr class="alt">
+    <th>Package</th>
+    <th>Entry</th>
+   <th>Goal</th>
+   </tr>
+  <tr>
+    <td>it.unibo.bls.python</td>
+    <td><a href="../../../it.unibo.raspIntro/src/it/unibo/bls/python/ledPython25.py">ledPython25.py</a></td> 
+    <td> manage a Led connected on the GPIO pin 25 using the python language.</td>
+   </tr>
+  <tr>
+    <td>it.unibo.bls.python</td>
+    <td><a href="../../../it.unibo.raspIntro/src/it/unibo/bls/python/buttonPython24.py">buttonPython24.py</a></td> 
+    <td> manage a Button connected on the GPIO pin 24  using <b>polling</b>.</td>
+   </tr>
+  <tr>
+    <td>it.unibo.bls.python</td>
+    <td><a href="../../../it.unibo.raspIntro/src/it/unibo/bls/python/buttonPython24Edge.py">buttonPython24Edge.py</a></td> 
+    <td> manage a Button connected on the GPIO pin 24 using <b>wait_for_edge</b>.</td>
+   </tr>
+  <tr>
+    <td>it.unibo.bls.python</td>
+    <td><a href="../../../it.unibo.raspIntro/src/it/unibo/bls/python/buttonPython24EventDetected.py">buttonPython24EventDetected.py</a></td> 
+    <td> manage a Button connected on the GPIO pin 24 using <b>event_detected</b>.</td>
+   </tr>
+ 
+ </table>  
+
+    
+    
+     
+</p>   
+    
+</div>
+    
+ 
+<!--
+    <a href="https://www.youtube.com/watch?v=o9lVVr5p0nM"> Video Alicata-Bezzi-Desantis-Gamberini</a>
+
+-->
+
+<div id="bottom">
+By AN Unibo-DISI    
+</div>
+    
+</div>
+</div>    
+ 
+</body></html>

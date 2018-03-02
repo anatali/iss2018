@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="../../css/issStyle1.css">   
+<script type="text/javascript" src="../../css/issStyle.js"></script>
+<head>
+<title>ButtobLed</title>
+</head>
+<body>   
+<div class="container wrapper"> 
+<div id="top">
+<h1>ButtonLed system (BLS) : Requirements (ISS-DISI-Unibo)</h1>
+</div> 
+<div class="wrapper">    
+<div id="menubar"> 
+<img src="./blsall.jpg" alt="show" width="120" height="68"/> 
+<ul id="menulist">
+
+        <u5>Devices</u5>
+<li class="menuitem" onclick="window.location.href='buttonEntry.html'">Button</li> 
+<li class="menuitem" onclick="window.location.href='LedEntry.html'">Led</li>  
+   <u5>Architecture</u5>
+<li class="menuitem" onclick="window.location.href='logicArch.html'">Towards a Logic Arch</li> 
+
+ <u5>Test (plans) for system</u5>
+<li class="menuitem" onclick="loadWithMsg('An example of <b>Integration Testing</b> (<b>Mediator</b> architecture)	',
+ '../../../../it.unibo.buttonLedSytem.tests/src/it/unibo/buttonLedSytem/tests/TestLogic.java')">TestLogic.java</li> 
+
+  
+  
+    </ul>   
+</div>
+     
+     
+<div id="menutop">
+<center>
+<button onclick="window.location.href='../../Material/entry.html'">Home</button>
+<button onclick="window.location.href='buttonLedLowLevel.html'">BLS LowLevel</button>
+<button onclick="window.location.href='../../Raspberry/raspberryProjectsHL.html'">BLS Raspberry</button>
+<button onclick="window.location.href='buttonLedHighLevelEntry.html'">BLS top-down</button>
+<button onclick="window.location.href='../ButtonLedDitributed/distributedPrototypes.html'">BLS distributed</button>
+<button onclick="window.location.href='../../Frameworks/Frameworks.html'">Frameworks</button>
+<button onclick="window.location.href='../../Hardware/boards.html'">Boards</button>
+<button onclick="window.location.href='../applsEntry.html'">LAB</button>
+</center>
+</div> 
+    
+<div id="main">   
+<p>
+<h3>The ButtonLed system: Requirements</h3>
+    <ol>
+    <li>Design and build a <i id="i">ButtonLed</i> software system (<b>BLS</b>) in which a <b>Led</b> is turned on 
+    and off each time a <b>Button</b> is pressed (by an human user). 
+    The system should run on a a single support, e.g. aConventional PC, a RaspberryPi or Arduino. 
+    </li>
+    <li>
+    After step 1, modify the software system so that the <b>Led</b> could be turned on/off by a remote program.</li>
+<!--
+    <li>After step 2, add to the system (now named <i id="i">ButtonCounterLed</i>)  a <b>Counter</b> and increment the counter each time 
+    the <b>Led</b> is turned-on.</li>
+     <li>After step 3, design and build a system in which the <b>Button</b> is controlled by 
+     Arduino and the  <b>Counter</b>  works on a conventional pc.</li>
+-->
+    </ol>
+        More generally, the <tt>BLS</tt> should have different local or distributed configurations, 
+        like those shown in the following picture:<br/>
+<img src="./blsall.jpg" alt="show" width="450" height="226"/>        
+
+ <h3>Requirement Analysis</h3>
+  <ul>
+ <li>Define the <a href="LedEntry.html" target="code">model of the Led</a></li>
+ <li>Define the <a href="buttonEntry.html" target="code">model of the Button</a></li>
+  </ul>
+  
+ <h3>Problem Analysis</h3>
+ <ul>
+  <li>Define a <a href="logicArch.html" target="lecture">first logic architecture</a>
+  starting from an <a href="../../NatMolBook/Interazione.html" target="lecture">interaction model</a></li>
+ </ul>
+ 
+    <h3>Basic operational steps (just to start ...)</h3>
+ <ol>
+    <li>Open an new Eclispe workspace.</li> 
+    <li>Create the project <tt>it.unibo.buttonLed</tt></li> 
+     <li>Create the <i id="i">packages</i> <tt>it.unibo.buttonLed</tt>, <tt>it.unibo.buttonLed.interfaces</tt>,   
+     <tt>it.unibo.buttonLed.impl</tt>, <tt>it.unibo.buttonLed.docs</tt></li> 
+     <li>Create the project <tt>it.unibo.buttonLed.test</tt> that depends on the previous one and on <tt>JUnit</tt>.</li> 
+     <li>Define the <i id="i">domain model</i>, i.e. the models of the entities <i id="i">Led</i> 
+     and <i id="i">Button</i> as conventional <i id="i">"Plain Old Java Object"</i> (<tt>POJO</tt>). 
+     The model must include the interfaces <tt>ILed</tt> and <tt>IButton</tt> 
+     (written in Java on in the selected implementation language).</li> 
+     <li>Define (in the  <tt>it.unibo.buttonLed.test</tt> project) the <i id="i">test plans</i>
+      for the interfaces <tt>ILed</tt> and <tt>IButton</tt>. </li> 
+ </ol>   
+
+
+</p>
+</div>
+    
+<div id="sidebar">
+<h3>Readings</h3>
+<!--     -->
+<ul id="menulist">
+<li class="menuitem" onclick="window.location.href='../../NatMolBook/Testing.html'">Testing</li>
+<li class="menuitem" onclick="loadInMain('../Raspberry/InputHandlingLinux.html')">InputHandlingLinux.html</li>
+<li class="menuitem" onclick="loadInMain('InputHandling.pdf')">InputHandling.pdf</li>
+</ul>     
+
+</div>
+    
+
+<div id="bottom">
+By AN - SG Unibo-DISI    
+</div>
+    
+</div>
+</div>    
+
+</body></html>

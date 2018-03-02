@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="../../css/plainStyle.css">
+<link rel="stylesheet" type="text/css" href="../../css/robotTabStyle.css">   
+<script type="text/javascript" src="../../css/issStyle.js"></script>
+<head>
+
+<title>radar</title></head><body>
+    
+<div class="container wrapper"> 
+	
+<div id="top">
+
+</div> 
+
+
+    
+<div class="wrapper">
+ 
+<div id="main">
+<p>
+    <h3 id="h3">Requirements</h3>
+Our company intends to develop a new hardware/software product to be used in experimental low-cost robotic applications.
+    The product (named <tt>SonarStepperRadar</tt>) is composed of the following hardware devices (see the image below)
+<ul>
+<li>A <a href="../../Devices/HC-SR04.html" target="lecture">sonar HC-SR04</a></li>
+<li>A  <a href="../../Devices/28BYJ-48StepperMotor.html" target="lecture">stepper motor 28BYJ-48</a>
+    (alternatively, a <a href="../../Devices/SS099.html" target="lecture">Micro Servo SS099</a>)</li>
+    <li>A <a href="../../Devices/LN98N.html" target="lecture">Motor Driver Board L298N</a>  </li>
+    <li>A <a href="../../Raspberry/raspberryEntry.html" target="lecture">RaspberryPi</a>  </li>
+</ul>    
+<center>
+    <img src="../../imgs/robot/RadarSet14.jpg" alt="radar" width="544" height="408"/>
+</center>   
+    
+The  software running on the RaspberryPi must
+<ul>
+    <li>Activate the sonar</li>
+    <li>Move the stepper motor</li>
+    <li>Send to a remote computer data (obstacle-position) of the form <tt>p(sonarData,angleData) </tt> 
+        at a rate of <b>10</b> data for second</li>
+</ul>
+The  software running on the PC must    
+<ul>
+    <li>Acquire the data sent form the RaspberryPi</li>
+    <li>Show the current obstacle-position on a diplay like that shown in the following image </li>
+</ul>
+    <center>
+     <img src="radarMy.jpg" alt="Devices" width="500" height="500"/>
+</center> 
+    <!--    
+ <h3 id="h3">Overview</h3>
+   The sonar is controlled at low level  by a program written in <tt>C</tt> that writes info on the standard output
+    <li class="menuitem" onclick="loadWithMsg('',
+ '../../../../it.unibo.qevents.sonarRadar/src/it/unibo/sonar/SonarAlone.c')"><u>SonarAlone.c</u></li> 
+	The sonar is controlled at high level by an actor
+	<li class="menuitem" onclick="loadWithMsg('A QActor that  can raise events with real or simulated data) ',
+ '../../../../it.unibo.qevents.sonarRadar/src/it/unibo/sonar/radar/rasp/events/QSonarActor.java')"><u>QSonarActor</u></li> 
+	 that emits <b>events</b> to the other component of the system, described in:
+	 <li class="menuitem" onclick="loadWithMsg('Two contexts: one for the radar GUI and the other for the event source',
+ '../../../../it.unibo.qevents.sonarRadar/radarSonarKb.pl')"><u>radarSonarKb.pl</u></li> 
+-->
+
+    
+
+
+    <table id="robots">
+  <tr>
+    <th>Address (natSpot)</th>
+    <th>Boards</th>
+    <th>Devices</th>
+    <th>Sensors</th>
+    <th>Battery</th>
+    <th>Notes</th>
+  </tr>
+  <tr class="alt">
+    <td>192.168.43.95</td>
+    <td>RasperryPi </td>
+    <td>1 wireless 1L298N 1 servo SS099 1 sonar </td>
+    <td> 1 distance sonar </td>
+    <td> - </td>
+    <td> - </td>
+  </tr>
+ </table> 
+</p>
+</div>
+    
+
+
+<div id="bottom">
+By AN - SG Unibo-DISI    
+</div>
+    
+</div>
+</div>    
+ 
+</body></html>

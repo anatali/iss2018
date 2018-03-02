@@ -1,0 +1,62 @@
+    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="../../css/plainStyle.css">
+<link rel="stylesheet" type="text/css" href="../../css/robotTabStyle.css">   
+<script type="text/javascript" src="../../css/issStyle.js"></script>
+<head>
+
+<title>robotActor</title></head>
+    <body>
+    
+<div class="container wrapper"> 
+
+<div id="top">
+<p></p>
+</div> 
+     
+<div class="wrapper">
+  
+<div id="main">
+ <h3 id="h3">RobotActor</h3>    
+    
+ 
+<p>
+The RobotActor is a <button onclick="window.location.href='../../Frameworks/BasicActorSupport.html'">QActor</button> that allows us to interact with a <a href="robotBaseRobot.html">BaseRobot</a>.    
+    
+It  provides the operations (see <a href="../../../../it.unibo.lab.robotUsage/src/it/unibo/robotUsage/interpreted/IRobotActor.java">IRobotActor</a>):  
+	
+<font color=blue><pre>
+long execute(String command, int speed, int angle, int millisec, String  evId)
+long execute(String command, String speed, String millisec, String angle, String evId)
+long executeTheCommand(IBaseRobotCommand command, int millisec,String  evId)
+</pre></font>
+
+    Moreover it allws:
+    <ul>
+    <li>to receive commands by interacting via <tt>HTTP</tt> (on port <tt>8080</tt>) with a browser</li>
+    <li>to receive commands as messages sent by other <i>QActors</i> or other software components  </li>
+    <li>to use a stream of sensor-data coming from a Android smart device </li>
+    <li>to use streams of sensor-data coming from the onborad senors </li>
+    <li>to raise or perceive events </li>
+    <li>to emit sounds or to capture photo or video</li>
+    </ul>
+
+</p>
+    
+<center>
+     <img src="../../Robots/robotActor.jpg" alt="show" width="615" height="460"/>
+</center> 
+</div>
+    
+
+
+    
+
+<div id="bottom">
+By AN  Unibo-DISI    
+</div>
+    
+</div>
+</div>    
+ 
+</body></html>

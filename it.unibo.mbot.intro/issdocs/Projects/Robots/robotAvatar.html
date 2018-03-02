@@ -1,0 +1,84 @@
+    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="../../css/plainStyle.css">
+<link rel="stylesheet" type="text/css" href="../../css/robotTabStyle.css">   
+<script type="text/javascript" src="../../css/issStyle.js"></script>
+<head>
+
+<title>robotAvatar</title></head>
+    <body>
+    
+<div class="container wrapper"> 
+
+<div id="top">
+<p></p>
+</div> 
+     
+<div class="wrapper">
+  
+<div id="main">
+ <h3 id="h3">A robot as a  command executor (<tt>RobotAvatar</tt>)</h3>    
+A robot can work as a simple command executor of <a href="../../../../it.unibo.lab.baseRobot/src/it/unibo/iot/models/commands/baseRobot/IBaseRobotCommand.java">IBaseRobotCommand </a> commands. Our <tt>DSL</tt> allows us to specify the robot systen by associating no plan to the robot:
+    <font color=blue>
+    <pre>
+    RobotSystem robotavatar java8 :           
+ 	Mind mind ip[host="localhost" port=8050 ]         
+	Robot robot1 MOCK ip[host="localhost" port=8070 ] {  
+	}  
+    </pre></font>
+ Our software factory generates two main "programs" 
+        <ol>
+        <li><a href="../../../../it.unibo.xtext.robot.avatar/src-gen/it/unibo/robot/ctx/CtxRobot1.java">  <tt>CtxRobot1</tt> </a> : this program creates a <tt><a href="../../Frameworks/FramwCustomActor.html">QActor</a></tt> named
+            <a href="../../../../it.unibo.xtext.robot.avatar/src-gen/it/unibo/robot/ctx/Robot1.java"> <tt>robot1</tt> </a> that waits for <a href="../../../../it.unibo.lab.baseRobot/src/it/unibo/iot/models/commands/baseRobot/IBaseRobotCommand.java">IBaseRobotCommand </a> commands sent by the Mind.</li>
+            <li><a href="../../../../it.unibo.xtext.robot.avatar/src-gen/it/unibo/robot/ctx/CtxMind.java">  <tt>CtxRMind</tt></a> : this program creates the <a href="../../../../it.unibo.xtext.robot.avatar/src-gen/it/unibo/robot/ctx/Mind.java"> <tt>Mind</tt> </a> that allows us to send commands to  <a href="../../../../it.unibo.xtext.robot.avatar/src-gen/it/unibo/robot/ctx/Robot1.java"> <tt>robot1</tt> </a>.
+            It creates alos a  <a href="../../../../it.unibo.xtext.robot.avatar/src-gen/it/unibo/robot/ctx/Terminal.java"> <tt>Terminal</tt></a> that allows us to raise events named <tt>usercmd</tt> 
+    </li>
+        </ol>
+    
+<h3 id="h3">The (Android) sensor stream</h3>
+    The  software factory exploits resources include d within <tt>uniboRobotActor.jar</tt> including:
+        <ul>
+            <li>
+ <a href="../../../../it.unibo.lab.robotActor/src/it/unibo/robotActor/sensors/SensorStreamSetter.java"><tt>SensorStreamSetter</tt></a>: 
+a <i>SituatedActiveObject</i> that, when activated,  waits for messages on a given  
+<a href="../../../../it.unibo.lab.robotActor/src/it/unibo/robotActor/usb/USBTetherClientStreamer.java">  
+<tt>USBTetherClientStreamer</tt> </a>.
+Once connected via <tt>USB</tt> tethering, this object creates a 
+<a href="../../../../it.unibo.lab.robotActor/src/it/unibo/robotActor/usb/USBTetherStream.java"><tt>USBTetherStream</tt></a> to 'convert' the sequence of recived messages into a <tt>rx.Observable<String></tt> sensor stream of class <a href="../../../../it.unibo.qevstream/src/it/unibo/rx/sensor/sources/SensSrcBufReaderGeneric.java">  <tt>SensSrcBufReaderGeneric<String, String></tt></a>
+    </li>
+    </ul>
+<h3 id="h3">Running the planned robot</h3>    
+    From the Java project based on the <a href="../../../../it.unibo.xtext.robot.avatar/src/robotAvatar.ddr"><tt>ddr</tt></a>  specification, the application designer must
+    <ol>
+    <li>Generate a runnable jar (e.g. <tt>CtxRobotAvatar.jar</tt>)  and copy it into the robot RasperryPi.
+        We suggest to copy the file and the associated library directory into a proper working directory (e.g. <tt>robotConfig</tt>) </li>
+    <li>Copy in the working the generated file <a href="../../../../it.unibo.xtext.robot.avatar/hardwareConfiguration.properties">hardwareConfiguration.properties</a> </li>
+    <li>Copy in the working the generated file <a href="../../../../it.unibo.xtext.robot.avatar/robotavatar.pl">robotavatar.pl</a> </li>
+    <li>Copy in the working the generated file <a href="../../../../it.unibo.xtext.robot.avatar/sysRules.pl">sysRules.pl</a> </li>
+    <li>Copy in the working the generated directory <a href="../../../../it.unibo.xtext.robot.avatar/srcmore">srcMore</a> </li>
+    <li>Copy in the working the generated directory <a href="../../../../it.unibo.xtext.robot.avatar/configuration">configuration</a> </li>
+    </ol> 
+<p>
+     
+    
+    
+
+</p>
+    
+<center>
+     
+</center> 
+</div>
+    
+
+
+    
+
+<div id="bottom">
+By AN  Unibo-DISI    
+</div>
+    
+</div>
+</div>    
+ 
+</body></html>

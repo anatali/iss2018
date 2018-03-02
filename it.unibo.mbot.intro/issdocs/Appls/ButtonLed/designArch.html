@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="../../css/issStyle1.css">  
+<script type="text/javascript" src="../../css/issStyle.js"></script>
+<head>
+<title>DesignArch</title>
+</head>
+<body >
+    
+<div class="container wrapper"> 
+<div id="top">
+<h1>ButtonCounterLed: Design Architecture  </h1>
+</div> 
+<div class="wrapper">
+<div id="menubar">
+<img src="logicArchBase.jpg" alt="show" width="127" height="102"/> 
+<ul id="menulist">
+<!--
+<li class="menuitem" onclick="loadInMain('empty')">ButtonLed</li>
+-->     
+     
+</ul>
+</div>
+<div id="menutop">
+<center>
+<button onclick="window.location.href='../../Material/entry.html'">Home</button>
+<button onclick="window.location.href='buttonLedEntry.html'">ButtonLed</button>
+<button onclick="window.location.href='logicArch.html'">LogicArch</button>
+<button onclick="window.location.href='../../Hardware/boards.html'">Boards</button>
+<button onclick="window.location.href='../applsEntry.html'">LAB</button>
+</center>
+</div> 
+
+<div id="main">
+<p>
+    <h4>The Led on Arduino</h4> 
+<img src="ArchLedOnArduino.jpg" alt="show" width="500" height="370"/> 
+
+<h4>Information "embedded" in the diagram</h4>
+
+<ul>
+<li>The <b>logic architecture</b>  (<i>there is no design without analysis</i>)  
+is explicitly indicated (reused). </li>
+<li>Each device is an observable entity. The logical button is also an observer. </li>
+<li>The main (tested) classes of the basic prototype (DevButton, Control, DevLed) are reused,
+together with the classes composing the <b>domain model</b>. </li>
+<li>The technology-dependent part is confined to techno-specific classes. It can be easily substituted thanks to the bridge pattern. </li>
+<li>The system is composed by two main <b>subsystems</b>: a control subsystemm and an actuator subsystem. </li>
+<li>The interaction with Arduino-subsystem is based on <i>message-passing</i>. The logical interaction is a <b>dispatch</b>. The language of the message payload can be formally  defined as follows:
+<pre>
+ <tt>CMD = '0' |  '1'</tt>
+</pre>
+</li>
+<li>The technology used to support message-passing with the Arduino-subsystem (<b>serial line</b>) is considered a non-relevent detail at this stage of the project.
+ </li>
+</ul>
+
+<a name="todo29Ott"></a>
+    <h4>A more distributed system</h4> 
+We want re-design the concrete architecture of the system so that the button is on an Android system,
+the control is on a Raspberry system and the led is on Arduino.
+(We could be inspired by the <a href="../MotorDrive/motorDrive.html#mdsparch">MotorDrive</a> project architecture.
+The staring point now is the (iterative) specification of the main <b>subsystems</b>. 
+we could start to understand the idea of <b>piecemeal growth</b> process introduced in
+<a href="../../Distributed/OnDistributedSystems.pdf" target="_blanck">OnDistributedSystems</a>.)
+
+    <h4>The Button on Android: an oo design</h4> 
+<img src="ArchButtonOnAndroid.jpg" alt="show" width="500" height="370"/> 
+
+    <h4>Information "embedded" in the diagram</h4>
+
+<ul>
+    <li>The system is composed by three main <b>subsystems</b>: an input sybsystem (on Android), a control subsystemm (on Raspberry) and an actuator subsystem (on Arduino). </li>
+    <li>The interaction amnong the subsystem is based on <i>message-passing</i> (dispatch) and <b>ad-hoc communications</b> (see <a href="../../Distributed/OnDistributedSystems.pdf">OnDistributedSystems</a>). The language of the message payload can be formally defined as: <tt>CMD = '0' |  '1'</tt>.
+</li>
+<li>The <b>observable</b> nature of each device is preserved, but implemented in a different way. In particular, the <i>procedure-call</i> <tt>update()</tt> in the logical architecture is replaced by a subsystem that includes the sending of a dispatch. </li>
+<li>The main (tested) classes of the basic prototype (DevButton, Control, DevLed) are still reused (together with the classes composing the <b>domain model</b>) but tay are now included in a more complex context. </li>
+<li>The technology-dependent part are still confined to techno-specific classes that are now responsible of (ad-hoc) communications on the network. </li>
+<li>The technology used to support message-passing is considered a non-relevent detail at this stage of the project.
+ </li>
+</ul>
+    
+     <h4>Project architecture</h4> 
+Any "well done" modern project architecture should present itself as
+     organizaed accroding to three macro-parts (see 
+    <a href="../../NatMolBook/content/book/modelBased/fasi/progettazione.html" target="code">progettazione</a>):
+    <ul>
+<li>a <i id="i">generic part</i>  that could be shared among several applications (in the
+    same domain);
+ 
+<li>a <i id="i">schematic part</i> that should be organized according to well recognizable 
+    patterns, reusable in different application contexts;
+();</li>
+
+<li>a <i id="i">specific part</i>  related to the current application that should not be
+    easality generalizable.</li>
+
+</ul>
+    
+<!--
+    <h3>A design based on the pattern bridge</h3> 
+<img src="DevButtonBridgeSeq.jpg" alt="show" width="820" height="349"/> 
+
+-->
+    </p><p>
+ </p> 
+</div>
+    
+
+<div id="sidebar">
+<h3>Readings</h3>
+<!--     -->
+<ul id="menulist">
+<!--
+<li class="menuitem" onclick="loadInMain('InputHandling.pdf')">InputHandling.pdf</li>
+-->
+</ul>     
+</div>
+    
+
+<div id="bottom">
+By AN Unibo-DISI    
+</div>
+    
+</div>
+</div>    
+ 
+</body></html>

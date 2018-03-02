@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="../../css/plainStyle.css"> 
+<script type="text/javascript" src="../../css/issStyle.js"></script>
+<head>
+
+<title>motorDrive</title></head><body>
+    
+<div class="container wrapper"> 
+
+<div id="top">
+<h3 id="h3">The MotorDrive system</h3>
+<p></p>
+</div> 
+
+<div class="wrapper">
+  
+<div id="main">
+<p>
+    <h3>Requirements</h3>
+    <ol>
+    <li>Design and build a <i id="i">MotorDrive</i> software system in which a <b>DC Motor</b> is turned on and off 
+    each time a <b>Button</b> is pressed (by an human user). </li>
+    <li>The motor should be controlled by a RaspberryPi or by Arduino.  </li>
+    <li>The button should be managed by using a device different from the motor-cotrol device. </li>
+      </ol>
+ In the hardware configuration shown in the picture, the motor is powered by Arduino and
+ controlled by Arduino or by Raspberry.
+     <br/>    
+ When the motor control wires <tt>IN1</tt> and <tt>IN2</tt> are connected to the <b>Raspberry-site</b>, the motor is controlled by the Raspberry and the Arduino should be connected either to the Raspberry itself or to a conventional PC. In any case,
+when the button (controlled by Arduino) is pressed, the motor should run; it should stop as soon as the button is unpressed.
+    
+    
+      
+    </p><p>
+    <h3>Hardware</h3>
+    See <a href="../../Devices/LN98N.html">LN98N motor drive</a><br/>
+<img src="MDSPhysicalAnnoted.jpg" alt="show" width="600" height="453"/> 
+     </p><p>
+     <a name="mdsparch"></a>
+    
+<h3>MotorDrive system pyhisical architectures</h3>
+
+    <img src="MDSAllArdunio.jpg" alt="show" width="549" height="127"/> 
+
+   <img src="MDSButtonArdunioMotorRasp.jpg" alt="show" width="578" height="128"/> 
+
+   <img src="MDSButtonArdunioRaspMotorArduino.jpg" alt="show" width="602" height="127"/> 
+    
+    <img src="MDSButtonArdunioPcMotorArduino.jpg" alt="show" width="573" height="126"/> 
+ 
+    <img src="MDSButtonArdunioPcMotorRasp.jpg" alt="show" width="584" height="128"/> 
+
+    
+    
+<h3>MotorDrive system project architecture</h3>
+    In the project architecture represented by the following interaction diagram, the Arduino board
+    is connected to the Raspberry.
+     We can (un)press the button managed by Arduino and the Raspberry turns off/on the motor.
+    Moreover, the server can accept remote commands via the GUI button on the left of the red line 
+    (that represents the network-boundary).
+    </p><p>
+    A key poit is that the interfaces are replaced by <i id="i">speech acts</i> (<tt>execAction(String cmd)</tt>).
+     
+   <img src="archMDS.jpg" alt="show" width="688" height="532"/>
+    
+</p> 
+</div>
+    
+
+
+    
+
+<div id="bottom">
+By AN-SG Unibo-DISI    
+</div>
+    
+</div>
+</div>    
+ 
+</body></html>

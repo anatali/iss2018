@@ -1,0 +1,158 @@
+    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="../../css/plainStyle.css">
+<link rel="stylesheet" type="text/css" href="../../css/robotTabStyle.css">   
+<script type="text/javascript" src="../../css/issStyle.js"></script>
+<head>
+
+<title>robotPlanning</title></head>
+    <body>
+    
+<div class="container wrapper"> 
+
+<div id="top">
+<p></p>
+</div> 
+     
+<div class="wrapper">
+  
+<div id="main">
+    <h3 id="h3">Planning the behavior of a robot</h3>
+We want to build a<b>Robot</b>  able to execute <i id="i">Plans</i>.
+A <b>Plan</b> is defined as a sequence of timed robot commands 
+    (<a href="../../../../it.unibo.lab.robotUsage/src/it/unibo/robotUsage/interpreted/IRobotTimedCommand.java">IRobotTimedCommand </a>).   
+    A Plan can emitted by a <b>Mind</b> (in this case the robot is just an executor like <a href="robotAvatar.html">robotAvatar</a>) or can be
+    specified by the robot itself (in this case the robot can be viewed as an 
+    <i id="i">'agent'</i>).
+ <p></p>     
+    During the execution of a Plan, the robot must be able to:
+    
+    <ul>
+    <li>accept (as soon as possible) a special command (e.g. <b>Halt</b>) able to immediately
+        block any movement in the robot.
+    </li>
+    <li>react to <b>(alarm)events</b> emitted by other Minds, by other robots, by sensors embedded in the robot or by esternal devices (e.g. a <a href="../Projects/Radar/radarEntry.html">radar</a>);</li>
+    </ul>
+    
+    The handling of an event can be a simple (atomic) move (e.g. a <tt>stop</tt>) or the execution of some <b>alternative plan</b>. When an alternative (alarm handling) plan is ternminated, the robot could return to (<b>resume</b>) the completion of the plan interrupted by the event.
+
+ <h3 id="h3">A robot as an 'agent' that executes (predefined) plans</h3>    
+A robot can work as an 'agent' that executes 'reactive' plans predefined by a sotwware designer. 
+    Our DSL allows us to specify the robot system as follows (see <a href="../../../../it.unibo.xtext.robot.planned/src/robotPlanned.ddr">robotPlanned.ddr</a> 
+    ):
+     <font color=blue>
+    <pre>
+    RobotSystem robotplanned -java8 -http :               
+ 	Mind mind ip[host="localhost" port=8050 ]    
+                
+	Robot robot1 MOCK ip[host="localhost" port=8070 ] {  
+	        
+	Event 	alarm ;                                             
+	Event   usercmd ;                                         
+	Plan definiteStop        
+		action < endSound time(0) > 
+	Plan halt               
+		stop speed(0) angle(0) time(0)  ;
+		action < sound time(13000) file("jazz1.wav")   >  react event usercmd -> definiteStop ;
+ 		backward speed(80) angle(0) time(10000)  react event usercmd -> definiteStop 
+  	Plan work normal  
+		forward speed(80) angle(0) time(5000)  react event usercmd -> halt or event alarm -> definiteStop;
+		left speed(80) angle(0) time(100)  ;
+		backward speed(80) angle(0) time(100)  react event alarm -> halt
+		//stop  speed(0)    //stop automatically included   
+	}        </pre> 
+    </font>
+    
+    The meaning is: the robot starts by executing the Plan named <tt>work</tt> qualified as <i>normal</i>.
+    The move <tt>forward</tt> of the <tt>work</tt> plan can be 'interrupted' by the event named <b>usercmd</b> that can be raised by the mind via a terminal handler.<br/>
+    The move <tt>backward</tt> of the <tt>work</tt> plan can be 'interrupted' by the event named <b>alarm</b> that can be raised by an object of the generated  class <a href="../../../../it.unibo.xtext.robot.planned/src-gen/it/unibo/robot/ctx/EventSimulator.java"> <tt>EventSimulator</tt> </a>.
+    In both cases, when the specified event occurs, the <tt>work</tt> plan is suspended and the control is given to the     specified recovery plan, named <tt>halt</tt> (that simply stops the robot).
+    </p><p>
+ 
+Our software factory generates 
+<a href="../../../../it.unibo.xtext.robot.planned/src-gen/it/unibo/robot/ctx/CtxRobot1.java"><tt>CtxRobot1</tt></a> 
+that builds a system including
+        <ol>
+  <li><a href="../../../../it.unibo.lab.robotActor/src/it/unibo/robotActor/sensors/SensorStreamSetter.java"><tt>SensorStreamSetter</tt></a>: 
+a <i>SituatedActiveObject</i> that, when activated,  waits for messages on a given  
+<a href="../../../../it.unibo.lab.robotActor/src/it/unibo/robotActor/usb/USBTetherClientStreamer.java">  
+<tt>USBTetherClientStreamer</tt> </a>.
+Once connected via <tt>USB</tt> tethering, this object creates a 
+<a href="../../../../it.unibo.lab.robotActor/src/it/unibo/robotActor/usb/USBTetherStream.java"><tt>USBTetherStream</tt></a> to 'convert' the sequence of recived messages into a <tt>rx.Observable<String></tt> sensor stream of class <a href="../../../../it.unibo.qevstream/src/it/unibo/rx/sensor/sources/SensSrcBufReaderGeneric.java">  <tt>SensSrcBufReaderGeneric<String, String></tt></a>
+</li>
+       </ol>
+
+ 
+<h3 id="h3">A plan interpreter</h3>   
+
+<a href="../../../../it.unibo.xtext.robot.planned/src-gen/it/unibo/robot/ctx/CtxRobot1.java">  
+<tt>CtxRobot1</tt> </a> executes a (Javascript, generated)   
+ <a href="../../../../it.unibo.xtext.robot.planned/srcMore/robotInterpreter.js"> <tt>intepreter</tt></a>  
+ that includes the translation in  Javascript code of the user-defined plans:
+
+   <font color=blue>
+    <pre>
+ var halt = [
+"(Stop,0,0, '', 0)"
+];
+var prog = [
+"(Forward,80,60000, usercmd->halt, 0)",
+"(Backward,80,1600, alarm->halt, 0)",
+"(Stop,0,0, '', 0)"
+];
+</pre></font>
+The file that includes plans and intepretation rules is generated in the directory <a href="../../../../it.unibo.xtext.robot.planned/srcmore">srcMore</a> that must be copied onto the robot RasperryPi (see hereunder).
+    
+    
+<h3 id="h3">Running the planned robot</h3>    
+    From the Java project based on the <a href="../../../../it.unibo.xtext.robot.planned/src/robotPlanned.ddr"><tt>ddr</tt></a>  specification, the application designer must
+    <ol>
+    <li>Generate a runnable jar (e.g. <tt>CtxRobotPlanned.jar</tt>)  and copy it into the robot RasperryPi.
+        We suggest to copy the file and the associated library directory into a proper working directory (e.g. <tt>robotConfig</tt>) </li>
+    <li>Copy in the working the generated file <a href="../../../../it.unibo.xtext.robot.planned/hardwareConfiguration.properties">hardwareConfiguration.properties</a> </li>
+    <li>Copy in the working the generated file <a href="../../../../it.unibo.xtext.robot.planned/robotplanned.pl">robotplanned.pl</a> </li>
+    <li>Copy in the working the generated file <a href="../../../../it.unibo.xtext.robot.planned/sysRules.pl">sysRules.pl</a> </li>
+    <li>Copy in the working the generated directory <a href="../../../../it.unibo.xtext.robot.planned/srcmore">srcMore</a> </li>
+    <li>Copy in the working the generated directory <a href="../../../../it.unibo.xtext.robot.planned/configuration">configuration</a> </li>
+    </ol>
+
+<h3 id="h3">Tuning the plans</h3>      
+    To help the application designer in tuning the robot plans, the generated system waits (at the end of the planned job) for a user console command. In the meantime, the application designer can modify the Javascript code related to the plans e then restart the system.
+    
+    
+    </li>
+    </ul>
+    
+    
+    
+    
+<!--
+ <center>
+     <img src="../../Projects/Robots/robotPlannedDiagram.jpg" alt="show" width="613" height="504"/>
+</center>   
+-->    
+ 
+ 
+     
+    
+    
+
+</p>
+    
+<center>
+     
+</center> 
+</div>
+    
+
+
+    
+
+<div id="bottom">
+By AN  Unibo-DISI    
+</div>
+    
+</div>
+</div>    
+ 
+</body></html>

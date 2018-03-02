@@ -1,0 +1,63 @@
+    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="../../css/plainStyle.css">
+<link rel="stylesheet" type="text/css" href="../../css/robotTabStyle.css">   
+<script type="text/javascript" src="../../css/issStyle.js"></script>
+<head>
+
+<title>RadarExp</title></head>
+    <body>
+    
+<div class="container wrapper"> 
+
+<div id="top">
+<p></p>
+</div> 
+
+
+    
+<div class="wrapper">
+    
+ 
+      
+ 
+<div id="main">
+    <h3 id="h3">Radar</h3>
+
+<p>
+Two robots R1 and R2 are exploring a flat space. Each robot is equipped with a radar
+(on it front size) with a <a href="../../Projects/Radar/radarEntry.html" target="lecture">radar</a>. The two robots move along two parallel straight line separated by a (prefixed)
+    distance <tt>LD</tt>. 
+</p><p>    
+    While a robot is moving, its radar explores the space in front of it
+    and build a synthetic sensor value (called here 'data') structured as follows:
+    <pre>
+    data( ROBOTNAME, posRobot(X,Y,Z), posObj( ANGLE, DISTANCE )
+    </pre>
+    
+    When the radar detects an obstacle, the robot sends the current data value to a remote
+    <i>CentralUnit</i>. The CentralUnit compares the data values of the two robots in order
+    to understand if the two robots are detected the same object.
+    In this case, the <i>CentralUnit</i> send a command to each robot (e.g. to take a photo of the object).
+      
+<p></p> 
+ 
+</p>
+    
+<center>
+     
+</center> 
+</div>
+    
+
+
+    
+
+<div id="bottom">
+By AN  Unibo-DISI    
+</div>
+    
+</div>
+</div>    
+ 
+</body></html>

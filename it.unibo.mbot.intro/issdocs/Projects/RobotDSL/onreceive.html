@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="../../css/plainStyle.css">
+<link rel="stylesheet" type="text/css" href="../../css/robotTabStyle.css">   
+<script type="text/javascript" src="../../css/issStyle.js"></script>
+<head>
+
+<title>onreceive</title></head>
+    <body>
+    
+<div class="container wrapper"> 
+<div id="top">
+</div> 
+     
+<div class="wrapper">
+<div id="main">
+<p>
+<h2>On the receive operation</h2>
+The operation that allows a software entity to receive a message (<tt>receiveMsg</tt> form now on) should provide a set of features:
+<ol>
+<li>the <tt>receiveMsg</tt> should block the caller until some message is received or
+    if a time-out expires;</li>    
+<li>despite the blocking nature of the <tt>receiveMsg</tt>, the receiver entity should be able
+    to <i>react to events</i>, such as alarms;</li>
+<li>the  handler of the event that "interrupts" a <tt>receiveMsg</tt> could completely change the behavioral state
+    of the entity (by aborting the receive operation) or could simply manage the event and then continue with the 
+    message-waiting state;</li>    
+<li>if the entioty is modelled as an <a href="../../Frameworks/FramwCustomActor.html">actor</a>, the <tt>receiveMsg</tt> should be able to capture a message sent to the actor <i id="i">before</i> the time at which it is called by the entity. This because all the messages sent to an actor are stired by the run-time support in a queue local to the actor; the <tt>receiveMsg</tt> should simply "consume" a message from te queue or wait if the queue is empty; </li>
+    <li> the <tt>receiveMsg</tt> should be able to specify its interest in some <i id="i">specific message</i>, e.g. a message sent by a specific sender or qualified by a spefic message type (a reqyest, an answer, etc.) or with a specific id or content;</li>
+    <li>if the <tt>receiveMsg</tt> is executed under some condition, it should <i id="i">terminate</i> as soon as such a condition becomes false (during its waiting time). In other word, a <tt>receiveMsg</tt> associated with a <i id="i">permament guard</i> should implicitly react (by aborting) to some "<i>guardbroken</i>" event since the meaning of the guard is not an <tt>if</tt> but a <tt>while</tt>. The guarded <tt>receiveMsg</tt> must work as it were followed by a <tt>react when guardbroken</tt> clause; </li>
+</ol>    
+
+    The last feature of the <tt>receiveMsg</tt> leads to a more gneral rule:<br>
+    
+    <i>any timed-action prefixed by a permament guard should be 'interruptable' by events, including
+    a guard-specific event that represents the fact that that guard condition has been broken</i>
+    
+
+<h3>Example</h3>
+<a href="../../../../it.unibo.xtext.robot.planned/src/ex18(Msg).ddr">ex18(Msg).ddr</a>    
+</p>
+</div>
+
+<div id="bottom">
+By AN  Unibo-DISI    
+</div>
+</div>
+</div>    
+</body>
+</html>

@@ -1,0 +1,78 @@
+    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="../../css/plainStyle.css">
+<link rel="stylesheet" type="text/css" href="../../css/robotTabStyle.css">   
+<script type="text/javascript" src="../../css/issStyle.js"></script>
+<head>
+
+<title>exOverview</title></head>
+    <body>
+    
+<div class="container wrapper"> 
+
+<div id="top">
+<p></p>
+</div> 
+     
+<div class="wrapper">
+  
+<div id="main">  
+<p>
+We report here the basic steps that we have followed to overcome the abstraction gap
+detected after the analysis phase of a robot-movement problem like that reported in 
+<a href="../../Projects/Robots/concreteProblems.html">concreteProblems</a>    :
+<ol>
+<li>Project <b>it.unibo.qactor</b>: <br/>
+  Run time support for  <a href="../../Frameworks/BasicActorSupport.html">QActor</a>   including reactive long actions (see
+<a href="../../../../it.unibo.qactor/src/it/unibo/qactors/example/basic/QActorHello.java" target="code">QActorHello.java</a>);    
+</li>
+<li>
+Project <b>it.unibo.xtext.qactor</b>: <br/>   
+  Specification of a <a href="../../Projects/QActorDSL/qaDSLEntry.html" target="lecture">custom language</a>(metamodel) to express    
+     <a href="../../Frameworks/BasicActorSupport.html">QActor</a> concepts;
+</li>
+<li>
+Project <b>it.unibo.xtext.qactor</b>: <br/> 
+ Definition of a 
+<a href="../../../../it.unibo.xtext.qactor/src/it/unibo/xtext/generator/QactorGenerator.xtend" target="code">code generator</a>)    
+    that generates the behavior code for a Java machine;
+
+</li>
+<!-- 
+<li>
+Project <b>it.unibo.xtext.qactor</b>: <br/> 
+ Definition of a 
+<a href="../../../../it.unibo.xtext.qactor/src/it/unibo/xtext/generator/QactorGenerator.xtend" target="code">code generator</a>)    
+    that generates the behavior code (see 
+<a href="../../../../it.unibo.qactor/plans.txt" target="code">plans.txt</a>
+    and 
+<a href="../../../../it.unibo.qactor/src/it/unibo/qactors/example/planned/Qahello.java" target="code">Qahello.java</a>
+    ) for a <b>custom interpreter</b> (see 
+<a href="../../../../it.unibo.qactor/src/it/unibo/qactors/planned/QActorPlanned.java" target="code">QActorPlanned.java</a>);    
+     
+</li>
+ -->
+<li>
+Project <b>it.unibo.xtext.qactor.robot</b>: <br/> 
+ Definition of a  
+<a href="../../../../it.unibo.qactor.robot/src/it/unibo/qactor/robot/RobotActor.java" target="code">RobotActor.java</a> as
+    a <tt>QActor</tt> actor that executes also robot movement actions
+</li>
+</ol>  
+</p>
+    
+ 
+</div>
+    
+
+
+    
+
+<div id="bottom">
+By AN  Unibo-DISI    
+</div>
+    
+</div>
+</div>    
+ 
+</body></html>

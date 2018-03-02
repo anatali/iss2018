@@ -1,0 +1,75 @@
+    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="../../css/plainStyle.css">
+<link rel="stylesheet" type="text/css" href="../../css/robotTabStyle.css">   
+<script type="text/javascript" src="../../css/issStyle.js"></script>
+<head>
+
+<title>exOverview</title></head>
+    <body>
+    
+<div class="container wrapper"> 
+
+<div id="top">
+<p></p>
+</div> 
+     
+<div class="wrapper">
+  
+<div id="main">
+<p>
+We report here the basic steps that we have followed to overcome the abstraction gap
+detected after the analysis phase of a number of distributed proactive/reactive
+    systems :
+<ol>
+<li>Project <b>it.unibo.qactor</b>: <br/>
+  Run time support for  <a href="../../Frameworks/BasicActorSupport.html" target="lecture">QActor</a>   including reactive long actions (see
+<a href="../../../../it.unibo.qactor.test/src/it/unibo/qactor/test/hello/QActorHello.java" target="code">QActorHello.java</a>);    
+</li>
+<li> 
+Project <b>it.unibo.xtext.qactor</b>:
+<ol>   <li>
+  Specification of a <a href="../../../../it.unibo.xtext.qactor/src/it/unibo/xtext/Qactor.xtext" target="code">custom language</a>(metamodel) to express    
+     <a href="../../Frameworks/BasicActorSupport.html" target="lecture">QActor</a> concepts
+(see <a href="../../../../it.unibo.qactor.test/src/it/unibo/qactor/test/hello/QActorHello.java" target="code">QActorHello</a> and
+    <a href="../../../../it.unibo.qactor.test/src/it/unibo/qactor/test/hello/CtxOfHello.java" target="code">CtxOfHello</a>)  ;
+</li>
+<li>
+ 
+ Definition of a 
+<a href="../../../../it.unibo.xtext.qactor/src/it/unibo/xtext/generator/QactorGenerator.xtend" target="code">code generator</a>
+    (see also <a href="../../../../it.unibo.xtext.qactor/src/it/unibo/xtext/QactorRuntimeModule.java" target="code">QactorRuntimeModule</a>)    
+    that generates the behavior code for a Java machine;
+
+</li>
+<li> 
+ 
+ Definition of a 
+<a href="../../../../it.unibo.xtext.qactor/src/it/unibo/xtext/qactor/generator/GenQActorPlans.xtend" target="code">code generator</a>)    
+    that generates the behavior code (see 
+<a href="../../../../it.unibo.qactor/plans.txt" target="code">plans.txt</a>
+    and 
+<a href="../../../../it.unibo.qactor.test/src/it/unibo/qactor/test/planned/QActorPlanTest.java" target="code">QActorPlanTest.java</a>
+    ) for a <b>custom interpreter</b> (see 
+<a href="../../../../it.unibo.qactor/src/it/unibo/qactors/planned/QActorPlanned.java" target="code">QActorPlanned.java</a>);    
+</ol>      
+</li>
+
+    </ol>  
+</p>
+<img src="../../../../it.unibo.xtext.qactor/img/qaAll.jpg" alt="qasAll" width="772" height="702"/>        
+ 
+</div>
+    
+
+
+    
+
+<div id="bottom">
+By AN  Unibo-DISI    
+</div>
+    
+</div>
+</div>    
+ 
+</body></html>

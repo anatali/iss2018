@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="../../css/issStyle1.css">
+<link rel="stylesheet" type="text/css" href="../../css/robotTabStyle.css">
+<script type="text/javascript" src="../../css/issStyle.js"></script>
+    
+<head>
+
+<title>robotProjects</title></head>
+<body onload="loadInMain('concreteProblems.html')">
+    
+<div class="container wrapper"> 
+
+<div id="top">
+<h1>DD ROBOTS Projects (ISS-DISI-Unibo)</h1>
+<p></p>
+</div> 
+
+
+    
+<div class="wrapper"> 
+    
+<div id="menubar">
+    <img src="../../Robots/RobotModel.jpg" alt="Devices" width="130" height="101"/>
+<ul id="menulist">
+ <li class="menuitem" onclick="loadInMain('concreteProblems.html')">Problems</li>
+ <li class="menuitem" onclick="loadInMain('../../Robots/robotModels.html')">RobotModels</li>
+ <li class="menuitem" 
+     onclick="loadInMain('../../Robots/sensorModels.html')">sensorModels</li>   
+   
+    <u5>Interfaces</u5>
+<li class="menuitem" onclick="loadWithMsg('<b>IBaseRobot</b>',
+ '../../../../it.unibo.lab.baseRobot/src/it/unibo/iot/executors/baseRobot/IBaseRobot.java')">IBaseRobot</li> 
+<li class="menuitem" onclick="loadWithMsg('<b>ICommand</b>',
+ '../../../../it.unibo.lab.baseRobot/src/it/unibo/iot/models/commands/ICommand.java')">ICommand</li> 
+<li class="menuitem" onclick="loadWithMsg('<b>IBaseRobotCommand</b>',
+ '../../../../it.unibo.lab.baseRobot/src/it/unibo/iot/models/commands/baseRobot/IBaseRobotCommand.java')">IBaseRobotCommand</li>  
+<li class="menuitem" onclick="loadWithMsg('<b>IBaseRobotSpeed</b>',
+ '../../../../it.unibo.lab.baseRobot/src/it/unibo/iot/models/commands/baseRobot/IBaseRobotSpeed.java')">IBaseRobotSpeed</li> 
+<li class="menuitem" onclick="loadWithMsg('<b>IBaseRobotAngle</b>',
+ '../../../../it.unibo.lab.baseRobot/src/it/unibo/iot/models/commands/baseRobot/IBaseRobotAngle.java')">IBaseRobotAngle</li>
+<u5>----------------------------------------</u5>
+<li class="menuitem" onclick="loadWithMsg('<b>IBaseRobotCommand</b>',
+ '../../../../it.unibo.lab.robotUsage/src/it/unibo/robotUsage/interpreted/IRobotTimedCommand.java')">
+    IRobotTimedCommand</li>  
+<li class="menuitem" onclick="loadWithMsg('<b>IRobotActor</b>',
+ '../../../../it.unibo.lab.robotUsage/src/it/unibo/robotUsage/interpreted/IRobotActor.java')">IRobotActor</li> 
+ 
+    <u5>-----------------------------------------</u5>
+
+    <u5>Resources</u5>
+<li class="menuitem" onclick="loadInMain('robotBaseRobot.html')">BaseRobot</li> 
+    <li class="menuitem" onclick="loadInMain('robotActor.html')">RobotActor</li> 
+<li class="menuitem" onclick="loadWithMsg('<b>RobotSysKb</b>',
+ '../../../../it.unibo.lab.robotUsage/src/it/unibo/robotUsage/intro/RobotSysKb.java')">RobotSysKb</li> 
+<li class="menuitem" onclick="loadWithMsg('<b>CmdUilInterpreter</b>',
+ '../../../../it.unibo.lab.robotUsage/src/it/unibo/robotUsage/intro/CmdUilInterpreter.java')">CmdUilInterpreter</li> 
+
+ 
+    </ul>
+</div>
+    
+<div id="menutop">
+<center>
+<button onclick="window.location.href='../../Material/entry.html'">Home</button>
+    <button onclick="window.location.href='../../Robots/robotEntry.html'">Robots</button>
+<button onclick="window.location.href='../../Hardware/boards.html'">Boards</button>
+<button onclick="window.location.href='../../Devices/devs.html'">Devices</button>
+    <button onclick="window.location.href='../../Iot/iot.html'">IOT</button>
+    <button onclick="window.location.href='../../Appls/applsEntry.html'">LAB</button>
+</center>
+</div> 
+    
+ 
+<div id="main">
+<p>
+    <img src="../../Robots/BaseRobotModel.jpg" alt="BaseRobotModel" width="832" height="401"/>
+</p> 
+</div>
+    
+<div id="sidebar">
+    <u5>The (meta) Problem</u5>
+<li class="menuitem" onclick="loadInMain('metaProblem.html')">(Meta)Requirements</li>
+<li class="menuitem" onclick="loadInMain('usageFirstProblem.html')">First problem</li>
+
+<u5>Robot DSL</u5>
+<li class="menuitem" onclick="loadWithMsg('<b>DSL</b>',
+ '../../../../it.unibo.xtext.qactor.robot/src/it/unibo/xtext/qactor/Robot.xtext')">The DSL</li> 
+<li class="menuitem" onclick="loadWithMsg('<b>DSL diagram</b>',
+ 'robotDSL.jpg')">The DSL diagram</li> 
+<u5>Robot examples</u5>
+    
+    TODO <br/>
+    <!--
+<li class="menuitem" onclick="loadInMain('robotAvatar.html')">robotAvatar</li>
+<li class="menuitem" onclick="loadInMain('robotPlanning.html')">robotPlanned</li>
+--> 
+<u5>Notes</u5>
+<li class="menuitem" onclick="loadInMain('onTheRobotDSL.html')">onTheRobotDSL</li>
+ 
+      
+</div>
+
+    
+
+<div id="bottom">
+By AN - SG Unibo-DISI    
+</div>
+    
+</div>
+</div>    
+ 
+</body></html>

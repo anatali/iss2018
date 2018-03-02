@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>   
+<link rel="stylesheet" type="text/css" href="../css/plainStyle.css">
+<script type="text/javascript" src="../css/issStyle.js"></script>
+<head>
+
+<title>RobotCommandlanguage</title></head>
+<body>
+ 
+<div id="main">
+<h3 id="h3">The robot software factory</h3>
+<p>
+<ol>
+<li>The meta-model: <a href="../../../it.unibo.xtext.robot/src/it/unibo/xtext/Robot.xtext">Robot.xtext</a>.</li>
+<li><i id="i">Model validation</i> rules: 
+    <a href="../../../it.unibo.xtext.robot/src/it/unibo/xtext/validation/RobotValidator.xtend">RobotValidator.xtend</a>.</li>
+    
+    
+    <li>Guice <i id="i">injection binding rules</i>: 
+    <a href="../../../it.unibo.xtext.robot/src/it/unibo/xtext/RobotRuntimeModule.java">RobotRuntimeModule.java</a>.</li>
+    <li>Knowldege on the system: <a href="../../../it.unibo.xtext.robot/src/it/unibo/xtext/mygenerator/common/SysKb.java">SysKb.java</a> </li>
+<li>Utilty to work with <tt>SysKb</tt> : <a href="../../../it.unibo.xtext.robot/src/it/unibo/xtext/mygenerator/common/GenKb.xtend">GenKb.xtend</a> </li>
+<li>A class for utilty operations: <a href="../../../it.unibo.xtext.robot/src/it/unibo/xtext/mygenerator/common/GenUtils.xtend">GenUtils.xtend</a> </li>
+ 
+
+<div style="background-color:Gainsboro ; color:black; margin:20px; padding:20px;">
+<small>
+<b>Goal</b>: build around a <a href="../Robots/robotEntry.html" target="code"><tt>BaseRobot</tt></a> a layer that allows the remote control of the robot<br/>
+<li>Interface of the custom generator naive <a href="../../../it.unibo.xtext.robot/src/it/unibo/xtext/mygenerator/common/IGenRobotNaive.java">IGenRobotNaive.java</a></li>
+<li>Interface of the generator of the mind <a href="../../../it.unibo.xtext.robot/src/it/unibo/xtext/mygenerator/common/IGenRobotInstance.java">IGenRobotInstance.java</a></li>
+<li>Interface of the generator of the robot <a href="../../../it.unibo.xtext.robot/src/it/unibo/xtext/mygenerator/common/IGenRobotMind.java">IGenRobotMind.java</a></li>
+<li>Entry point class for the custom generator naive: <a href="../../../it.unibo.xtext.robot/src/it/unibo/xtext/mygenerator/naive/GenRobotNaive.xtend">GenRobotNaive.xtend</a> </li>
+<li>Custom generator naive for the mind: <a href="../../../it.unibo.xtext.robot/src/it/unibo/xtext/mygenerator/naive/GenRobotNaiveMind.xtend">GenRobotNaiveMind.xtend</a> </li>
+<li>Custom generator naive for the robot: <a href="../../../it.unibo.xtext.robot/src/it/unibo/xtext/mygenerator/naive/GenRobotNaiveRobot.xtend">GenRobotNaiveRobot.xtend</a> </li>
+    </small>
+</div>
+</ol>
+<b>Goal</b>: to allow a <a href="../Robots/robotEntry.html" target="code"><tt>BaseRobot</tt></a>
+to execute either external commands or a built-in sequence of moves (<b>Plan</b>).
+
+<ol>    
+    <h3>Mapping components into (QActor) contexts</h3>
+    <li>Interface of the generator for <tt>RobotSystem</tt>: <a href="../../../it.unibo.xtext.robot/src/it/unibo/xtext/mygenerator/common/IGenRobotCtx.java">IGenRobotCtx.java</a></li>
+ <li>Custom generator for <tt>RobotSystem</tt> : <a href="../../../it.unibo.xtext.robot/src/it/unibo/xtext/mygenerator/ctx/GenRobotCtx.xtend">GenRobotCtx.xtend</a> </li>
+   
+   <li>Interface of the generator for <tt>Mind</tt>: <a href="../../../it.unibo.xtext.robot/src/it/unibo/xtext/mygenerator/common/IGenRobotMind.java">IGenRobotMind.java</a></li>
+ <li>Custom generator for <tt>Mind</tt>: <a href="../../../it.unibo.xtext.robot/src/it/unibo/xtext/mygenerator/ctx/GenRobotCtxMind.xtend">GenRobotCtxMind.xtend</a> </li>
+
+<li>Interface of the generator for <tt>Robot</tt>: <a href="../../../it.unibo.xtext.robot/src/it/unibo/xtext/mygenerator/common/IGenRobotRobot.java">IGenRobotRobot.java</a></li>
+<li>Custom generator for <tt>Robot</tt>: <a href="../../../it.unibo.xtext.robot/src/it/unibo/xtext/mygenerator/ctx/GenRobotCtxRobot.xtend">GenRobotCtxRobot.xtend</a> 
+    
+<li>Interface of the generator for <tt>Robot Plans</tt>: <a href="../../../it.unibo.xtext.robot/src/it/unibo/xtext/mygenerator/common/IGenRobotPlans.java">IGenRobotPlans.java</a></li>
+<li>Custom generator for <tt>Robot Plans</tt>: <a href="../../../it.unibo.xtext.robot/src/it/unibo/xtext/mygenerator/ctx/GenRobotCtxPlans.xtend">GenRobotCtxRobotPlans.xtend</a> 
+    
+    
+</li>
+
+
+</ol>   
+<h3>Running the system</h3>     
+  <li>Notes for the application designer: <a href="../../../it.unibo.xtext.robot/src/it/unibo/xtext/mygenerator/ctx/ReadMeGenCtx.html">ReadMeGenCtx.html</a> </li>
+
+</p><p>
+<!--
+    Xtext relies heavily on the Eclipse Modelling Framework (EMF), but it can also be used as the serialization back-end of other EMF-based tools. EMF is a Java framework and code generation facility for building tools and other applications based on a structured model, while Ecore is the Eclipse version of Essential MOF (EMOF).
+</p><p>
+Xtext provides a full implementation of a DSL running on the JVM. However, the compiler components of the language are independent of Eclipse or OSGi and can be used in any Java environment. They include such things as the parser, the type-safe abstract syntax tree (AST), the serializer and code formatter, the scoping framework and the linking, compiler checks and static analysis aka validation and last but not least a code generator or interpreter. These runtime components integrate with and are based on the EMF, which eectively allows to use the framework together with other EMF frameworks like for instance the Graphical Modeling Project (GMF).
+-->
+</p>
+ 
+
+</div>
+    
+
+<div id="bottom">
+By AN  Unibo-DISI    
+</div>
+    
+     
+ 
+</body></html>

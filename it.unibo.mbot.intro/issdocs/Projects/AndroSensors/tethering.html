@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="../../css/plainStyle.css">
+<link rel="stylesheet" type="text/css" href="../../css/robotTabStyle.css">   
+<script type="text/javascript" src="../../css/issStyle.js"></script>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>androSensors</title></head><body>
+    
+<div class="container wrapper"> 
+	
+<div id="top">
+</div> 
+
+
+    
+<div class="wrapper">
+ 
+<div id="main">
+
+
+ <h3 id="h3">Tethering</h3>
+<p>
+    Tethering means <i id="i">sharing</i> the Internet connection of an Internet-capable mobile phone with other devices. 
+    This sharing can be offered over a wireless LAN (Wi-Fi), or over Bluetooth, or by physical connection 
+    using a cable (Tethering).
+           </p><p> 
+Il tethering è una funzionalità  introdotta in Android 2.2 e presente in qualsiasi dispositivo 
+Android abbia una connessione 3G. Si tratta della possibilità  di condividere questa connessione 
+con altri dispositivi (smartphone, tablet o PC che siano). Il telefono in questo caso si propone 
+come <i id="i">gateway</i> fra la rete esterna e il dispositivo che si connetterà. In pratica questo dispositivo 
+non sarà  connesso direttamente alla rete del nostro operatore, ma ad una rete creata ad hoc dal nostro terminale.
+       </p><p> 
+Il tethering può essere <tt>Wi-Fi</tt>, <tt>Bluetooth</tt> o <tt>USB</tt>. 
+       </p><p> 
+Nel <tt>tethering  Wi-Fi</tt> lo smartphone fungerà  da Access Point 
+e creerà  a sua volta una rete Wi-Fi a cui dovremo connettere il nostro altro dispositivo. Il vantaggio è
+ la semplicità  di configurazione, il funzionamento universale e il fatto che si possano connettere più dispositivi
+in contemporanea. Lo svantaggio maggiore però è l'<i id="i">alto consumo energetico</i> a cui verrà sottoposto lo smartphone. 
+Se possibile è quindi consigliato tenere in carica lo smartphone durante il tethering Wi-Fi. 
+E' possibile (e consigliato) creare una protezione con password per accedere alla rete realizzata dallo smartphone.
+       </p><p> 
+    Il <tt>tethering Bluetooth</tt> opera in modo simile, ma tramite, appunto, il bluetooth. 
+    Rispetto al Wi-Fi il sistema è tuttaltro che infallibile e sopratutto richiede una prima configurazione. 
+    Il raggio di azione del bluetooth è poi inferiore rispetto al Wi-Fi.
+   </p><p> 
+Il <tt>tethering USB</tt>, prevede invece l'utilizzo del cavo USB-microUSB del proprio smartphone per condividere 
+la propria connessione, soltanto però con computer e notebook/netbook. Il sistema è abbastanza intuitivo, 
+ma richiede una configurazione aggiuntiva per gli utenti Windows XP.
+    Il telefono, con il Tethering USB, funziona come un <i>modem cablato</i> e la batteria non si scarica, 
+    perchè sarà  alimentata dalla porta USB del computer.
+    Dopo averla abilitata  si vedrà  una <b>nuova scheda di rete in Windows</b> che può essere utilizzata 
+    per collegarsi a internet.
+La connessione tethering USB e descritta come un "Remote NDIS based internet sharing".
+    
+      </p><p>  
+    Tutti questi metodi di condivisione dati sono disponibili dal menù 
+    <tt>Impostazioni>Wireless e reti/Altro>Tethering/Hotspot portatile</tt>. 
+    In base alla marca del vostro telefono potrebbe essere sotto menù differenti.
+     </p><p>   
+    E' importante chiarire che per alcuni operatori e con alcune offerte il tethering ha un costo 
+    aggiuntivo e separato. L'assurdità  di questa scelta ha però fatto si che al giorno d'oggi quasi
+     tutte le offerte includano il tethering. Per scegliere quale APN (punto di accesso) verrà  
+     usato durante il tethering è importante controllare nel menù 
+     <tt>Impostazioni>Wireless e reti/Altro>Reti mobili>Nomi punti di accesso</tt>. 
+          </p><p>    
+    Un'ultima considerazione importante sul tethering è quella degli operatori all'estero. 
+    Perchè se anche in Italia vi potrebbe non essere addebitato nessun costo, all'estero questo potrebbe 
+    accadere in quanto previsto dal vostro piano.
+    
+  <h3 id="h3">Tethering on Raspberry</h3>   
+  <pre>
+  sudo dhclient usb0
+  </pre>
+    
+   </p><p>       
+<a href="https://en.wikipedia.org/wiki/Yun_OS">Yun_OS</a>    
+    </p>
+
+ </div>
+    
+
+
+<div id="bottom">
+By AN - SG Unibo-DISI    
+</div>
+    
+</div>
+</div>    
+ 
+</body></html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="../css/plainStyle.css">
+<link rel="stylesheet" type="text/css" href="../css/robotTabStyle.css">   
+<head>
+
+<title>DS18B201</title></head><body>
+<script type="text/javascript" src="../css/issStyle.js"></script>
+    
+<div class="container wrapper"> 
+
+<div id="top">
+<h3 id="h3">DS18B20 Temperature</h3>
+<p></p>
+</div> 
+
+
+    
+<div class="wrapper">
+
+ 
+<div id="main">
+<p> 
+Il sensore di temperatura <tt>DS18B20</tt> è l'ultimo sensore di temperatura 1-Wire della Maxim IC. 
+Questo sensore ha la capacità di rilevare temperature con precisione da 9-bit a 12-bit in un range di temperature 
+fra un minimo di -55°C ed un massimo di +125°C con un'approssimazione di +/-0.5°C.
+</p><p>
+La particolarità di questi sensori di temperatura è rappresentata dal fatto che ciascun sensore ha numero 
+seriale unico di 64-bit che lo identifica memorizzato all'interno di una ROM presente al loro interno. 
+Questa caratteristica permette di poter utilizzare un vasto numero di sensori su di un unico bus di dati; 
+caratteristica di fondamentale importanza nella maggior parte di progetti di data-logging e di progetti 
+basati sul controllo della temperatura.
+</p><p>
+Il protocollo utilizzato da questi sensori è lo Unique 1-Wire®; questa interfaccia richiede l'utilizzo
+ di un unico pin per la comunicazione. Inoltre, per poter funzionare nelle applicazioni tipiche questi s
+ ensori di temperatura non necessitano di alcun altro componente esterno. Possono essere alimentati direttamente 
+ dalla linea dati ed il range di alimentazione supportato è da 3.0V a 5.5V.
+</p><p>
+Questi sensori sono dotati di comandi di ricerca di allarmi che identificano ed indirizzano i sensori 
+che misurano temperature al di fuori di limiti programmati (Temperature Alarm Condition).
+
+<pre>
+sudo modprobe w1_gpio
+sudo modprobe w1_therm
+cat /sys/bus/w1/devices/28.../w1_slave | grep t= | cut -c 30-31
+</pre>
+</p>
+<center>
+    <img src="../imgs/devices/DS18B201.png" alt="DS18B201" width="255" height="255"/>
+    <img src="../imgs/devices/ds1820connect.png" alt="ds1820connect" width="255" height="198"/>
+</center> 
+
+</div>
+    
+
+
+    
+
+<div id="bottom">
+By AN - SG Unibo-DISI    
+</div>
+    
+</div>
+</div>    
+ 
+</body></html>

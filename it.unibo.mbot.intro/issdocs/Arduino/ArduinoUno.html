@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="../css/plainStyle.css">  
+<head>
+
+<title>ArduinoUno</title></head><body>
+<script type="text/javascript" src="../css/issStyle.js"></script>
+    
+<div class="container wrapper"> 
+
+<div id="top">
+<h3 id="h3">ArduinoUno</h3>
+<p></p>
+</div> 
+<div class="wrapper">
+<div id="main">
+<p>  
+<ul>
+    <li>Along the top, there are <tt>14</tt> digital Input/Output pins (numbered <tt>0-13</tt>).</li>
+    <li><tt>6</tt> of those digital pins, which are marked by the tilde sign ~ are capable of doing what it is called <a href="IO/pwmIntro.html">Pulse Width Modulation</a>.</li>
+    <li>Pin <tt>13</tt> is special in that it has a built-in LED. This is for convenience and testing purposes only really. You can use that on-board LED  by simply outputting to pin <tt>13</tt> - or it can be used as a standard I/O pin.</li>
+    <li>On the bottom right are <tt>6</tt> analog input pins. These will read the value of analog sensors such a light-meter or variable resistors.</li>
+    <li>On the bottom left next to the analog input pins are power pins. The only ones you really need to worry about are the ground pins (GND), <tt>3.3v</tt>, and <tt>5v</tt> power lines.</li>
+    <li>Finally, the only switch found on the Arduino is a reset switch. This will restart whatever program it has in its memory.</li>
+    <li>The Arduino has a set amount of memory, and if your program goes too large, the compiler will give you an error.</li>
+</ul>
+
+</p>
+    
+<center>
+    <img src="../imgs/hw/ArduinoUnoPinout.jpg" alt="ArduinoUnoPinout" width="700" height="500"/>
+</center> 
+   
+<h4>rxtxSerial</h4>
+    There are two files: <tt>rxtxComm.jar</tt> and <tt>rxtxSerial.dll</tt>, which should be installed as follows:
+<pre>
+C:\Program Files\Java\jre6\bin\rxtxSerial.dll
+C:\Program Files\Java\jre6\lib\ext\RXTXComm.jar
+</pre>
+    Many 64-bit Windows machines have both 32-bit and 64-bit browsers and 32-bit and 64-bit Java. On such machines, the 64-bit libraries should be installed as shown above. The correct path for the 32-bit RXTX libraries is as follows:
+<pre>
+C:\Program Files(x86)\Java\jre6\bin\rxtxSerial.dll
+C:\Program Files(x86)\Java\jre6\lib\ext\RXTXComm.jar
+</pre>
+<p>    
+    My Java application uses a <tt>dll</tt> library. How can I get it work from the .jar file?
+The <tt>dll</tt> is in the project's sources folder. I have to include it in my jar, extract it at runtime (in the same directory of the jar) and load it.
+</p>    
+See also <a href="http://www.e-shore.com.my/homepage/installation-guide/arduino/108-arduino-ide-slow-respond-error-rxtxserialdll-fix.html">Arduino IDE Slow Response Error rxtxSerial.dll Fix</a>
+
+</div>    
+
+<div id="bottom">
+By AN - SG Unibo-DISI    
+</div>
+    
+</div>
+</div>    
+ 
+</body></html>

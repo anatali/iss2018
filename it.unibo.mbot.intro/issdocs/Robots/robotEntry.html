@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="../css/issStyle1.css">
+<link rel="stylesheet" type="text/css" href="../css/robotTabStyle.css">
+<script type="text/javascript" src="../css/issStyle.js"></script>
+    
+<head> 
+
+<title>Custom devices</title></head>
+<body onload="loadInMain('../Robots/introCustomDevices.html')">
+    
+<div class="container wrapper"> 
+
+<div id="top">
+<h1>DD ROBOTS (ISS-DISI-Unibo)</h1>
+</div> 
+
+
+     
+<div class="wrapper">
+    
+<div id="menubar">
+    <img src="../imgs/robots.jpg" alt="Devices" width="148" height="108"/>
+<ul id="menulist">
+<li class="menuitem" onclick="loadInMain('../Robots/introCustomDevices.html')">CustomRobots</li>
+<li class="menuitem" onclick="loadInMain('../Robots/robotModels.html')">RobotModels</li>
+<li class="menuitem" onclick="loadInMain('../Robots/sensorModels.html')">SensorsModels</li>
+    <li class="menuitem" onclick="loadInMain('PositionsModel.jpg')">PositionsModel</li>
+    
+    <u5>Interfaces</u5>
+<li class="menuitem" onclick="loadWithMsg('<b>IBaseRobot</b>',
+ '../../../it.unibo.lab.baseRobot/src/it/unibo/iot/executors/baseRobot/IBaseRobot.java')">IBaseRobot</li> 
+<li class="menuitem" onclick="loadWithMsg('<b>ICommand</b>',
+ '../../../it.unibo.lab.baseRobot/src/it/unibo/iot/models/commands/ICommand.java')">ICommand</li> 
+<li class="menuitem" onclick="loadWithMsg('<b>IBaseRobotCommand</b>',
+ '../../..//it.unibo.lab.baseRobot/src/it/unibo/iot/models/commands/baseRobot/IBaseRobotCommand.java')">IBaseRobotCommand</li>  
+<li class="menuitem" onclick="loadWithMsg('<b>IBaseRobotSpeed</b>',
+ '../../../it.unibo.lab.baseRobot/src/it/unibo/iot/models/commands/baseRobot/IBaseRobotSpeed.java')">IBaseRobotSpeed</li> 
+<li class="menuitem" onclick="loadWithMsg('<b>IBaseRobotAngle</b>',
+ '../../../it.unibo.lab.baseRobot/src/it/unibo/iot/models/commands/baseRobot/IBaseRobotAngle.java')">IBaseRobotAngle</li>
+
+<u5>BaseRobot</u5>    
+<li class="menuitem" onclick="loadWithMsg('<b>ICommand</b>',
+ '../../../it.unibo.lab.baseRobot/src/it/unibo/iot/executors/baseRobot/BaseRobot.java')">BaseRobot</li> 
+<li class="menuitem" onclick="loadWithMsg('<b>ICommand</b>',
+ '../../../it.unibo.lab.baseRobot/src/it/unibo/iot/executors/Executor.java')">Executor</li> 
+
+    <li class="menuitem" onclick="loadWithMsg('<b>BaseRobotCommand</b>',
+ '../../../it.unibo.lab.baseRobot/src/it/unibo/iot/models/commands/baseRobot/BaseRobotCommand.java')">BaseRobotCommand</li> 
+<u5>BaseRobot usage</u5>
+    <li class="menuitem" onclick="loadWithMsg('<b>CtxRobotNaive</b>',
+ '../../../it.unibo.lab.robotUsage/src/it/unibo/robotUsage/naive/CtxRobotNaive.java')">CtxRobotNaive</li> 
+    <li class="menuitem" onclick="loadWithMsg('<b>RobotUsageNaive</b>',
+ '../../../it.unibo.lab.robotUsage/src/it/unibo/robotUsage/naive/RobotUsageNaive.java')">RobotUsageNaive</li> 
+    <li class="menuitem" onclick="loadWithMsg('<b>LineSensorObserver</b>',
+ '../../../it.unibo.lab.robotUsage/src/it/unibo/robotUsage/naive/DistanceSensorObserver.java')">DistanceSensorObserver</li> 
+    <li class="menuitem" onclick="loadWithMsg('<b>SensorObserver</b>',
+ '../../../it.unibo.lab.robotUsage/src/it/unibo/robotUsage/naive/SensorObserver.java')">SensorObserver</li> 
+ <u5>=====================</u5>
+    <u5>Robot Projects</u5>
+<li class="menuitem" onclick="window.location.href='../Projects/Robots/robotProjectsEntry.html'">robotProjects</li>
+ 
+    </ul>
+</div>
+    
+<div id="menutop">
+<center>
+<button onclick="window.location.href='../Material/entry.html'">Home</button>
+<button onclick="window.location.href='../Projects/Robots/robotProjectsEntry.html'">RobotProjects</button>
+<button onclick="window.location.href='../Projects/RobotDSL/robotDSLEntry.html'">RobotDSL</button>
+<button onclick="window.location.href='../Hardware/boards.html'">Boards</button>
+<button onclick="window.location.href='../Devices/devs.html'">Devices</button>
+    <button onclick="window.location.href='../Iot/iot.html'">IOT</button>
+    <button onclick="window.location.href='../Appls/applsEntry.html'">LAB</button>
+</center>
+</div>  
+     
+ 
+<div id="main">
+<p>
+    <img src="RobotModel.jpg" alt="RobotModel" width="644" height="507"/>
+</p> 
+</div>
+    
+<div id="sidebar">
+<h3>The devices</h3>
+ 
+<button onclick="window.location.href='../Projects/Radar/radarEntry.html'">Radar</button> <br/>
+<button class="menuitem" onclick="loadInMain('../Robots/fanDevice.html')">FanDevice</button>   
+<h3>The Robots</h3>
+<button class="menuitem" onclick="loadInMain('../Robots/bbb.html')">BBB</button>     <br/>
+<button class="menuitem" onclick="loadInMain('../Robots/compass.html')">Compass</button>   <br/>  
+<button class="menuitem" onclick="loadInMain('../Robots/goto.html')">GOTO</button> <br/>  
+<button class="menuitem" onclick="loadInMain('../Robots/initio.html')">Initio</button><br/>
+<button class="menuitem" onclick="loadInMain('../Robots/nat.html')">Nat</button><br/>
+<button class="menuitem" onclick="loadInMain('../Robots/orb.html')">ORB</button> <br/>    
+
+     <h3>Makers</h3>
+   <li><a href="http://www.repubblica.it/tecnologia/2012/03/08/news/inventori_futuro-31153935/" target="code">Makers, gli artigiani che progettano il futuro (La Repubblica)</a></li>
+    <li><a href="http://it.wikipedia.org/wiki/Maker" target="code">Maker (wikipedia)</a></li>
+<!--   <li><a href="http://makerspace.itis-cesena.it/joomla/" target="code">Maker Cesena</a></li>  -->  
+    
+</div>
+
+    
+
+<div id="bottom">
+By AN - SG Unibo-DISI    
+</div>
+    
+</div>
+</div>    
+ 
+</body></html>

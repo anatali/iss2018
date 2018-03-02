@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="../../css/plainStyle.css">
+<link rel="stylesheet" type="text/css" href="../../css/robotTabStyle.css">   
+<script type="text/javascript" src="../../css/issStyle.js"></script>
+<head>
+
+<title>radarOverview</title></head><body>
+    
+<div class="container wrapper"> 
+	
+<div id="top">
+
+</div> 
+
+
+     
+<div class="wrapper">
+ 
+<div id="main">
+<p>
+    <h3 id="h3">Radar Project: Overview</h3>
+This case study will be developed with reference to a <a href="../../NatMolBook/content/book/modelDriven/mdsd.html" target="lecture">MDSD</a> approach staring from the idea of <a href="../../NatMolBook/content/book/uml/layerUml.html" target="lecture">metamodel in UML2</a>.     
+    </p><p>
+Before the <a href="../../Survey/SCRUM/SCRUM.html" target="lecture">SCRUM</a> SPRINT planning meeting,
+we will define models (and related test-plans) for the entities involved in the project (i.e. Radar, Sonar, Stepper Motor, Distance, Position, etc) in order to use non-ambiguos terms in the Product Backlog list.
+     </p><p>   
+Moreover, we will define a (first) logic architecture of the system as result of <a href="../../NatMolBook/Analisi.html" target="lecture">requirement and problem analysys</a>.   
+      </p><p>   
+     During <a href="../../NatMolBook/content/book/modelBased/fasi/analisiProblema.html" target="lecture">problem analysis</a>, we will recognize the opportunity/necessity to
+    'extend' the traditional object oriented paradigm with the idea of active objects interacting via <b>message-passing</b>. 
+      </p><p>   
+Since some message-passing model seems to become a reference point in <a href="../../Distributed/OnDistributedSystems.pdf" target="lecture">distributed system</a>  applications, we will develop an <a href="../../Frameworks/FramwCustomActor.html" target="lecture">infrastructure</a> inspired by the Actor model and by Akka.
+    
+    <h3 id="h3">The infrastructura </h3>   
+    
+The design and development of a message-passing infrastructure is a sub-project in the project that required in its turn problem analysys and proper modelling. Besides the ideas of <a href="../../Projects/QACtorDSL/qaConcepts.html#Context" target="lecture">QActor</a>, <a href="../../Projects/QACtorDSL/qaConcepts.html#Message" target="lecture">Message</a> and of <a href="../../Projects/QACtorDSL/qaConcepts.html#MessageMove" target="lecture">Operations to send-receive messages</a>, we will introduce in this phase the idea of 
+    <a href="../../Projects/QACtorDSL/qaConcepts.html#Context" target="lecture">context</a>  and the idea of (declarative)
+    <a href="../../Frameworks/FramwCustomActor.html" target="lecture">context description</a>
+ as a means to descibe the organization of  (the static part of) a distributed system.
+
+    <h3 id="h3">The custom language </h3>   
+    
+ The final step will be the definition (using the  <a href="../../Xtext/XtextEntry.html" target="lecture">Xtext</a>
+     technology) of a custom 
+    <a href="../../../../it.unibo.xtext.qactor/src/it/unibo/xtext/Qactor.xtext" target="lecture">language</a>/
+    <a href="../../Projects/QACtorDSL/qaConcepts.html#QASystem" target="lecture">metamodel</a>
+ so to achieve the following goals:
+    <ul>
+    <li>to formally express the concepts supported by the <a href="../../Frameworks/FramwCustomActor.html" target="lecture">QActor infrastructure</a> </li>
+    <li>to exploit the <a href="../../Frameworks/FramwCustomActor.html" target="lecture">QActor infrastructure</a> as the run-time support (<a href="../../Readings/Xtext/UMLHarelRumpe.pdf" target="lecture">Semantics</a>) of our custom lanaguge </li>
+    <li>ro allow an application designer to focus his/her attention on the application logic rather than on the need to build infrastructural supports.
+    </li>
+    </ul>
+</p>
+
+<div id="bottom">
+By AN  Unibo-DISI    
+</div>
+    
+</div>
+</div>    
+ 
+</body></html>

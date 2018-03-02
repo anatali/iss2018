@@ -1,0 +1,250 @@
+    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="../../css/plainStyle.css">
+<link rel="stylesheet" type="text/css" href="../../css/robotTabStyle.css">   
+<script type="text/javascript" src="../../css/issStyle.js"></script>
+<head>
+
+<title>ddrConcepts</title>
+</head>
+    <body>
+    
+<div class="container wrapper"> 
+
+<div id="top">
+<p></p>
+</div> 
+     
+<div class="wrapper">
+  
+<div id="main">
+    <p>
+<!--
+-------------------------------------------------
+ACTION
+-------------------------------------------------
+--> 
+<h3><a name="Action"></a>Action</h3>
+ An <b>Action</b> is the implementation of an <i>algorithm</i> defined by the user. In other words, an <b>Action</b> is a 'program' tht must terminate after some (prefixed) amount of time. 
+At the end of its execution it emits an (uniquely indentified) <a href="ddrConcepts.html#Event">event</a>.<br/>
+<br/>    
+<img src="../../../../it.unibo.xtext.highRobot.spec/img/action.jpg" alt="action" width="548" height="358"/>    
+ <br/>        
+An action qualified as <b>undoable</b> can be interrupted and resumed, otheriwise it cannot be resumed. An as <b>undoable</b> interuupted action does not emit the termination event, while a <b>not undoable</b> interuupted action continues to emit the termination event.<br/>
+
+        <img src="../../../../it.unibo.xtext.highRobot.spec/img/actionEvents.jpg" alt="actionEvents" width="404" height="142"/>    <br/>
+Usually an action emits a <i>built-in termination event</i>, but, when it is called in <i id="i">asynchronous mode</i>, it will emit a <b>user-defined</b> termination event.<br/><br/>
+<i id="i">Syntax (action defintion)</i>
+    <pre id="code">
+    <tt>Action</tt> longAction <tt>maxtime(</tt>10000<tt>) ;</tt>   //<a href="../../../../it.unibo.xtext.robot.planned/src/ex07(ActionSynch).ddr">ex07(ActionSynch).ddr</a> <a href="../../../../it.unibo.xtext.robot.planned/src/ex09(ActionAsynch).ddr">ex09(ActionAsynch).ddr</a>
+    <tt>Action</tt> longAction <tt>undobale</tt> <tt>maxtime(</tt>10000<tt>);</tt> //<a href="../../../../it.unibo.xtext.robot.planned/src/ex08(ex07Resume).ddr">ex08(ex07Resume).ddr</a>
+    </pre>
+ <i id="i">Syntax (action execution)</i>
+    <pre id="code">
+   <tt>execAction</tt> longAction<tt>(</tt>"some long job"<tt>)</tt> <tt>react event</tt> evFromActor <tt>-></tt> terminate  <tt>;</tt>//<a href="../../../../it.unibo.xtext.robot.planned/src/ex07(ActionSynch).ddr">ex07(ActionSynch).ddr</a>
+   <tt>execAction</tt> longAction<tt>(</tt>"long job"<tt>)</tt> <tt>answerEv</tt> endLongAction1 <tt>handledBy</tt> evH  <tt>;</tt>//<a href="../../../../it.unibo.xtext.robot.planned/src/ex09(ActionAsynch).ddr">ex09(ActionAsynch).ddr</a>
+   <tt>execAction</tt> longAction<tt>(</tt>"1"<tt>)</tt> <tt>react when</tt> evCmd <tt>;</tt> //<a href="../../../../it.unibo.xtext.robot.planned/src/ex13(Continue).ddr">ex13(Continue).ddrr</a>
+    </pre>
+    
+<!--
+-------------------------------------------------
+BASE ROBOT
+-------------------------------------------------
+--> 
+<h3><a name="Avatar"></a>Avatar</h3>
+An <b>Avatar</b> is the name given to any robot that does not execute any built-in plan
+    but that simply executes commands sent by some external <b>mind</b> (an user). 
+
+<h3><a name="BaseRobot"></a>BaseRobot</h3>
+    A <b>BaseRobot</b> is an entity composed of executors and observable sensors: see
+<a href="../../Projects/Robots/robotBaseRobot.html">BaseRobot</a>. 
+<img src="../../../../it.unibo.xtext.highRobot.spec/img/baseRobot.jpg" alt="baseRobot" width="616" height="283"/>
+    
+<h3><a name="BasicRobotMove"></a>BasicRobotMove</h3>
+    A <a href="ddrConcepts.html#Move">Move</a> (part of a <a href="ddrConcepts.html#PlanAction">PlanAction</a>) that is executed by a <a href="#BaseRobot">BaseRobot</a> .<br/>
+<img src="../../../../it.unibo.xtext.highRobot.spec/img/basicRobotMove.jpg" alt="BasicRobotMove" width="583" height="263"/>    
+<br/>
+<i id="i">Syntax</i>
+    <pre id="code">
+     <tt>forward</tt> <tt>speed(</tt>80<tt>)</tt> <tt>angle(</tt>0<tt>)</tt> <tt>time(</tt>1000<tt>)</tt> ; //<a href="../../../../it.unibo.xtext.robot.planned/src/ex15(Rover).ddr">ex15(Rover).ddr</a>
+    </pre>      
+
+<!--
+-------------------------------------------------
+EVENT
+-------------------------------------------------
+-->
+<h3><a name="Event"></a>Event</h3>
+An <a href="../../Frameworks/BasicEventSupport.html"><b>Event</b></a> is information emitted by some source without any explicit destination,
+    assuming that it can be perceived by any interested entity 
+    (<a href="../../Frameworks/BasicEventSupport.html"><tt>EventHandler</tt> or <tt>Task</tt></a> )
+    defined within one of the subsystens (<a href="../../Frameworks/BasicActorSupport.html"><tt>Contexts</tt></a>) composing the application software system.
+<br/>
+    The <b>Occurence</b> is the (optional) specification of the event source and constraints over the values emitted by the source.
+<img src="../../../../it.unibo.xtext.highRobot.spec/img/event.jpg" alt="move" width="535" height="249"/>    
+
+<br/>
+    <i id="i">Syntax</i>
+    <pre id="code">
+    <tt>Event</tt> userCmd <tt>;</tt>//<a href="../../../../it.unibo.xtext.robot.planned/src/ex03(EvHandler).ddr">ex03(EvHandler).ddr</a>  
+    <tt>Event</tt> targetFar <tt>when</tt> distFrontMock <tt>val >=</tt> 13 and <tt>val <=</tt>45;//<a href="../../../../it.unibo.xtext.robot.planned/src/ex16(Sensors).ddr">ex16(Sensors).ddr</a>  
+    </pre>
+
+<!--
+-------------------------------------------------
+GUARD
+-------------------------------------------------
+-->
+<h3><a name="Guard"></a>Guard</h3>
+A <b>Guard</b> enables the execution of an action. It can assume the following forms:
+<ul>
+<li><tt>Atomic guard</tt>: expressed as a Prolog atom</li>
+<li><tt>Predicate guard</tt>: expressed as a Prolog term (that denotes a condition) prefixed by <tt>??</tt> or by <tt>!?</tt>.</li>
+<li><tt>Wait guard</tt>: expressed as a Prolog atom (that denotes an event) prefixed by <tt>!!</tt>.</li>
+</ul>
+A <b>non-wait guard</b> is evaluated with referemce to the <a href="#WorldTheory">World Theory</a>, i.e. the atom or the predicate is cosidered as a goal to be proved in the <i>World Theory</i>. A proved guard is <i id="i">removed</i> form the <i>World Theory</i> when the guard is prefixed by <tt>??</tt>. It is <b>not removed</b> if the guard is prefixed by <tt>!?</tt>.
+The variables included in a Predicate guard can be bound during the guard evalutation and used to specify arguments in the action controlled by the guard.
+<br/><br/>   
+A <b>wait-guard</b> blocks the execution of the action (and threfore of the Plan in which it is included) until the denoted event occurs.
+
+<img src="../../../../it.unibo.xtext.highRobot.spec/img/guard.jpg" alt="move" width="600" height="373"/> <br/>
+
+    <i id="i">Syntax</i>
+    <pre id="code">
+    <tt>[</tt>goon<tt>]</tt> <tt>execAction</tt> nopAction<tt>(</tt>"2"<tt>);</tt> //<a href="../../../../it.unibo.xtext.robot.planned/src/ex10(GuardAtom).ddr">ex10(GuardAtom).ddr</a>  
+    <tt>[ !?</tt>shortSound<tt>(</tt> Time <tt>,</tt> File<tt>))]</tt> <tt>execAction</tt> <tt>sound</tt> <tt>time(</tt>Time<tt>)</tt> <tt>file(</tt>File<tt>));</tt> //<a href="../../../../it.unibo.xtext.robot.planned/src/ex11(GuardPredicate).ddr">ex11(GuardPredicate).ddr</a>  
+    <tt>[ ??</tt>g<tt>( </tt>b , X<tt>)</tt> <tt>]</tt> <tt>execAction</tt> naiveAction<tt>(</tt> X <tt>);</tt>//<a href="../../../../it.unibo.xtext.robot.planned/src/ex11(GuardPredicate).ddr">ex11(GuardPredicate).ddr</a>  
+    <tt>[ !!</tt>evCmd <tt>and</tt> <tt>?</tt>shortSound<tt>(</tt> Time <tt>,</tt> File<tt>))]</tt> <tt>sound</tt> <tt>time(</tt>Time<tt>)</tt> <tt>file(</tt>File<tt>); </tt> //<a href="../../../../it.unibo.xtext.robot.planned/src/ex12(GuardEvent).ddr">ex12(GuardEvent).ddr</a>  
+    </pre>
+    
+    
+<h3><a name="GuardMove"></a>GuardMove</h3>   
+A <b>GuardMove</b> is a move that add or removes a rule in the <a href="#WorldTheory">WorldTheory</a>. 
+
+<img src="../../../../it.unibo.xtext.highRobot.spec/img/guardMove.jpg" alt="GuardMove" width="350" height="167"/>
+
+   
+<!--
+-------------------------------------------------
+(MESSAGE)MOVE
+-------------------------------------------------
+-->   
+ 
+<h3><a name="MessageMove"></a>MessageMove</h3>
+A <b>MessageMove</b> is a move that sends or receives a message. 
+
+    <img src="../../../../it.unibo.xtext.highRobot.spec/img/messageMove.jpg" alt="messageMove" width="680" height="220"/>
+
+See <a href="onreceive.html">RECEIVE</a> (in progress)
+<h3><a name="Move"></a>Move</h3>
+A <b>Move</b> is an activity embedded in a robot. Like an <a href="ddrConcepts.html#Action">action</a>, a <b>Move</b> always terminates by emitting an uniquely indentified <a href="ddrConcepts.html#Event">event</a>.
+
+    <img src="../../../../it.unibo.xtext.highRobot.spec/img/move.jpg" alt="move" width="612" height="130"/>
+
+ 
+
+<!--
+-------------------------------------------------
+PLAN
+-------------------------------------------------
+-->
+<h3><a name="Plan"></a>Plan</h3>
+A <b>Plan</b> is the declarative specifiction of a FSM expressed as a sequence of <a href="ddrConcepts.html#PlanAction">PlanAction</a>.<br/>   
+    
+<img src="../../../../it.unibo.xtext.highRobot.spec/img/plan.jpg" alt="plan" width="607" height="388"/>
+<br/>
+The following picture is an informal overview of the logical organization of (the bahavior of) a plan-based sofwtare system:<br/>
+<img src="../../../../it.unibo.xtext.highRobot.spec/img/planFSM.jpg" alt="planFSM" width="572" height="383"/>
+
+
+<h3><a name="PlanAction"></a>Plan Action</h3>
+A <b>Plan Action</b> is an activity (<a href="ddrConcepts.html#Move">Move</a>) that a robot con perform if a optional <a href="ddrConcepts.html#Guard">Guard</a> is true. The plan action can go on for all the time required by the <a href="ddrConcepts.html#Move">Move</a> to terminate or optionally react to some <a href="ddrConcepts.html#Event">event</a> during this time.<br/>
+    
+<img src="../../../../it.unibo.xtext.highRobot.spec/img/planAction.jpg" alt="planAction" width="410" height="173"/>
+<br/>
+The following picture is an informal overview of the logical organization of (the bahavior of) a plan action (a step of a plan):<br/>
+
+<img src="../../../../it.unibo.xtext.highRobot.spec/img/planActionFSM.jpg" alt="planActionFSM" width="586" height="262"/>
+
+<h3><a name="PlanExecution"></a>Plan Execution</h3>
+A <b>Plan</b> is a <i>finite state machine</i> (<tt>FSM</tt>) whose behavior is <i>event-based</i> and <i>event-related</i>. It is <i id="i">event-based</i> since the state transitions are triggered by <a href="#PlanAction">plan action</a> termination <a href="#event">events</a>. It is <i id="i">event-related</i> since the <a href="#PlanAction">plan actions</a> executed by the plan can be interrupted by <a href="#event">events</a>. More precisely:
+<ul>
+<li>A <b>Plan</b> executes a sequence of <a href="#PlanAction">plan actions</a> that can be <a href="#Action">user-defined action</a> or <a href="#BasicRobotMove">built-in</a>.</li>        
+<li>The transition form an action to the next one is triggered by a <i id="i">action-termination</i> <a href="#Event">event</a>. Such an event can be emitted by a <i>timer</i> (when the action is associated with prefixed execution time, e.g. a <a href="#BasicRobotMove">BasicRobotMove</a>) or by the action itself (e.g. a <a href="#Action">application action</a>).</li> 
+<li>The execution of a <a href="#PlanAction">plan action</a> can be <i id="i">controlled</i> by a <a href="#Guard">guard</a>.</li>
+<li>The execution of a <a href="#PlanAction">plan action</a> can be <i id="i">interrupted</i> by an <a href="#event">event</a>. In this case:
+    <ul>
+    <li>The current plan is interrupted and the control is given to the alternative plan specifed by the <a href="#Reaction">reaction</a> </li>
+    <li></li>
+    <li></li>
+    <li></li>
+    </ul>
+</li>        
+<li></li> 
+<li></li> 
+</ul>
+        
+<h3><a name="PlanMove"></a>Plan Move</h3>
+A <b>Plan Move</b> can resume a (interrupted) plan or repeat a plan.<br/>
+<img src="../../../../it.unibo.xtext.highRobot.spec/img/planMove.jpg" alt="planMove" width="510" height="198"/>
+<br/>
+    <i id="i">Syntax</i>
+    <pre id="code">
+    <tt>resumePlan </tt> //<a href="../../../../it.unibo.xtext.robot.planned/src/ex07(ActionSynch).ddr">ex07(ActionSynch).ddr</a> 
+    
+    <tt>repeatPlan </tt>//<a href="../../../../it.unibo.xtext.robot.planned/src/ex16(Sensors).ddr">ex16(Sensors).ddr</a>  
+    </pre>
+
+<h3><a name="Reaction"></a>Reaction</h3>
+ A <b>Reaction</b> is (the specification of) the effect of an event emitted during the execution of a <a href="#PlanAction">plan action</a>.
+<img src="../../../../it.unibo.xtext.highRobot.spec/img/reaction.jpg" alt="reaction" width="575" height="254"/>
+<br/>
+<i id="i">Syntax</i>
+    <pre id="code">
+   <tt>execAction</tt> longAction<tt>(</tt>"some long job"<tt>)</tt> <tt>react event</tt> evFromActor <tt>-></tt> terminate  <tt>;</tt>//<a href="../../../../it.unibo.xtext.robot.planned/src/ex07(ActionSynch).ddr">ex07(ActionSynch).ddr</a>
+   <tt>execAction</tt> longAction<tt>(</tt>"1"<tt>)</tt> <tt>react when</tt> evCmd <tt>;</tt> //<a href="../../../../it.unibo.xtext.robot.planned/src/ex13(Continue).ddr">ex13(Continue).ddrr</a>
+    </pre>
+
+
+ 
+<!--
+-------------------------------------------------
+ROBOT SYSTEM
+-------------------------------------------------
+-->
+<h3><a name="RobotSystem"></a>RobotSystem</h3>
+ A <b>RoboySystem</b> is a (software) system composed of a robot and <tt>n>=0</tt> <a href="../../Frameworks/BasicActorSupport.html"><tt>Contexts</tt></a> that can exchange information via messages or <a href="ddrConcepts.html#Event">events</a>.  <br/>    
+ <img src="../../../../it.unibo.xtext.highRobot.spec/img/robotSystem.jpg" alt="robotSystem" width="600" height="242"/>
+
+
+    
+<!--
+-------------------------------------------------
+WORLD THEORY
+-------------------------------------------------
+-->
+<h3><a name="WorldTheory"></a>World theory</h3> 
+The <b>World theory</b> is a Prolog theory whose facts and rules give a symbolic representation of the environment (<i>world</i>) in which a robot is working.<br/>
+This theory is used to store the rules that can be used to define  <a href="#Guard">Guards</a>.<br/>
+ <!--
+ <i id="i">Example</i>
+    <a href="../../../../it.unibo.xtext.robot.planned/WorldTheory.pl">WorldTheory.pl</a>
+ -->
+
+</p>
+</div>
+ 
+
+<!--
+http://www.uml-diagrams.org/state-machine-diagrams.html
+-->
+    
+
+<div id="bottom">
+By AN  Unibo-DISI    
+</div>
+    
+</div>
+</div>    
+ 
+</body></html>

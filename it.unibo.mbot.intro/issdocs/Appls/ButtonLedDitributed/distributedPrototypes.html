@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="../../css/plainStyle.css"> 
+<script type="text/javascript" src="../../css/issStyle.js"></script>
+<head>
+
+<title>BCLS Distributed Prototypes</title></head><body>
+    
+<div class="container wrapper"> 
+
+<div id="top">
+<h1>ButtonLed Distributed Prototypes</h1>
+</div> 
+  
+
+     
+<div class="wrapper">
+ 
+<div id="main">
+<p>
+   
+<h3 id="h3">The initial oo prototype</h3>
+ <img src="./blcsOopBase.jpg" alt="blcsOopBase" width="248" height="88"/>          
+ </p><p> 
+    The intial oo prototype allows us to distribute the system by
+    simply changing som device implementation (proxy pattern).
+ 
+ <h3 id="h3">The framework for rapid prototyping</h3>   
+ <img src="./LogicAndInterfaces.jpg" alt="blcsOopBase" width="590" height="120"/>      
+    
+<h3 id="h3">Evolving from the initial oo project</h3>
+     
+ <img src="./blcsDistEvolvingBase.jpg" alt="blcsDistEvolvingBase" width="222" height="245"/>  
+</p><p> 
+     This architecture works but seems rather redundant and 'innatural'.
+     
+<!--   
+    See (project <i>it.unibo.buttonLedSystem.arduino</i>
+   <li>
+<a href="../../../../it.unibo.buttonLedSystem.arduino/arduino/blsMain/blsMain.ino" target="lecture">blsMain.ino</a>         </li>
+    
+     <table id="ctab">
+  <tr>
+     <th>BUTTON</th>
+    <th>LED</th>     
+   </tr>
+ 
+  <tr class="alt">
+ <td>
+   <li>
+<a href="../../../../it.unibo.buttonLedSystem.arduino/src/it/unibo/bls/buttonOnArduino/BLSButtonOnArduinoMain.java" target="lecture">BLSButtonOnArduinoMain </a>         </li>
+    <li>
+<a href="../../../../it.unibo.buttonLedSystem.arduino/src/it/unibo/bls/buttonOnArduino/DeviceButtonArduino.java" target="lecture">DeviceButtonArduino </a>         </li>
+      </td>
+      <td>
+    <li>
+<a href="../../../../it.unibo.buttonLedSystem.arduino/src/it/unibo/bls/ledOnArduino/BLSLedOnArduinoMain.java" target="lecture">BLSLedOnArduinoMain </a>        </li>
+     <li>
+<a href="../../../../it.unibo.buttonLedSystem.arduino/src/it/unibo/bls/ledOnArduino/DeviceLedArduinoProxy.java" target="lecture">DeviceLedArduinoProxy </a>        </li>      
+      </td>
+</tr>
+</table>    
+ 
+    See (project <i>it.unibo.buttonLedSystem.proxy</i>
+    
+     <table id="ctab">
+  <tr>
+     <th>BUTTON</th>
+    <th>LED</th>     
+   </tr>
+ 
+  <tr class="alt">
+ <td>
+ 
+<li><a href="../../../../it.unibo.buttonLedSystem.proxy/src/it/unibo/buttonLedSystem/proxy/example/BLSRemoteButton.java" target="lecture">BLSRemoteButton </a>         </li>
+<li><a href="../../../../it.unibo.buttonLedSystem.proxy/src/it/unibo/buttonLedSystem/proxy/DeviceButtonProxy.java" target="lecture">DeviceButtonProxy </a>         </li>
+<li><a href="../../../../it.unibo.buttonLedSystem.proxy/src/it/unibo/buttonLedSystem/proxy/DeviceButtonServer.java" target="lecture">DeviceButtonProxy </a>         </li>     
+      </td>
+      <td>
+<li><a href="../../../../it.unibo.buttonLedSystem.proxy/src/it/unibo/buttonLedSystem/proxy/example/BLSRemoteLed.java" target="lecture">BLSRemoteLed </a>        </li>
+<li><a href="../../../../it.unibo.buttonLedSystem.proxy/src/it/unibo/buttonLedSystem/proxy/DeviceLedPassiveProxy.java" target="lecture">DeviceLedPassiveProxy </a>        </li>
+<li><a href="../../../../it.unibo.buttonLedSystem.proxy/src/it/unibo/buttonLedSystem/proxy/DeviceLedActiveProxy.java" target="lecture">BLSRemoteLed </a>        </li>
+<li><a href="../../../../it.unibo.buttonLedSystem.proxy/src/it/unibo/buttonLedSystem/proxy/DeviceLedServer.java" target="lecture">BLSRemoteLed </a>        </li>
+      </td>
+</tr>
+</table>    
+ -->    
+    
+ 
+<h1>Beyond object-oriented</h1>    
+    <h3 id="h3">From procedure-call to message-passing</h3> 
+An alternatuve way could be that of 'cutting' some procedure call and to introduce 
+    message passing:
+ </p><p>    
+  <img src="./blcsDistrSplit1.jpg" alt="blcsDistrSplit1" width="215" height="94"/>  
+</p><p> 
+ <img src="./blcsDistrSplit2.jpg" alt="blcsDistrSplit2" width="215" height="94"/>  
+ </p><p>
+    Conceptually, the control is related to the button.
+     
+</p><p> 
+   
+    
+<h3 id="h3">Starting from active objects (actors)</h3>  
+The basic components of a distributed systems are better expressed as
+    <i id="i">active objects</i> (<tt>actors</tt>).
+ </p><p>    
+  <img src="./blcsDistrActor1.jpg" alt="blcsDistrActor1" width="396" height="110"/>          
+</p><p>    
+    The conventional objects (of the <i id="i">domain model</i>) now come into existence
+    and work 'within' the actors. 
+<br/>     
+    For example, the project <a href="../../../../it.unibo.buttonLedSystem.akka/" target="code"><img src="../../Material/source.gif">it.unibo.buttonLedSystem.akka</a> redefines the system components as follows:
+    <ul>
+    <li><a href="../../../../it.unibo.buttonLedSystem.akka/src/it/unibo/buttonLedSystem/akka/components/LedAkka.java" target="code"><img src="../../Material/source.gif">LedAkka</a></li>
+    <li><a href="../../../../it.unibo.buttonLedSystem.akka/src/it/unibo/buttonLedSystem/akka/components/ButtonAkka.java" target="code"><img src="../../Material/source.gif">ButtonAkka</a></li>
+    <li><a href="../../../../it.unibo.buttonLedSystem.akka/src/it/unibo/buttonLedSystem/akka/components/BlsAkkaControl.java" target="code"><img src="../../Material/source.gif">BlsAkkaControl</a></li>
+    </ul>
+and provides tha following main programs: <a href="../../../../it.unibo.buttonLedSystem.akka/src/it/unibo/buttonLedSystem/akka/BLSAkkaMain.java" target="code"><img src="../../Material/source.gif">BLSAkkaMain</a>, <a href="../../../../it.unibo.buttonLedSystem.akka/src/it/unibo/buttonLedSystem/akka/BLSAkkaRaspMain.java" target="code"><img src="../../Material/source.gif">BLSAkkaRaspMain</a>
+
+    
+<h3 id="h3">System specification in a custom lanaguage (metamodel)</h3>    
+<img src="./blcsDistrActorQa1.jpg" alt="blcsDistrActorQa1" width="396" height="110"/>     
+    
+</p><p> 
+
+    See the project <a href="../../../../it.unibo.buttonLedSystem.basic.qa/" target="code"><img src="../../Material/source.gif">it.unibo.buttonLedSystem.basic.qa</a> e la specifica di un modello della analisi:
+<li>
+<a href="../../../../it.unibo.buttonLedSystem.basic.qa/src/blsAnalysis.qa" target="lecture">blsAnalysis.qa</a> </li>
+    <li>
+
+ 
+<h3 id="h3">Pyhiscal</h3> 
+ </p><p>    
+  <img src="./blcsDistrPhysical.jpg" alt="blcsDistrPhysical" width="486" height="186"/> 
+ 
+ 
+<h1><a name="deliv1"></a>Deliverable</h1>  
+<h2>Requirements: STEP1 0</h2> 
+Realizzare il BCLS con un button-GUI su pc e un led su Raspberry o su Arduino
+<h2>Requirements: STEP1 1  </h2> 
+L'utente dispone (attraverso un PC convenzionale o altro device di una CONSOLE
+di comando con un pulsante START. Alla pressione del pulsante START il sistema
+deve effettuare per un tempo predeterminato TLIMIT il BLINK di un LED connesso a un RasperryPi
+o ad Arduino.
+<h2>Requirements: STEP1 2</h2>
+Si richiede di  realizarne una nuova versione del sistema
+in cui la CONSOLE presenti un ulteriore pulsante STOP. 
+La pressione del pulsante STOP  (prima dell'intervallo TLIMIT) da parte dell'utente 
+deve produrre la terminazione del blinking del LED.
+<h3>GOAL</h3>
+L'obiettivo e' effettuare l'analisi del problema alla luce
+dell'ultimo  product disponibile e quindi:
+<li>definere il nuovo product backlog </li>
+<li>stimare (in termini di SPRINT di 1 giorno)
+in tempo necessario per pervenire al 'DONE' della nuova versione del sistema.</li>
+
+<h2>VISION</h2>
+
+<li>1) lo SPRINT Planning e il product backlog e' bene avvengano DOPO
+la definizione della architettura logica del sistema.</li>
+<li>2) la fase di <b>SPRINT Retrospective</b> potrebbe condurre a una revisione radicale
+del processo di produzione. </li>
+Ad esempio
+si potrebbe valutare l'ooportunita' di costruire una
+Software Factory con cui generare in modo automatico il layer software
+di raccordo a una opportuna parte infrastrutturale resa disponibile a priori
+in forma di libreria.
+<!--  
+<h3 id="h3">RESOURCES</h3>
+A buttonGUI that emits events: 
+<li><a href="../../../../it.unibo.buttonLedSystem.distrib.qa/src/it/unibo/button/events/DeviceButtonGuiQajava" target="lecture">DeviceButtonGuiQa </a>  </li>
+</p><p> 
+A button proxy to Arduino that emits an event and sends a message: 
+<li>
+<a href="../../../../it.unibo.buttonLedSystem.distrib.qa/src/it/unibo/button/events/DeviceButtonArduinoQa.java" target="lecture">DeviceButtonArduinoQa </a>  </li>
+</p><p> 
+The sketch over Arduino: 
+<li>
+<a href="../../../../it.unibo.buttonLedSystem.distrib.qa/arduino/blsQaMain/blsQaMain.ino" target="lecture">blsQaMain.ino</a>  </li>
+<li>
+<a href="../../../../it.unibo.buttonLedSystem.distrib.qa/arduino/blsQaMain/blsQa.h" target="lecture">blsQa.h</a>  </li>
+<li>
+<a href="../../../../it.unibo.buttonLedSystem.distrib.qa/arduino/blsQaMain/blsQa.cpp" target="lecture">blsQa.cpp</a>  </li>
+
+
+-->
+    </p>
+    
+    
+</div>
+    
+
+
+    
+
+<div id="bottom">
+By AN-SG Unibo-DISI    
+</div>
+    
+</div>
+</div>    
+ 
+</body></html>

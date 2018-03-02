@@ -1,0 +1,59 @@
+    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="../../css/plainStyle.css">
+<link rel="stylesheet" type="text/css" href="../../css/robotTabStyle.css">   
+<script type="text/javascript" src="../../css/issStyle.js"></script>
+<head>
+
+<title>robotBaseRobot</title></head>
+    <body>
+    
+<div class="container wrapper"> 
+
+<div id="top">
+<p></p>
+</div> 
+     
+<div class="wrapper">
+  
+<div id="main">
+ <h3 id="h3">BaseRobot</h3>    
+    
+ 
+<p>
+The <b>BaseRobot</b> is a <tt>POJO</tt> that can be called to execute moves.    
+ <font color=blue><pre>
+it.unibo.iot.baseRobot.configurator.Configurator configurator = Configurator.getInstance();
+it.unibo.iot.executors.baseRobot.IBaseRobot robot = configurator.getBaseRobot();	
+</pre></font>
+</p><p>    
+It could also provide a set of on-boord observable <tt>POJO</tt> sensors:
+ <font color=blue><pre>
+ it.unibo.iot.sensor.ISensor<?> sensor : configurator.getSensors()
+ if( sensor instanceof DistanceSensor){
+    DistanceSensor sensorLine = (DistanceSensor) sensor;
+    ISensorObserver<IDistanceSensorData> obs = new DistanceSensorObserver(outView);
+    sensorLine.addObserver(  obs  ) ;
+ }</pre></font>
+    
+    
+
+</p>
+    
+<center>
+     <img src="../../Robots/baseRobot.jpg" alt="show" width="622" height="424"/>
+</center> 
+</div>
+    
+
+
+    
+
+<div id="bottom">
+By AN  Unibo-DISI    
+</div>
+    
+</div>
+</div>    
+ 
+</body></html>

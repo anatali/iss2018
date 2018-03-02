@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>   
+<link rel="stylesheet" type="text/css" href="../css/plainStyle.css">
+<script type="text/javascript" src="../css/issStyle.js"></script>
+<head>
+<meta content="text/html; charset=utf-16" http-equiv="Content-Type" />
+<title>Xtext</title></head><body>
+ 
+<div id="main">
+<h3 id="h3">Xtext</h3>
+<p>
+Xtext is a professional Open-Source project used in many different industries. 
+It is used in the field of mobile devices, automotive development, embedded systems or 
+Java enterprise software projects and game development, since its main goal is to provide 
+a framework to implement <i id="i">Domain Specific Languages</i> (<b>DSL</b>). 
+
+<img src="SoftFact2013.jpg" alt="Devices" width="642" height="364"/>
+
+    <h3>Producing the system: workflow</h3>    
+<ol>
+<li>Define the meta-model (example: <a href="../../../it.unibo.xtext.mydsl/src/it/unibo/xtext/MyDsl.xtext">MyDsl.xtext</a>).</li>
+<li>Look at the generation <b>mwe2</b> file that adopts <i id="i">generator fragments</i> to produce in amodular way specic
+parts of the implementation (example: <a href="../../../it.unibo.xtext.mydsl/src/it/unibo/xtext/GenerateMyDsl.mwe2">GenerateMyDsl.mwe2</a>).</li>
+    <li>Run (the system could ask you to load the <b>ANTLR 3</b> parser) the <b>mwe2</b> generator to produce (in the <b>src-gen</b> directory) the <b>Xtext artifacts</b> :Ecore model, editor, parser, serializer, utilty classes for content assist, etc. <br/>
+        Example of genrated artifacts:
+    <ul>
+    <li><a href="../../../it.unibo.xtext.mydsl/model/generated/MyDsl.ecore">MyDsl.ecore</a>: Meta model in Ecore (<tt>XML</tt>).  </li>
+    <li><a href="../../../it.unibo.xtext.mydsl/src/it/unibo/xtext/MyDslStandaloneSetup.java">MyDslStandaloneSetup.java</a>: Utilty to initializes the language infrastructure to run in standalone mode. </li>
+    <li><a href="../../../it.unibo.xtext.mydsl/src/it/unibo/xtext/MyDslRuntimeModule.java">MyDslRuntimeModule.java</a>: Utilty to register components to be used at runtime, without the Equinox extension registry. </li>
+    <li><a href="../../../it.unibo.xtext.mydsl/src/it/unibo/xtext/generator/MyDslGenerator.xtend">MyDslGenerator.xtend</a>: Entry-point fro the user-defined generation. </li> 
+    <li><a href="../../../it.unibo.xtext.mydsl/src/it/unibo/xtext/validation/MyDslValidator.xtend">MyDslValidator.xtend</a>: Utility to statically validate domain specic constraints (<tt>@Check</tt> annotation).</li>
+    <li><a href="../../../it.unibo.xtext.mydsl/src/it/unibo/xtext/scoping/MyDslScopeProvider.xtend">MyDslScopeProvider.xtend</a>: Utility to define custom scoping description.</li>
+         
+    </ul>
+</li>
+
+<h4>Internal methodology </h4>
+    <li>Define a package (<tt>it.unibo.xtext.mygenerator</tt>) to include the custom generator code.</li>
+    <li>Define a (singleton, Java) class <a href="../../../it.unibo.xtext.mydsl/src/it/unibo/xtext/mygenerator/SysKb.java">SysKb.java</a> to store knowledge about the user model.</li>
+    <li>Define a (Xtend) class <a href="../../../it.unibo.xtext.mydsl/src/it/unibo/xtext/mygenerator/GenKb.xtend">GenKb.xtend</a> to define utility operations to work with the <a href="../../../it.unibo.xtext.mydsl/src/it/unibo/xtext/mygenerator/SysKb.java">SysKb</a> in the generation process.</li>
+<li>(Optionally) Define (in Xtend) a class for utilty operations: <a href="../../../it.unibo.xtext.mydsl/src/it/unibo/xtext/mygenerator/GenUtils.xtend">GenUtils.xtend</a> </li>
+    <li>(Optionally)  Define a (Java) class <a href="../../../it.unibo.xtext.mydsl/src/it/unibo/xtext/mygenerator/GenUtilJava.java">GenUtilJava.java</a> to define utility operations to be used in the generation process.</li>
+ <li>Decompose the genration process in a set of components, each related to a proper generator interface for some metamodel entity (for the Guice injection)
+    <ul>
+        <li><a href="../../../it.unibo.xtext.mydsl/src/it/unibo/xtext/mygenerator/IGenMydsl.java">IGenMydsl.java</a></li>
+        <li><a href="../../../it.unibo.xtext.mydsl/src/it/unibo/xtext/mygenerator/IGenElement.java">IGenElement.java</a>
+        </li>
+    </ul>
+    
+    </li>
+    <li>Define (in Xtend) the entry point class for the custom generator: <a href="../../../it.unibo.xtext.mydsl/src/it/unibo/xtext/mygenerator/MydslMyGen.xtend">MydslMyGen.xtend</a> </li>
+<li><b>Inject</b> (see Guice injection) the cutom generator into the  user-generator entry point:  <a href="../../../it.unibo.xtext.mydsl/src/it/unibo/xtext/generator/MyDslGenerator.xtend">MyDslGenerator.xtend</a> and define the <tt>doGenerate</tt> method so to execute the custom-generation process.</li>
+<li>Define (in Xtend) the custom generator components: <a href="../../../it.unibo.xtext.mydsl/src/it/unibo/xtext/mygenerator/ElementGenerator.xtend">ElementGenerator.xtend</a>
+</li>
+ 
+</ol>   
+<h3>Running the system</h3>     
+<ol>
+    <li>Excute the editor ( <tt>it.unibo.mydsl.ui plugin</tt>) including the arguments 
+        <pre>-Xmx512m -Xmx384m -XX:MaxPermSize=128m</pre>
+    </li>
+<li>Create a conventional Java project.</li>
+<li>Write a sentence of the custom language, by creating a new file in the <tt>src</tt> directory with <tt>mydsl</tt> suffix.</li>
+<li>Promote the (generated) directory <tt>src-gen</tt> to a <i id="i">source</i> directory</li>
+    </ol>    
+</p><p>
+<!--
+    Xtext relies heavily on the Eclipse Modelling Framework (EMF), but it can also be used as the serialization back-end of other EMF-based tools. EMF is a Java framework and code generation facility for building tools and other applications based on a structured model, while Ecore is the Eclipse version of Essential MOF (EMOF).
+</p><p>
+Xtext provides a full implementation of a DSL running on the JVM. However, the compiler components of the language are independent of Eclipse or OSGi and can be used in any Java environment. They include such things as the parser, the type-safe abstract syntax tree (AST), the serializer and code formatter, the scoping framework and the linking, compiler checks and static analysis aka validation and last but not least a code generator or interpreter. These runtime components integrate with and are based on the EMF, which eectively allows to use the framework together with other EMF frameworks like for instance the Graphical Modeling Project (GMF).
+-->
+</p>
+ 
+
+</div>
+    
+
+<div id="bottom">
+By AN  Unibo-DISI    
+</div>
+    
+     
+ 
+</body></html>

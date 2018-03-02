@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="../../css/issStyle1.css">   
+<script type="text/javascript" src="../../css/issStyle.js"></script>
+<head>
+
+<title>ButtobLed</title>
+
+</head>
+<body>   
+<div class="container wrapper"> 
+<div id="top">
+<h1>ButtonLed system (BLS) low level (ISS-DISI-Unibo)</h1>
+</div> 
+
+<div class="wrapper">    
+<div id="menubar"> 
+<img src="./blsall.jpg" alt="show" width="120" height="68"/> 
+<ul id="menulist">
+<li class="menuitem" onclick="loadInMain('buttonLed.html')">ButtonLed</li>
+        <u5>Devices</u5>
+<li class="menuitem" onclick="window.location.href='buttonEntry.html'">Button</li> 
+<li class="menuitem" onclick="window.location.href='LedEntry.html'">Led</li>  
+
+ 
+ <!--      
+   <li class="menuitem" onclick="loadWithMsg(
+   'Basic usage of GPIO in RaspberryPi ',
+'../../Raspberry/raspberryProjects.html')">Raspberry projects</li>
+    
+   <li class="menuitem" onclick="loadWithMsg(
+   'Write virtual files associated with a pin',
+'../../../../it.unibo.buttonLedSystem.raspberry/lowLevel/led25OnOff.sh')">led25OnOff.sh</li>
+
+       <li class="menuitem" onclick="loadWithMsg(
+   'Read/write pins using the GPIO library',
+'../../../../it.unibo.buttonLedSystem.raspberry/lowLevel/led25Gpio.sh')">led25Gpio.sh</li>
+
+          <li class="menuitem" onclick="loadWithMsg(
+   'Read virtual files associated with a pin',
+'../../../../it.unibo.buttonLedSystem.raspberry/lowLevel/buttonOn24Click.sh')">buttonOn24Click.sh</li>
+
+    
+       <li class="menuitem" onclick="loadWithMsg(
+   'Shell Linux that looks at button (on <tt>GPIO24</tt>) and turns on/off a led (on <tt>GPIO25</tt>) if button pressed/unpressed',
+'../../../../it.unibo.buttonLedSystem.raspberry/lowLevel/buttonLed.sh')">buttonLed.sh</li>
+ 
+   
+    <li class="menuitem" onclick="loadWithMsg('A polling-based solution on Arduino',
+'../../../../it.unibo.buttonLedSystem/arduino/blsPollingUno/blsPollingUno.ino')">ArduinoUno Polling</li>
+ 
+       <li class="menuitem" onclick="loadWithMsg('A interrupt-based solution on Arduino',
+'../../../../it.unibo.buttonLedSystem/arduino/blsInterruptUno/blsInterruptUno.ino')">ArduinoUno Interrupt</li>
+-->    
+<br/> 
+ <li> <a href='../../Raspberry/raspberryProjects.html' target="lecture">See RaspBerry</a>  </li>
+<br/>
+  <li>  <a href='../../Arduino/arduinoEntry.html' target="lecture">See Arduino</a>  </li>
+    
+   <br/>       <br/> 
+<!--
+        <u5>Pi4J in Java</u5>
+    <li class="menuitem" onclick="loadWithMsg('A <b>Pi4J</b> solution written in Java',
+'../../../../it.unibo.buttonLedSystem/src/it/unibo/buttonLedSystem/BLSRaspPi4jMain.java')">BLSRaspPi4jMain</li>
+    <li class="menuitem" onclick="loadWithMsg('The <b>BLSControl</b>: a check on the <b>system invariant</b> should be done ',
+'../../../../it.unibo.buttonLedSystem/src/it/unibo/buttonLed/impl/BLSControl.java')">BLSControl</li>
+        <i>Configuration</i>
+    <li class="menuitem" onclick="loadWithMsg('The <b>BLSSysKb</b> ',
+'../../../../it.unibo.buttonLedSystem/src/it/unibo/buttonLedSystem/BLSSysKb.java')">BLSSysKb</li>
+    <li class="menuitem" onclick="loadWithMsg('The <b>IGpioConfig</b>',
+'../../../../it.unibo.buttonLedSystem/src/it/unibo/gpio/base/IGpioConfig.java')">IGpioConfig</li>
+-->
+     
+    </ul>   
+</div>
+     
+     
+<div id="menutop">
+<center>
+<button onclick="window.location.href='../../Material/entry.html'">Home</button>
+<button onclick="window.location.href='buttonLedEntry.html'">BLS Requirmeents</button>
+<button onclick="window.location.href='buttonLedHighLevelEntry.html'">BLS top-down</button>
+<button onclick="window.location.href='../../Frameworks/Frameworks.html'">Frameworks</button>
+<button onclick="window.location.href='../../Hardware/boards.html'">Boards</button>
+<button onclick="window.location.href='../applsEntry.html'">LAB</button>
+</center>
+</div> 
+    
+<div id="main">
+<p> 
+
+ 
+Let us report here some basic hardware configuration on a RaspberryPi and on a Arduino Uno:
+ <table>
+<tr><td>   
+<img src="BLonRasp.jpg" alt="show" width="326" height="244"/> 
+</td>
+<td>
+    <i>Raspberry connections</i> 
+<img src="../../imgs/appls/butLedRasp.jpg" alt="show" width="226" height="226"/> </td>
+</tr>
+    </table> 
+    
+<table>
+<tr><td>
+<img src="../../imgs/appls/ButtonLedArduino.jpg" alt="show" width="326" height="244"/> </td>
+<td>
+<ul>
+<li>Joystick <tt>GND</tt>: Arduino <tt>GND</tt> </li>
+<li>Joystick <tt>+5V</tt>: Arduino <tt>+5V</tt> </li>
+<li>Joystick <tt>SW</tt>:  Arduino <tt>3</tt> (interrupt 1) </li>
+</ul>
+<ul>
+<li>LED <tt>cathod (GND)</tt>: Arduino <tt>GND</tt> </li>
+<li>LED <tt>anode</tt>: Arduino <tt>13</tt> (also LED on board)</li>
+</ul>
+</td>
+</tr>
+    </table> 
+    
+</p>
+</div>
+    
+<div id="sidebar">
+
+</div>
+    
+
+<div id="bottom">
+By AN - SG Unibo-DISI    
+</div>
+    
+</div>
+</div>    
+
+</body></html>

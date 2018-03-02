@@ -1,0 +1,521 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.o../html4/strict.dtd">
+<html>
+<!-- <link rel="stylesheet" type="text/css" href="../../css/plainStyle.css"> -->
+<link rel="stylesheet" type="text/css" href="../../css/tabStyle.css">
+<script type="text/javascript" src="../../css/issStyle.js"></script>
+        <link rel="stylesheet" type="text/css" href="../../css/robotTabStyle.css">
+<style>
+h2 {
+    font: 100% Lucida Sans;
+    background-color: #f6d8f8;
+}
+h3 {
+    font: 90% Lucida Sans; 
+    width: 100%;
+    background-color: #f3f3f7;
+    color: #191818;
+}
+#i {
+     color: #ff1010;
+} 
+b{
+	font: 100% Lucida Console;
+	color: #2219fd;
+    font-weight: bold;
+}
+tt{
+	font: 100% Lucida Console;
+	color: #c90b46;
+    font-weight: bold;
+}
+</style>
+     
+    
+<head>
+<title>Qadsl</title>
+</head>
+<body>
+     
+<div class="container wrapper"> 
+  <div id="main">
+            <h1>Using the <tt>qa</tt> (domain specific) language</h1>
+
+     <button onclick="window.location.href='../../Material/entry.html'">Home</button>
+
+<div style="background-color:#fbffb6; width:100%;float:left;"> 
+<h3>VISION</h3>
+<ul>
+    
+<li>
+A (domain specific) language can be tailored to the main concepts needed in an application domain,
+    by allowing the specification of <i id="i">executable models</i>.
+    Such a language should help software developers in writing <i id="i">executable specications</i> 
+    during the early stages
+of software development with particular regard to <i id="i">requirement and problem analysis</i>. 
+</li>
+ </ul>
+ 
+    
+<h3>GOALS</h3>
+
+<ul>
+    Show (by menas of concrete examples/applications) how the logical architecture and the project architecture of a (distributed) software system can be specified by a custom
+    (domain specific) language (<tt>qa</tt>) and how a proper software factory can reduce the costs and the risks of software development.
+</ul>
+ 
+</div>
+      
+      
+ 
+<div style="background-color:#d5faf1; width:100%;float:left;">   
+<!--
+<h2>Index</h2>
+    The following list of topics gives an incremental introduction to the <tt>qa</tt> (domain specific) language: 
+<ol>
+<li><a href="#qaIntro">Introduction</a></li>      
+<li><a href="#qalang">The qa language</a></li>        
+<li><a href="#workflow">Workflow</a></li>     
+<li></li>      
+</ol>
+-->
+    <h1>Workflow</h1>
+ The main aim of the custom (domain specific) language <tt>qa</tt> is to give more expressive power (than UML) for
+    the definition of system models, both during the problem analysis phase and during the project phase. 
+ <p>
+ The language <tt>qa</tt> allows us to <tt>specify</tt> 
+     <ul>
+    <li>the main components (<b>QActor</b>) of a software system</li>
+    <li>how the components are mapped into computational nodes (<b>Context</b>)</li>
+    <li>how the components exchange information (using <b>Messages</b> and <b>Events</b>)</li>
+    <li>how each component works (<b>behavior</b>)</li>
+     </ul>
+     The point is that we have to specify a <tt>model</tt>, i.e. we must carefully underastand teh detail level of the specification.
+     
+ </p><p>
+    
+A general <i>workflow</i> can be set:
+<ol>
+<li>find the main subsystems and dene the system <b>Contexts</b>;</li>
+<li>define the structure of the  <b>Events</b> that can occur in the system;</li>
+<li> define the structure of the  <b>Messages</b> exchanged by the actors;</li> 
+<li>define the main  <b>Actors</b> working in each Context;</li>
+    <li>define the type of the  <b>logical interaction</b> among the actors;</li>
+<li>define the  <b>logical behaviour</b> of each actor according to the interaction constraints.</li>
+</ol>
+
+The starting point shuould be always the model that express the result of the problem analysis phase, i.e. the
+    logical architecture of the system. In a second step, this specications can be refined in the project phase,
+    hopefully by simply 'injecting' in the model some application-specic action.
+    Since we follow an interative, incremental software development process, the logical architecture of the system
+    could be changed according to better understanding of user requirements during the project phase.
+    The general idea however is:
+    <ul>
+    <li>to work always at model level, by considering the model as a <tt>new kind of source code</tt></li>
+        <li>to privilege a <tt>delcarative style</tt> rather than an imperative one. 
+            For example the behavior is expressed by <b>Plans</b> rather than procedures or methods</li>
+    <li>to reduce the <tt>global costs</tt> of software development, at least for the realization iof a first working prototype</li>
+    <li>to have a clear ubnderstanding of the <tt>costs and risks</tt> related to the development of critical parts of the system</li>
+    </ul>
+         </p> 
+<h2>About actions and zooming</h2>    
+    The general idea is that a <tt>qa</tt> model should focus the reader's attention of <tt>WHAT</tt> rather than on <tt>HOW</tt>.
+    <p>
+      Thus, the main goal of a model should to express <tt>WHAT and WHEN a component has to perform an action</tt>, under the constraints imposed by the interaction with the other components. 
+</p><p>        
+        
+        The <b>concrete specification</b> of an action should be
+        left to another (more detailed) level of model speficification (<tt>zooming</tt>) or even left to the application designer,
+        once the effects of the action are clearly understood.
+</p><p>  
+    Very often, an action can be better written in Java or in Prolog and simply referred (via <b>actorOp</b> or <b>solve</b>) at model level.
+    
+    </p>
+  
+    
+      </div>
+<h1><a name="qaIntro">QActor (qa DSL) examples</h1>
+      <p> 
+For an introduction to the <tt>qa</tt> lanague, please read 
+<li>  <font size="5">       
+<a href="../../../../it.unibo.qactors/report/qactors/qactors.pdf" target="qa">An introduction to the usage of QActors</a>
+    </font>
+</li> 
+</p><p>
+          In this lab we will present examples and demo related to the main features of QActors.
+          
+    
+  
+<!-
+    --------------------------------------------------------------
+    KEY POINTS
+    --------------------------------------------------------------
+-->    
+    
+<ol>
+<li><h2>Logical architecture and fast prototyping</h2>The specification of a model of the <b>logical architecture</b> of a system is a fundamental precondition
+      for each type of software production process. 
+<h3>Automatic code generation</h3>
+    With a proper <a href="https://en.wikipedia.org/wiki/Model-driven_software_development" target="code">MDSD</a> approach, it is possible to build a <a href="../SwFactory/swFactoryEntry.html"  target="code">software factory</a> with we can trasnform - in a short time -  the  specification of a logical architecture  into a working prototype of the software system.  Please look at the code generated in the referred examples. 
+
+    <h3>Graphical interfaces</h3> 
+    Fast prototyping should not exclude completely the construcion of working systens in which
+    actors (or at least contexts) can be associated to a GUI.
+    See the <tt>-g</tt> context / actor flag. <!-- in <a href="#HelloWorld" target="example">HelloWorld</a> -->
+    <br/>
+    Let us summarize here the  events generated by the buil-in GUI interfaces:
+    <pre>
+Event local_inputcmd : usercmd(X)   //generated by cmd actor gui-interface
+Event inputcmd       : usercmd(X) 	//generated by  the <a href=#webGui>Web cmd user-interface</a>
+Event alarm          : alarm(X) 	//generated by <a href=#webGui>Web cmd user-interface</a>
+Event obstacle       : obstacle(X) 	//generated by <a href=#webGui>Web cmd user-interface</a>   
+    </pre>
+</li>    
+    
+<li><h2>Structure</h2>Distributed systems are composed of a set of active entities (<b>Qactor</b>)
+    each working in a (different) computational environemnt (<b>Context</b>).
+    See <a href="#HelloWorld" target="example">HelloWorld</a></li>    
+
+
+<li><h2>Behavior</h2>A QActor is an active (autnomous) entity that runs in parallel with the other actors 
+    defined in the same or in other contexts. The behavor of a Qactor can be expressed as
+    a Moore Finite State Machine (<tt>M-FSM</tt>). Each state of the <tt>M-FSM</tt> can be expressed
+    by a <b>Plan</b> is composed of a sequence of <b>Moves</b>. 
+        See <a href="#Plans" target="example">Plans</a></li>       
+
+    <li><h2>Interaction</h2>
+    A QActor can interact with others (local or remote) QActor by sending/receiving <b>messages</b> 
+See <a href="#Messaging" target="example">Messaging</a>
+    <br/>
+A QActor can also emit or sense <b>events</b>. See
+<a href="#EventHandling" target="example">EventHandling</a></li>
+    
+<li><h2>Message based rather than message-driven</h2> 
+    A QActor is able to call message <b>receive actions</b> in explicit way, with the possibility to specify the structure of the messages expected. See
+<a href="#Receiving" target="example">Receiving</a></li>
+
+<li><h2>Event based and event-driven</h2> 
+    A QActor system can express both some event-driven behaviour while allowing actors to call event <b>sense actions</b> in explicit way, with the possibility to specify the structure of the events expected. See
+<a href="#Receiving" target="example">Receiving</a></li>
+      
+    <li><h2>Actions</h2>The high level specification of the behavior of a Qactor is only a <tt>partial</tt> specification
+    that aims at capturing the behavur logic. The details related to specific moves 
+    (in particular GUI interfaces) can be better expressed in the implementation language
+    directtly as application <b>Action</b>. See <a href="#AActions" target="example">Actions</a></li>    
+
+    <li><h2>Declarative programming</h2>
+        Several taks (including the evalutatin of guards) can be better expressed by means of declarative rules.
+        A QActor can exploit logic programming to express in syntethic way algorithms and policies
+        See <a href="#tuProlog" target="example">Prolog computations</a>
+    </li>
+        <li><h2>World theory</h2> Each Qactor works in a (real or simulated) world. 
+    The state of the world can be represented by a set of lcal variable or objects.
+    A higher level representation can be based on a symbolic representation of 
+    the world expressed in delclarative way as a set of Prolog facts and rules (<b>World theory</b>). 
+    <br/><br/>
+    The <b>World theory</b> can be used as a local knowledege base whose current content can drive
+    the execution of moves (including a state transition) by a Qactor by means of 
+            <b>Guards</b>. See <a href="../../../../it.unibo.qactors/test/it/unibo/qactors/systems/WorldTheory.pl" target="qa"><tt>WorldTheory.pl</tt></a>, <a href="#Guards" target="example">Guards</a> </li>    
+
+    <li><h2>Reactive Actions</h2>
+        A Qactor should behave not only in <b>proactive</b> but also in <b>reactive</b> way.
+Thus any move of the Qactor should be 'interrupted' before its normal end. 
+       
+        <br/ 
+    A QActor is able to execute timed actions that can be interrupted by the occurence of some specified event, by
+        putting in execution some specified event-handling plan. See  <a href="#Reactive" target="example">Reactive</a> 
+        <br/><br/>
+   The availability of predefined reactive moves (e.g. like <a href= "../../../../it.unibo.qactors/src/it/unibo/qactors/action/ActionSoundTimed.java" target="example">ActionSoundTimed</a>) can be useful for fast prototyping and for better human interactions.</li>
+    </li>    
+
+    <li><a name="webGui"></a><h2>Web interface</h2>Nowadays the interaction between an user and a software system 
+    is based not only on some GUI working on the system node, but can be also
+    a Web-based interaction.  A  Web-based interface should be automatcally provided
+    by a system. See <tt>-http</tt> context flag</li>    
+     
+   <li><h2>Standalone</h2></li>      
+    <li>See <a href="#stdAloneBls">One button many leds</a></li> 
+        
+    <li><h2>Interpreted behaviour</h2> A code generator (provided by an IDE) can produce intermediate code to be executed by an interpreter. 
+If this intermediate code can be undestood by the application designer, the behavior of actors
+    can be modified (for debugging/setup purposed) without the usage of the IDE.</li>    
+      
+    
+    
+    
+    </ol>
+ 
+<h1>Projects</h1> 
+
+<li><a href="../../../../it.unibo.test.sf/" target="example">it.unibo.test.sf</a></li>    
+<li><a href="../../../../it.unibo.bls2016.qa/" target="example">it.unibo.bls2016.qa</a></li>    
+<li><a href="../../../../it.unibo.radar/" target="example">it.unibo.radar</a></li>    
+
+<h1>Applications</h1> 
+<h2>Led controlled via web</h2> 
+Build a sofware system in which a Led connected to a RaspberryPi is controlled by a remote console
+    implmented as a web page
+<br/>    
+See 
+    <li><a href="../../../../it.unibo.test.sf/src/ledWeb.qa" target="example">ledWeb.qa</a></li>
+    
+<h2><a name="stdAloneBls"></a>Many leds that perceive command events (standalone console)</h2>    
+A console must control a dynamic set of remote leds, each connected to a RaspberryPi. <br/>
+The console is a stand alone context including a QActor with abutton that emits a <tt>usercmd</tt>  event.    <br/>
+Each Led works within a systen including the console as a <tt>-standalone</tt> context.
+<br/>    
+See <li><a href="../../../../it.unibo.test.sf/src/ledStdAlone1.qa" target="example">ledStdAlone1.qa</a></li>
+<li><a href="../../../../it.unibo.test.sf/src/ledStdAlone2.qa" target="example">ledStdAlone2.qa</a></li>
+<li><a href="../../../../it.unibo.test.sf/src/consoleStandalone.qa" target="example">consoleStandalone.qa</a></li>
+
+<h2>Many leds that register themselves to a console </h2>    
+A console must control a dynamic set of remote leds, each connected to a RaspberryPi. <br/>
+Each led must 'register' to the console in order to be known by the console. <br/>
+The console sends a message to each registered Led
+<br/>    
+    
+
+<h2>Ping pong with arbiter</h2> 
+ Two players exchange information until an <tt>alarm</tt> event is raised by an arbiter.<br/>
+ See <li><a href="../../../../it.unibo.test.sf/src/pingpong.qa" target="example">pingpong.qa</a></li>
+   
+    
+<h2>Morse</h2> 
+<pre>
+  Design a build a software system that
+  R1) reads a sentence InputS from a user input device (GUI)
+  R2) converts the InputS sentence into a sequence of morse symbols
+  R3) blinks a Led according to a morse-symbols sequence (morse-rendering)
+  R4) terminates its current morse-rendering if the user sends a STOP command
+</pre>
+    <!--
+ See <li><a href="../../../../it.unibo.test.sf/src/morse.qa" target="example">morse.qa</a></li>
+   --> 
+
+    
+<h2>Game</h2> 
+See <li><a href="../../../../it.unibo.test.sf/src/hitTheLight.qa" target="example">hitTheLight.qa</a></li>    
+    
+<h1>Examples</h1>     
+<!-
+    --------------------------------------------------------------
+    EXAMPLES
+    --------------------------------------------------------------
+-->
+    TODO
+<!--
+ <table id="robots">
+  <tr>
+     <th>Example</th>
+    <th>Concepts </th>
+     <th>DSL qa</th>
+     <th>QActor (API)</th>
+   </tr>
+<tr>
+    
+     <td><a name="HelloWorld"></a><b>QASystem (hello world)</b><br/>
+     A <a href="qaConcepts.html#QASystem" target="qaDSL">QASystem</a>  that includes a 
+     single <a href="qaConcepts.html#Context" target="qaDSL">Context</a> including 
+     a single <a href="qaConcepts.html#QActor" target="qaDSL">QActor</a> that performs 
+     a single <a href="qaConcepts.html#Plan" target="qaDSL">Plan</a> composed of
+     a sequence of <a href="qaConcepts.html#Move" target="qaDSL">BasicMove</a></td>
+    <td>A distributed (heterogeneous) system is composed of one or more subsystems
+    that include active entities, each able to execute high-level activities (plans) <br/>
+      <br/>
+    </td>
+   <td><a href="../../../../it.unibo.xtext.qactor.test/src/ex0(Hello).qa" target="codeDSL">ex0(Hello).qa</a></td>    
+   <td><a href="../../../../it.unibo.qactor.test/src/it/unibo/qactor/test/hello/QActorHello.java" target="code">QActorHello</a><br/>
+    <a href="../../../../it.unibo.qactor.test/src/it/unibo/qactor/test/hello/CtxOfHello.java" target="code">CtxOfHello</a></td> 
+   
+ </tr>
+        <tr class="alt">
+     <td><a name="Plans"></a> <b>Actors and plan actions</b><br/>
+     A <a href="qaConcepts.html#QASystem" target="qaDSL">QASystem</a> with two Actors 
+     running 'in parallel'
+     in the same <a href="qaConcepts.html#Context" target="qaDSL">Context</a>. <br/>
+     One actor executes a <a href="qaConcepts.html#Plan" target="qaDSL">Plan</a> that 'calls' another plan
+     that repeats itself and then 'resumes' the previuos one. </td>
+    <td>A Qactor is an active (autnomous) entity that runs in parallel with the other
+    actors of the same context.<br/>
+    A Plan is a sequence of <a href="qaConcepts.html#Move" target="qaDSL">Move</a> 
+    that can also  transfer the control to another plan, either in autonomous way or as
+    a consequence of events. Plan switch is different from a procedure call, since 
+    there are no arguments or return values; moreover a plan returns the control
+    to the caller only when the <b>resumeLastPlan</b> key is specified.
+       <br/>
+     </td>
+   <td><a href="../../../../it.unibo.xtext.qactor.test/src/ex01(Plans).qa" target="codeDSL">ex01(Plans)</a></td>    
+   <td></td> 
+  </tr>
+  
+<tr>
+     <td><a name="AActions"></a><b>Application Actions</b><br/>
+        A Qactor executes user-defined  actions written in Java
+     </td>
+   <td>Each QActor can execute actions directly defined by the application designer
+       in the implementation lanaguge (java)
+    </td>    
+   <td><a href="../../../../it.unibo.xtext.qactor.test/src/ex02(ApplicationActions).qa" target="codeDSL">ex02(ApplicationActions)</a> </td> 
+   <td></td>    
+ </tr>
+
+         <tr class="alt">
+     <td><a name="Guards"></a><b>Guards</b><br/>
+         A Qactor executes actions accroding to conditions expressed as guards
+      <br/>
+     </td>
+   <td>Each QActor owns a private <b>WorldTheory</b> used to compute 
+   <a href="qaConcepts.html#Guard" target="qaDSL">Guards</a>  The content of the  
+            WorldTheory  can be statically intitialized with the <b>Rules</b> specification
+            or dynamically extended
+            via the <b>addRule</b> operation </td>   
+   <td><a href="../../../../it.unibo.xtext.qactor.test/src/ex05(Guards).qa" target="codeDSL">ex05(Guards)</a>  </td> 
+   <td></td>    
+ </tr> 
+
+ <tr >
+     <td><b> </b><br/>
+      <br/>
+     </td>
+   <td> </td>    
+   <td><a href="../../../../it.unibo.xtext.qactor.test/src/ex03(TuPrologActions).qa" target="codeDSL">ex03(TuPrologActions)</a>  </td> 
+   <td></td>    
+ </tr> 
+
+<tr class="alt" >
+     <td><a name="Reactive"></a><b>Reactive actions</b> <br/>
+         A Qactor executes actions in reactive mode
+      <br/>
+     </td>
+   <td>A QActor should provide not only procative but also reactive behavior </td>    
+   <td><a href="../../../../it.unibo.xtext.QActor.test/src/ex04(InterruptableActions).qa" target="codeDSL">ex04(InterruptableActions)</a>  </td> 
+   <td></td>    
+ </tr>
+  
+ 
+ <tr  >
+     <td><a name="EventHandling"></a><b>EventHandling</b><br/>
+An actor emits an event that is handled by a user-defined EventHandler and by one or more actors.
+        
+      <br/>
+     </td>
+     <td>A QActor should handle events according to the <i id="i">event-driven</i> paradigm. </td>    
+   <td><a href="../../../../it.unibo.xtext.QActor.test/src/ex1(EventHandler).qa" target="codeDSL">ex1(EventHandler)</a>  </td> 
+   <td></td>    
+ </tr>
+  
+ <tr class="alt">
+     <td><b> </b><br/>
+      <br/>
+     </td>
+   <td> </td>    
+   <td><a href="../../../../it.unibo.xtext.qactor.test/src/ex2(EventTask).qa" target="codeDSL">ex2(EventTask)</a>  </td> 
+   <td></td>    
+ </tr> 
+ 
+ <tr  >
+     <td><a name="EventGuard"></a><b>EventGuard </b><br/>
+         A QActor waits for an event by using an event-guard and the sense (timed) operation
+      <br/>
+     </td>
+   <td>A QActor should handle events according to the <i id="i">event-based</i> paradigm </td>    
+   <td><a href="../../../../it.unibo.xtext.qactor.test/src/ex3(EventGuard).qa" target="codeDSL">ex3(EventGuard)</a>  </td> 
+   <td></td>    
+ </tr>
+  
+ 
+  <tr  >
+     <td><a name="EventsPerceive"></a><b>EventsPerceive</b><br/>
+      <br/>
+     </td>
+   <td> </td>    
+     <td><a href="../../../../it.unibo.xtext.qactor.test/src/ex4(EventsPerceive).qa" target="codeDSL">ex4(EventsPerceive)</a>  </td> 
+   <td></td>    
+ </tr>
+  
+ <tr class="alt">
+     <td><a name="Messaging"></a><b>Messaging</b><br/>
+         Two QActors send messages to a receiver
+      <br/>
+     </td>
+   <td>A QActor should handle messages according to the <i id="i">message-passing</i> paradigm </td>    
+    <td><a href="../../../../it.unibo.xtext.qactor.test/src/ex5(SendReceive).qa" target="codeDSL">ex5(SendReceive)</a>  </td> 
+   <td></td>    
+ </tr>  
+ 
+  <tr  >
+     <td><a name="Receiving"></a><b>Receiving </b><br/>
+         A receiver works (like a FSM) by selecting the message required at same stage of its work
+      <br/>
+     </td>
+   <td>A QActor should be able to receive messages by using 
+       primitives (like <tt>receiveAndSwitch</tt> or <tt>receiveTheMsg</tt>)
+       that allow it to select the message  </td>    
+   <td><a href="../../../../it.unibo.xtext.qactor.test/src/ex6(MsgSelect).qa" target="codeDSL">ex6(MsgSelect)</a>  </td> 
+   <td></td>    
+ </tr>
+  
+ <tr class="alt">
+     <td><b> </b><br/>
+      <br/>
+     </td>
+   <td> </td>    
+    <td><a href="../../../../it.unibo.xtext.qactor.test/src/ex7(EventReact2Ctx).qa" target="codeDSL">ex7(EventReact2Ctx)</a>  </td> 
+   <td></td>    
+ </tr>  
+ 
+  <tr  >
+     <td><b> </b><br/>
+      <br/>
+     </td>
+   <td> </td>    
+    <td><a href="../../../../it.unibo.xtext.qactor.test/src/ex8(mix).qa" target="codeDSL">ex8(mix)</a>  </td> 
+   <td></td>    
+ </tr>
+  
+ <tr class="alt">
+     <td><a name="tuProlog"></a><b>Prolog computations </b><br/>
+      <br/>
+     </td>
+   <td> </td>    
+   <td><a href="../../../../it.unibo.xtext.qactor.test/src/ex9(TuPrologComputations).qa" target="codeDSL">ex9(TuPrologComputations)</a>  </td> 
+   <td></td>    
+ </tr>  
+ 
+   <tr  >
+     <td><b> </b><br/>
+      <br/>
+     </td>
+   <td> </td>    
+   <td> </td> 
+   <td></td>    
+ </tr>
+  
+ <tr class="alt">
+     <td><b> </b><br/>
+      <br/>
+     </td>
+   <td> </td>    
+   <td> </td> 
+   <td></td>    
+ </tr>  
+ 
+  </table>       
+ -->   
+
+</p> 
+
+
+
+
+</div>
+    
+
+
+<div id="bottom">
+By AN Unibo-DISI    
+</div>
+    
+</div>
+   
+ 
+</body></html>

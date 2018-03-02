@@ -1,0 +1,71 @@
+    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="../../css/plainStyle.css">
+<link rel="stylesheet" type="text/css" href="../../css/robotTabStyle.css">   
+<script type="text/javascript" src="../../css/issStyle.js"></script>
+<head>
+
+<title>onTheRobotDSL</title></head>
+    <body>
+    
+<div class="container wrapper"> 
+
+<div id="top">
+<p></p>
+</div> 
+
+
+    
+<div class="wrapper">
+    
+ 
+    
+ 
+<div id="main">
+    <h3 id="h3">Some consideration on the robot DSL</h3>
+
+<p>
+     
+    <ul>
+    <li>The <tt>DSL</tt> is just a starting point. As any other language, it has its own limitations.
+    The good new is that is quite easy to extend/modify the syntax and the tools  </li>
+    <li>The semantics of the language is operationally expressed by the generated code.
+    However, it could be expressed in some other specification, (e.g Z) or modelling (e.g. Maude) language associated with analysis tools </li>
+   <li>The software factory built around the  <tt>DSL</tt> is an advanced form of reuse and it is a
+   concrete way to "force" the <i id="i">architectural style</i> more appropriated for the 
+   application domain
+    </li>
+   <li>The code generated is a way to overcome the <i id="i">abstraction gap</i> between the problem (domain)
+   and the reference technology (Java, C++, ..). </li>
+   <li>The abstraction gap is overcome in  "modular way" with reference to a set of (custom) frameworks like QActors, QEvents
+   QStreams, each used for some peculiar subproblem. Of course, any other platform can be used to overcome the abstraction gap </li>
+   <li>The idea of a robot as the executor of a set of (prefixed) plans could be viewed as
+   the starting point for a <b>QAgent</b> framework. A QAgent cannot be reduced to a single finite state machine (<tt>FSM</tt>).
+   Rather , it is a collection of <tt>FSM</tt>) (see 
+   <a href="../../../../it.unibo.lab.robotUsage/src/it/unibo/robotUsage/interpreted/TaskCmdExecutor.java"><tt>TaskCmdExecutor</tt></a>) 
+   managed by an interpreter
+   (see <a href="../../../../it.unibo.xtext.robot.planned/srcMore/robotInterpreter.js"> <tt>intepreter</tt></a> )</li>
+   <li>The idea of robot as a simple 'slave' that can execute move commands is now substituted by the idea of a robot
+   as a "thing of internet" able to perceive events, to interact with remote "minds", to execute other tasks (e.g. take a picture) 
+   to operate in autonomous way to cooperate with other and so on, along an "open ended" path (vision).</li>
+    </ul>
+    
+  </p>
+    
+<center>
+     
+</center> 
+</div>
+    
+
+
+    
+
+<div id="bottom">
+By AN  Unibo-DISI    
+</div>
+    
+</div>
+</div>    
+ 
+</body></html>

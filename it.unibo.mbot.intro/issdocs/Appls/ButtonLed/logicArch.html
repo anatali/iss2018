@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="../../css/issStyle1.css">  
+<script type="text/javascript" src="../../css/issStyle.js"></script>
+<head>
+<title>LogicArch</title>
+</head>
+<body >
+    
+<div class="container wrapper"> 
+<div id="top">
+<h1>ButtonLed: towards a Logic Architecture </h1>
+</div> 
+<div class="wrapper">
+<div id="menubar">
+<img src="logicArchSecond.jpg" alt="show" width="104" height="54"/> 
+<ul id="menulist">
+<li class="menuitem" onclick="loadInMain('buttonLed.html')">Requirements</li>
+<li class="menuitem" onclick="window.location.href='logicArch.html'">LogicArchitecture</li>
+
+    <u5>First Domain model</u5> 
+    <li class="menuitem" onclick=" 
+loadWithMsg('A general interface for <b>IOT</b> deivces','../../../../it.unibo.buttonLedSystem/src/it/unibo/buttonLed/interfaces/IDevice.java')">IDevice.java</li>
+<li class="menuitem" onclick="loadWithMsg('The button is an <i id>observable</i> entity (<b>IObservable</b>)','../../../../it.unibo.interfaces/src/it/unibo/is/interfaces/IObservable.java')">IObservable.java</li> 
+<li class="menuitem" onclick="loadWithMsg('The button can register one or more observers (<b>IObserver</b>)','../../../../it.unibo.interfaces/src/it/unibo/is/interfaces/IObserver.java')">IObserver.java</li> 
+ <li class="menuitem" onclick="
+loadWithMsg('A generic input device.','../../../../it.unibo.buttonLedSystem/src/it/unibo/buttonLed/interfaces/IDeviceInput.java')">IDeviceInput.java</li>
+  <li class="menuitem" onclick="
+loadWithMsg('A generic device.','../../../../it.unibo.buttonLedSystem/src/it/unibo/buttonLed/interfaces/IDevice.java')">IDevice.java</li>
+ <li class="menuitem" onclick=" 
+ loadWithMsg('A result of requirement analysis (<b>Domain modelling</b>)','../../../../it.unibo.buttonLedSystem/src/it/unibo/buttonLed/interfaces/IButton.java')">IButton.java</li>    
+<li class="menuitem" onclick=" 
+ loadWithMsg('A Led is just a (output) device.',
+ '../../../../it.unibo.buttonLedSystem/src/it/unibo/buttonLed/interfaces/ILed.java')">ILed.java</li>    
+ 
+        <u5>Other interfaces</u5> 
+   <li class="menuitem" onclick=" 
+loadWithMsg('.','../../../../it.unibo.buttonLedSystem/src/it/unibo/buttonLed/interfaces/IBLSControl.java')">IBLSControl.java</li>
+
+        <u5>IOT model</u5> 
+<li class="menuitem" onclick="window.location.href='../Input/input.html'">Device model</li> 
+
+    </ul>
+</div>
+<div id="menutop">
+<center>
+<button onclick="window.location.href='../../Material/entry.html'">Home</button>
+<button onclick="window.location.href='buttonLedEntry.html'">ButtonLed</button>
+<button onclick="window.location.href='../../Hardware/boards.html'">Boards</button>
+<button onclick="window.location.href='../applsEntry.html'">LAB</button>
+</center>
+</div> 
+
+<div id="main">
+<p>
+ <h4>A first (oo) logical architecture</h4>
+    
+    From the  analysis of the requirements we know that:
+    <ol>
+    <li>The system is composed of two objects: a <b>Led</b> and a <b>Button</b>.<br/><br/>
+Starting form the model of a button as an <i id="i">observable</i> input device, the logic architecture of our software
+system can be initially defined in the conceptual space of "classic" object oriented software development as shown in the following informal <i id="i">interaction diagram</i>:
+            <center>
+            <img src="logicArchFirst.jpg" alt="show" width="313" height="155"/> 
+            </center> 
+    </li>
+        <li>The <b>Led</b> is (modelled as) a <i id="i">passive output device</i>, while the <b>Button</b> is (modelled as) as
+        an <i id="i">active observable input device</i>. Thus we exclude the previous interaction. In any case, we need another component to <i id="i">configure</i> the system. 
+    </li>
+        <li>The <i id="i">responsibility</i> of the application logic cannot be given to the devices; thus such a responsibility must be given to a new component (of interface <tt>IBLSControl</tt>). </li>
+    </ol>
+<center>
+    <img src="logicArchSecond.jpg" alt="show" width="312" height="163"/> 
+</center>    </p><p>
+    Since all the application logic is performed within the thread of the input device,
+the controller should return the control as soon as possible.
+    </p>
+<h2>Overview of architectures</h2>     
+<center>
+    <img src="blsInteraction0.jpg" alt="show" width="699" height="422"/> 
+</center> 
+<center>
+    <img src="blsInteraction1.jpg" alt="show" width="699" height="422"/> 
+</center> 
+<!--
+ <h3>A logical architecture for the ButtonCounterLed system (in UML2)</h3>
+    <p>
+    <center>
+    <img src="./ArchLogicBase.jpg" alt="show" width="580" height="280"/> 
+    </center>
+The input device is an (active) entity observed by the application control, that, when called by the
+input source, sends information to the output devices and <tt>commands</tt> to other, active controls (in our case the
+control of a counter). 
+    </p> 
+-->
+</div>
+    
+
+<div id="sidebar">
+<h3>Readings</h3>
+<!--     -->
+<ul id="menulist">
+<li class="menuitem" onclick="loadInMain('InputHandling.pdf')">InputHandling.pdf</li>
+</ul>     
+</div>
+    
+
+<div id="bottom">
+By AN Unibo-DISI    
+</div>
+    
+</div>
+</div>    
+ 
+</body></html>

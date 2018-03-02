@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="../css/issStyle1.css">  
+<script type="text/javascript" src="../css/issStyle.js"></script>
+<head>
+<meta content="text/html; charset=utf-16" http-equiv="Content-Type" />
+<title>Xtext</title></head><body>
+<body onload="loadInMain('Xtext.html')">    
+<div class="container wrapper"> 
+
+<div id="top">
+<h1>Xtext</h1>
+</div> 
+    
+<div class="wrapper">
+    
+<div id="menubar">
+<img src="../Readings/Xtext/Xtext_Logo_Red.png" alt="show" width="281" height="32"/>
+<ul id="menulist">
+    <li class="menuitem" onclick="loadInMain('Xtext.html')">Introduction</li>
+<h3>EXAMPLE</h3> 
+<u5>(Meta)models</u5> 
+<li class="menuitem" onclick="loadWithMsg('',
+'../../../it.unibo.xtext.mydsl/src/it/unibo/xtext/MyDsl.xtext')">Metamodel(MyDsl.xtext)</li>
+<li class="menuitem" onclick="loadWithMsg('',
+'../../../it.unibo.xtext.mydsl/example/um0.mydsl')">USER Model(um0.mydsl)</li>
+
+    <u5>Specification</u5> 
+<li class="menuitem" onclick="loadWithMsg('Validation',
+'../../../it.unibo.xtext.mydsl/src/it/unibo/xtext/validation/MyDslValidator.xtend')">MyDslValidator.xtend</li>
+<li class="menuitem" onclick="loadWithMsg('<b>Google guice</b> binding',
+'../../../it.unibo.xtext.mydsl/src/it/unibo/xtext/MyDslRuntimeModule.java')">MyDslRuntimeModule.java</li>
+    
+    
+    <u5>Generation: java part</u5>   
+<li class="menuitem" onclick="loadWithMsg('',
+'../../../it.unibo.xtext.mydsl/src/it/unibo/xtext/mygenerator/IGenMydsl.java')">IGenMydsl.java</li>
+<li class="menuitem" onclick="loadWithMsg('',
+'../../../it.unibo.xtext.mydsl/src/it/unibo/xtext/mygenerator/IGenElement.java')">IGenElement.java</li>
+<li class="menuitem" onclick="loadWithMsg('',
+'../../../it.unibo.xtext.mydsl/src/it/unibo/xtext/mygenerator/SysKb.java')">SysKb.java</li>
+<li class="menuitem" onclick="loadWithMsg('',
+'../../../it.unibo.xtext.mydsl/src/it/unibo/xtext/mygenerator/GenKb.xtend')">GenKb.xtend</li>
+<li class="menuitem" onclick="loadWithMsg('',
+'../../../it.unibo.xtext.mydsl/src/it/unibo/xtext/mygenerator/GenUtilJava.java')">GenUtilJava.java</li>
+         <u5>Generation: xtend part</u5>  
+    <li class="menuitem" onclick="loadWithMsg('',
+'../../../it.unibo.xtext.mydsl/src/it/unibo/xtext/mygenerator/GenUtils.xtend')">GenUtils.xtend</li>
+
+<li class="menuitem" onclick="loadWithMsg('',
+'../../../it.unibo.xtext.mydsl/src/it/unibo/xtext/mygenerator/MydslMyGen.xtend')">MydslMyGen.xtend</li>
+<li class="menuitem" onclick="loadWithMsg('',
+'../../../it.unibo.xtext.mydsl/src/it/unibo/xtext/mygenerator/ElementGenerator.xtend')">ElementGenerator.xtend</li>
+
+    </ul>
+</div> 
+    
+<div id="menutop">
+<center>
+  
+<button onclick="window.location.href='../Material/entry.html'">Home</button>
+<button onclick="window.location.href='../Projects/Exp/expEntry.html'">Expressions</button>
+<button onclick="window.location.href='../Projects/QACtorDSL/qaDSLEntry.html'">QACtorDSL</button>
+<button onclick="window.location.href='../Projects/RobotDSL/robotDSLEntry.html'">RobotDSL</button>
+<button onclick="window.location.href='XtextRobotEntry.html'">XtextRobot</button>
+</center>
+</div>        
+ 
+<div id="main">
+<p>
+    Ecore Tools 2.0 was shipped in on June 25, 2014 and is part of the Luna Simultaneous release.
+    http://download.eclipse.org/releases/luna/ ECore diagram editor
+    https://wiki.eclipse.org/Ecore_Tools
+    http://www.eclipse.org/ecoretools/doc/
+    
+    Xtext All In One - Releases - http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/
+    install EMF - Eclipse Modeling Framework SDK
+    
+     Install EMF via the Eclipse Update manager from Help → Install New Software.... Select Modeling and install EMF - Eclipse Modeling Framework SDK. Also select the Diagram Editor for Ecore (SDK) these will allow you to models based on diagrams.
+</p>
+ 
+</div>
+    
+<div id="sidebar">
+<h3>Sites</h3>
+    <a href="https://eclipse.org/Xtext/" target="code">Xtext</a><br/>
+    <a href="http://eclipse.org/ecoretools/overview.html" target="code">eclLuna ecoreDiagram</a>
+    
+<h3>Reading</h3>
+<li class="menuitem" onclick="loadInMain('../Readings/Xtext/IntroXtext2013.pdf')">IntroXtextISS.pdf</li>    
+<li class="menuitem" onclick="loadInMain('../Readings/Xtext/MOF-UML.pdf')">MOF-UML.pdf</li>    
+<li class="menuitem" onclick="loadInMain('../Readings/Xtext/CustomGenXtext.pdf')">CustomGenXtext.pdf</li>    
+<li class="menuitem" onclick="loadInMain('../Readings/Xtext/XtendUserGuide.pdf')">XtendUserGuide.pdf</li>    
+<li class="menuitem" onclick="loadInMain('../Readings/Xtext/UMLHarelRumpe.pdf')">On semantucs</li>    
+
+    </div>
+
+<div id="bottom">
+By AN Unibo-DISI    
+</div>
+    
+</div>
+</div>    
+ 
+</body></html>

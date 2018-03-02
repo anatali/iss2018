@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="../../css/issStyle1.css">
+<link rel="stylesheet" type="text/css" href="../../css/robotTabStyle.css">
+<script type="text/javascript" src="../../css/issStyle.js"></script>
+    
+<head>
+
+<title>androSensor</title></head>
+<body onload="loadInMain('androSensors.html')">
+    
+<div class="container wrapper"> 
+
+<div id="top">
+<h1>Android Projects (ISS-DISI-Unibo)</h1>
+<p></p>
+</div> 
+
+
+    
+<div class="wrapper">
+    
+<div id="menubar">
+    <img src="AndroSensors.jpg" alt="Devices" width="150" height="34"/>
+
+<ul id="menulist">
+<li class="menuitem" onclick="loadInMain('./androSensors.html')">Introduction</li>
+<li class="menuitem" onclick="loadInMain('./tethering.html')">tethering</li>
+ 
+  
+
+</ul>
+</div>
+    
+<div id="menutop">
+<center>
+<button onclick="window.location.href='../../Material/entry.html'">Home</button>
+<button onclick="window.location.href='../../Android/androidEntry.html'">Android</button>
+<button onclick="window.location.href='../../Frameworks/FramwCustomEvent.html'">Events</button>
+     <button onclick="window.location.href='../../Frameworks/FramwCustomEvStream.html'">QStreams</button>
+<button onclick="window.location.href='../../Hardware/boards.html'">Boards</button>
+<button onclick="window.location.href='../../Devices/devs.html'">Devices</button>
+ <button onclick="window.location.href='../../Robots/robotEntry.html'">Robots</button>
+    <button onclick="window.location.href='../../Iot/iot.html'">IOT</button>
+    <button onclick="window.location.href='../../Appls/applsEntry.html'">LAB</button>
+</center>
+</div> 
+    
+ 
+<div id="main">
+<p>
+ 
+    
+    
+ 
+</p> 
+</div>
+    
+<div id="sidebar">
+
+     <u5>Using QActors</u5> 
+<li class="menuitem" onclick="loadWithMsg(' ',
+ '../../../../it.unibo.android.buttonqactor/src/it/unibo/android/buttonqactor/CtxOfButton.java')">CtxOfButton</li> 
+ <li class="menuitem" onclick="loadWithMsg('',
+ '../../../../it.unibo.android.buttonqactor/src/it/unibo/android/buttonqactor/MainActivity.java')">MainActivity</li> 
+ <li class="menuitem" onclick="loadWithMsg('<b>DevButtonAndroid</b>: both an actor and a listener, that maps a click into a message or into a qevent',
+ '../../../../it.unibo.android.buttonqactor/src/it/unibo/android/iot/devices/DevButtonAndroid.java')">DevButtonAndroid</li> 
+ 
+ <u5>Using QEvents (USB)</u5> 
+ <li class="menuitem" onclick="loadWithMsg('<b>androKb.pl</b> ',
+ '../../../../it.unibo.android.qevent.sensors/assets/androKb.pl')">androKb.pl</li> 
+<li class="menuitem" onclick="loadWithMsg('<b>sysRules.pl</b> ',
+ '../../../../it.unibo.android.qevent.sensors/assets/sysRules.pl')">sysRules.pl</li> 
+ <li class="menuitem" onclick="loadWithMsg('<b> CtxAndroEvent</b> (project <tt>it.unibo.android.qevent.sensors</tt>)',
+ '../../../../it.unibo.android.qevent.sensors/src/it/unibo/android/qevent/sensors/usb/CtxAndroEvent.java')">CtxAndroEvent</li> 
+<li class="menuitem" onclick="loadWithMsg('<b>MainActivity </b> ',
+ '../../../../it.unibo.android.qevent.sensors/src/it/unibo/android/qevent/sensors/usb/MainActivity.java')">MainActivity</li> 
+ <li class="menuitem" onclick="loadWithMsg('<b>USBTetherServer </b> ',
+ '../../../../it.unibo.android.qevent.sensors/src/it/unibo/android/intro/utils/USBTetherServer.java')">USBTetherServer</li> 
+ <li class="menuitem" onclick="loadWithMsg('<b>EvHandle </b> ',
+ '../../../../it.unibo.android.qevent.sensors/src/it/unibo/android/qevent/sensors/usb/EvHandleUSBSender.java')">EvHandleUSBSender</li> 
+ <li class="menuitem" onclick="loadWithMsg('<b>AndroSensorListenEvRaise </b> ',
+ '../../../../it.unibo.android.qevent.sensors/src/it/unibo/android/qevent/sensors/usb/AndroSensorListenEvJson.java')">AndroSensorListenEvJson</li> 
+
+     <u5>A receiver (USB)</u5>
+<li class="menuitem" onclick="loadWithMsg('<b>CtxReceiverUsb </b> (project <tt>it.unibo.qevents.intro</tt>) ',                              '../../../../it.unibo.qevents.intro/src/it/unibo/qevents/example/usb/CtxReceiverUsb.java')">CtxReceiverUsb</li>
+<li class="menuitem" onclick="loadWithMsg('<b>USBTetherClient </b> ',                              '../../../../it.unibo.qevents.intro/src/it/unibo/qevents/example/usb/USBTetherClient.java')">USBTetherClient</li>
+     
+ <u5>Using QStreams (USB)</u5>
+ <li class="menuitem" onclick="loadWithMsg('<b>CtxAndroStream</b> (project <tt>it.unibo.android.qevent.sensors</tt>) ',
+ '../../../../it.unibo.android.qevent.sensors/src/it/unibo/android/qstream/sensors/usb/CtxAndroStream.java')">CtxAndroStream</li> 
+ <li class="menuitem" onclick="loadWithMsg('<b>SensAndroSrcObserverJson</b>',
+ '../../../../it.unibo.android.qevent.sensors/src/it/unibo/android/qstream/sensors/sources/SensAndroSrcObserverJson.java')">Sens...ObserverJson</li> 
+ <li class="menuitem" onclick="loadWithMsg('<b>ShowSensDataSubscriber</b> ',
+ '../../../../it.unibo.android.qevent.sensors/src/it/unibo/android/qstream/sensors/usb/ShowSensDataSubscriber.java')">ShowSensDataSubscriber</li> 
+ <li class="menuitem" onclick="loadWithMsg('<b>USBSendSubcriber</b> ',
+ '../../../../it.unibo.android.qevent.sensors/src/it/unibo/android/qstream/sensors/usb/USBSendSubcriber.java')">USBSendSubcriber</li> 
+ <li class="menuitem" onclick="loadWithMsg('<b>SensDataMapFunc</b> ',
+ '../../../../it.unibo.android.qevent.sensors/src/it/unibo/android/qstream/sensors/usb/USBSendSubcriber.java')">SensDataMapFunc</li> 
+
+</div>
+
+    
+
+<div id="bottom">
+By AN - SG Unibo-DISI    
+</div>
+    
+</div>
+</div>    
+ 
+</body></html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="../../css/plainStyle.css">
+<link rel="stylesheet" type="text/css" href="../../css/robotTabStyle.css">   
+<script type="text/javascript" src="../../css/issStyle.js"></script>
+<head>
+
+<title>GPIO</title></head><body>
+    
+<div class="container wrapper"> 
+
+<div id="top">
+<h3 id="h3">GPIO</h3>
+<p></p>
+</div> 
+
+
+    
+<div class="wrapper">
+    
+ 
+    
+ 
+<div id="main">
+<p>
+<b>GPIO</b> (generalpurpose I/O pins) enable the software to either read or write voltage levels representing a logical zero or one. In <i>active high logic</i>, a voltage close to VDD (the processor supply voltage) represents a logical one, and a voltage near zero represents a logical zero. In <i>active low logic</i>, these interpretations are reversed.
+    
+<h4>GPIO as an output</h3>
+   When a GPIO pin is configured to be an output, this enables software to write to a memory-mapped register to set the output voltage to be either high or low. By this mechanism, software can directly control external physical devices.
+If a GPIO pin produces an output voltage of VDD when given a logical one, then the designer needs to know the current limitations before connecting a device to it. If a device with a resistance of R ohms is connected to it, then the output current will be <b>I=VDD/R</b> (Ohm’s law).
+It is essential to keep this current within specified tolerances. Going outside these tolerances could cause the device to overheat and fail. A power amplifier may be needed to deliver adequate current. An amplifier may also be needed to change voltage levels.
+
+    <h4>GPIO as an intput</h3>
+    GPIO pins can also be configured as inputs, in which case software will be able to react to externally provided voltage levels. An input pin may be Schmitt triggered, in which case they have <i id="i">hysteresis</i>. A Schmitt triggered input pin is less vulnerable to noise   
+    
+It may be important to maintain electrical isolation between processor circuits and external devices. A useful strategy is to divide a circuit into electrical domains, possibly with separate power supplies, that have relatively little influence on one another. 
+    
+    
+</p>
+<!--    
+<center>
+    <img src="../imgs/hw/ardunioMicro.jpg" alt="RaspRev2" width="800" height="600"/>
+</center> 
+-->
+</div>
+    
+
+
+    
+
+<div id="bottom">
+By AN - SG Unibo-DISI    
+</div>
+    
+</div>
+</div>    
+ 
+</body></html>
