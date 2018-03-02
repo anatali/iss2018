@@ -1,0 +1,90 @@
+/*
+build.gradle for the subproject deviceImpl
+*/
+
+repositories {
+     jcenter()
+}
+
+dependencies {
+     testCompile 'junit:junit:4.12'
+     compile fileTree(dir: '../../localLibs/unibo', include: '*.jar')
+     //testCompile files('../buildSrc/build/libs/buildSrc.jar' )
+     compile project(':deviceModel')
+}
+
+  	sourceSets {
+		main {
+			java {
+			   	srcDirs = ['src']
+			}
+		}
+		test {
+			java {
+		   		srcDirs = ['test']
+		 	}
+		}
+	}
+	
+/*
+----------------------------------------------------------
+TEST CONFIGURATION
+----------------------------------------------------------
+*/ 	
+
+/*
+apply plugin: 'announce'
+WORKS for:  Twitter , notify-send (Ubuntu), Snarl (Windows), Growl (Mac OS X)
+*/
+
+test {
+	testLogging {
+		outputs.upToDateWhen { false }
+		
+		showStandardStreams = true
+		
+		events 'passed' //,  'started', 'skipped', 'failed'
+		
+	}
+	//forkEvery = 5
+	//maxParallelForks = Runtime.runtime.availableProcessors() / 2
+}
+
+
+
+test.afterSuite { TestDescriptor suite, TestResult result -> //add closure to be notified
+	if( !suite.parent && result.getTestCount() > 0) { //there is alt least one test
+		long elapsedTestTime = result.getEndTime() - result.getStartTime()
+		//announce.announce("""Elapsed time for execution of ${result.getTestCount()} test(s):  $elapsedTestTime ms""", 'local')
+		System.out.println("""AFTERSUIT Elapsed time for execution of ${result.getTestCount()} test(s):  $elapsedTestTime ms""");
+	}
+}
+
+test.addTestListener(new NotificationTestListener(project))
+
+class NotificationTestListener implements TestListener {
+    final Project project
+
+    NotificationTestListener(Project project) {
+        this.project = project
+    }
+
+    @Override
+    void afterSuite(TestDescriptor suite, TestResult result) {
+        if (!suite.parent && result.getTestCount() > 0) {
+            long elapsedTestTime = result.getEndTime() - result.getStartTime()
+            //project.announce.announce("Elapsed time for execution of ${result.getTestCount()} test(s): $elapsedTestTime ms", 'local')
+        	println("LISTENER:  Elapsed time for execution of ${result.getTestCount()} test(s): $elapsedTestTime ms");
+        }
+    }
+
+    @Override
+    void afterTest(TestDescriptor testDescriptor, TestResult result) {}
+
+    @Override
+    void beforeSuite(TestDescriptor suite) {}
+
+    @Override
+    void beforeTest(TestDescriptor testDescriptor) {}
+}
+ 

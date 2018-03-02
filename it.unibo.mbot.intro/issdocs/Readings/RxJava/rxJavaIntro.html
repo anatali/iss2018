@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="../../css/plainStyle.css"> 
+<script type="text/javascript" src="../../css/issStyle.js"></script>
+<head>
+
+<title>RXJAVA</title></head><body>
+    
+<div class="container wrapper"> 
+
+<div id="top">
+<h3 id="h3">RXJAVA</h3>
+<p></p>
+</div> 
+    
+<div class="wrapper">
+ 
+<div id="main">
+<p>
+    RxJava is a Java implementation of <i>Reactive Extensions</i> developed by Netix. Reactive Extensions is a library (see MSDN site) to "compose asynchronous and event-based programs using observable collections and LINQ-style query operators".
+    RxJava extends the observer pattern to support sequences of data/events and adds operators that allow us to compose sequences together declaratively while abstracting away concerns about things like low-level threading, synchronization, thread-safety, concurrent data structures, and non-blocking I/O.
+   </p><p>
+ Observables support not just the emission of single scalar values (as <i>Futures</i> do), but also of <b>sequences of values</b> or even infinite streams. An Observable is the asynchronous/push 'dual' to the synchronous/pull <tt>Iterable</tt>. With an <tt>Iterable</tt>, the consumer pulls values from the producer and the thread blocks until those values arrive. By contrast, with an Observable the producer pushes values to the consumer (onNext() method) whenever values are available. This approach is more exible, because values can arrive synchronously or asynchronously. Sometimes this approach is called <i id="i">Functional Reactive Programming</i> because it applies functions (lambdas/closures) in a reactive (asynchronous/push) manner to asynchronous sequences of data.
+   </p><p>
+    The Observable type adds two missing semantics to the Observer pattern of [GOF], to match those that are available in the Iterable type:
+    <ul>
+    <li>the ability for the producer to signal to the consumer that there is no more data available (a foreach loop on an Iterable completes and returns normally in such a case; an Observable calls its observer's <tt>onCompleted()</tt> method)</li>
+    <li>the ability for the producer to signal to the consumer that an error has occurred (an Iterable throws an exception if an error takes place during iteration; an Observable calls its observer's <tt>onError()</tt> method)</li>
+   </ul>
+ 
+With these additions, RxJava harmonizes the Iterable and Observable types. The only dierence
+between them is the direction in which the data flows. This is very important because now any operation
+we can perform on an Iterable, we can also perform on an Observable.   
+    </p><p>
+Observables in RxJava can be implemented using whatever implementation suits our needs, including thread-pools, event loops, nonblocking I/O, actors (such as from Akka). From the Observer's point of view, it doesn't matter how an is implemented.
+     </p><p>
+   
+In RxJava an object that implements the Observer interface subscribes to an object of the Observable class. 
+Then that subscriber <i id="i">reacts</i> to whatever item or sequence of items the Observable object emits. 
+This pattern facilitates concurrent operations because it does not need to block while waiting 
+for the Observable to emit objects, but instead it creates a sentry in the form of a subscriber 
+that stands ready to react appropriately at whatever future time the Observable does so.
+    </p><p>
+A marble-diagram is a diagram that shows event occurring over time. A marble diagram contains both input and output sequences(s).
+ <img src="./legend.png" alt="show" width="605" height="255"/> 
+    
+    </p><p>
+<pre>
+subscribe(Action1<? super T> onNext)
+...
+subscribe(Action1<? super T> onNext, Action1<java.lang.Throwable> onError, Action0 onComplete, Scheduler scheduler)
+
+subscribe(Observer<? super T> observer)
+
+subscribe(Subscriber<? super T> subscriber)
+</pre>
+<a href="https://github.com/ReactiveX/RxJava/wiki">RxJava/wiki </a>
+ </p> 
+</div>
+
+<div id="bottom">
+By AN  Unibo-DISI    
+</div>
+    
+</div>
+</div>    
+ 
+</body></html>

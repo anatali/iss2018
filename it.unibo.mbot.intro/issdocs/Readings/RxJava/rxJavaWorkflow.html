@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="../../css/plainStyle.css"> 
+<script type="text/javascript" src="../../css/issStyle.js"></script>
+<head>
+
+<title>rxJavaWorkflow</title></head><body>
+    
+<div class="container wrapper"> 
+
+<div id="top">
+<h1>Workflow</h1>
+</div> 
+    
+<div class="wrapper">
+ 
+<div id="main">
+<p>
+<h3 id="h3">1) Define a <tt>Observable.OnSubscribe<T></tt></h3>
+The interface <tt>Observable.OnSubscribe<T></tt> is related to any object  
+that can be used as a stream source of data of type <b>T</b>. 
+</p><p>
+The method <b>call</b> of <tt>Observable.OnSubscribe<T></tt>
+(inherited from interface <tt>rx.functions.Action1</tt>, in its turn
+inherited by the interface <tt>rx.Observable.OnSubscribe<T></tt>) 
+is executed each time a Subscriber subscribes to our source.
+</p><p>
+Example: <a href="../../../../it.unibo.rx.intro/src/it/unibo/rx/intro/OnSubscribeSimpleGen.java">OnSubscribeSimpleGen</a>
+
+<h3 id="h3">2) Create a stream source <tt>rx.Observable</tt></h3>
+The stream source is
+created by <tt>Observable.create</tt> that returns an <tt>rx.Observable</tt> that will execute 
+the specified function when a Subscriber subscribes to it.
+</p><p>
+Example: <a href="../../../../it.unibo.rx.intro/src/it/unibo/rx/intro/ObservableSimpleGenMain.java">ObservableSimpleGenMain </a>
+
+<h3 id="h3">3) Add some subscriber to the stream</tt></h3>
+The application work can be done by a subscriber added to the stream source
+</p><p>
+Example: <br/>
+<a href="../../../../it.unibo.rx.intro/src/it/unibo/rx/intro/ObservableSimpleGenMain.java">ObservableSimpleGenMain </a><br/>
+<a href="../../../../it.unibo.rx.intro/src/it/unibo/rx/intro/AJustToShowSubscriber.java">AJustToShowSubscriber </a>
+
+
+
+ </p> 
+</div>
+
+<div id="bottom">
+By AN  Unibo-DISI    
+</div>
+    
+</div>
+</div>    
+ 
+</body></html>

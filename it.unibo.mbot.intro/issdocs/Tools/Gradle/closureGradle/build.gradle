@@ -1,0 +1,70 @@
+/*
+build.gradle
+KEY-POINT: closures
+
+USAGE: gradle entry
+*/
+
+/*
+--------------------------------------------------------------------
+def is a placeholder for java.lang.Object
+The type is inferred (at runtime) from the assigned value
+--------------------------------------------------------------------
+*/
+
+def map = new java.util.HashMap<Integer , String>();
+
+/*
+--------------------------------------------------------------------
+Closure with one argument referred by it
+--------------------------------------------------------------------
+*/
+def Closure createClosure = {
+	println("createClosure running "  );
+//	java.util.HashMap<Integer , String> map = new java.util.HashMap<Integer , String>();
+	map.put(1,"uno");
+	map.put(2,"due");
+	//Define a closure bound to local map that returns the size of the map
+ 	def aclosure = {
+		assert map.size() == 2;  //TODO: try with assert map.size() == 3;
+		println( "%%% aclosure map=" + map + " size=" + map.size() + " it=" + it);
+		return map.size()
+	};	
+	return aclosure;
+}
+
+/*
+--------------------------------------------------------------------
+Closure with one argument referred by it
+--------------------------------------------------------------------
+*/
+def bclosure = {
+	println( "%%% bclosure it=" + it + " size=" + it.size()  );
+	return it.size();
+}
+
+def Integer useAClosure( Closure closure, Integer n) {
+	println("useAClosure " + closure);
+ 	return closure() + n
+}
+
+task runClosure { 
+	java.util.HashMap<Integer , String> mymap = new java.util.HashMap<Integer , String>();
+	mymap.put(1,"a");
+	mymap.put(2,"b");
+	mymap.put(3,"c");
+  	println( "RESULT of runClosure=" + bclosure(mymap) ) ;
+}
+
+task createAndRunClosure << { 
+	println( "RESULT of createAndRunClosure =" + useAClosure( createClosure(), 10 ) );
+}
+
+/*
+--------------------------------------------------------------------
+ENTRIES & DEPENDENCY
+--------------------------------------------------------------------
+*/
+task none 
+task entry ( dependsOn: createAndRunClosure  )
+ 

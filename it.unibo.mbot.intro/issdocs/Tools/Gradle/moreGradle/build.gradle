@@ -1,0 +1,79 @@
+/*
+build.gradle
+KEY-POINT: tasks and actions; ant property; dependsOn
+
+*/
+//USAGE: gradle entry
+
+def antJob(){
+	ant.echo( message: 'implicit ant task usage ' + getBuildDir() )
+}
+
+task helloWorld {
+	doFirst{
+		println 'Hello world first!'
+	}
+	doLast {
+		println 'Hello world last!'
+	}
+}
+
+
+task javaJob << {
+	File inputDirectory  = new File("syskb");
+	File outputFile      = new File(getBuildDir(), "allfiles.txt");
+	File outputDirectory = outputFile.getParentFile();
+	
+	if( ! outputDirectory.exists()) {
+		outputDirectory.mkdirs();
+	}
+	outputFile.createNewFile();
+	FileWriter fileWriter = new FileWriter(outputFile, true);
+	try {
+		for(File file : inputDirectory.listFiles()) {
+			fileWriter.write(file.getName() + "\n");
+		}
+	}
+	finally {
+		fileWriter.close();
+	}	
+}
+
+task groovyJob << {
+	def inputDirectory = new File('syskb')
+	def outputFile = new File(buildDir, 'allfilesGroovy.txt')
+	def outputDirectory = outputFile.parentFile
+	
+	if(!outputDirectory.exists()) {
+		outputDirectory.mkdirs()
+	}
+	outputFile.createNewFile()
+	inputDirectory.eachFile { outputFile << "$it.name\n" }
+}
+
+task myJavaJob << {
+	javax.swing.JFileChooser dialog = new javax.swing.JFileChooser();
+	dialog.showOpenDialog(null);
+	File f = dialog.getSelectedFile();
+	System.out.println( "SELECTED: " + f.getName() );
+}
+
+//USAGE: gradle helloFromGroovy
+task helloFromGroovy(type: GreetingTask)
+
+task start << {
+	antJob()
+}
+
+dependencies {
+    compile gradleApi()
+    compile localGroovy()
+}
+
+/*
+--------------------------------------------------------------------
+DEPEDENCY
+--------------------------------------------------------------------
+*/
+helloWorld.dependsOn start, myJavaJob //groovyJob , javaJob
+task entry ( dependsOn: helloWorld  )

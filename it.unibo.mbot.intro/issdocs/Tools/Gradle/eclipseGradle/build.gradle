@@ -1,0 +1,47 @@
+/*
+build.gradle
+KEY-POINT: buildscript method
+
+USAGE: gradle build
+SEE: C:\Bluemix\working WORKSPACE
+*/
+apply plugin: 'eclipse'
+apply plugin: 'java'
+apply plugin: 'java-library-distribution'
+
+version = 1.0
+sourceCompatibility = 1.8
+
+/*
+---------------------------------------------------
+Adapt our build to our project layout
+---------------------------------------------------
+*/
+sourceSets {
+	main {
+	 java {
+	   srcDirs = ['src']
+	}
+	}
+	test {
+	 java {
+	   srcDirs = ['test']
+	 }
+	}
+}
+
+dependencies {
+	 compile fileTree(dir: '../localLibs/unibo', include: '*.jar')
+}
+
+jar {
+	exclude 'META-INF/*.SF', 'META-INF/*.DSA', 'META-INF/*.RSA', 'META-INF/*.MF'
+	
+	manifest {
+		attributes "Class-Path": configurations.compile.collect { "lib/"+it.getName() }.join(' ')
+		attributes 'Main-Class': 'it.unibo.qatest.CtxOfHello'
+ 	}
+}
+ 
+
+task none

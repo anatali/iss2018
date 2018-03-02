@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="../../css/plainStyle.css"> 
+<script type="text/javascript" src="../../css/issStyle.js"></script>
+<head>
+
+<title>RXTX</title></head><body>
+    
+<div class="container wrapper"> 
+
+<div id="top">
+<h3 id="h3">RXTX</h3>
+<p></p>
+</div> 
+    
+<div class="wrapper">
+ 
+<div id="main">
+<p>
+In recent weeks, users with 64-bit Windows machines have encountered problems with Java when launching the Programming Window.
+The solution is to ensure that you have the correct <tt>RXTX</tt> library files installed in the correct folders. There are two files: <b>rxtxComm.jar</b> and <b>rxtxSerial.dll</b>, which should be installed as follows:
+<ul>
+    <li>C:\Program Files\Java\jre6\bin\rxtxSerial.dll</li>
+   <li>C:\Program Files\Java\jre6\lib\ext\RXTXComm.jar</li>
+</ul>    
+Many 64-bit Windows machines have both 32-bit and 64-bit browsers and 32-bit and 64-bit Java. On such machines, the 64-bit libraries should be installed as shown above. The correct path for the 32-bit <tt>RXTX</tt> libraries is as follows:
+    <ul>
+    <li>C:\Program Files(x86)\Java\jre6\bin\rxtxSerial.dll</li>
+   <li>C:\Program Files(x86)\Java\jre6\lib\ext\RXTXComm.jar</li>
+</ul>  
+The installer package on the Machine Science web site attempts to detect whether you have a 32-bit or a 64-bit machine, and install the files as needed. If this fails, the solution is to download and install the files manually.
+
+    </p<>p>
+
+The 32-bit <tt>RXTX</tt>  files are here:
+    <ul>
+    <li><a href="http://guides.machinescience.org/file.php/29/DRIVERS/32BIT/rxtxSerial.dll">rxtxSerial.dll</a></li>
+   <li><a href="http://guides.machinescience.org/file.php/29/DRIVERS/32BIT/RXTXcomm.jar">RXTXComm.jar</a></li>
+</ul>  
+    
+
+
+
+    </p<>p>
+
+The 64-bit <tt>RXTX</tt>  files are here:
+    <ul>
+    <li><a href="http://guides.machinescience.org/file.php/29/DRIVERS/64BIT/rxtxSerial.dll">rxtxSerial.dll</a></li>
+   <li><a href="http://guides.machinescience.org/file.php/29/DRIVERS/64BIT/RXTXcomm.jar">RXTXComm.jar</a></li>
+</ul> 
+ 
+<h3>Browswer</h3>
+The important thing with Windows systems is to make sure that you have the right type of Java for your browser, and the right RXTX files for your version of Java.
+
+In other words, if you have a 32-bit browser, you need to install 32-bit Java, and then install the 32-bit RXTX files. If you have a 64-bit browser, you need to install 64-bit Java, and then install the 64-bit RXTX files.
+
+Note that many 64-bit Windows machines ship with both 32-bit and 64-bit versions of Internet Explorer.
+ 
+ </p> 
+</div>
+
+<div id="bottom">
+By AN-SG Unibo-DISI    
+</div>
+    
+</div>
+</div>    
+ 
+</body></html>

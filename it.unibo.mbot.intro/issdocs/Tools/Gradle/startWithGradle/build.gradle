@@ -1,0 +1,116 @@
+/*
+build.gradle
+KEY-POINT: tasks and actions; dependsOn ; ant property; closures
+
+If you use -b option then settings.gradle file is not used
+USAGE: gradle none  gradle job  gradle entry
+*/
+version = '1.0'
+println name
+println rootProject.version
+
+/*
+--------------------------------------------------------------------
+Reference to ant
+--------------------------------------------------------------------
+*/
+def antJob(){
+	ant.echo( message: 'implicit ant task usage ' + getBuildDir() )
+}
+
+task start << {
+	antJob()
+}
+/*
+--------------------------------------------------------------------
+A task
+--------------------------------------------------------------------
+*/
+task helloWorld {
+	doFirst{
+		println 'Hello world first!'
+	}
+	doLast {
+		println 'Hello world last!'
+	}
+}
+
+/*
+--------------------------------------------------------------------
+A task with actions added
+--------------------------------------------------------------------
+*/
+task doJob{
+	println( " doJob running is executed immediately "   );
+}
+doJob.doFirst{ println( " doJob doFirst (executed when the task is activated) "   ); }
+doJob << { println( " doJob doLast (executed when the task is activated) "   ); }
+
+
+/*
+--------------------------------------------------------------------
+A task written in Java that creates a file
+--------------------------------------------------------------------
+*/
+task javaJob << {
+	File inputDirectory  = new File("syskb");
+	File outputFile      = new File(getBuildDir(), "allfiles.txt");
+	File outputDirectory = outputFile.getParentFile();
+	
+	if( ! outputDirectory.exists()) {
+		outputDirectory.mkdirs();
+	}
+	outputFile.createNewFile();
+	FileWriter fileWriter = new FileWriter(outputFile, true);
+	try {
+		for(File file : inputDirectory.listFiles()) {
+			fileWriter.write(file.getName() + "\n");
+		}
+	}
+	finally {
+		fileWriter.close();
+	}	
+	println("javaJob has created allfiles.txt");
+}
+
+/*
+--------------------------------------------------------------------
+A task written in Groovy that creates a file
+--------------------------------------------------------------------
+*/
+task groovyJob << {
+	def inputDirectory = new File('syskb')
+	def outputFile = new File(buildDir, 'allfilesGroovy.txt')
+	def outputDirectory = outputFile.parentFile
+	
+	if(!outputDirectory.exists()) {
+		outputDirectory.mkdirs()
+	}
+	outputFile.createNewFile()
+	inputDirectory.eachFile { outputFile << "$it.name\n" }
+	println("groovyJob has created allfilesGroovy.txt");
+}
+
+/*
+--------------------------------------------------------------------
+A task written in Java that shows a dialog window
+--------------------------------------------------------------------
+*/
+task dialogJava << {
+	javax.swing.JFileChooser dialog = new javax.swing.JFileChooser();
+	dialog.showOpenDialog(null);
+	File f = dialog.getSelectedFile();
+	if( f != null ) System.out.println( "SELECTED: " + f.getName() );
+	else System.out.println( "NO FILE SELECTED"  );
+}
+
+ 
+/*
+--------------------------------------------------------------------
+DEPEDENCY
+--------------------------------------------------------------------
+*/
+helloWorld.dependsOn start, groovyJob , javaJob //, dialogJava 
+task entry ( dependsOn: helloWorld  )
+task job   ( dependsOn: doJob  )
+task none	//does not executes any task  

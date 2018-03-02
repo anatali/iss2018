@@ -1,0 +1,999 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.o../html4/strict.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="../css/plainStyle.css">
+<link rel="stylesheet" type="text/css" href="../css/tabStyle.css">
+<script type="text/javascript" src="../css/issStyle.js"></script>
+<head>
+
+<title>Learning Gradle</title></head>
+    
+<body>     
+<div class="container wrapper"> 
+
+<div id="top">
+</div> 
+
+<div class="wrapper">
+<div id="main"> 
+
+<!--
+-------------------------------------------------------
+START
+-------------------------------------------------------
+-->  
+    <h1>startWithGradle</h1>       
+<h2>Tasks, Actions and Dependencies </h2>       
+<b>KEY-POINT</b>: tasks and actions; dependsOn ; ant property.
+    <a href="../startWithGradle/build.gradle" target="gradle" >build.gradle</a> 
+
+<font face="Verdana" size="3" color="rgba(44, 0, 128, 0.91)"><pre>
+    gradle none  
+</pre> </font>
+    
+<font face="Verdana" size="2" color="navy"><pre>
+------------------------------------------------    
+ doJob running is executed immediately
+:none UP-TO-DATE
+
+BUILD SUCCESSFUL
+
+Total time: 3.932 secs
+------------------------------------------------
+</pre> </font>   
+    
+    
+<font face="Verdana" size="3" color="rgba(44, 0, 128, 0.91)"><pre>
+    gradle job  
+</pre> </font>
+    
+<font face="Verdana" size="2" color="navy"><pre>
+------------------------------------------------    
+ doJob running is executed immediately
+:doJob
+ doJob doFirst (executed when the task is activated)
+ doJob doLast (executed when the task is activated)
+:job
+
+BUILD SUCCESSFUL
+
+Total time: 3.248 secs
+------------------------------------------------
+</pre> </font>   
+    
+<font face="Verdana" size="3" color="rgba(44, 0, 128, 0.91)"><pre>
+    gradle entry  
+</pre> </font>
+
+    
+<font face="Verdana" size="2" color="navy"><pre>
+------------------------------------------------
+ doJob running is executed immediately
+:groovyJob
+groovyJob has created allfilesGroovy.txt
+:javaJob
+javaJob has created allfiles.txt
+:start
+[ant:echo] implicit ant task usage C:\aLab2016\lab2014Bo\it.unibo.iss2015intro\docs\Tools\Gradle\startWithGradle\build
+:helloWorld
+Hello world first!
+Hello world last!
+:entry
+
+BUILD SUCCESSFUL
+
+Total time: 3.662 secs  
+------------------------------------------------
+</pre> </font>   
+    
+    
+<!--
+-------------------------------------------------------
+CLOSURE
+-------------------------------------------------------
+-->     
+    <h1>closureGradle</h1>     
+<h2>Closures </h2>       
+<b>KEY-POINT</b>: closures.
+    <a href="../closureGradle/build.gradle" target="gradle" >build.gradle</a> 
+
+<font face="Verdana" size="3" color="rgba(44, 0, 128, 0.91)"><pre>
+    gradle none  
+</pre> </font>
+
+<font face="Verdana" size="2" color="navy"><pre>
+------------------------------------------------
+%%% bclosure it=[1:a, 2:b, 3:c] size=3
+RESULT of runClosure=3
+:none UP-TO-DATE
+
+BUILD SUCCESSFUL
+
+Total time: 3.726 secs
+------------------------------------------------
+</pre> </font>      
+    
+<font face="Verdana" size="3" color="rgba(44, 0, 128, 0.91)"><pre>
+    gradle entry  
+</pre> </font>
+
+<font face="Verdana" size="2" color="navy"><pre>
+------------------------------------------------
+%%% bclosure it=[1:a, 2:b, 3:c] size=3
+RESULT of runClosure=3
+:createAndRunClosure
+createClosure running
+useAClosure build_aw9ww9jgfvgzhsmekm338bikx$_run_closure1$_closure5@2a32fb6
+%%% aclosure map=[1:uno, 2:due] size=2 it=null
+RESULT of createAndRunClosure =12
+:entry
+
+BUILD SUCCESSFUL
+
+Total time: 3.82 secs 
+------------------------------------------------
+</pre> </font>      
+
+<!--
+-------------------------------------------------------
+firstApp - Java plugin
+-------------------------------------------------------
+-->    
+<h1>firstApp</h1> 
+<h2>The simple Java plugin</h2>       
+<b>KEY-POINT</b>: the gradle Java plugin.
+    <a href="../firstApp/build0.gradle" target="gradle" >build0.gradle</a> , 
+    <a href="../firstApp/src/main/java/it/unibo/FirstGradleApp.java" target="gradle" >FirstGradleApp.java</a>
+<font face="Verdana" size="3" color="rgba(44, 0, 128, 0.91)"><pre>
+    gradle -b build0.gradle build
+</pre> </font>
+
+    
+<font face="Verdana" size="2" color="navy"><pre>
+------------------------------------------------
+:compileJava
+:processResources UP-TO-DATE
+:classes
+:jar
+:assemble
+:compileTestJava UP-TO-DATE
+:processTestResources UP-TO-DATE
+:testClasses UP-TO-DATE
+:test UP-TO-DATE
+:check UP-TO-DATE
+:build
+
+BUILD SUCCESSFUL
+
+Total time: 5.778 secs
+------------------------------------------------
+</pre> </font>     
+We note that a <tt>jar</tt> file is created but it is not runnable
+
+<!--
+-------------------------------------------------------
+firstApp - RUNNABLE jar
+-------------------------------------------------------
+-->    
+    <h2>A runnable jar</h2>       
+<b>KEY-POINT</b>:  gradle properties and MANIFEST attributes
+    <a href="../firstApp/build1.gradle" target="gradle" >build1.gradle</a> 
+<font face="Verdana" size="3" color="rgba(44, 0, 128, 0.91)"><pre>
+    gradle -b build1.gradle build
+</pre> </font>
+
+<font face="Verdana" size="2" color="navy"><pre>
+------------------------------------------------
+:compileJava UP-TO-DATE
+:processResources UP-TO-DATE
+:classes UP-TO-DATE
+:jar UP-TO-DATE
+:assemble UP-TO-DATE
+:compileTestJava UP-TO-DATE
+:processTestResources UP-TO-DATE
+:testClasses UP-TO-DATE
+:test UP-TO-DATE
+:check UP-TO-DATE
+:build UP-TO-DATE
+
+BUILD SUCCESSFUL
+
+Total time: 5.427 secs
+------------------------------------------------
+</pre> </font>   
+    
+<font face="Verdana" size="3" color="rgba(44, 0, 128, 0.91)"><pre>
+    java -jar firstApp-1.0.jar
+</pre> </font>
+
+<!--
+-------------------------------------------------------
+firstApp - WRAPPER
+-------------------------------------------------------
+--> 
+    <h2>The wrapper</h2>  
+<b>KEY-POINT</b>:  the gradle wrapper (task)
+
+    <a href="../firstApp/build2.gradle" target="gradle" >build2.gradle</a>
+<br/><br/>
+The wrapper is a core feature and enables a machine to run a Gradle
+build script without having to install the runtime.
+
+The wrapper task creates the directory <tt>build/gradle</tt> and 
+    the files <tt>gradlew</tt> and  (in windows) <tt>gradlew.bat</tt>.<br/><br/>
+<font face="Verdana" size="3" color="rgba(44, 0, 128, 0.91)"><pre>
+    gradle -b build2.gradle wrapper
+</pre> </font>
+
+<font face="Verdana" size="2" color="navy"><pre>
+------------------------------------------------
+:wrapper
+
+BUILD SUCCESSFUL
+
+Total time: 5.085 secs
+------------------------------------------------
+</pre> </font>   
+
+    
+<!--
+-------------------------------------------------------
+SECOND APP - DEPENDENCY and DISTRIBUTION
+-------------------------------------------------------
+-->     
+<h1>secondApp</h1>     
+<h2>Dependencies and distribution </h2>       
+<b>KEY-POINT</b>: dependencies from local libraries, distribution plugin.
+    <a href="../secondApp/build3.gradle" target="gradle" >build3.gradle</a> , 
+    <a href="../secondApp/src/main/java/it/unibo/SecondGradleApp.java" target="gradle" >SecondGradleApp.java</a>
+<font face="Verdana" size="3" color="rgba(44, 0, 128, 0.91)"><pre>
+    gradle -b build3.gradle build
+</pre> </font>
+
+The local libraries are<tt>jar</tt>  files stored in the <tt>uniboLibs</tt> directory.<br/>
+The 'java-library-distribution' plugin creates the <tt>distribution</tt> directory.<br/>
+The runtime distribution (a <tt>zip</tt> file for windows) includes the Java libraries into a 
+    <tt>lib</tt> directory that is refernced by the executable jar file.
+    
+<font face="Verdana" size="2" color="navy"><pre>
+------------------------------------------------
+:compileJava
+:processResources UP-TO-DATE
+:classes
+:jar
+:distTar
+:distZip
+:assemble
+:compileTestJava UP-TO-DATE
+:processTestResources UP-TO-DATE
+:testClasses UP-TO-DATE
+:test UP-TO-DATE
+:check UP-TO-DATE
+:build
+
+BUILD SUCCESSFUL
+
+Total time: 6.685 secs
+------------------------------------------------
+</pre> </font>   
+
+    <font face="Verdana" size="3" color="rgba(44, 0, 128, 0.91)"><pre>
+    java -jar secondApp-1.0.jar
+</pre> </font>
+
+<h2>Custom tasks</h2>       
+<b>KEY-POINT</b>: write and execute a custom task.
+    <a href="../secondApp/build.gradle" target="gradle" >build.gradle</a> , 
+  <font face="Verdana" size="3" color="rgba(44, 0, 128, 0.91)"><pre>
+    gradle t1 t2
+</pre> </font>
+    
+<font face="Verdana" size="2" color="navy"><pre>
+------------------------------------------------
+t1 TASK                                    
+t2 TASK                                    
+:t1          
+        *** task_t1 count=1
+:t2
+        *** task_t2 count=3
+        *** task_t2 count=4
+        *** task_t2 count=5
+
+BUILD SUCCESSFUL
+
+Total time: 4.401 secs    
+------------------------------------------------
+</pre> </font>   
+    
+<!--
+-------------------------------------------------------
+CONFIGURE GRADLE
+-------------------------------------------------------
+-->     
+ 
+     <h1>configGradle</h1>     
+<h2>Gradle properties configuration </h2>       
+<b>KEY-POINT</b>: gradle properties configuration.
+    <a href="../configGradle/build.gradle" target="gradle" >build.gradle</a> , 
+<font face="Verdana" size="3" color="rgba(44, 0, 128, 0.91)"><pre>
+    gradle entry  
+</pre> </font>
+
+<font face="Verdana" size="2" color="navy"><pre>
+------------------------------------------------
+:extraProp                                 
+secretKey from gradle.properties via ext =123456789
+secretKey from gradle.properties         =123456789
+myLib (added by script)  via ext         =../localLibs
+myLib (added by script)                  =../localLibs
+logo (added by script)                   =myLogo
+address (added by script in ext)         =192.168.43.1
+secretKey=123456789  myLib=../localLibs logo=myLogo address=192.168.43.1
+:entry
+
+BUILD SUCCESSFUL
+
+Total time: 3.443 secs
+------------------------------------------------
+</pre> </font>   
+
+<!--
+-------------------------------------------------------
+BUIDSCRIPT
+-------------------------------------------------------
+-->  
+    
+     <h1>buildscriptGradle</h1> 
+<h2>Usage of (custom) Java/groovy classes at build time</h2>       
+
+<b>KEY-POINT</b>: buildscript method. 
+    <a href="../buildscriptGradle/settings.gradle" target="gradle" >settings.gradle</a> , 
+    <a href="../buildscriptGradle/build.gradle" target="gradle" >build.gradle</a> , 
+<font face="Verdana" size="3" color="rgba(44, 0, 128, 0.91)"><pre>
+    gradle entry  
+</pre> </font>
+
+    Include the source for your build classes into the directory buildSrc
+and Gradle automatically compiles them and includes them in the classpath of your build script.
+   
+    
+<font face="Verdana" size="2" color="navy"><pre>
+------------------------------------------------
+:buildSrc:compileJava
+:buildSrc:compileGroovy UP-TO-DATE
+:buildSrc:processResources UP-TO-DATE
+:buildSrc:classes
+:buildSrc:jar
+:buildSrc:assemble
+:buildSrc:compileTestJava UP-TO-DATE
+:buildSrc:compileTestGroovy UP-TO-DATE
+:buildSrc:processTestResources UP-TO-DATE
+:buildSrc:testClasses UP-TO-DATE
+:buildSrc:test UP-TO-DATE
+:buildSrc:check UP-TO-DATE
+:buildSrc:build
+SETTINGS build script gradle project
+build script gradle project
+1.0
+:doJava
+                *** hello from GreetingInJava
+:doShow
+ *** doJava task C:\aLab2016\lab2014Bo\it.unibo.iss2015intro\docs\Tools\Gradle\buildscriptGradle root project 'build script gradle project'
+ *** doJava task C:\aLab2016\lab2014Bo\it.unibo.iss2015intro\docs\Tools\Gradle\buildscriptGradle
+ *** doJava task C:\Users\anatali\.gradle\caches\modules-2\files-2.1\commons-codec\commons-codec\1.2\397f4731a9f9b6eb1907e224911c77ea3aa27a8b\commons-
+codec-1.2.jar
+:encode
+COMPUTED base64=aGVsbG8gd29ybGQK
+:entry
+
+BUILD SUCCESSFUL
+
+Total time: 7.407 secs
+------------------------------------------------
+</pre> </font>   
+Problem: how use at build time a Java class that depends on a unibo library not includen in Maven repo.
+    
+<!--
+-------------------------------------------------------
+LEGACY APPLICATION
+-------------------------------------------------------
+-->     
+ <h1>qaApp</h1>     
+<h2>QActor application with shared local library </h2>       
+<b>KEY-POINT</b>: dependencies from local libraries, distribution plugin.
+    <a href="../qaApp/build.gradle" target="gradle" >build.gradle</a> , 
+    <a href="../qaApp/src/it/unibo/qatest/CtxOfHello.java" target="gradle" >CtxOfHello.java</a>
+    <a href="../qaApp/src/it/unibo/qatest/QActorHello.java" target="gradle" >QActorHello.java</a>
+<font face="Verdana" size="3" color="rgba(44, 0, 128, 0.91)"><pre>
+    gradle build.gradle  
+</pre> </font>
+
+    The distribution for windows is in <tt>build/distribution/qaApp-1.0.zip</tt>.<br/>
+    If we unzip the file, the <tt>qaApp-1.0/lib directory</tt> includes the required libraries.
+
+<!--
+-------------------------------------------------------
+JAVA CREATION
+-------------------------------------------------------
+-->
+    
+ <h1>Java project creation with the init task</h1>     
+<h2>Create the structure of a new Gradle project </h2>  
+<font face="Verdana" size="3" color="rgba(44, 0, 128, 0.91)"><pre>
+    gradle init
+</pre> </font>
+  
+    Creates a Gradle project, which contains the gradle wrapper files, a 
+    <a href="../initJavaGradle/build0.gradle" target="gradle" >build.gradle</a> and
+<a href="../initJavaGradle/settings0.gradle" target="gradle" >settings.gradle</a> file.
+
+<font face="Verdana" size="3" color="rgba(44, 0, 128, 0.91)"><pre>
+    gradle init --type java-library
+</pre> </font>   
+      
+
+A java project structure is created together with the <a href="../initJavaGradle/build1.gradle" target="gradle" >build.gradle</a> and the <a href="../initJavaGradle/settings1.gradle" target="gradle" >settings.gradle</a> files.
+        
+A Java class is creted: <a href="../initJavaGradle/src/main/java/Library.java" target="gradle" >Library</a>
+    together with a Junit test: <a href="../initJavaGradle/src/test/java/LibraryTest.java" target="gradle" >LibraryTest</a>
+
+The gradle build script should be modified by introducing the version and the mina class specification in the manifest:
+    
+ <a href="../initJavaGradle/build.gradle" target="gradle" >build.gradle</a>    
+    
+<!--
+-------------------------------------------------------
+ECLIPSE
+-------------------------------------------------------
+-->    
+ <h1>Gradle plugin for Eclipse</h1>     
+<h2>Generate an Eclipse project for the same <i>qaApp</i> code</h2>       
+<b>KEY-POINT</b>: generation of an Eclipse project.
+    <a href="../eclipseGradle/build.gradle" target="gradle" >build.gradle</a> , 
+    <a href="../eclipseGradle/src/it/unibo/qatest/CtxOfHello.java" target="gradle" >CtxOfHello.java</a>
+    <a href="../eclipseGradle/src/it/unibo/qatest/QActorHello.java" target="gradle" >QActorHello.java</a>
+<font face="Verdana" size="3" color="rgba(44, 0, 128, 0.91)"><pre>
+    gradle build.gradle  
+</pre> </font>
+The Eclipse plugins makes it possible Eclipse IDE to import the
+project into Eclipse (File - Import... - Existing Projects into Workspace). Both external dependencies
+(including associated source and Javadoc files) and project dependencies are considered.  
+
+    
+<!--
+-------------------------------------------------------
+WORKFLOW
+-------------------------------------------------------
+--> 
+ <h1>Workflow</h1>
+ Let us summarize a possible workflow to setup a Java project by starting from gradle and then working in Eclipse.   
+<ol>
+<li>Create a working directory <b>WD</b> (e.g. <tt>C:\aLab2016\lab2014Bo\it.unibo.iss2015intro\docs\Tools\Gradle\workflow</tt>)</li> 
+     <li>Open a terminal on <b>WD</b> and execute
+     <font face="Verdana" size="3" color="rgba(44, 0, 128, 0.91)"><pre>
+    gradle init --type java-library  
+    </pre> </font>
+    </li> 
+    <li>Insert in the generated <tt>build.gradle</tt> the sentence <tt>apply plugin: 'eclipse'</tt>  and execute:
+     <font face="Verdana" size="3" color="rgba(44, 0, 128, 0.91)"><pre>
+          gradle eclipse
+    </pre> </font>        
+    </li>     
+     <li>
+        Open Eclipse and import the project (actually named <i></i>workflow</i>)
+    </li> 
+    <li>In the Eclipse IDE,edit the generated <tt>build.gradle</tt> as follows:
+        <a href="../workflow/build.gradle" target="gradle" >build.gradle</a> </li>
+   <li>Open the view <b>Termimal</b> and execute
+     <font face="Verdana" size="3" color="rgba(44, 0, 128, 0.91)"><pre>
+        gradle build 
+        gradle eclipse //to update the classptah with the libraries
+     </pre> </font>      
+    </li> 
+     <li>Edit the the generated Java code as follows:
+         <a href="../workflow/src/main/java/Library.java" target="gradle" >Library.gradle</a> <br/>
+         <a href="../workflow/src/test/java/LibraryTest.java" target="gradle" >LibraryTest.gradle</a> 
+    and excute
+     <font face="Verdana" size="3" color="rgba(44, 0, 128, 0.91)"><pre>
+        gradle build    //to update the distribution
+      </pre> </font>      
+         
+    </li>
+    <li>Run the application in the Eclipse IDE </li>
+    <li>Unzip the file <tt>build/distributions/workflow-1.0.zip</tt> and execute
+      <font face="Verdana" size="3" color="rgba(44, 0, 128, 0.91)"><pre>
+        java -jar workflow-1.0.jar
+      </pre> </font>      
+   
+    </li>    
+</ol>
+
+<!--
+-------------------------------------------------------
+DATABASE
+-------------------------------------------------------
+--> 
+ <h1>Using a database</h1>
+ Let us experiment the usage of the <a href="http://www.h2database.com/html/main.html" target="gradle">H2</a> open source SQL database engine.   
+<ol>
+    <h3>Setting the H2 DB support</h3>
+    <li>Download H2 from <a href="http://www.h2database.com/html/download.html">http://www.h2database.com/html/download.html</a>
+        and start the H2 browser console (<b>H2BC</b>) by executing (from <i>C:\Program Files (x86)\H2\bin</i>):
+     <font face="Verdana" size="3" color="rgba(44, 0, 128, 0.91)"><pre>
+        h2.bat or java -jar h2-1.4.192.jar
+      </pre> </font>      
+        
+    </li>
+    <li>In <b>H2BC</b> set the <tt>JDBC URL:</tt> field to :
+     <font face="Verdana" size="3" color="rgba(44, 0, 128, 0.91)"><pre>
+        jdbc:h2:~/uniboData
+      </pre> </font>      
+         then click on <tt>connect</tt>.
+    </li>
+    <li>From <b>H2BC</b> (optionally) create a new table
+      <font face="Verdana" size="3" color="rgba(44, 0, 128, 0.91)"><pre>
+CREATE TABLE DATA_ITEM (
+    ID INT NOT NULL PRIMARY KEY auto_increment,
+    NAME VARCHAR,
+    CONSUMED BOOLEAN
+);      </pre> </font>      
+   
+    </li>
+    
+    <h3>Praparing the project</h3>
+<li>Create a working directory <b>WD</b> (e.g. <tt>C:\aLab2016\lab2014Bo\it.unibo.iss2015intro\docs\Tools\Gradle\dataBaseGradle</tt>)</li> 
+
+    <li>Open a terminal on <b>WD</b> and execute
+     <font face="Verdana" size="3" color="rgba(44, 0, 128, 0.91)"><pre>
+    gradle init --type java-library  
+    </pre> </font>
+    </li> 
+    <li>Insert in the generated <tt>build.gradle</tt> the sentence <tt>apply plugin: 'eclipse'</tt>  and execute:
+     <font face="Verdana" size="3" color="rgba(44, 0, 128, 0.91)"><pre>
+          gradle eclipse
+    </pre> </font>        
+    </li>     
+     <li>
+        Open Eclipse and import the project (actually named <i>dataBaseGradle</i>)
+    </li> 
+    <li>
+        Modify the default project layout by specifying a custom project layout in the  <a href="../dataBaseGradle/build.gradle" target="gradle" >build.gradle</a> file:
+     <font face="Verdana" size="3" color="rgba(44, 0, 128, 0.91)"><pre>
+     sourceSets {
+        main {
+            java {
+                srcDirs = ['src']
+            }
+        }
+        test {
+            java {
+                srcDirs = ['test']
+            }
+        }
+    }
+   </pre> </font>        
+
+    </li>
+         <h3>A first prototype</h3>
+
+    <li>
+    Define a temporay in-memory (mock) repository and the (<b>CRUD</b>) application logic, together with (unit) tests :<br/>
+         <a href="../dataBaseGradle/src/it/unibo/db/IRepository.java" target="gradle" >IRepository.java</a> <br/>
+         <a href="../dataBaseGradle/src/it/unibo/data/model/DataItem.java" target="gradle" >DataItem.java</a> <br/>
+         <a href="../dataBaseGradle/src/it/unibo/db/InMemoryDb.java" target="gradle" >InMemoryDb.java</a> <br/>
+         <a href="../dataBaseGradle/test/it/unibo/db/unit/test/InMemoryDbTest.java" target="gradle" >InMemoryDbTest.java</a>         
+    </li>
+    <li>In the Eclipse IDE, insert in the <a href="../dataBaseGradle/build.gradle" target="gradle" >build.gradle</a> the tasks to generate an executable jar and test-output.
+         </li>
+    
+   <li>Open the view <b>Termimal</b> and execute
+     <font face="Verdana" size="3" color="rgba(44, 0, 128, 0.91)"><pre>
+        gradle build 
+      </pre> </font>      
+    </li> 
+    <li>Look at the generated : <a href="../dataBaseGradle/build/reports/tests/index.html" target="gradle">test report</a></li>
+   <li>Working in <tt>build/libs/</tt> run the frst prototype by executing:
+      <font face="Verdana" size="3" color="rgba(44, 0, 128, 0.91)"><pre>
+        java -jar dataBaseGradle.jar
+      </pre> </font>      
+   
+    </li>    
+         <h3>A system using H2</h3>
+     <li> 
+     Define a persistent repository based on H2, together with (integrations) tests. For the sake of clearness, let us define a new
+          <a href="../dataBaseGradle/buildH2.gradle" target="gradle" >buildH2.gradle</a> script that makes reference to a
+          new source directory  <tt>srcH2</tt> and a new <tt>integrTest</tt> test directory. 
+         Insert the tasks to generate an executable jar and integration test-output.
+         </li>    
+    <li>
+         Excute
+     <font face="Verdana" size="3" color="rgba(44, 0, 128, 0.91)"><pre>
+        gradle -b buildH2.gradle eclipse   //to update the project classpath
+      </pre> </font>              
+         
+    </li>   
+    <li>
+    In the new (source) directory <tt>srcH2</tt> insert:
+         the code related to the application logic<br/> 
+<a href="../dataBaseGradle/srcH2/it/unibo/db/h2/IH2Repo.java" target="gradle" >IH2Repo.java</a> <br/>
+<a href="../dataBaseGradle/srcH2/it/unibo/db/h2/H2Db.java" target="gradle" >H2Db.java</a> <br/>
+<a href="../dataBaseGradle/integrTest/it/unibo/h2db/integr/test/H2DbIntegrTest.java" target="gradle" >H2DbIntegrTest.java</a>  
+        </li>
+    <li>
+    Excute
+     <font face="Verdana" size="3" color="rgba(44, 0, 128, 0.91)"><pre>
+        gradle -b buildH2.gradle build   //no integration test executed
+        gradle -b buildH2.gradle integrationTest
+      </pre> </font>              
+    </li>
+    <li>Open the <b>H2BC</b> console (set to <tt>jdbc:h2:~/uniboData</tt>) and execute:
+      <font face="Verdana" size="3" color="rgba(44, 0, 128, 0.91)"><pre>
+        SELECT id, name, consumed from unibodata_item
+      </pre> </font>      
+        We should see the data inserted during the integration testing.
+    </li>
+    <li>
+        Look at the generated : <a href="../dataBaseGradle/build/reports/tests/integration/index.html" target="gradle">integration test report</a>
+    </li>
+     <li>         
+         Unzip the file <tt>build/distributions/dataBaseGradle-1.0.zip</tt> and execute
+      <font face="Verdana" size="3" color="rgba(44, 0, 128, 0.91)"><pre>
+        java -jar dataBaseGradle-1.0.jar
+      </pre> </font>      
+    </li>  
+    <li>
+    In the <b>H2BC</b> console (set to <tt>jdbc:h2:~/uniboData</tt>)  execute <tt>SELECT id, name, consumed from unibodata_item</tt>. <br/>
+        We should find the data produced inserted during the integration testing <b>plus</b> the data
+        inserted by the execution of the application. In fact, the testing deletes the current data table (if it exists) and
+        re-creates it, while the application simply inserts new data.
+    </li>
+</ol>    
+<!--
+-------------------------------------------------------
+APPLICATION (BLS) and Testing
+-------------------------------------------------------
+--> 
+ <h1>Application (BLS) and Testing</h1>
+Let us define a <b>multi-project</b> build to create a model and an implementation for a Led device.    
+<ol>
+<li>Create a working directory <b>WD</b> (e.g. <tt>C:\aLab2016\lab2014Bo\it.unibo.iss2015intro\docs\Tools\Gradle\bls</tt>)</li> 
+<li>Create a subdirectory of <b>WD</b> for each subproject (e.g. <tt>deviceModel, deviceImpl, device Appl</tt>) </li>
+<li>Create a <tt>src</tt> for each subproject with some simple initial code</li>
+     <li>Open a terminal on <b>WD</b> and execute
+     <font face="Verdana" size="3" color="rgba(44, 0, 128, 0.91)"><pre>
+    gradle init    
+    </pre> </font>
+    </li> 
+    <li>Modify the generated <tt>settings.gradle</tt> by declaring the subprojects:
+         <a href="../bls/settings.gradle" target="gradle" >settings.gradle</a>
+    </li>  
+    <li>Modify the generated <tt>build.gradle</tt> by declaring common properties for all the subprojects:
+         <a href="../bls/build.gradle" target="gradle" >build.gradle</a>
+    </li>  
+    <li>Define a specific  <tt>build.gradle</tt> file for each subproject <br/>
+         <a href="../bls/deviceModel/build.gradle" target="gradle" >build.gradle for deviceModel </a> <br/>
+        <a href="../bls/deviceImpl/build.gradle" target="gradle" >build.gradle for deviceImpl </a> <br/>
+         <a href="../bls/deviceAppl/build.gradle" target="gradle" >build.gradle for deviceAppl </a> <br/>
+  </li>
+    <li>Execute:
+     <font face="Verdana" size="3" color="rgba(44, 0, 128, 0.91)"><pre>
+            gradle build
+            gradle eclipse
+    </pre> </font>        
+    </li>     
+     <li>
+        Open Eclipse and import all the projects (since there are project dependencies)
+    </li> 
+    <li>In the Eclipse IDE, edit source files and define the tests:
+        <ul>
+            <li> <a href="../bls/deviceImpl/test/it/unibo/devices/test/LedTest.java" target="gradle">LedTest.java</a>
+            (in project <tt>deviceImpl</tt> : <i>Unit testing</i>)</li>
+            <li> <a href="../bls/deviceAppl/test/it/unibo/devicesAppl/test/ApplTest.java" target="gradle">ApplTest.java</a>
+            (in project <tt>deviceAppl</tt> : towards <i>Integration testing</i>)</li>
+        </ul>
+    </li>
+    <li>In <b>WD</b> diretory execute :
+     <font face="Verdana" size="3" color="rgba(44, 0, 128, 0.91)"><pre>
+            gradle build  or  gradle test
+            gradle :deviceImpl:test
+            gradle :deviceAppl:test
+    </pre> </font>      
+        Look at the gradle testing reports:
+        <ul>
+            <li> <a href="../bls/deviceImpl/build/reports/tests/index.html" target="gradle">test report for <i>deviceImpl</i> </a></li>
+            <li> <a href="../bls/deviceAppl/build/reports/tests/index.html" target="gradle">test report for <i>deviceAppl</i> </a></li>
+        </ul>
+        
+        The tests can be run in each project separately either via gradle or by using the <i>JUnit view</i>.
+    </li>
+   <li>In the view <b>Termimal</b> of the project <i>deviceAppl</i> execute
+     <font face="Verdana" size="3" color="rgba(44, 0, 128, 0.91)"><pre>
+        gradle build //to generate the distribution
+     </pre> </font>      
+    </li> 
+      <li>Unzip the file <tt>build/distributions/deviceAppl-1.0.zip</tt> and excute
+      <font face="Verdana" size="3" color="rgba(44, 0, 128, 0.91)"><pre>
+        java -jar deviceAppl-1.0.jar
+      </pre> </font>      
+   
+    </li>    
+</ol>   
+    
+    
+<!--
+-------------------------------------------------------
+WEB COMPONENTS
+-------------------------------------------------------
+--> 
+ <h1>Adding web components</h1>
+In Java, server-side web components of the Enterprise Edition (Java EE) provide the
+dynamic extension capabilities for running an application within a web container or
+application server. <br/>
+    A  Servlet  serves a client request and
+constructs the response. It acts as the controller component in a Model-View-Controller
+(MVC) architecture. The response of a Servlet is rendered by the view component :
+the Java Server Page (JSP).<br/>
+Le us add a web component that provides a web interface for the Led.    
+<ol>
+<li>Create a working directory <b>WD</b> (e.g. <tt>C:\aLab2016\lab2014Bo\it.unibo.iss2015intro\docs\Tools\Gradle\webOnBls</tt>)</li> 
+
+<li>Create a subdirectory of <b>WD</b> for the application and the web subproject (e.g. <tt>webApp, web </tt>) </li>
+<li>Create a <tt>src/main/webapp</tt> in the <tt>webApp</tt> subproject and its application content:
+        <ul>
+            <li><tt>WEB-INF/</tt> 
+                <a href="../webOnBls/webAppl/src/main/webapp/WEB-INF/web.xml" target="gradle" >web.xml</a> </li>
+            <li><tt>css/</tt>
+                <a href="../webOnBls/webAppl/src/main/webapp/css/base.css" target="gradle" >base.css</a> </li>
+            <li><tt>jsp/</tt>
+                 <a href="../webOnBls/webAppl/src/main/webapp/jsp/index.html" target="gradle" >index.html</a> </li>
+            <li><tt>jsp/</tt>
+                <a href="../webOnBls/webAppl/src/main/webapp/jsp/led.jsp" target="gradle" >led.jsp</a> </li>
+        </ul>
+    </li>
+<li>Open a terminal on <b>WD</b> and execute
+     <font face="Verdana" size="3" color="rgba(44, 0, 128, 0.91)"><pre>
+    gradle init    
+    </pre> </font>
+</li>    
+    <li>Modify the generated <tt>settings.gradle</tt> by declaring the subprojects:
+         <a href="../webOnBls/settings.gradle" target="gradle" >settings.gradle</a>
+    </li>  
+    <li>Modify the generated <tt>build.gradle</tt> by declaring common properties for all the subprojects:
+         <a href="../webOnBls/build.gradle" target="gradle" >build.gradle</a>
+    </li>  
+    <li>Define a specific  <tt>build.gradle</tt> file for each subproject <br/>
+         <a href="../webOnBls/web/build.gradle" target="gradle" >build.gradle for web </a> <br/>
+        <a href="../webOnBls/webAppl/build.gradle" target="gradle" >build.gradle for webAppl </a> <br/>
+   </li>
+    <li>Execute:
+     <font face="Verdana" size="3" color="rgba(44, 0, 128, 0.91)"><pre>
+            gradle build
+            gradle eclipse
+    </pre> </font>        
+    </li>     
+    <li>Define the servlet  <a href="../webOnBls/web/src/it/unibo/devices/web/BlsServlet.java" target="gradle" >BlsServlet.java</a>
+        that sets the attributes for the <a href="../webOnBls/webAppl/src/main/webapp/jsp/led.jsp" target="gradle" >led.jsp</a>:   
+    </li>
+    <li>In a Terminal of the <tt>webApp</tt> subproject execute:
+     <font face="Verdana" size="3" color="rgba(44, 0, 128, 0.91)"><pre>
+            gradle jettyRun
+     </pre> </font>        
+    </li>  
+    <li>Open <tt>http://localhost:8080/webAppl/switch</tt></li>
+</ol>       
+    
+<!--
+-------------------------------------------------------
+CONTINUOS INTEGRATION
+-------------------------------------------------------
+-->     
+<h1>Continuous integration (CI) </h1>
+<ol>
+    <h3>PREPARING</h3>
+    <li>Create a GIT HUB (oublic) empy repository (e.g. <i>https://github.com/anatali/cliBlsAll.git</i>)</li>
+    <li>Include a folder with the used libraries (e.g. <i>localLibs/unibo</i>). This step is opetional: it is included here
+    to show a consistent definition of the gradle build files and to make the distribution easier.</li>
+    <li>In a working directory (e.g. <i>cliBls</i> execute <tt>gradle init</tt>. This step is included in order
+        to show a workflow that starts from gradle rather than form Eclipse.) </li>
+     <li>Modify the files <a href="../cliBls/settings.gradle" target="gradle" >settings.gradle</a>
+         and <a href="../cliBls/build.gradle" target="gradle" >build.gradle</a>
+        
+    </li>
+    <li>Execute:
+     <font face="Verdana" size="3" color="rgba(44, 0, 128, 0.91)"><pre>
+            gradle eclipse
+     </pre> </font>           
+    </li>
+
+    <h3>CODING</h3>
+   <li>Import the <i>cliBls</i>  project in Eclipse, create a <tt>src</tt> source folder and add the source code.
+    The source code should be organizaed in packages, e.g a package for the models, a package for the
+    implementation and a package for the application. </li>
+
+        <h3>BUILDING / TESTING</h3>
+    <li>
+       Execute
+         <font face="Verdana" size="3" color="rgba(44, 0, 128, 0.91)"><pre>
+             gradle build
+             gradle jacocoTestReport
+    </pre> </font>  
+        
+    </li>
+    <li>Look at the test result files:
+        <ul>
+        <li><a href="../cliBls/build/reports/tests/index.html" target="gradle" >build/reports/tests/index.html</a></li>
+            <li><a href="../cliBls/build/jacocoHtml/index.html" target="gradle" >build/jacocoHtml/index.html</a></li>
+        </ul>    
+    </li>
+
+    <h3>STORING IN A VCS</h3>
+
+   <li>Create a local GIT repository (e.g. in <i>C:\Didattica\git\cliBlsAll</i>) by executing:
+     <font face="Verdana" size="3" color="rgba(44, 0, 128, 0.91)"><pre>
+            Team->Shared Project->create ...Create in parent folder </pre> </font>    
+       In this way the project is not moved in the repository and the <i>Working Tree</i> is the content of the project
+    </li>
+    <li>
+    Excute <tt>commit</tt> (<tt>Add to index</tt> in the Git Repository view) by save the project on the local repository.
+         Remember that from the Terminal we can eceute also GIT commands. For example, let us remove form the
+        repository a set of classes previously included : 
+         <font face="Verdana" size="3" color="rgba(44, 0, 128, 0.91)"><pre>
+             git rm build/classes/test/*
+    </pre> </font>  
+   </li>
+    <li>
+    Include a file <a href="../cliBls/.gitignore" target="gradle" >.gitignore</a> to avoid sharing of relevant
+        or unuseful information.
+    </li>
+    <li>In the Git Repository view, select <tt>ciBls->Remotes->CreateRemote->Origin</tt>,     
+        select <tt>configure push</tt> and 
+       set the URL to the  GIT HUB (repository (<i>https://github.com/anatali/cliBlsAll.git</i> and excute)
+      <font face="Verdana" size="3" color="rgba(44, 0, 128, 0.91)"><pre>
+            Save and push
+      </pre> </font>    
+  
+    </li>
+   <li>Refresh the GITHUB repo and see the changes on the remote repository.</li>
+
+        <h3>AUTOMATIZING THE BUILDING</h3>
+
+    <li>Activate <b>Jenkins</b> on the local host by executing:
+     <font face="Verdana" size="3" color="rgba(44, 0, 128, 0.91)"><pre>
+            java -jar jenkins.war  //in C:\DidatticaTools\Gradle
+    </pre> </font>           
+
+    </li>
+    
+    
+   <li>Create a new <b>buidJob</b> (e.g. <tt>blsAll</tt>) by selecting :
+       <ul>
+       <li>Gestione Codice Sorgente: <tt>'Git'</tt></li>
+       <li>Build Triggers:    <tt>'Poll SCM'</tt></li>
+       <li>Build/Aggiungi passo:    <tt>'-> Invoke Gradle Script -> Use Gradle Wrapper Tasks/clean test'</tt></li>
+       </ul>
+       
+    </li>
+    <li>Open localhost:8080 , select the job <tt>blsAll</tt> and click on  "Do build"  </li>
+
+     <h3>PUBLISHING UNIT TEST RESULTS</h3>
+
+    <li>Select as action after build: <i>Publish JUnit test result report</i> by setting: 
+      <font face="Verdana" size="3" color="rgba(44, 0, 128, 0.91)"><pre>
+            **/build/test-results/*.xml
+    </pre> </font>           
+ 
+        <h3>PUBLISHING CODE COVERAGE RESULTS</h3>
+
+        </li>
+    <li>Use the <tt>JaCoCo</tt> plugin: select as after build : <i>Record JaCoCo coverage report</i>
+        by setting: 
+        <ul>
+        <li>Path to exec files: <tt>**/build/jacoco/*.exec</tt> </li>
+        <li>Path to class directories: <tt>**/build/classes/main</tt></li>
+       <li>Path to source directories: <tt>**/src</tt></li>
+       </ul>
+        
+        See also:
+        <a href="https://docs.gradle.org/current/userguide/jacoco_plugin.html">https://docs.gradle.org/current/userguide/jacoco_plugin.html</a> 
+    and
+        <a href="http://www.icidigital.com/blog/code-coverage-with-jacoco/">http://www.icidigital.com/blog/code-coverage-with-jacoco/</a> 
+        
+    </li>
+    
+    git rm build/classes/test/*
+    
+   </ol>
+    
+<!--
+-------------------------------------------------------
+QACTORS
+-------------------------------------------------------
+-->     
+<h1>QACTORS   </h1>
+<ol>
+    <h3>PREPARING</h3>
+    <li>project Eclipse <tt>it.unibo.gradle.qa</tt></li>
+    <li>define blsDistrib.qa (add Xtext nature) and insert localLibs</li>
+    <li>excute gradle.init</li>
+</ol>    
+    
+<!--
+-------------------------------------------------------
+CONCURRENCY
+-------------------------------------------------------
+-->     
+<h1>CONCURRENCY   </h1>    
+<ol>
+<h3>The power and Perils of Concurrency</h3>
+    <li>See the code in <i>C:\Didattica\ProgConcurrency\JVM\code</i>.<br/>
+        Broken programs may appear to work in some settings. Example: JIT volatile 
+        (Memory Barrier=copying from working memory to main memory) server-mode/client-mode.</li>
+<h3>Division of Labor</h3>
+    <li>Fronm Sequential to Concurrent: cores/parts/work-distribution (problem analysis). 
+        IO-intensive and computational-intensive applications.
+        <pre> NumOfThreads=NumOfCores/(1-BlockingCoeff) 0 <= BlockingCoeff <= 0.9</pre>
+        
+    
+    </li>
+    <li>No more Old Threading Java API.
+        <b>Java5</b> 
+        <ol>
+        <li><tt>Executors</tt> (thread pools of type (HOW) singlethreaded, cacjed,priority based,scheduled/periodic,fixed size)</li>
+        <li><tt>ExecutorService</tt> (execute, submit,inokeAll,shoutdown,shoutdownNow), 
+            <tt>Runnable</tt> <tt>Callable</tt> (with result) interfaces</li>
+       <li><tt>Future</tt> objects (timed get, no result)</li>
+       <li><tt>CountDownLatch</tt> as synch point for threads and
+           <tt>AtomicLong</tt> (Thread safe Long)</li>
+       </ol>
+         
+    </li>
+    <li>Thread communications using <tt>Exchanger</tt> class and <tt>BlockingQueue</tt> interface
+    (and <tt>SynchronousQueue</tt>, <tt>PriorityBlockingQueue</tt>, <tt>ArrayBlockingQueue</tt>)</li>
+<h3>Design approaches</h3>
+    <li>Dealing with state: shared mutability (to avoid), isolated mutability (actors), 
+        pure immutability (functional style, persistent/immutable data structures - lists and tries).
+    Example: a collective experience; evaluating the total number of years of experience for a set of persons.</li>
+<h3>Modern Java/JDK Concurrency</h3>
+    <li> <b>Java7</b>
+    <ol>
+        <li><tt>ForkJoinPool</tt> specialization of <tt>ExecutorService</tt> (daemon threads),
+        no blocking/side-effect <tt>ForkJoinTask</tt>(and its subclasses <tt>RecursiveAction</tt>, <tt>RecursiveTask</tt></li>
+         <li></li>
+        <li></li>
+   </ol>
+    </li>
+    <li><tt>Vector</tt> Thread-safe but slow, <tt>ArrayList</tt> fast but not Thread-safe,
+    <b>Java5</b>  concurrent data structures (<tt>ConcurrentHashMap</tt>, <tt>ConcurrentLinkedQueue</tt>)
+    more throughput - multiple update / readss - but elements can be be changed while iterating over collectiosn</li>
+    <li>From archaic synchronized to <b>Java5</b> <tt>Lock</tt> interface and <i>Test Driving Multithreaded Code</i></li>
+<h3>Taming Shared Mutability</h3>
+    <ul>
+   <li>Don't create threads form within constructors.</li> 
+   <li>Don't create arbitrary threads: use pools of threads</li> 
+   <li>Ensure thta access to mutable fields crsoo memory barriers and are visibile to threads properly</li> 
+   <li>Evaluate the granularity of locks and promote concurrency</li> 
+   <li>Verify that the access to multiple mutable fiels is atomic</li> 
+    </ul>   
+ <h3>STM: software transactional memory</h3>   
+    <li></li>
+ <h3>Actors</h3>   
+    <li>Actors
+    <ul>
+    <li> isolate mutable state and communicate by passing immutable messages</li>
+        <li> don't hold threads</li>
+    </ul>
+    </li>
+</ol>
+    
+</div>
+    
+    
+<div id="bottom">
+By AN Unibo-DISI    
+</div>
+    
+</div>
+</div>    
+    
+
+</body></html>
+      

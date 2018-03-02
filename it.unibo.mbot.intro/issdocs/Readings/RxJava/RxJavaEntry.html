@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="../../css/issStyle1.css">   
+<script type="text/javascript" src="../../css/issStyle.js"></script>
+<head>
+
+<title>RXJAVA</title></head>
+<body onload="loadInMain('rxJavaIntro.html')">
+    
+<div class="container wrapper"> 
+
+<div id="top">
+<h1>RX(JAVA) </h1>
+</div> 
+<div class="wrapper">
+<div id="menubar">
+
+<img src="legend.png" alt="fsm" width="121" height="57"/> 
+<ul id="menulist">
+<li class="menuitem" onclick="loadInMain('rxJavaIntro.html')">Introduction</li>
+<li class="menuitem" onclick="loadInMain('rxJavaWorkflow.html')">Workflow</li>
+
+<u5>Observables as Action</u5>    
+ <li class="menuitem" onclick="loadWithMsg('<b>ObservableJustToStartMain</b>: subscribes two actions ',
+ '../../../../it.unibo.rx.intro/src/it/unibo/rx/intro/ObservableJustToStartMain.java')">ObservableJustToStartMain </li> 
+<u5>Observables as Subscriber</u5>     
+ <li class="menuitem" onclick="loadWithMsg('<b>AJustToShowSubscriber</b>: a Subscriber that just show the item ',
+ '../../../../it.unibo.rx.intro/src/it/unibo/rx/intro/AJustToShowSubscriber.java')">AJustToShowSubscriber</li> 
+ <li class="menuitem" onclick="loadWithMsg('<b>ObservableFromMain</b>: subscribes a Subscriber ',
+ '../../../../it.unibo.rx.intro/src/it/unibo/rx/intro/ObservableFromMain.java')">ObservableFromMain</li> 
+ <u5>Built-in sources</u5> 
+    <li class="menuitem" onclick="loadWithMsg('<b>MapNaiveFunc</b>: a simple function that maps Integer into String ',
+ '../../../../it.unibo.rx.intro/src/it/unibo/rx/intro/MapNaiveFunc.java')">MapNaiveFunc</li> 
+    <li class="menuitem" onclick="loadWithMsg('<b>ObservableRangeMain</b>: a source that emits a subset of naturals ',
+ '../../../../it.unibo.rx.intro/src/it/unibo/rx/intro/ObservableRangeMain.java')">ObservableRangeMain</li> 
+    <li class="menuitem" onclick="loadWithMsg('<b>ObservableErrorMain</b>: a source that always produces an error',
+ '../../../../it.unibo.rx.intro/src/it/unibo/rx/intro/ObservableErrorMain.java')">ObservableErrorMain</li> 
+ <u5>A custom source</u5> 
+    <li class="menuitem" onclick="loadWithMsg('<b>OnSubscribeSimpleGen</b> (projact <tt>it.unibo.rx.intro</tt>): the operation call is executed each time a Subscriber subscribes to our source',
+ '../../../../it.unibo.rx.intro/src/it/unibo/rx/intro/OnSubscribeSimpleGen.java')">OnSubscribeSimpleGen</li> 
+     <li class="menuitem" onclick="loadWithMsg('<b>ObservableSimpleGenMain</b> (projact <tt>it.unibo.rx.intro</tt>): an application that uses the custom source by unsubsribing an observer ',
+ '../../../../it.unibo.rx.intro/src/it/unibo/rx/intro/ObservableSimpleGenMain.java')">ObservableSimpleGenMain</li> 
+     <li class="menuitem" onclick="loadWithMsg('<b>SysKb</b> (projact <tt>it.unibo.rx.intro</tt>): an utility class',
+ '../../../../it.unibo.rx.intro/src/it/unibo/rx/intro/SysKb.java')">SysKb</li> 
+
+    <u5>A custom 'event' source</u5> 
+    <li class="menuitem" onclick="loadWithMsg('<b>OnSubscribeAndGen</b>: an observable source that generates items in an autonomous way ',
+ '../../../../it.unibo.rx.intro/src/it/unibo/rx/asyncSource/OnSubscribeAndGen.java')">OnSubscribeAndGen</li> 
+    <li class="menuitem" onclick="loadWithMsg('<b>SourceEventHandler</b>: ',
+ '../../../../it.unibo.rx.intro/src/it/unibo/rx/asyncSource/SourceEventHandler.java')">SourceEventHandler</li> 
+    <li class="menuitem" onclick="loadWithMsg('<b>ASubscriberAsEventHandler</b>: the onNext operation does nothing, but takes some time to complete ',
+ '../../../../it.unibo.rx.intro/src/it/unibo/rx/asyncSource/ASubscriberAsEventHandler.java')">ASubscriberAsEventHandler</li> 
+    <li class="menuitem" onclick="loadWithMsg('<b>ObservableAsynchSourceMain</b>:',
+ '../../../../it.unibo.rx.intro/src/it/unibo/rx/asyncSource/ObservableAsynchSourceMain.java')">ObservableAsynchSourceMain</li> 
+    <li class="menuitem" onclick="loadWithMsg('The output in synchronous mode is interleaved (one at the time)  ',
+ '../../../../it.unibo.rx.intro/src/it/unibo/rx/asyncSource/outputSyncUpdate.txt')">outputSyncUpdate.txt</li> 
+    <li class="menuitem" onclick="loadWithMsg('The output in asynchronous mode, one thread scheduler is sequential ',
+ '../../../../it.unibo.rx.intro/src/it/unibo/rx/asyncSource/outputAsync1Thread.txt')">outputAsync1Thread.txt</li> 
+    <li class="menuitem" onclick="loadWithMsg('The output in asynchronous mode, two thread scheduler is interleaved (some at the time) ',
+ '../../../../it.unibo.rx.intro/src/it/unibo/rx/asyncSource/outputAsync2Threads.txt')">outputAsync2Threads.txt</li> 
+
+    
+    
+</ul>
+</div> 
+<div id="menutop">
+<center>
+<button onclick="window.location.href='../../Material/entry.html'">Home</button>
+<button onclick="window.location.href='../../Frameworks/FramwCustomEvStream.html'">QStreams</button>
+</center>
+</div> 
+    
+<div id="main">
+<p> 
+    
+
+</p>
+</div>
+    
+<div id="sidebar">
+<h3>References</h3>
+     
+    <a href=" https://github.com/ReactiveX/RxJava/wiki" target="code">RxJava/wiki</a><br/>
+    <a href="https://github.com/ReactiveX/RxJava/wiki/Alphabetical-List-of-Observable-Operators" target="code">RxJava/Operators</a><br/>
+<li class="menuitem" onclick="loadInMain('../../../../it.unibo.iss.libs/docs/rxJava018/index.html')">rxJava018 doc</li>  
+    
+    <u5>Material (in progress)</u5><br/>
+<li class="menuitem" onclick="loadInMain('../UniboSupports/RxJavaIntro.pdf')">RxJavaIntro.pdf</li>
+<li class="menuitem" onclick="loadInMain('../UniboSupports/contact2014.pdf')">contact2014.pdf</li>
+ 
+
+</div>
+    
+
+<div id="bottom">
+By AN  Unibo-DISI    
+</div>
+    
+</div>
+</div>    
+
+</body></html>

@@ -1,0 +1,34 @@
+/*
+build.gradle
+KEY-POINT: custom tasks
+
+*/
+apply from: 'mysetup.gradle'
+
+	class MyTask extends DefaultTask {
+	String myname = "t0";		//property
+	int count   = 1; 		//property 
+		MyTask(){
+			group = 'unibo'
+			description = 'Example of a custom task.'
+		}
+		
+		@TaskAction
+		void start() {
+			count.times{
+				//sleep(count * 10);
+				println("	*** $myname count=" + count++);
+			}
+	 	}
+	}
+
+	task t1(type: MyTask) {
+		myname="task_t1";
+		println("t1 TASK ");
+	}
+		
+	task t2(type: MyTask) {
+		myname="task_t2";
+		count = 3;
+		println("t2 TASK ");
+	}

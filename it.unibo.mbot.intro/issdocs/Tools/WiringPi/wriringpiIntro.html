@@ -1,0 +1,230 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="../../css/plainStyle.css"> 
+<script type="text/javascript" src="../../css/issStyle.js"></script>
+<head>
+
+<title>wriringpiIntro</title></head><body>
+    
+<div class="container wrapper"> 
+
+<div id="top">
+<h3 id="h3">WiringPi libray</h3>
+<p></p>
+</div> 
+    
+<div class="wrapper">
+ 
+<div id="main">
+<p>
+The original intent of
+the Raspberry Pi foundation, back when they designed the Pi, was to make it programmable
+through <b>Python</b>. And that is one possibility, but people have come up since with ways to
+control the GPIO pins from <b>C/C++, Java, Ruby, Perl</b> and many other languages/technologies. 
+</p><p> 
+The WiringPi library was written by Gordon Henderson to allow <tt>GPIO</tt> communication from <b>C/C++</b> in a style
+similar to the (Arduino) <a href="http://wiring.org.co/">Wiring</a>  programming language.
+Some of the functions in the WiringPi library are designed to mimic those in the Arduino Wiring system.
+The main difference is that the main loop of the program is not provided. 
+
+</p><p> 
+Many wrappers for WiringPi have been created since, which allow us to use other programming languages too for this
+purpose. But there us also a command line utility simply named <i id="i">gpio</i> that llows us to to talk 
+to the <tt>GPIO</tt> pins is from the command line or from Bash scripts.
+
+<h4>Example: light up/down an LED</h4>
+The LED connected to GPIO pin 5 (WiringPi numbering).
+<pre>
+gpio mode 5 out
+gpio write 5 1
+gpio write 5 0
+</pre>
+Before you can control the GPIO pins from command line or from shell scripts, you will need to install 
+the <i id="i">gpio utility</i>  on your system.
+</p><p> 
+From a performance point of view, do not implement  complex <tt>GPIO</tt> control in
+shell scripts, because the speed of the Linux shell and of the gpio utility is not so
+great and the scripts can keep the CPU quite busy.
+
+<h3>Basics</h3>
+The compile line for <tt>C</tt> should include the library wiringPi. For example:
+<pre>
+-I/usr/local/include -L/usr/local/lib -lwiringPi
+</pre>
+
+The program must include the library header file:
+<pre>
+#include &lt;wiringPi.h>
+</pre>
+
+The program must must initialise wiringPi by using (each  returns -1 if  the initialization of the <tt>GPIO</tt> has failed)  :
+<pre>
+int wiringPiSetup (void) ; //using wiringPi pin numbering
+int wiringPiSetupGpio (void) ;  //using Broadcom <tt>GPIO</tt>  pin numbers directly
+int wiringPiSetupSys (void) ; //uses native Broadcom and the <b>/sys/class/gpio</b> interface 
+</pre>
+The first two functions must be called with root privileges. 
+The third can be called as a non-root (it does not access the hardware directly) user provided
+the <tt>GPIO</tt> pins have been exported before using the <i>gpio</i> program.
+
+<h4>General</h4>
+<ul>
+<li><tt>void pinMode (int pin, int mode);</tt> //mode=INPUT, OUTPUT, or PWM_OUTPUT. No effect when in Sys mode</li>
+<li><tt>void digitalWrite (int pin, int value)</tt> //value= HIGH or LOW (1 or 0)</li>
+<li><tt>void digitalWriteByte (int value)</tt> //still takes two write operations to the GPIO hardware</li>
+<li><tt>void pwmWrite (int pin, int value)</tt> //value between 0 and 1024</li>
+<li><tt>int digitalRead (int pin) ;</tt> //returns HIGH or LOW (1 or 0)</li>
+<li><tt>void pullUpDnControl (int pin, int pud)</tt> //PUD_OFF (no pull up/down) PUD_DOWN (pull to ground)  PUD_UP (pull to 3.3v)</li>
+<li><tt>wpiPinToGpio (int wPiPin)</tt> //returns the BCM_GPIO pin number of the supplied wiringPi pin</li>
+</ul>
+
+<h4>PWM control</h4>
+<ul>
+<li><tt>pwmSetMode (int mode) ;</tt> //PWM_MODE_BAL (balanced) or PWM_MODE_MS (mark:space) </li>
+<li><tt>pwmSetRange (unsigned int range)</tt> //default is 1024</li>
+<li><tt>pwmSetClock (int divisor)</tt></li>
+</ul>
+
+<h4>Timing</h4>
+<ul>
+<li><tt>unsigned int millis (void)</tt> //unsigned 32-bit number which wraps after 49 days 
+(number if milliseconds since your program called one of the wiringPiSetup functions)</li>
+<li><tt>void delay (unsigned int howLong)</tt> //maximum delay; an unsigned 32-bit integer
+or approximately 49 days.</li>
+<li><tt>void delayMicroseconds (unsigned int howLong)</tt> //maximum delay: an unsigned 32-bit integer
+microseconds or approximately 71 minutes</li>
+</ul>
+
+<h4>Program/Thread Priority</h4>
+This attempts to shift your program (or thread in a multi-threaded program) to a higher priority and
+enables a real-time scheduling. 
+<ul>
+<li><tt>int piHiPri (int priority)</tt></li>
+</ul>
+
+The priority parameter should be from 0 (the default) to 99 (the
+maximum). This will give a bigger slice of time when
+other programs are running. The priority parameter works relative to others – so you can make one
+program priority 1 and another priority 2 and it will have the same effect as setting one to 10 and the
+other to 90 (as long as no other programs are running with elevated priorities)
+The return value is 0 for success and -1 for error. 
+Only programs running as root can change their priority. If called from a non-root program then
+nothing happens.
+
+<h4>Interrupts</h4>
+With any kernel after June 2012 we can  wait for an interrupt in a program.
+This function registers a function to received interrupts on the specified pin
+(does not need root privileges to work).
+</p><p> 
+The function will be called when the interrupt triggers. When it is triggered, it’s cleared in the
+dispatcher before calling your function, so if a subsequent interrupt fires before you finish your
+handler, then it won’t be missed. (However it can only track one more interrupt, if more than one
+interrupt fires while one is being handled then they will be ignored)
+This function is run at a high priority (if the program is run using sudo, or as root) and executes
+concurrently with the main program. It has full access to all the global variables, open file handles
+and so on.
+
+<ul>
+<li><tt>int wiringPiISR (int pin, int edgeType, void (*function)(void)) ;</tt></li>
+</ul>
+The edgeType parameter
+is either INT_EDGE_FALLING, INT_EDGE_RISING, INT_EDGE_BOTH or INT_EDGE_SETUP. If it
+is INT_EDGE_SETUP then no initialisation of the pin will happen – it’s assumed that you have
+already setup the pin elsewhere (e.g. with the gpio program), but if you specify one of the other
+types, then the pin will be exported and initialised as specified.
+
+<h4>Multi-threading</h4>
+wiringPi has a simplified interface to the Linux implementation of Posix threads, as well as a
+(simplified) mechanisms to access mutex’s (Mutual exclusions)
+
+<pre>
+PI_THREAD (myThread){
+.. code here to run concurrently with the main program
+}
+//----------------------------------------
+//Starts:
+x = piThreadCreate (myThread) ;
+if (x != 0)
+	printf ("it didn't start\n")
+</pre>
+The thread can indicate an event, or action by using global variables to communicate back to the main
+program, or other threads.
+
+<ul>
+<li><tt>int piThreadCreate (name)</tt> //creates a thread which is another function in your program previously declared using the
+PI_THREAD declaration</li>
+<li><tt>piLock (int keyNum)</tt></li>
+<li><tt>piUnlock (int keyNum)</tt></li>
+</ul>
+
+
+<h3>Pin numbering</h3>
+<pre>
+gpio readall
+
+ +-----+-----+---------+------+---+-Model B2-+---+------+---------+-----+-----+
+ | BCM | wPi |   Name  | Mode | V | Physical | V | Mode | Name    | wPi | BCM |
+ +-----+-----+---------+------+---+----++----+---+------+---------+-----+-----+
+ |     |     |    3.3v |      |   |  1 || 2  |   |      | 5v      |     |     |
+ |   2 |   8 |   SDA.1 | ALT0 | 1 |  3 || 4  |   |      | 5V      |     |     |
+ |   3 |   9 |   SCL.1 | ALT0 | 1 |  5 || 6  |   |      | 0v      |     |     |
+ |   4 |   7 | GPIO. 7 |   IN | 1 |  7 || 8  | 1 | ALT0 | TxD     | 15  | 14  |
+ |     |     |      0v |      |   |  9 || 10 | 0 | OUT  | RxD     | 16  | 15  |
+ |  17 |   0 | GPIO. 0 |   IN | 0 | 11 || 12 | 0 | OUT  | GPIO. 1 | 1   | 18  |
+ |  27 |   2 | GPIO. 2 |   IN | 0 | 13 || 14 |   |      | 0v      |     |     |
+ |  22 |   3 | GPIO. 3 |   IN | 0 | 15 || 16 | 0 | IN   | GPIO. 4 | 4   | 23  |
+ |     |     |    3.3v |      |   | 17 || 18 | 0 | IN   | GPIO. 5 | 5   | 24  |
+ |  10 |  12 |    MOSI | ALT0 | 0 | 19 || 20 |   |      | 0v      |     |     |
+ |   9 |  13 |    MISO | ALT0 | 0 | 21 || 22 | 0 | IN   | GPIO. 6 | 6   | 25  |
+ |  11 |  14 |    SCLK | ALT0 | 0 | 23 || 24 | 1 | ALT0 | CE0     | 10  | 8   |
+ |     |     |      0v |      |   | 25 || 26 | 1 | ALT0 | CE1     | 11  | 7   |
+ +-----+-----+---------+------+---+----++----+---+------+---------+-----+-----+
+ |  28 |  17 | GPIO.17 |   IN | 0 | 51 || 52 | 0 | IN   | GPIO.18 | 18  | 29  |
+ |  30 |  19 | GPIO.19 |   IN | 0 | 53 || 54 | 0 | IN   | GPIO.20 | 20  | 31  |
+ +-----+-----+---------+------+---+----++----+---+------+---------+-----+-----+
+ | BCM | wPi |   Name  | Mode | V | Physical | V | Mode | Name    | wPi | BCM |
+ +-----+-----+---------+------+---+-Model B2-+---+------+---------+-----+-----+
+</pre>
+<i>Legenda:</i> The pin at physical location <b>11</b> on the <tt>GPIO</tt> connector is the wiringPi pin <b>0</b> (<b>GPIO-17</b>).
+
+
+<h3>Usage example</h3>
+<pre>
+gpio -v
+gpio unexport <pin>
+gpio unexportall
+gpio export 16 out
+gpio export 1 out
+gpio exports
+gpio write 16 0
+gpio write 1 0
+</pre>
+
+<h3>Other commands</h3>
+<pre>
+gpio edge <pin> rising/falling/both/none
+gpio [-g] mode <pin> in/out/pwm/up/down/tri
+gpio [-g] write <pin> 0/1
+gpio [-g] pwm <pin> <value>
+gpio [-g] read <pin>
+gpio load spi [buffer size in KB]
+gpio load i2c [baud rate in Kb/sec]
+</pre>
+
+The GPIO lines have internal pull up or pull-down resistors which can be controlled via software when a pin
+is in input mode.
+
+</p><p> 
+ 
+ 
+ </p> 
+</div>
+
+<div id="bottom">
+By AN-SG Unibo-DISI    
+</div>
+    
+</div>
+</div>    
+ 
+</body></html>

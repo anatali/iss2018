@@ -1,0 +1,11 @@
+/*
+settings.gradle
+KEY-POINT:  
+
+USAGE: called at starting
+*/
+
+def g = new GreetingInJava();	//available because there is buildScr
+rootProject.name = g.getName();
+println("(from settings.gradle) project name=: $rootProject.name   ");
+

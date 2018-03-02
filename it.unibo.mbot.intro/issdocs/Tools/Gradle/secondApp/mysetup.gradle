@@ -1,0 +1,89 @@
+/*
+mysetup.gradle
+*/
+
+buildscript {
+ 	repositories {
+  	 	//mavenCentral()
+   	 	flatDir { 
+   	 		//dirs  '${projectDir}/uniboLibs' 
+   	 		dirs file('uniboLibs')
+   	 		//This build results in the dirs property being set to the uniboLibs directory under the build’s 
+   	 		//project root. This is the expected behavior, and will work regardless of how Gradle is being invoked.
+   	 		//dirs  'C:/aLab2016/lab2014Bo/it.unibo.iss2015intro/docs/Tools/Gradle/secondApp/uniboLibs'
+   	 		//dirs  'C:/aLab2016/lab2014Bo/it.unibo.iss.libs/libs/unibo'
+   	 	}
+ 	}	
+	dependencies {
+ 		 classpath ":2p301"
+   	 	 //[group]‐[name]‐[version]‐[classifier].[type]
+	}
+}
+
+ext.sysport = 9092
+ext.sysaddress = "192.168.43.2"
+ext.waitatstartMs = 2000
+
+/*
+----------------------------------------------------
+A custom task that starts a server
+----------------------------------------------------
+*/
+class MyStarter extends DefaultTask {
+    @Input
+	Integer port
+	@Input
+	String address
+	@Input
+    Integer blockMs
+    
+	@TaskAction
+    void start() {
+        new Thread(new MyServer(port)).start()
+        println("MyStarter WAITS ") 
+        Thread.sleep(blockMs)
+        println("MyStarter ENDS ") 
+    }
+    
+	/*
+	----------------------------------------------------
+	The server to start
+	----------------------------------------------------
+	*/
+    private class MyServer implements Runnable {
+        final Integer tcpPort
+
+        MyServer(Integer tcpPort) {
+            this.tcpPort = tcpPort
+        }
+
+        @Override
+        void run() {
+          	println("MyServer STARTS $address : $port ") //term=$ttt
+            alice.tuprolog.Term ttt = alice.tuprolog.Term.createTerm("a(1)");
+            println("MyServer ENDS   $address : $port term=$ttt ")  
+        }
+    }
+    
+}
+
+
+task startMyServer(type: MyStarter){
+    group = 'unibo qa'
+    description = 'Starts the server.'
+    println("startMyServer  $sysaddress  $sysport $rootProject.rootDir"  )
+	port    = sysport
+	address = sysaddress
+	blockMs = waitatstartMs
+}
+
+task stopMyServer(type: JavaExec) {
+    group = 'unibo qa'
+    description = 'Stops the server.'
+    classpath = buildscript.configurations.classpath
+    //main = 'org.h2.tools.Server'
+    //args = ['-tcpShutdown', "tcp://localhost:${sysport}"]
+}
+
+task dostart(dependsOn: startMyServer)
+

@@ -1,0 +1,49 @@
+/*
+build0.gradle
+KEY-POINT:  
+
+USAGE: gradle -b build0.gradle none
+*/
+
+def map = new java.util.HashMap<Integer , String>();
+map.put(1,"uno");
+println("SETTINGS $rootProject.name $rootProject.projectDir $map ");
+rootProject.name =  "starting...gradle";
+map.put(2,"due");
+println("SETTINGS $rootProject.name  $map ");
+
+def g = new GreetingInJava();
+rootProject.
+g.greet();
+
+
+def Closure createClosure = {
+	println("createClosure running "  );
+//	java.util.HashMap<Integer , String> map = new java.util.HashMap<Integer , String>();
+	map.put(1,"uno");
+	map.put(2,"due");
+	//Define a closure bound to local map that returns the size of the map
+ 	def aclosure = {
+		assert map.size() == 2;  //TODO: try with assert map.size() == 3;
+		println( "%%% aclosure map=" + map + " size=" + map.size() + " it=" + it);
+		return map.size()
+	};	
+	return aclosure;
+}
+
+def Integer useAClosure( Closure closure, Integer n) {
+	println("useAClosure " + closure);
+ 	return closure() + n
+}
+
+def job = { 
+	javax.swing.JFileChooser dialog = new javax.swing.JFileChooser();
+	dialog.showOpenDialog(null);
+	File f = dialog.getSelectedFile();
+	if( f != null ) System.out.println( "SELECTED: " + f.getName() );
+	else System.out.println( "NO FILE SELECTED"  );
+	return "job done";
+}
+
+//println( "RESULT of createAndRunClosure =" + useAClosure( createClosure(), 10 ) );
+//println( job() );

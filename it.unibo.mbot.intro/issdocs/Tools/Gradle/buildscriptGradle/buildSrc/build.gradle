@@ -1,0 +1,19 @@
+ /*
+ build.gradle for buildScr
+ ---------------------------------------------------------------
+When you run Gradle, it checks for the existence of a directory called buildSrc. Gradle then
+automatically compiles and tests this code and puts it in the classpath of your build script.
+
+The default build script that Gradle applies to the buildSrc project is:
+apply plugin: 'groovy'
+	dependencies {
+		compile gradleApi()
+		compile localGroovy()
+	}
+If you need more flexibility, you can provide your own build.gradle.
+
+ */
+ 
+ 	dependencies {
+    	compile fileTree(dir: '../uniboLibs', include: '*.jar')
+  	}

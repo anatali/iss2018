@@ -1,0 +1,6 @@
+.project
+.classpath
+/bin/
+#Classes could be used by JaCoCo#
+#*.class
+*.class/test

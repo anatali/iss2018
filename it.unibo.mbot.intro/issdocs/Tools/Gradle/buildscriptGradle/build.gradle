@@ -1,0 +1,92 @@
+/*
+build.gradle
+KEY-POINT: buildscript method
+
+USAGE: gradle entry
+WARNING: this DOES NOT REQUIRE the Java plugin 
+*/
+
+/*
+Print properties
+*/
+
+version = 1.0 
+println "--------------------- build -----------------------------"
+println "project name    = $name"
+println "project version = $rootProject.version"
+
+/*
+--------------------------------------------------------------------
+buildscript
+--------------------------------------------------------------------
+If your build script needs to use external libraries, you can add them to the script's classpath in the build
+script itself. You do this using the buildscript() method, passing in a closure which declares the build
+script classpath.
+
+The closure passed to the buildscript() method configures a ScriptHandler instance
+Gradle applies the default build script regardless of whether there is one specified.
+
+*/
+
+
+buildscript {
+ 	repositories {
+  	 	mavenCentral()
+  	 	flatDir { 
+    		dirs file('uniboLibs')
+    	}
+   	 	//The dirs property is set to the uniboLibs directory under the build's project root.
+   	 	//This is the expected behavior, and will work regardless of how Gradle is being invoked.
+		//Chapter 4 of Gradle Beyond the Basics describes dependencies in detail.
+  	}	
+	dependencies {
+		classpath group: 'commons-codec', name: 'commons-codec', version: '1.2'
+   		classpath ":2p301"
+  	}
+}
+
+/*
+--------------------------------------------------------------------
+EXAMPLE of using an external Maven library
+--------------------------------------------------------------------
+*/
+//USAGE gradle -q encode
+import org.apache.commons.codec.binary.Base64
+task encode << {
+    def byte[] encodedString = new Base64().encode('hello world\n'.getBytes())
+    println "COMPUTED base64=" + new String(encodedString)
+}
+
+/*
+--------------------------------------------------------------------
+EXAMPLE of using an external Unibo library
+--------------------------------------------------------------------
+*/
+//USAGE gradle -q encode
+import 	alice.tuprolog.Term;
+task doJava << {
+	alice.tuprolog.Term tt =  alice.tuprolog.Term.createTerm("a(2)")
+ 	println(" *** doJava task ${tt}"  );
+	GreetingInJava g = new GreetingInJava();
+	g.greet();
+}
+
+
+/*
+--------------------------------------------------------------------
+A task
+--------------------------------------------------------------------
+*/
+task doShow << {
+	println(" *** doShow  ${projectDir} $project $project.version");
+	println(" *** doShow  $rootProject.rootDir");
+	println(" *** doShow  $project.buildscript.configurations.classpath.asPath");
+}
+
+
+encode.dependsOn doShow , doJava
+
+task entry ( dependsOn: encode )
+task none
+
+ 

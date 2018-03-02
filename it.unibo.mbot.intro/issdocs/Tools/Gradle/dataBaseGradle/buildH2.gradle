@@ -1,0 +1,115 @@
+/*
+ buildH2.gradle
+ KEY-POINT: uage of a H2 db enegine. See https://en.wikipedia.org/wiki/H2_(DBMS)
+ USAGE: 
+ 	gradle -b buildH2.gradle build
+	gradle -b buildH2.gradle integrationTest
+ */
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'java-library-distribution'
+
+version = "1.0"
+sourceCompatibility = "1.8"
+ /*
+ ------------------------------------------------------------
+ PROJECT LAYOUT
+------------------------------------------------------------
+ */
+  	sourceSets {
+	main {
+		 java {
+		   srcDirs = ['src' , 'srcH2']
+		}
+		}
+	test {
+	 	java {
+	   		srcDirs = ['integrTest']
+	 	}
+	}
+	}
+
+ /*
+ ------------------------------------------------------------
+ DEPENDENCIES
+------------------------------------------------------------
+ */	
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile 'junit:junit:4.12'
+    compile group: 'com.h2database', name: 'h2', version: '1.4.187'
+    runtime 'com.h2database:h2:1.3.170'		//JDBC driver to connect to H2db
+}
+
+ /*
+ ------------------------------------------------------------
+ TESTING
+------------------------------------------------------------
+ */
+ test {
+	testLogging {
+		outputs.upToDateWhen { false }		
+		showStandardStreams = true		
+		events 'passed' //,  'started', 'skipped', 'failed'		
+		
+   	 	exclude '**/*IntegrTest.class'		//exclude integration tests from default test task
+ 	}
+}
+
+test.afterSuite { TestDescriptor suite, TestResult result -> //add closure to be notified
+	if( !suite.parent && result.getTestCount() > 0) { //there is at least one test
+		long elapsedTestTime = result.getEndTime() - result.getStartTime()
+		System.out.println(
+		"""AFTERSUITE Elapsed time for execution of ${result.getTestCount()} test(s):  $elapsedTestTime ms""");
+	}
+}
+
+ /*
+ ------------------------------------------------------------
+ INTEGRATION TESTING
+------------------------------------------------------------
+ */
+apply from: 'databaseSetup.gradle'
+ 
+task integrationTest(type: Test) {
+	testLogging {
+		outputs.upToDateWhen { false }	//avoid UP-TO-DATE
+		showStandardStreams = true		
+		events 'passed' //,  'started', 'skipped', 'failed'
+	}
+    description = 'Runs the integration tests.'
+    group = 'verification'
+    include '**/*IntegrTest.class'
+    reports.html.destination = file("$reports.html.destination/integration")
+    reports.junitXml.destination = file("$reports.junitXml.destination/integration")
+    dependsOn startAndPrepareDatabase
+    finalizedBy stopDatabase
+}
+
+
+integrationTest.afterSuite { TestDescriptor suite, TestResult result -> //add closure to be notified
+	if( !suite.parent && result.getTestCount() > 0) { //there is at least one test
+		long elapsedTestTime = result.getEndTime() - result.getStartTime()
+		System.out.println(
+		"""AFTERSUITEINTEGR Elapsed time for execution of ${result.getTestCount()} test(s):  $elapsedTestTime ms""");
+	}
+}
+
+ /*
+ ------------------------------------------------------------
+ EXECUTABLE jar
+------------------------------------------------------------
+ */
+jar {
+	manifest {
+		attributes "Class-Path": configurations.compile.collect { "lib/"+it.getName() }.join(' ')
+		attributes 'Main-Class': 'it.unibo.db.h2.appl.H2DbAppl'
+	}
+}
+//check.dependsOn integrationTest
+
+

@@ -1,0 +1,26 @@
+body {
+    font: 100% Lucida Sans;
+    margin: 20px;
+    line-height: 26px;
+    background-color: #ffffc6;
+}
+
+h3 {
+    background-color: #f6d8f8;
+}
+i {  
+    color: #ff4040;
+} 
+b {
+    color: #1809e1;
+}
+/*
+	Hack to remove background from Mobile Safari.
+	Can't use it globally since it destroys checkboxes in Firefox and Opera
+*/
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    #toggle-all,
+    #todo-list li .toggle {
+        background: none;
+    }
+}

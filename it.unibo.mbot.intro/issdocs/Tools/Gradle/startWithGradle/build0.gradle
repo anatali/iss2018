@@ -1,0 +1,15 @@
+/*
+build0.gradle
+KEY-POINT:  
+
+USAGE: gradle -b build0.gradle none
+If you use -b option then settings.gradle file is not used
+*/
+version = '1.0'
+
+println rootProject.name
+println name
+println version
+println rootProject.version
+
+task none 

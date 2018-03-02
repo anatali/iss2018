@@ -1,0 +1,47 @@
+/*
+build.gradle
+KEY-POINT: gradle properties configuration , custom java tasks
+
+You can place a gradle.properties file in the Gradle user home directory (defined by the “GRADLE_USER_HOME” environment variable, 
+which if not set defaults to USER_HOME/.gradle) or in your project directory. 
+For multi-project builds you can place gradle.properties files in any subproject directory. 
+The properties set in a gradle.properties file can be accessed via the project object. 
+The properties file in the user's home directory has precedence over property files in the project directories.
+
+USAGE: gradle entry
+*/
+ 
+
+/*
+=====================================================
+cd C:\Users\anatali\.gradle
+creo file gradle.properties
+	secretKey=123456789
+=====================================================
+*/ 
+
+project.ext.myLib = '../localLibs'		//added
+ext.logo 		  = 'myLogo'		    //added
+ext {
+	address = '192.168.43.1'
+}
+
+task extraProp <<{
+	println( "secretKey from gradle.properties via ext =" + project.ext.secretKey ) ;
+	println( "secretKey from gradle.properties         =" + project.property('secretKey') ) ;
+	println( "myLib (added by script)  via ext         =" + project.ext.myLib  ) ;
+	println( "myLib (added by script)                  =" + project.property('myLib') ) ;
+	println( "logo (added by script)                   =" + project.property('logo') ) ;
+	println( "address (added by script in ext)         =" + project.property('address') ) ;
+	println( "secretKey=$secretKey  myLib=$myLib logo=$logo address=$address " ) ;
+}
+
+
+/*
+--------------------------------------------------------------------
+DEPEDENCY
+--------------------------------------------------------------------
+*/
+
+ 
+task entry ( dependsOn: extraProp   )

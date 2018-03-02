@@ -1,0 +1,14 @@
+/*
+build0.gradle
+KEY-POINT: the gradle Java plugin
+
+A gradle plugin extends a project by introducing domain-specific conventions and tasks with sensible defaults. 
+
+The Java plugin goes farbeyond the basic functionality of source code compilation and packaging. 
+It establishes a standard layout for your project and makes sure that tasks are executed in the
+correct order so they make sense in the context of a Java project.
+
+See 
+https://docs.gradle.org/current/userguide/java_plugin.html
+*/
+apply plugin: 'java'

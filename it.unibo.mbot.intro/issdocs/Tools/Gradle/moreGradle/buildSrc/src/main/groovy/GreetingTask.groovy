@@ -1,0 +1,6 @@
+class GreetingTask extends DefaultTask {
+    @TaskAction
+    def greet() {
+        println 'hello from GreetingTask'
+    }
+}

@@ -1,0 +1,25 @@
+/*
+build.gradle for the subproject deviceModel
+*/
+ 
+repositories {
+     jcenter()
+}
+ 
+dependencies {
+     testCompile 'junit:junit:4.12'
+     compile fileTree(dir: '../../localLibs/unibo', include: '*.jar')
+}
+  	sourceSets {
+		main {
+		 java {
+		   srcDirs = ['src']
+		}
+		}
+	test {
+	 java {
+	   srcDirs = ['test']
+	 }
+	}
+	}
+ 

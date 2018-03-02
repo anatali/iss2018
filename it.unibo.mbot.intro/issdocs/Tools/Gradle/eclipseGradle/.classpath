@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry path="bin" kind="output"/>
+	<classpathentry path="src" kind="src"/>
+	<classpathentry path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8/" kind="con"/>
+	<classpathentry path="C:/aLab2016/lab2014Bo/it.unibo.iss2015intro/docs/Tools/Gradle/localLibs/unibo/2p301.jar" kind="lib"/>
+	<classpathentry path="C:/aLab2016/lab2014Bo/it.unibo.iss2015intro/docs/Tools/Gradle/localLibs/unibo/labbaseRobotSam.jar" kind="lib"/>
+	<classpathentry path="C:/aLab2016/lab2014Bo/it.unibo.iss2015intro/docs/Tools/Gradle/localLibs/unibo/qactors18.jar" kind="lib"/>
+	<classpathentry path="C:/aLab2016/lab2014Bo/it.unibo.iss2015intro/docs/Tools/Gradle/localLibs/unibo/tuprolog.jar" kind="lib"/>
+	<classpathentry path="C:/aLab2016/lab2014Bo/it.unibo.iss2015intro/docs/Tools/Gradle/localLibs/unibo/uniboEnvBaseAwt.jar" kind="lib"/>
+	<classpathentry path="C:/aLab2016/lab2014Bo/it.unibo.iss2015intro/docs/Tools/Gradle/localLibs/unibo/uniboInterfaces.jar" kind="lib"/>
+	<classpathentry path="C:/aLab2016/lab2014Bo/it.unibo.iss2015intro/docs/Tools/Gradle/localLibs/unibo/unibonoawtsupports.jar" kind="lib"/>
+	<classpathentry path="C:/aLab2016/lab2014Bo/it.unibo.iss2015intro/docs/Tools/Gradle/localLibs/unibo/uniboQactorRobot.jar" kind="lib"/>
+</classpath>
