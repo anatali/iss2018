@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Class-Path: lib/2p301.jar lib/uniboEnvBaseAwt.jar lib/uniboInterfaces.
+ jar lib/unibonoawtsupports.jar
+Main-Class: Library
+

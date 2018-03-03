@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="it.unibo.devices.appl.test.ApplTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2016-08-10T07:28:01" hostname="anataliTHINK" time="0.01">
+  <properties/>
+  <testcase name="testDoJob" classname="it.unibo.devices.appl.test.ApplTest" time="0.01"/>
+  <system-out><![CDATA[	*** testDoJob 
+START doJob:device(led(l1),GREEN,false)
+END doJob:  device(led(l1),GREEN,true)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

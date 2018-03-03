@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="it.unibo.h2db.integr.test.H2DbIntegrTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2016-08-22T07:32:06" hostname="anataliTHINK" time="0.489">
+  <properties/>
+  <testcase name="testIntegrAllDataItem" classname="it.unibo.h2db.integr.test.H2DbIntegrTest" time="0.45"/>
+  <testcase name="testIntegrInsertDataItem" classname="it.unibo.h2db.integr.test.H2DbIntegrTest" time="0.038"/>
+  <system-out><![CDATA[	*** testIntegrAllDataItem 
+insert conn=conn0: url=jdbc:h2:~/unibodata user=SA
+insert conn=conn1: url=jdbc:h2:~/unibodata user=SA
+	*** FOUND 1: item1 [consumed: false]
+	*** FOUND 2: item2 [consumed: false]
+	*** testIntegrInsertDataItem 
+insert conn=conn3: url=jdbc:h2:~/unibodata user=SA
+	*** FOUND 3: item0 [consumed: false]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

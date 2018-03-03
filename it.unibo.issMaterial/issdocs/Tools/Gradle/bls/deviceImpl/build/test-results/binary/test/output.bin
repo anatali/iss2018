@@ -1,0 +1,11 @@
+	*** setTheLed stste=false
+	*** testLedname led(l1)
+	*** setTheLed stste=false
+	*** setTheLed stste=false
+	*** setTheLed stste=false
+	*** setTheLed stste=false
+	*** testSwitch 
+	*** setTheLed stste=false
+-	*** testLedRep device(led(l1),GREEN,false)
+	*** setTheLed stste=false
+	*** testTurn 

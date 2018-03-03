@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Class-Path: lib/2p301.jar lib/labbaseRobotSam.jar lib/qactors18.jar li
+ b/tuprolog.jar lib/uniboEnvBaseAwt.jar lib/uniboInterfaces.jar lib/un
+ ibonoawtsupports.jar lib/uniboQactorRobot.jar lib/slf4j-api-1.7.21.ja
+ r
+Main-Class: Library
+

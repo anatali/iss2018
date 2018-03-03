@@ -1,0 +1,8 @@
+	*** testIntegrAllDataItem 
+4insert conn=conn0: url=jdbc:h2:~/unibodata user=SA
+4insert conn=conn1: url=jdbc:h2:~/unibodata user=SA
+'	*** FOUND 1: item1 [consumed: false]
+'	*** FOUND 2: item2 [consumed: false]
+ 	*** testIntegrInsertDataItem 
+4insert conn=conn3: url=jdbc:h2:~/unibodata user=SA
+'	*** FOUND 3: item0 [consumed: false]

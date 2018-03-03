@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Class-Path: lib/2p301.jar lib/deviceImpl-1.0.jar lib/deviceModel-1.0.j
+ ar lib/labbaseRobotSam.jar lib/qactors18.jar lib/tuprolog.jar lib/uni
+ boEnvBaseAwt.jar lib/uniboInterfaces.jar lib/unibonoawtsupports.jar l
+ ib/uniboQactorRobot.jar lib/deviceModel-1.0.jar lib/deviceImpl-1.0.ja
+ r
+Main-Class: it.unibo.devices.appl.MainLed
+

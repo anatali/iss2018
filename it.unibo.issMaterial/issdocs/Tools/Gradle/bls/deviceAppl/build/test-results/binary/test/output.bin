@@ -1,0 +1,3 @@
+	*** testDoJob 
+)START doJob:device(led(l1),GREEN,false)
+(END doJob:  device(led(l1),GREEN,true)

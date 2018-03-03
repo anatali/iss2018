@@ -1,0 +1,16 @@
+	*** testDoJob 
+)START doJob:device(led(l1),GREEN,false)
+(END doJob:  device(led(l1),GREEN,true)
+	*** setTheLed state=false
+	*** testLedname led(l1)
+	*** setTheLed state=false
+	*** setTheLed state=false
+	*** setTheLed state=false
+	*** testTurn 
+	*** setTheLed state=false
+	*** testSwitch 
+		*** setTheLed state=false
+	-	*** testLedRep device(led(l1),GREEN,false)
+
+	*** setTheLed state=false
+-	*** testLedRep device(led(l1),GREEN,false)

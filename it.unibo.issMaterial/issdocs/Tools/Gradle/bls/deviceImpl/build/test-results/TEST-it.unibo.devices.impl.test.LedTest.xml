@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="it.unibo.devices.impl.test.LedTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2016-08-10T07:54:10" hostname="anataliTHINK" time="0.011">
+  <properties/>
+  <testcase name="testLedname" classname="it.unibo.devices.impl.test.LedTest" time="0.006"/>
+  <testcase name="setTheLedWithRep" classname="it.unibo.devices.impl.test.LedTest" time="0.0"/>
+  <testcase name="setTheLedWrong" classname="it.unibo.devices.impl.test.LedTest" time="0.0"/>
+  <testcase name="testGetLedColor" classname="it.unibo.devices.impl.test.LedTest" time="0.0"/>
+  <testcase name="testSwitch" classname="it.unibo.devices.impl.test.LedTest" time="0.001"/>
+  <testcase name="testLedRep" classname="it.unibo.devices.impl.test.LedTest" time="0.0"/>
+  <testcase name="testTurn" classname="it.unibo.devices.impl.test.LedTest" time="0.0"/>
+  <system-out><![CDATA[	*** setTheLed stste=false
+	*** testLedname led(l1)
+	*** setTheLed stste=false
+	*** setTheLed stste=false
+	*** setTheLed stste=false
+	*** setTheLed stste=false
+	*** testSwitch 
+	*** setTheLed stste=false
+	*** testLedRep device(led(l1),GREEN,false)
+	*** setTheLed stste=false
+	*** testTurn 
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

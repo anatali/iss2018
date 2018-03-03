@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Class-Path: lib/h2-1.4.187.jar
+Main-Class: it.unibo.db.h2.appl.H2DbAppl
+

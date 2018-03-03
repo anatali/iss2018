@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="it.unibo.db.unit.test.InMemoryDbTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2016-08-15T14:55:58" hostname="anataliTHINK" time="0.005">
+  <properties/>
+  <testcase name="testAllDataItem" classname="it.unibo.db.unit.test.InMemoryDbTest" time="0.005"/>
+  <testcase name="testInsertDataItem" classname="it.unibo.db.unit.test.InMemoryDbTest" time="0.0"/>
+  <system-out><![CDATA[	*** testAllDataItem 
+	*** FOUND 1: data1 [consumed: false]
+	*** FOUND 2: data2 [consumed: false]
+	*** testInsertDataItem 
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
