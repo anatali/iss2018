@@ -1,2 +1,0 @@
-There should be 'VirtualRobotE80_Data'
-folder next to the executable
