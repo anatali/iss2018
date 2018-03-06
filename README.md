@@ -1,2 +1,4 @@
 # iss2018
-Working repo for Ingegneria dei Sistemi Software Unibo-DISI-AN
+Reading material for Ingegneria dei Sistemi Software 2018 Unibo-DISI-AN
+
+ENTRY: issdocs/Material/LectureBologna1718.html
