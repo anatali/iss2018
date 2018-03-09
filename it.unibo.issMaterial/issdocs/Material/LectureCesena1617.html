@@ -1,0 +1,523 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+<link rel="stylesheet" type="text/css" href="../css/plainStyle.css">
+<link rel="stylesheet" type="text/css" href="../css/robotTabStyle.css">   
+<script type="text/javascript" src="../css/issStyle.js"></script>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<head>
+
+<title>LecturesCE1617</title></head><body>
+    
+<div class="container wrapper"> 
+
+<div id="top">
+<h3 id="h3">Lecture Notes Cesena 16-17</h3>
+<p></p>
+</div> 
+
+
+    
+<div class="wrapper">
+    
+    
+ 
+    
+ 
+<div id="main">
+<p>
+    <a href="Overview.html#Goals" target="lecture">OVERVIEW </a>
+<table id="robots">
+<tr><th>Day</th> <th>Loc</th><th>Argument</th>   </tr>
+    
+<tr><td><b>Week 1</b></td></tr>    
+    
+<tr><td>22/09/2016 (14-17)</td><td>Aula C</td> 
+<td>
+Motivazioni sulla denominazione del corso.
+Il ruolo del laureato magistrale tra innovazione tecnolgica e gestione dei
+processi di produzione del software.
+
+    <a href="Overview.html#Intro" target="lecture">Introduzione al corso</a>, 
+    ai <a href="Overview.html#Prereq" target="lecture">prerequisiti</a> 
+e ai suo <a href="Overview.html#Goals" target="lecture">obiettivi</a>.
+Il sito del corso
+    <tt>ssh://isslm2014@137.204.107.21:80/labstudISSDISI</tt>
+    la sua 
+<a href="../iss2015Html/courseISSMap/iss2015Intro.cmap.html" target="lecture">organizzazione logica</a>
+    e le
+    <a href="Overview.html#Lab" target="lecture">attività di laboratorio</a>.
+Il <a href="../NatMolBook/bookEntry.html" target="lecture">materiale didattico di base</a>. 
+Presentazione dei <a href="../Tools/tools.html" target="lecture">tools</a> di base 
+della sezione <a href="../Download/dowloadEntry.html" target="lecture">download</a> del sito
+e dei <a href="../Robots/robotEntry.html" target="lecture">dispositivi custom</a> per le esercitazioni.
+Il ruolo del lavoro individuale e di gruppo
+    (per le <a href="Overview.html#Work" target="lecture">attività</a> di <a href="../Appls/applsEntry.html" target="lecture">laboratorio</a>). 
+
+</td></tr>
+
+<tr><td>23/09/2016 (11-13)</td><td>Aula C</td> 
+<td> 
+Sperimentazione dei tools base per il laboratorio. Impostazione di un progetto Eclipse a partire
+    da una specifica GRADLE (Si veda <a href="../Lab/Lab2016/Starting2016.html" target="code">Lab1) Starting2016</a>).
+    Prima impostazione di un componente Led come oggetto a partire dalla specifica di un piano di collaudo. 
+    
+</td></tr>
+
+    
+<tr><td><b>Week 2</b></td></tr>    
+<tr><td>28/09/2016 (14-17)</td><td>Lab2</td> 
+<td> 
+ Panoramica sui <a href="Overview.html#Books" target="lecture">testi consigliati</a>  e sul material didattico online.
+Compilazione del 
+<a href="https://docs.google.com/forms/d/1HevTsP0H4iIG70RArz85s8EQtSJPTevIVZO6lIgNO9k/viewform" target="lecture">questionario on line</a>. 
+Criteri di valutazione. 
+Modalita' di <a href="../Material/Assesment.html" target="lecture">valuatazione finale</a> e 
+ruolo dei deliverable intermedi connessi ai <a href="../Appls/ButtonLed/buttonLedEntry.html" target="lecture">casi di studio</a>. 
+    Criteri di valutazione: la costruzione di metamodelli/linguaggi custom e relative software factories come elemento qualificante legato alla innovazione tecnologica.
+
+Creazione delle chiavi di accesso al sistema GIT delle esercitazioni del corso.
+ 
+    Introduzione ai concetti fondamentali del framework SCRUM. L'idea di SPRINT e SPRINT review come riferimento per le attivtà di laboratorio. Lo SPRINT retrospective come momento di valutazione/revisione del processo di produzione.
+Realizzazione, a partire dalla specifica di un piano di collaudo di un componente Led come oggetto dotato di stato. 
+    </td></tr>  
+<tr><td>29/09/2016 (14-17)</td><td>Lab2</td> 
+<td>  
+Verso una modellazione di un Button come input device a partire da JButton Java.
+Richiami sul pattern Observer e discussione sulla interazione tra Observable e Observers.
+    Un primo prototipo technology-based per il ButtonLed system 'vitruale' in ambiente locale. Prima valutazione del lavoro svolto da parte del 'committente'.  
+Il progetto 
+    <a href="../Lab/Lab2016/BLSOOPFromComponents.html" target="code">Lab2) BLSOOPFromComponents</a> come esempio di sistema associato a un insieme di test che esplorano tutte le parti di codice.
+    Uso di GRADLE per la esecuzione automatica di unit tests e integration tests.
+</td></tr>
+
+<tr><td>30/09/2016 (11-13)</td><td>Aula C</td> 
+<td> 
+Anlsisi del codice presente nel progetto <a href="../Lab/Lab2016/BLSOOPFromComponents.html" target="code">Lab2) BLSOOPFromComponents</a>. Il pattern Factory. Analisi dei test a livello di singolo componente e di sistema. Introduzione al Framework
+    <a href="../Lab/Lab2016/BLSOOPFromComponents.html#Uniboenvref" target="code">UniboEnv</a>
+     per la rapida prototipazione di sistemi basati su GUI. Primi esempi di applicazione di UniboEnv alla costruzione del sistema ButtonLed. 
+</td></tr>    
+ 
+    
+    
+<tr><td><b>Week 3</b></td></tr>    
+<tr><td>5/10/2016 (14-17)</td><td>Lab2</td> 
+<td>
+    Approfondimento delle features del framework  <a href="../Lab/Lab2016/BLSOOPFromComponents.html#Uniboenvref" target="code">UniboEnv</a>. L'operazione <i>addPanel</i> come costruttore di una 'DashBoard' (formalmente non specificata) 
+    dotata di uno o più pulsanti grafici 
+    (la cui pressione attiva un handler che implementa l'interfaccia <a href="../../../../it.unibo.interfaces/src/it/unibo/is/interfaces/IActivityBase.java" target="code">IActivityBase</a>) 
+    come esempio di un diverso livello di strazione rispetto alla tecnologia Java di base.
+Uso di UniboEnv per la costruzione del sistema ButtonLed. 
+ </td></tr>
+    
+<tr><td>6/10/2016 (14-17)</td><td>Lab2</td> 
+<td>
+Verso modelli riusabili di dominio (IOT): analisi delle principali <a href="../Lab/Lab2016/BLSOOPFromComponents.html#Interfaces" target="code">Interfacce</a> di riferimento. Introduzione di classi (di una libreria) per la definzione di      
+    alle <a href="../Lab/Lab2016/BLSOOPFromComponents.html#SituatedObj" target="code">SituatedPlainObject</a> 
+
+Uso del framework <a href="../Lab/Lab2016/BLSOOPFromComponents.html#Uniboenvref" target="code">UniboEnv</a> per la rapida prototipazione di applicazioni GUI-based: sviluppo in laboratorio di un sistema che calcola l'N-mo numero di Fibonacci (N dato in input) alla pressione di un pulsante START. Estensione del sistema per la interruzione del calcolo attraverso un puslante STOP.
+    Discussione della soluzione proposta. (SPRINT review)
+Da una progettazione/sviluppo bottm-up che parte dai componenti a una progettazione/sviluppo che parte dal problema e da una architettura logica definita in sede di analisi.  Il progetto
+<a href="../Lab/Lab2016/BLSOOPFromLogicArch.html" target="code">Lab3) BLSOOPFromLogicArch</a>
+    Il design pattern <a href="https://en.wikipedia.org/wiki/Bridge_pattern">Bridge</a> per il disaccooppiamento tra (architettura) logica e (tecnologia) implementazione.
+</td></tr>
+
+<tr><td>7/10/2016 (11-13)</td><td>Aula C</td> 
+<td> 
+Dalla analisi del problema alla defini  zione di un procuct backlog attraverso la definzione della architettura logica del sistema.
+Nuove strategie per la costruzione di un sistema ButtonLed basato sul pattern bridge.
+    La classe <a href="../../../it.unibo.buttonLedSystemHL/src/it/unibo/buttonLedSystem/BLSHLConfig.java" target="code">BLSHLConfig</a> come esempio di un prodotto costruito a valle di possibili SPRINT review.
+Impostazione del lavoro da compiere per la realizzazione del sistema ButtonLed in ambienti distribuiti eterogeni
+    che includono Arduino, RaspberryPi, Android.
+Impostazione del lavoro da compiere per un nuovo case study: il problema
+<a href="../Lab/Lab2016/BLSBlink.html" target="code">Lab4) ButtonLedBlinking</a>.  
+    
+    
+     .
+</td></tr>     
+ 
+<tr><td><b>Week 4</b></td></tr>    
+<tr><td>12/10/2016 (14-17)</td><td>Lab2</td> 
+<td> 
+ Analisi del ButtonLedBlinking problem e introduzione dell'astrazione Asynchronous, timed, interruptable action (<tt>AtiAct</tt>). 
+ <tt>Lab</tt>: <a href="../Lab/Lab2016/BLSBlink.html" target="code">4) The ButtonLedBlink problem </a>  . 
+    </td></tr>
+<tr><td>13/10/2016 (14-17)</td><td>Lab2</td> 
+<td> 
+    Primi esperimenti con Arduino
+<tt>Lab</tt>: <a href="../Lab/Lab2016/BLSGui.html" target="code">5) BLS using GUI </a></b>, 
+    <tt>Lab</tt>: <a href="../Lab/Lab2016/BLSArduino.html" target="code">6) BLS with Arduino </a>. </b>
+</td></tr>
+
+<tr><td>14/10/2016 (11-13)</td><td>Aula C</td> 
+<td> 
+Esempio del calcolo dell'n-mo numero di Fibonacci come azione timed, interrompibile.
+    Discussione collettiva volta alla definizione  del modello relativo alla architettura logica del sistema
+    e alla stima dei tempi e dei costi necessari per lo sviluppo del sistema.
+    Elaborazione di un processo di zooming sulle macro-entità individuate (UserInterface ed Elaborazione).
+    Analisi della parte di Elaborazione : individuazione di un nucleo-base di tipo funzionale e di un
+    elemento di controllo (attivazione/interruzione) di questa funzione.
+    Individuazione di un nuovo possibile 'pattern' di elaborazione: azioni timed interrompili 
+    (<a href="../Lab/Lab2016/BLSBlink.html#AtiAct" target="code">ActiAct</a>) e pianificazione di una sua realizzazione
+    riusabile in altri contesti applicativi come esempio di superamento di un  <a href="../Survey/AbstrGap.html" target="code">'abstraction gap'</a>.
+    
+    
+</td></tr>     
+
+
+ 
+<tr><td><b>Week 5</b></td></tr>  
+<tr><td>19/10/2016 (14-17)</td><td>Lab2</td> 
+<td> 
+ Il sistema ButtonLed system basato su GUI: dal concentrato al distribuito  
+    <a href="../Lab/Lab2016/BLSGui.html#towardDistr" target="code">Lab 5) BLS using GUI:Towards distributed systems</a>.
+ 
+</td></tr>
+<tr><td>20/10/2016 (14-17)</td><td>Lab2</td> 
+<td> 
+Il sistema ButtonLed system con un device fisico su RaspberryPi
+    <a href="../Lab/Lab2016/BLSRaspberry.html" target="code">Lab 7) BLS with a RaspberryPi</a>.
+Introduzione all'uso del plugin <tt>'java-library-distribution'</tt>  di gradle.
+</td></tr>
+
+<tr><td>21/10/2016 (11-13)</td><td>Aula C</td> 
+<td> 
+   Dal <a href="../Appls/ButtonLedDitributed/distributedPrototypes.html" target="code"> concentrato al distribuito. Overview</a> su quanto realizzato in laboratorio fino ad oggi. Anlisi del progetto <a href="../../../it.unibo.buttonLedSystem.proxy">it.unibo.buttonLedSystem.proxy</a> e dei suoi integration test.
+    Definizione dei requisiti in relazione <a href="../Appls/ButtonLedDitributed/distributedPrototypes.html#deliv1" target="code">First deliverable</a>.
+    L'astrazione Asynchronous, timed, interruptable action (<tt>AtiAct</tt>): dettagli implementativi. 
+ (Si veda <tt>Lab</tt>: <a href="../Lab/Lab2016/BLSBlink.html#AtiAct" target="code">4) The ButtonLedBlink problem </a>).
+    Applicazione delle azioni  <tt>AtiAct</tt> al caso del led blinking in sistemi concentrati e distribuiti.
+
+
+    Richiami sui <a href="../Lab/Lab2016/BLSGui.html#BLSuml" target="code">modelli UML</a>: sequence diagrams e state diagrams per il ButtonLedSystem concentrato e distribuito.
+    
+
+
+
+    
+</td></tr>     
+
+ 
+<tr><td><b>Week 6</b></td></tr>  
+<tr><td>26/10/2016 (14-17)</td><td>Lab2</td> 
+<td> 
+Raccolta dei deliverable .
+    Da oggeti proxy a nuovi modi di concepire i componenti di un sistema distribuito: il caso degli attori (Akka).
+    <a href="../Lab/Lab2016/BLSBlinkActors.html" target="code">BLSBlinkActors</a>    
+
+Esperimenti di installazione ed uso dei plugin relativi al metamodello custom qactor
+    based on the infrastructure: <a href="../../../it.unibo.iss.libs/libs/unibo/qa18Akka.jar">qa18Akka.jar</a>.
+    Primo esempio di uso dei plugin qactor.
+    </td>    
+<tr><td>27/10/2016 (14-17)</td><td>Lab2</td> 
+<td>  
+    Analisi (sprint review) dei prodotti relativi al primo deliverable basati su Arduino e su Raspberry.
+    Osservazioni di carattere generale sui report e sul loro ruolo.
+    Richami sui diagrammi di sequenza e su <a href="../Readings/FSM/UMLFSM.pdf" target="code">FSM in UML</a> e su 
+   <a href="../Readings/FSM/UMLFSMDiag.pdf" target="code">diagrammi UML per FSM</a>.
+Introduzione all'uso dei plugin qactor come strumento per la definzione di modelli eseguibili.
+    Il concetto di piano e di invio/ricezione di messaggi (di tipo dispatch)
+</td></tr>
+
+<tr><td>28/10/2016 (11-13)</td><td>Aula C</td> <td> 
+ Autovalutazione del primo deliverable attraverso la compilazione di un <a href="https://docs.google.com/forms/d/1K0_MCcIWUIlB37qsD7-Ub0CNOmCuaowMnYFsvPkbCck/edit" target="code">modulo on line</a>.
+     
+Introduzione al concetto di SoftwareFactory e al ruolo della metamodellazione. Analogie con il settore
+    della produzione meccanica basata su robot.
+    Discussione sulla differenza tra codice di programmazione e un modello eseguibile espresso in notazione testuale.
+    I plugin qactor per Eclipse come esempio di software factory.
+    La semantica dei costrutti di un linguaggio (custom) come esempio di metamodello. I piani qactor come stati
+    di un automa a stati finiti. Introduzione alle semnantica dei costrutti Context e QActor. 
+    Esempi di trasmissione/ricezione di messaggi e introduzione alla loro rappresentazione. Esempio di ricezione
+    con timeout
+
+</td></tr>    
+
+    
+ 
+<tr><td><b>Week 7</b></td></tr>  
+ <tr><td>2/11/2016 (14-17)</td><td>Lab2</td> 
+<td> Introduzione al <a href="../../../it.unibo.qactors/report/qactors/qactors.pdf" target="code">linguaggio custom qa</a> ( QActor) e al suo supporto run time 
+    (si veda <a href="../Lab/Lab2016/BasicActorSupport.html" target="code"> 10) BasicActorSupport</a>).
+Esempio di una prima specifica in qa di un
+     <a href="../../../it.unibo.buttonLedSystem.basic.qa/src/buttonLedBasic.qa" target="code">semplice modello</a> (di analisi eseguibile) per il ButtonLed system.
+Esplorazione del codice generato dai plugin qactor che formano la software factory connessa a qa.    
+       
+ Richiami sugli <a href="https://en.wikipedia.org/wiki/Finite-state_machine" target="code">automi a stati finiti</a> come <a href="../Readings/FSM/MacchineAstratteeASF.pdf" target="code">MacchineAstratte</a>.  Richiami sulle possibili costruzione di codice a partie dalla specifica di uno state diagram.
+    Richiami sul linguaggio Prolog (si veda <a href="../Readings/Prolog/AnIntroductionToProlog.pdf">AnIntroductionToProlog.pdf</a>).
+    
+ 
+ 
+     </td>    
+<tr><td>3/11/2016 (14-17)</td><td>Lab2</td> 
+<td>  
+Dalla prima specifica in <tt>qa</tt> di un
+     <a href="../../../it.unibo.buttonLedSystem.basic.qa/src/buttonLedBasic.qa" target="code">semplice modello</a> (di analisi eseguibile) per il ButtonLed system ad un sistema distribuito tra due pc e un pc e un raspberryPi.
+Presentazione di un ulteriore modello per un  <a href="../../../it.unibo.buttonLedSystem.basic.qa/src/blsAnalysis.qa" target="code">prototipo single-node</a> con pulsanti e led realizzati tramite GUI.
+L'operazione <i>actorOp</i> come link tra modello e codice applicativo Java.
+     
+</td></tr>
+
+<tr><td>4/11/2016 (11-13)</td><td>Aula C</td> 
+<td> 
+    Dal  <a href="../../../it.unibo.buttonLedSystem.basic.qa/src/blsAnalysis.qa" target="code">prototipo single-node</a> con pulsanti e led realizzati tramite GUI alla impostazione generale per un testing automatizzato del sistema:
+<a href="../../../it.unibo.buttonLedSystem.basic.qa/test/it/unibo/buttonLedSystem/basic/qa/TestAnalysis.java" target="code">TestAnalysis</a>.     
+    Esempi di computazioni in Prolog (si veda <a href="../../../it.unibo.qactors/report/qactors/qactors.pdf" target="code">linguaggio custom qa, sezione 5</a>).
+    Il problema del ping-pong con arbitro.
+    Proposta di un <a href="../../../it.unibo.qactors/memo/ricci/ProblemaRicci.html" target="code">ulteriore case study</a>.
+    Verso la <a href="../../../it.unibo.qactors/memo/ricci/Requirements.html" target="code">tracciabilità dei requisiti</a>.
+</td></tr>    
+
+    
+ 
+<tr><td><b>Week 8</b></td></tr>  
+<tr><td>9/11/2016 (14-17)</td><td>Lab2</td> 
+    <td>Con riferimento al <a href="../../../it.unibo.qactors/report/qactors/qactors.pdf" target="code">metamodello/linguaggio custom qa</a>, proposta di sviluppo individuale di modelli per le applicazioni: ping-pong con arbitro, led blinking con comando di stop,
+    led blinking codice Morse, <a href="../../../it.unibo.qactors/memo/ricci/ProblemaRicci.html" target="code">game</a>.</td>
+    
+<tr><td>10/11/2016 (14-17)</td><td>Lab2</td> 
+<td>Raccolta dei modelli sviluppati dagli studenti relativamente ai case-study proposti.
+Controllo di un led tramite pagina web. Sistemi dinamici a crescita incrementale: il caso
+    di led che si aggungono a una console di comando standalone.
+    Si veda 
+    <a href="../Lab/Lab2016/qaIntroAndExamples.html" target="code"> Examples of qa models</a>.</b>
+</td></tr>
+
+<tr><td>11/11/2016 (11-13)</td><td>Aula C</td> 
+<td>Verso una metodologia per la costruzione di modelli attraverso casi di studio:
+    <a href="../Lab/Lab2016/qaIntroAndExamples.html" target="code"> Lab 11) Examples of qa models</a>.
+Il caso del led attivabile da pagina HTML. Il ruolo della ipotesi tecnologica delle applicazioni web.
+    Il problema del rapporto tra web server e business logic.
+    Discussione sul modello proposto in
+    <a href="../../../../it.unibo.test.sf/src/ledWeb.qa" target="example">ledWeb.qa</a> come possibile
+    modello della analisi del problema.  
+    Introduzione alla analisi commentata dell'articolo <a href="../Readings/Prolog/AnIntroductionToProlog.pdf">AnIntroductionToProlog.pdf</a>.
+</td></tr>     
+
+<tr><td><b>Week 9</b></td></tr>  
+<tr><td>16/11/2016 (14-17)</td><td>Lab2</td> 
+<td>  Realizzazione di un sistema che permette l'attivazione remota
+    di più led su RaspberryPi attraverso una unica console di comando (anche in forma di pagina web) che genera eventi.
+    Approfodimento sulle azioni reattive. 
+    </td>    
+<tr><td>17/11/2016 (14-17)</td><td>Lab2</td> 
+<td> 
+    Prima    <a href="../Readings/Xtext/IntroXtext2013.pdf" target="lecture">
+    Introduzione</a> al <a href="../Xtext/XtextEntry.html" target="lecture">framework Xext</a>: 
+    dall'esempio-base alla definizione di un <a href="../../../it.unibo.xtext.mydsl/src/it/unibo/xtext/MyDsl.xtext" target="lecture"> semplice metamodello custom</a> con 
+    <a href="../Readings/Xtext/CustomGenXtext.pdf" target="lecture">
+    generazione automatica di codice</a> espressa con linguaggio  <a href="../Readings/Xtext/XtendUserGuide.pdf"  target="lecture">Xtend</a>.
+    
+    <a href="../Readings/Xtext/IntroXtext2013.pdf" target="lecture">Richiami</a> sui livelli di UML,<a href="../NatMolBook/content/book/uml211/ecore.html" target="lecture">Ecore</a>. EMOF e <a href="../NatMolBook/content/book/uml/layerUml.html" target="lecture">Mof</a>.
+    Il caso delle <a href="../Projects/Exp/expEntry.html" target="lecture">
+    espressioni con sensori</a> : dalla nozione classica di espressione espressa in notazione
+    infissa (con le <a href="../../../it.unibo.xtext.exp/src/it/unibo/xtext/Exp.xtext"  target="lecture">regole
+    di produzione</a> generalmente usate dai linguaggi di programmazione) alla interpretazione di una
+    espressione come sistema distribuito. 
+    Il problema della <a href="../Readings/Xtext/UMLHarelRumpe.pdf" target="lecture"> semantica</a> dei linguaggi.
+
+
+</td></tr>
+
+<tr><td>18/11/2016 (11-13)</td><td>Aula C</td> 
+    
+<td> 
+    Dalle regole grammaticali in EBNF alla generazione di modelli ECore per i
+    nodi dell'Abstract Syntax Tree. Il rapporto tra Ecore, EMof e MOF di UML2.
+    Introduzione ai concetti del meta-meta-modello ECore come enti primitivi per la definizione di metamodelli custom.
+    <a href="../Lab/Lab2016/xtextIntroAndExamples.html" target="code">Lab12)Working with Xtext</a>.
+    <!--
+    Definizione delle espressione con <a href="../../../it.unibo.xtext.expm/src/it/unibo/xtext/Expm.xtext" target="lecture">regole
+    di produzione</a> volte alla definzione di un modello di dominio.    
+    
+Definizione di un generatore di codice <a href="../../../it.unibo.xtext.exp/src/it/unibo/xtext/mygenerator/GenExpmDescr.xtend" target="lecture">GenExpmDescr</a> che riscrive una espressione in forma prefissa e postfisssa. Impostazione di una possibile organizzazione dei generatori all'interno del progetto di sviluppo.    
+
+Definizione in Java di un valutatore di espressioni senza simboli di sensori
+    <a href="../../../it.unibo.xtext.exp.tests/src/it/unibo/evaluator/EvalExpm.java" target="lecture">EvalExpm</a>. Definizione dello stesso valutatore in Xtend:    
+   <a href="../../../it.unibo.xtext.exp.tests/src/it/unibo/evaluator/EvalExpmXtend.xtend" target="lecture">EvalExpmXtend</a>.
+Definizione di un valutatore 
+      <a href="../../../it.unibo.xtext.exp.tests/src/it/unibo/evaluator/prolog/EvalExpInProlog.java" target="lecture">EvalExpInProlog</a> espresso in Prolog <a href="../../../it.unibo.xtext.exp.tests/evalExp.pl" target="lecture">evalExp.pl</a>.
+    
+    Impostazione di un trasformatore 
+     <a href="../../../it.unibo.xtext.exp/src/it/unibo/xtext/mygenerator/ExpToExpm.xtend" target="lecture">ExpToExpm</a>
+    
+    
+    Uso delle risorse generate dal framework Xtext per lo sviluppo di applicazioni
+    Java convenzionali.
+    Definizione di
+     <a href="../../../it.unibo.xtext.exp.tests/src/it/unibo/evaluator/ModelUtil.java" target="lecture">ModelUtil.java</a> esempi di TestUnit:
+    <a href="../../../it.unibo.xtext.exp.tests/src/it/unibo/xtext/exp/tests/TestExpm.java" target="lecture">TestExpm.java</a> e
+    <a href="../../../it.unibo.xtext.exp.tests/src/it/unibo/xtext/exp/tests/TestExp.java" target="lecture">TestExp.java</a>
+       
+Impostazione di un sistema di trasformazione/valutazione di espressioni in Java:
+    <a href="../../../it.unibo.xtext.exp.tests/src/it/unibo/xtext/exp/tests/TestEvalWithM2M.java" target="lecture">TestEvalWithM2M.java</a>
+    
+     <a href="../Lab/Lab2016/ddrRobotsIntroAndExamples.html" target="code"> Lab 12) Examples of ddr models</a><
+    -->
+</td></tr>     
+
+    
+ 
+<tr><td><b>Week 10</b></td></tr>  
+ <tr><td>23/11/2016 (14-17)</td><td>Lab2</td> 
+<td> 
+      Laboratorio  <a href="../Lab/Lab2016/xtextIntroAndExamples.html" target="code">Lab12) Working with Xtext</a>: dai linguaggi ai metamodelli - il caso delle esrpessioni aritmetiche con simboli di sensore. (
+    <a href="../../Projects/Exp/Exp2015.pdf" target="lecture">Expressions: languages and models</a>)
+
+    I meta-modelli <a href="../../../../it.unibo.xtext.exp/src/it/unibo/xtext/Exp.xtext"  target="lecture">exp
+    </a> e <a href="../../../../it.unibo.xtext.expm/src/it/unibo/xtext/Expm.xtext" target="lecture">expm</a> per la definizione di espressioni aritmetiche in forma infissa e prefissa.  
+    Impostazione di una software factory per le espressioni. esempi di generazione di codice per espressioni in forma infissa (<a href="../../../../it.unibo.xtext.exp/src/it/unibo/xtext/mygenerator/GenExpDescr.xtend" target="lecture">GenExpDescr.xtend</a>) e per espressioni in forma prefissa con AST binario (<a href="../../../../it.unibo.xtext.exp.tests/src/it/unibo/evaluator/EvalExpmXtend.xtend" target="lecture">EvalExpmXtend</a>).
+    
+    
+    
+     </td>    
+<tr><td>24/11/2016 (14-17)</td><td>Lab2</td>
+<td> 
+    Esempi di validazione (semantica) di modelli attraverso regole dichiarative espresse in Xtend (<a href="../../../../it.unibo.xtext.exp/src/it/unibo/xtext/validation/ExpValidator.xtend" target="lecture">ExpValidator.xtend</a>)
+
+    Regole Xtend per la trasformazione di espressioni da exp a expm: <a href="../../../../it.unibo.xtext.exp/src/it/unibo/xtext/mygenerator/ExpToExpm.xtend" target="lecture">ExpToExpm.xtend</a>.
+     Il meccanismo del <a href="https://en.wikipedia.org/wiki/Dynamic_dispatch"  target="lecture">Dispatch Polimorfico</a> in Xtend.
+    Definizione di un valutatore di espressioni aritmetiche senza sensori in Xtend (<a href="../../../../it.unibo.xtext.exp/src/it/unibo/xtext/mygenerator/GenExpmDescr.xtend" target="lecture">GenExpmDescr</a>) e in <a href="../../../../iit.unibo.exp.neon/e0Sys.pl" target="lecture">Prolog</a>. Richiami sulle liste Prolog.
+ 
+</td></tr>
+
+<tr><td>25/11/2016 (11-13)</td><td>Aula C</td> 
+<td> 
+    
+    Definizione di un valutatore di espressioni aritmetiche che contengono sensori attraverso
+    la generazione di un metamodello a QActor (<a href="../../../../it.unibo.xtext.neon.Exp/src/it/unibo/xtext/mygenerator/GenFirstQa.xtend" target="lecture">GenFirstQa.xtend</a>)
+    in cui i valori dei sensori sono immessi dall'utente attraverso una GUI.
+ 
+</td></tr>   
+
+    
+ 
+
+<tr><td><b>Week 11</b></td></tr>  
+ <tr><td>30/11/2016 (14-17)</td><td>Lab2</td> 
+<td> 
+Introduzione all'uso di dispositivi HC-SR04 (UltraSonic Distance Measure Module Range Sensor) connessi a un RaspberryPi. 
+Proposta di  
+    <a href="../Projects/Robots/concreteProblems.html#takePhoto" target="code">applicazione con robot </a>.
+
+Analisi dei requisiti: il concetto di robot del committente come BaseRobot. Introduzione al modello di BaseRobot
+    (la modellazione del BaseRobot ( <a href="../../../it.unibo.qactors/report/qactors/qactors.pdf" target="code">An Introduction to the usage of QActors and QRobots (da pg. 35)</a>).
+<a href="../Lab/Lab2016/ddrRobotsIntroAndExamples.html" target="code">Lab 13) Working with ddr robots  </a>come POJO capace di eseguire operazioni di movimento e di oddrire sensori osservabili. Introduzione al sistema che realizza il BaseRobot e a come ottenere indipendenza tecnologica attraverso un Configuratore guidato dalla descrizione della composizione del robot.
+   
+    Esempio di uso del BaseRobot attraverso la facade IBasicRobot: <a href="../../../it.unibo.lab.baseRobot.example/src/it/unibo/robotUsage/naive/BasicRobotUsageNaive.java" target="qa">BasicRobotUsageNaive</a>.
+    
+
+
+    <tr><td>1/12/2016 (14-17)</td><td>Lab2</td> 
+<td>  
+Esempio di uso di programmi C da Java: <a href="../../../it.unibo.lab.baseRobot.example/src/it/unibo/sonar/SonarMain.java" target="qa">SonarMain.java</a> e     
+    <a href="../../../it.unibo.qactor.radar.sensors/SonarAlone.c"target="qa">SonarAlone.c</a>.
+
+Impostazione dell'analisi del problema dell'<a href="../Projects/Robots/concreteProblems.html#takePhoto" target="code">applicazione con robot</a>. Definizione collettiva di un primo modello di architettura logica a due componenti: console e ApplicationRobot. Riconoscimento di un abstraction gap tra BaseRobot e ApplicationRobot.
+    Verso il concetto di QRobot come QActor capace di operazioni built-in di movimento.
+</td></tr>
+
+<tr><td>2/12/2016 (11-13)</td><td>Aula C</td> 
+<td> 
+        Introduzione ai QRobot ( <a href="../../../it.unibo.qactors/report/qactors/qactors.pdf" target="code">An Introduction to the usage of QActors and QRobots (da pg. 45)</a> e <a href="../Lab/Lab2016/ddrRobotsIntroAndExamples.html" target="code">Lab 13) Working with ddr robots  </a>.
+    Dal metemodello qa (<a href="../../../it.unibo.xtext.qactor/src/it/unibo/xtext/Qactor.xtext" target="lecture">Qactor.xtext</a>)
+     al metamodello ddr: <a href="../../../it.unibo.xtext.qactor.robot/src/it/unibo/xtext/qactor/Robot.xtext" target="lecture">Robot.xtext</a>.
+<!--    
+    Definizione di un sistema software per la valutatore di espressioni aritmetiche definite dinamicamnte dall'utente  che contengono simboli di sensori di distanza realizzati da dispositivi HC-SR04 (UltraSonic Distance Measure Module Range Sensor) connessi a un RaspberryPi.
+-->    
+
+</td></tr> 
+    
+ 
+<tr><td><b>Week 12</b></td></tr>  
+ <tr><td>7/12/2016 (14-17)</td><td>Lab2</td> 
+<td> 
+ Una applicazione (IOT) dalla analisi al deployment:      
+    <a href="../Lab/Lab2016/radar2016.html" target="code">Lab14) Radar</a>
+
+Espressioni con sensori: dall'espressione a un sistema QActor basato su sensori HC-SR04 (UltraSonic Distance Measure Module Range Sensor). Introduzione a un generatore di codice che utilizza i sonar installati su un singolo QRobot:
+     <a href="../../../it.unibo.xtext.neon.Exp/src/it/unibo/xtext/mygenerator/GenFirstQa.xtend" target="lecture">GenFirstQa</a>.
+     </td>    
+   
+<tr><td>8/12/2016 (14-17)</td><td>Lab2</td> 
+<td>  
+Il sistema radar: dalla architettura logica (<a href="../../../it.unibo.qactor.radar.sensors/src/radarSystemLogic.qa"  target="qa">radarSystemLogic.qa</a>) alla architettura di progetto (<a href="../../../it.unibo.qactor.radar/src/radargui.qa"  target="qa">radarSystemLogic.qa</a>). Simulazione di dati sensoriali attraverso fatti Prolog.  Conversione di eventi in messaggi. 
+</td></tr>
+
+<tr><td>9/12/2016 (11-13)</td><td>Aula C</td> 
+<td> 
+    Espressioni con sensori: esperimenti di generazione di codice. 
+    Regole Xtend  per  modelli ad albero n-ario: <a href="../../../it.unibo.xtext.neon.Exp/src/it/unibo/xtext/mygenerator/GenExpDescr.xtend" target="lecture">GenExpDescr.xtend</a>
+    Definizione di un trasformatore di modelli (da albero n-ario ad albero binario):
+    <a href="../../../it.unibo.xtext.neon.Exp/src/it/unibo/xtext/mygenerator/ExpToExpm.xtend" target="lecture">ExpToExpm.xtend</a>.
+    Regole Xtend  per  modelli ad albero binario: <a href="../../../it.unibo.xtext.neon.Exp/src/it/unibo/xtext/mygenerator/EvalExpmXtend.xtend" target="lecture">EvalExpmXtend.xtend</a>.
+    
+</td></tr> 
+
+
+<tr><td><b>Week 13</b></td></tr>  
+ <tr><td>14/12/2016 (14-17)</td><td>Lab2</td> 
+<td> 
+    Sonar e RasperryPi: da un programma Java che utilizza <a href="../../../it.unibo.qactor.radar.sensors/SonarAlone.c"target="qa">SonarAlone.c</a> ad una software factory
+    basata su Xtext che genera automaticamente il codice Java (sistema concentrato per RasperryPi) data una espressione
+    a singolo sensore (sonar).
+
+Verso la costruzione di un sistema distribuito in cui il risultato della espressione viene visualizzato su pc.  
+ 
+<tr><td>15/12/2016 (14-17)</td><td>Lab2</td> 
+<td>  Generazione di un sistema software basato su QActor che permette la variazione dinamica delle espressioni a singlo sensore: 
+    <a href="../../../it.unibo.xtext.neon.Exp/src/it/unibo/xtext/mygenerator/GenFirstQa.xtend" target="lecture">GenFirstQa.xtend</a>
+(esempio di modello:<a href="../../../it.unibo.exp.neon/src/ex0.exp"  target="qa">ex0.exp</a>,
+esempio di codice generato :<a href="../../../it.unibo.exp.neon/src/it.unibo.exp.e0Sys/e0Sys.qa" target="qa">e0Sys.qa</a> ). 
+     
+Definizione di un metamodello per espressioni a più sensori    
+    <a href="../../../it.unibo.xtext.neon.SysExp/src/it/unibo/xtext/neon/SysExp.xtext"  target="qa">SysExp.xtext</a> 
+Generazione di un sistema software basato su QActor che permette la costruzione di sistemi distribuiti a più sensori-sonar:     
+    <a href="../../../it.unibo.xtext.neon.SysExp/src/it/unibo/xtext/neon/mygenerator/GenSysQa.xtend"  target="qa">GenSysQa.xtext</a>
+(esempio di modello: <a href="../../../it.unibo.expsystem/src/sys0.sysexp"  target="qa">sys0.sysexp</a>,
+    esempio di codice generato :<a href="../../../it.unibo.expsystem/src/it.unibo.exp.sys0Sys/sys0Sys.qa" target="qa">sys0Sys.qa</a>, <a href="../../../it.unibo.expsystem/src/it.unibo.exp.sys0Sys/s1.qa" target="qa">s1.qa</a>).
+     
+Proposte di estensione del meta-modello per espressioni a più sensori per sensori di diversi tipi (sonar, linea, temperature, etc.) .
+    <!-- <img src="../../imgs/robot/RadarSet14.jpg" alt="radar" width="544" height="408"/> -->
+    <a href="../imgs/robot/sysSonar2016.jpg"  target="qa">sysSonar2016.jpg</a>
+
+ <a href="../Lab/Lab2016/applications.html" target="code">Lab15) Work to do</a>.
+</td></tr>
+
+<tr><td>16/12/2016 (11-13)</td><td>Aula C</td> 
+<td> 
+Proposte di estensione del meta-modello per espressioni a più sensori per sensori di diversi tipi (sonar, linea, temperature, etc.)   
+    <a href="../../../it.unibo.xtext.neon.SysExp/src/it/unibo/xtext/neon/SysExp.xtext"  target="qa">SysExp.xtext</a>  .
+
+ 
+     
+</td></tr> 
+
+ <tr><td><b>Week 14</b></td></tr>  
+  <tr><td>21/12/2016 (14-17)</td><td>Lab2</td> 
+<td> 
+    Presentazione del <a href="./TemaFinaleLMCE1617.html"  target="qa">Tema finale</a> e prima analisi dei requisti. 
+     Panoramica sul lavoro svolto durante il corso.
+    <li><a href="../Devices/devsDdr.html" target="qa">Material to build a robot and related sites</a></li>
+      </td>     
+    <!--
+    Panoramica sul lavoro svolto e sulle relazioni con 'tecnologie emergenti' quali Microservices.
+    proposizione del tema finale.-->
+  </table>  
+</p>
+     
+
+</div>
+    
+
+
+    
+
+<div id="bottom">
+By AN  Unibo-DISI    
+</div>
+    
+</div>
+</div>    
+ 
+</body></html>

@@ -1,0 +1,627 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+<link rel="stylesheet" type="text/css" href="../css/plainStyle.css">
+<link rel="stylesheet" type="text/css" href="../css/robotTabStyle.css">   
+<script type="text/javascript" src="../css/issStyle.js"></script>
+ <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<head>
+
+<title>LecturesBO1617</title></head><body>
+    
+<div class="container wrapper"> 
+
+<div id="top">
+<h1 id="h3">Lectures ISS Bologna 2016-17</h1>
+<p></p>
+</div> 
+<div class="wrapper">
+<div id="main">
+<p>
+    <a href="entry.html" target="lecture">OVERVIEW </a>
+<table id="robots">
+<tr><th>Day</th> <th>Loc</th><th>Content</th>   </tr>
+    
+<tr><td><b>Week 1</b></td></tr>    
+    
+<tr><td>01/03/2017 (17-19)</td><td>Aula 4.2</td> 
+<td>
+Motivazioni sulla denominazione del corso.
+Il ruolo del laureato magistrale tra innovazione tecnolgica e gestione dei processi di produzione del software.
+<a href="./entry.html" target="lecture">Introduzione al corso</a>, 
+e al sito GIT del corso <tt>ssh://isslm2014@137.204.107.21:80/labstudISSDISI</tt>.
+Il <a href="../NatMolBook/bookEntry.html" target="lecture">materiale didattico di base</a>. 
+Presentazione dei <a href="../Tools/tools.html" target="lecture">tools</a> di base 
+della sezione <a href="../Download/dowloadEntry.html" target="lecture">download</a> del sito
+e dei <a href="../Robots/robotEntry.html" target="lecture">dispositivi custom</a> per le esercitazioni.
+Il ruolo del lavoro individuale e di gruppo e i criteri di valutazione. 
+
+</td></tr>
+
+<tr><td>02/03/2017 (11-14)</td><td>Lab2</td> 
+<td> 
+Invio delle chiavi pubbliche per l'accesso al sito del corso. 
+Sperimentazione dei tools base per il laboratorio. Impostazione di un progetto Eclipse a partire
+da una specifica GRADLE (Si veda <a href="../Lab/Lab2016/Starting2016.html" target="lecture">Lab1) Starting2016</a>).
+Richiami sul concetto di modello nell'ambito della costruzione del software.
+Prima impostazione di un componente Led come oggetto a partire dalla specifica di un piano di collaudo.  
+ 
+</td></tr>
+
+<tr><td>03/03/2017 (11-13)</td><td>Aula 06</td> 
+<td>
+    Compilazione del 
+<a href="https://docs.google.com/forms/d/1HevTsP0H4iIG70RArz85s8EQtSJPTevIVZO6lIgNO9k/viewform" target="lecture">questionario on line</a>.
+Attività autogestita di configurazione del sistema Eclipse e sulla definizione di un sistema ButtonLed in Java.
+</td></tr>
+    
+<tr><td><b>Week 2</b></td></tr>    
+<tr><td>08/03/2017 (17-19)</td><td>Aula 4.2</td> 
+<td>
+    Motivazioni sull'adozione nel corso dei linguaggi Java e JavaScript come tecnologie di riferimento per la costruzione di software. La problematica delle costruzione bottom-up (le tecnologie come punto di partenza) e top-down(i requaisiti e l'analisi del problema come punto di partenza).
+    Introduzione dei concetti di ipotesi tecnologia, di abstraction-gap, di architettura logica e di innovazione tecnologica.
+    Impostazione non formale di una prima architettura logica per il sistema button-led: necessità della introduzione di un componente di elaborazione distinto dai componenti Button (input) e Led (output).
+    Impostazione di una prima soluzione JavaScript technology-dependent: si veda
+    <a href="./blsJavaScript.pdf" target="lecture">blsJavaScript.pdf</a> pg.1 (BLS naive)  e
+    <a href="../../../it.unibo.nodejs.intro/bls17/bls0.html" target="lecture">bls0.html</a> 
+    
+    
+<!--     
+<a href="../../../it.unibo.nodejs.intro/bls17/bls0.js" target="lecture">bls0.js</a>    
+<a href="../../../it.unibo.nodejs.intro/bls17/LedLiteral.js" target="lecture">LedLiteral.js</a>    
+<a href="../../../it.unibo.nodejs.intro/bls17/blsLedObjLiteral.html" target="lecture">blsLedObjLiteral.js</a>    
+<a href="../../../it.unibo.nodejs.intro/bls17/test/testBlsLedObjLiteral.js" target="lecture">testBlsLedObjLiteral.js</a>    
+<a href="../../../it.unibo.nodejs.intro/bls17/Led.js" target="lecture">Led.js</a>    
+<a href="../../../it.unibo.nodejs.intro/bls17/Button.js" target="lecture">Button.js</a>    
+<a href="../../../it.unibo.nodejs.intro/bls17/test/testBlsObj.js" target="lecture">testBlsLedObjLiteral.js</a>    
+<a href="../../../it.unibo.nodejs.intro/bls17/ButtonObservable.js" target="lecture">ButtonObservable.js</a>    
+-->    
+</td>    
+<tr><td>09/03/2017 (11-14)</td><td>Lab2</td> 
+<td>
+    Generazione delle chiavi di accesso al sito GIT dei progetti del corso e sperimentazione del loro uso.
+    Primo uso del framework Node.js
+    Superamento del BLS naive attraverso la definizione di un Led come object (literal): si veda:
+    <a href="./blsJavaScript.pdf" target="lecture">blsJavaScript.pdf</a> pg. 2-4.
+    Introduzione ai concetti di event-loop, asynchronous I/O e di event-driven programming supportati dai moderni browser e da Node. 
+    Definizione del Button come oggetto JavaScript ispirato al pattern Observer GOF. Si veda:
+    <a href="./blsJavaScript.pdf" target="lecture">blsJavaScript.pdf</a> pg. 5-7.
+</td>    
+<tr><td>10/03/2017 (11-13)</td><td>Aula 06</td> 
+<td>
+    Richiami sui concetti di base JavaScript. Si veda <a href="./eventProgramming1.pdf"  target="lecture">eventProgramming1.pdf</a>
+    Proposta di un deliverable basato su un primo <a href="./TemplateInitial.tex"  target="lecture">template Latex</a>
+    (che utilizza le risorse riportate in <a href="../Lab/DOWNL/kitISLatex.zip" target="lecture">kitISLatex.zip</a>)
+</td>    
+ 
+    
+<tr><td><b>Week 3</b></td></tr>    
+<tr><td>15/03/2017 (17-19)</td><td>Aula 4.2</td> 
+<td>
+    Lezione sospesa per lauree.
+<!--
+    <a href="https://en.wikipedia.org/wiki/Comparison_of_programming_languages">Comparison_of_programming_languages (wikipdedia)</a>
+        <a href="https://en.wikipedia.org/wiki/Expressive_power_(computer_science)">Expressive_power_(computer_science) (wikipdedia)</a>
+            <a href="https://en.wikipedia.org/wiki/Category:Programming_language_topics">Programming_language_topics  (wikipdedia)</a>
+    
+    <a href="https://en.wikipedia.org/wiki/Rust_(programming_language)">Rust_</a>
+ -->   
+</td>    
+<tr><td>16/03/2017 (11-14)</td><td>Lab2</td> 
+<td>
+    Introduzione ai concetti fondamentali del framework 
+    <a href="../Survey/SCRUM/scrumEntry.html">SCRUM</a>
+    Introduzione ai concetti fondamentali del framework SCRUM. 
+    L'idea di SPRINT e SPRINT review come riferimento per le attivtà di laboratorio. Lo SPRINT retrospective come momento di valutazione/revisione del processo di produzione.
+    Il ruolo della architettura logica nella definzione di un product backlog: il caso del ButtonLed system. Si veda il progetto
+    <tt>it.unibo.bls17.naive</tt>.
+     
+    I plugin del metamodello custom QActor:
+    <a href="../../../it.unibo.iss.libs/plugins/it.unibo.xtext.qactor_1.3.6.jar"   target="lecture">it.unibo.xtext.qactor_1.3.6.jar</a>,
+     <a href="../../../it.unibo.iss.libs/plugins/it.unibo.xtext.qactor.ui_1.3.6.jar"   target="lecture">it.unibo.xtext.qactor.ui_1.3.6.jar</a>
+</td>    
+<tr><td>17/03/2017 (11-13)</td><td>Aula 06</td> 
+<td>
+    Il sistema ButtonLed: una prima architattura logica ispirata al modello ad oggetti 'classico':
+    <a href="../../../it.unibo.bls17.naive/docs/blsNaive.pdf"   target="lecture">blsNaive.pdf</a>
+    e il prototipo <a href="../../../it.unibo.bls17.naive/src/it/unibo/bls17/naive/MainBlsGuiBase.java"   target="lecture">MainBlsGuiBase.java</a> con relativo test <a href="../../../it.unibo.bls17.naive/test/it/unibo/bls17/naive/TestBlsGuiBase.java"   target="lecture">TestBlsGuiBase.java.java</a> nel progetto <tt>it.unibo.bls17.naive</tt>
+    
+    
+    Introduzione al meta-modello QActor:
+     <a href="../../../it.unibo.qactors/report/qactors/qactors0.pdf"   target="lecture">qactors0.pdf</a>,    
+    <a href="../Lab/Lab2016/BasicActorSupport.html"   target="lecture">BasicActorSupport</a>.
+    Sperimentazione dei plugin QActor per il semplice:
+    <a href="../../../it.unibo.qactors/src/hello.qa"   target="lecture">hello.qa</a>
+    Reimpostazione della analisi del problema ButtonLed in cui i componenti sono considerati 'actors'
+    che interagiscono tramite messaggi e/o eventi. Un primo modello espresso con il meta-modello QActor:
+    <a href="../../../it.unibo.bls17.simple.qa/src/blsAnalysisSimple2017.qa"   target="lecture">blsAnalysis2017.qa</a>.
+    Esecuzione del codice generato dalla software factory associata ai QActor (primo prototipo del sistema): <a href="../../../it.unibo.bls17.simple.qa/src-gen/it/unibo/ctxBlsSimple2017/MainCtxBlsSimple2017.java"   target="lecture">MainCtxBlsSimple2017.java</a>.
+</td>   
+ 
+<tr><td><b>Week 4</b></td></tr>    
+<tr><td>22/03/2017 (17-19)</td><td>Aula 4.2</td> 
+<td>
+Da sistemi ad oggetti a sistemi ad attori che interagiscono tramite messaggi e/o eventi.
+Si veda <a href="../../../it.unibo.qactors/report/qactors/qactors0.pdf"   target="lecture">qactors0.pdf</a>,    
+  e  <a href="../Lab/Lab2016/BasicActorSupport.html"   target="lecture">BasicActorSupport</a>.    
+    
+
+Approfondimento del concetto di Button come emettitore di eventi direttamente percepibili da uno 'smart' Led.
+    
+Definizione semplificata del primo prototipo del ButtonLed system: <a href="../../../it.unibo.bls17.simple.qa/src/blsAnalysisSimple2017.qa"   target="lecture">blsAnalysisSimple2017.qa</a>.
+    
+Estensione (progetto <tt>it.unibo.bls17.simple.qa</tt>) del codice generato dalla QActor Software Factory per la creazione di un Led POJO con GUI
+<a href="../../../it.unibo.bls17.simple.qa/src/it/unibo/ledsimple017/Ledsimple017.java"   target="lecture">Ledsimple017.java</a>  
+     e di un Button POJO con GUI
+ <a href="../../../it.unibo.bls17.simple.qa/src/it/unibo/buttongui017/Buttongui017.java"   target="lecture">Buttongui017.java</a>.
+    Strumentazione del codice del Led per agevolare il testing automatico delle test units pianificate: ad esempio
+    <a href="../../../it.unibo.bls17.simple.qa/test/it/unibo/bls17/simple/qa/TestBlsSimple17_0.java"   target="lecture">TestBlsSimple17_0.java</a>.
+    
+Introduzione all'uso dell'operatore <tt>actorOp</tt> per la invocazione di codice applicativo all'interno di una modello qa.
+
+    
+     
+    
+</td>    
+<tr><td>23/03/2017 (11-14)</td><td>Lab2</td> 
+<td>
+    Sprint review : refactoring del primo prototipo del ButtonLed system in ambiente distribuito omogeneo (Java).
+Dalla pianificazione dei test in fase di analisi alla  loro esecuzione automatizzata tramite tools di tipo JUnit; il caso
+<a href="../../../it.unibo.bls17.naive/test/it/unibo/bls17/naive/TestBlsGuiBase.java"   target="lecture">TestBlsGuiBase.java.java</a>.
+Il testing nel caso della software factory QActor: introduzione a <a href="https://docs.gradle.org/current/userguide/jacoco_plugin.html" target="lecture">JaCoCo Plugin</a> di 
+    <a href="http://www.vogella.com/tutorials/Gradle/article.html" target="lecture">gradle</a>.
+    
+
+    Introduzione al Framework
+    <a href="../Lab/Lab2016/BLSOOPFromComponents.html#Uniboenvref" target="lecture">UniboEnv</a>, <a href="../Frameworks/FramwCustomAppl.html" target="lecture">it.unibo.envBaseAwt</a>
+     per la rapida prototipazione di sistemi basati su GUI.
+    
+L'esempio <a href="../../../it.unibo.buttonLedSystem.gui/src/it/unibo/buttonLedSystem/gui/BLSWithGuiSwitchMain.java" target="lecture">ButtonLed su PC</a>.     
+</td>    
+<tr><td>24/03/2017 (11-13)</td><td>Aula 06</td> 
+<td>
+       Il sistema ButtonLed - dal concentrato (<a href="../Lab/Lab2016/BLSOOPFromComponents.html" target="lecture">    BLSOOPFromComponents</a>) al distribuito con design pattern tradizionali di basso livello:
+    <a href="../Lab/Lab2016/BLSGui.html#towardDistr" target="lecture">BLS:Towards distributed systems</a>.
+
+Da una architettura ad oggetti (<a href="../../../it.unibo.bls17.naive/docs/blsNaive.pdf"   target="lecture">blsNaive.pdf</a>) a una architettura ad attori (<a href="../../../it.unibo.bls17.naive/docs/blsQa.pdf"   target="lecture">blsQa.pdf</a> ).    
+    Modellazione e prototipazione mediante qactor <a href="../../../it.unibo.bls17.simple.qa/src/bls0.qa"   target="lecture">bls0.qa</a>. Esecuzione automatica di (integration) test per la vaersion qa: <a href="../../../it.unibo.bls17.simple.qa/test/it/unibo/bls17/simple/qa/TestBlsQa.java"   target="lecture">TestBlsQa.qa</a>.
+    
+      
+    Definizione del Button come oggetto JavaScript: si veda (progetto
+    
+   <tt>it.unibo.bls17.naive/javascript</tt>)  e
+    <a href="./blsJavaScript.pdf" target="lecture">blsJavaScript.pdf</a> pg. 7.
+    
+    Impostazione di test plan e di test in JavaScript con l'ausilio della libreria nodeunit.
+    
+</td>      
+
+<tr><td><b>Week 5</b></td></tr> 
+<tr><td>29/03/2017 (17-19)</td><td>Aula 4.2</td> 
+<td>
+    Il sistema ButtonLed system come sistema hardware/software programmabile in 
+    Java, Akka (<a href="../Lab/Lab2016/BLSBlinkActors.html" target="lecture">BLSBlinkActors.html</a>),
+    C++ (<a href="../Arduino/arduinoEntry.html" target="lecture">Arduino</a>), Bash, Python,
+    (<a href="../Raspberry/raspberryProjectsHL.html" target="lecture">raspberryProjectsHL.html</a>)
+    e <a href="../Raspberry/raspberryEntry.html" target="lecture">raspberryEntry.html</a>,
+    etc.
+    
+    Dalla progettazione technology-dependent alla progettazione basata su una architettura logica
+    guidata dalla analisi del problema.
+    
+    Il ruolo delle driver per l'accesso ai dispositivi di input e output in ambiente Linux.
+    introduzione alle libreiria wiring-pi.
+   
+</td>    
+<tr><td>30/2017 (11-14)</td><td>Lab2</td> 
+<td>
+    Introduzione all'uso del RaspberryPi.    
+   
+    Il sistema ButtonLed system con Led e Button come device fisici su RaspberryPi
+    <a href="../Lab/Lab2016/BLSRaspberry.html" target="lecture">BLS with a RaspberryPi</a>.
+    Da soluzione adhoc in java a progetti basati su architettura logica:
+    si veda il progetto <tt>it.unibo.bls2016.qa</tt>:
+    1) Un primo sistema ad hoc in Java con libreria Pi4J soluzione Java ad hoc:
+    <a href="../../../it.unibo.bls2016.qa/src/it/unibo/bls2016/qa/MainBlsAdHoc.java"   target="lecture">MainBlsAdHoc.java</a>
+     
+     
+ </td>    
+<tr><td>31/2017 (11-13)</td><td>Aula 06</td> 
+<td>
+2) Incpsulamento dei device ad hoc in un modello qa 'degenere':
+    <a href="../../../it.unibo.bls17.naive/docs/blsQaOOp.pdf"   target="lecture">blsQaOOp.pdf</a>
+    <a href="../../../it.unibo.bls2016.qa/src/blsRaspOop2017.qa"   target="lecture">blsRaspOop2017.qa</a>,
+    <a href="../../../it.unibo.bls2016.qa/test/it/unibo/bls2016/TestControlOOpGui.java"   target="lecture">TestControlOOpGui.java</a>
+     3) Incpsulamento dei device ad hoc in un modello qa basato su eventi :
+    <a href="../../../it.unibo.bls17.naive/docs/blsQaLocalEv.pdf"   target="lecture">blsQaLocalEv.pdf</a>,
+    <a href="../../../it.unibo.bls2016.qa/src/blsRasp2017.qa"   target="lecture">blsRasp2017.qa</a>,
+    <a href="../../../it.unibo.bls2016.qa/src/it/unibo/buttongpio/Buttongpio.java"   target="lecture">Buttongpio.java</a>
+     4) Da un BLS basato su GUI (<a href="../../../it.unibo.bls2016.qa/src/bls0.qa"   target="lecture">blsRasp2017.qa</a>) a un sistema basato su dispositivi fisici (WORK TO DO). 
+    
+</td> 
+    
+      
+    
+<tr><td><b>Week 6</b></td></tr>    
+<tr><td>05/04/2017 (17-19)</td><td>Aula 4.2</td> 
+<td>
+    Attività auto gestite per impegni del docente. Attività proposta: 1) analsi del materiale didiattico relativo a JavaScript e NodeJs ( <a href="./eventProgramming1.pdf"  target="lecture">eventProgramming1.pdf</a>) ; 2)  realizzazione del sistema BLS in JavaScript su PC convenzionale e su RaspBerryPi.
+     
+</td>    
+<tr><td>06/04/2017 (11-14)</td><td>Lab2</td> 
+<td>
+    Da un sistema BLS concentrato a un sistema BLS distribuito (omogeneo) su PC e su RaspberryPi.
+    <a href="../../../it.unibo.bls17.naive/docs/blsQaDistrEv.pdf"   target="lecture">blsQaDistrEv.pdf</a>.
+    Richiami sulla condifurazione del sistema operativo su RaspberryPi: <a href="../Lab/CARD/rpi_sd.pdf"  target="lecture">rpi_sd.pdf</a> e <a href="../Lab/CARD/guida_rpi.pdf"  target="lecture">guida_rpi.pdf</a>
+ </td>    
+<tr><td>07/2017 (11-13)</td><td>Aula 06</td> 
+<td> 
+   Esperimenti di uso di
+    NodeJs (<a href="./eventProgramming1.pdf"  target="lecture">eventProgramming1.pdf</a>) su RaspberryPi. 
+    
+    Un primo sistema bls su RaspberryPi implementato in NodeJs (libreria onoff). Si veda (progetto
+    
+   <tt>it.unibo.bls17.naive/javascript</tt>) <a href="../../../it.unibo.bls17.naive/javascript/blsRasp/ledGpio.js"   target="lecture">ledGpio.js</a> e <a href="../../../it.unibo.bls17.naive/javascript/blsRasp/gpioOnOffbutton.js"   target="lecture">gpioOnOffbutton.js</a>. Si veda anche  <a href="./blsJavaScript.pdf" target="lecture">blsJavaScript.pdf</a> pg. 13.
+     
+     Impostazione di test plan e di test in JavaScript con l'ausilio della libreria nodeunit.
+    Confronto con soluzioni similari in Java basate su JUnit.
+    
+    Definizione del Button come oggetto JavaScript emettitore di eventi. Si veda (progetto    
+   <tt>it.unibo.bls17.naive/javascript</tt>) <a href="../../../it.unibo.bls17.naive/javascript/bls17/ButtonEmitter.js"   target="lecture">ButtonEmitter.js</a>, <a href="../../../it.unibo.bls17.naive/javascript/bls17/blsObjEmitter.html"   target="lecture">blsObjEmitter.html</a>, <a href="../../../it.unibo.bls17.naive/javascript/bls17/blsButtonEmitter.js"   target="lecture">blsButtonEmitter.js</a>, <a href="../../../it.unibo.bls17.naive/javascript/bls17/test/testBlsEmitterObj.js"   target="lecture">testBlsEmitterObj.js</a> e
+    <a href="./blsJavaScript.pdf" target="lecture">blsJavaScript.pdf</a> pg. 7.
+     
+</td> 
+    
+<tr><td><b>Week 7</b></td></tr>    
+<tr><td>12/04/2017 (17-19)</td><td>Aula 4.2</td> 
+<td>
+    Richiami sul percorso svolto fino ad oggi (SPRINT review):
+    <a href="../../../it.unibo.bls17.naive/docs/blsNaive.pdf"   target="lecture">blsNaive.pdf</a> ,
+    <a href="../../../it.unibo.bls17.naive/docs/blsQa.pdf"   target="lecture">blsQa.pdf</a> ,
+    <a href="../../../it.unibo.bls17.naive/docs/blsQaOOp.pdf"   target="lecture">blsQaOOp.pdf</a>,
+    <a href="../../../it.unibo.bls17.naive/docs/blsQaLocalEv.pdf"   target="lecture">blsQaLocalEv.pdf</a>,
+    <a href="../../../it.unibo.bls17.naive/docs/blsQaDistrEv.pdf"   target="lecture">blsQaDistrEv.pdf</a>.
+    
+    Prima impostazione di un sistema BLS distribuito ed eterogeneo. Si veda <a href="./blsJavaScript.pdf" target="lecture">blsJavaScript.pdf</a> da pg. 13 e anche <a href="./eventProgramming2.pdf"  target="lecture">eventProgramming2.pdf</a> da pg. 24.
+    <li>1) BLS in JavaScript con uso della libreria <tt>onoff</tt></li>
+    <li>2) Impostazione del sistema BLS su GPIO/JavaScript in accordo a un modello OO</li>
+    <li>3) Il Button come event emitter</li>
+    <li>4) Il button realizzato attraverso una pagina web: una versione Java e una versione Node con HTTP server a eventi</li>
+    <li>5) Il sistema BLS ad eventi espresso come modello qa (<a href=". "   target="lecture">blsQaEvhMemo.pdf</a>. Si veda anche <a href="../../../it.unibo.qactors/report/qactors/qactors1.pdf"   target="lecture">qactors1.pdf</a> from pg. 20)</li> 
+    Specifica di un nuovo sistema da progettare e realizzare: <a href="../Appls/ButtonLedDitributed/deliverable1Bo2017.html" target="lecture">deliverable1Bo2017.html</a>
+</td> 
+    
+    
+<tr><td><b>Week 8</b></td></tr>    
+<tr><td>19/04/2017 (17-19)</td><td>Aula 4.2</td> 
+<td>
+Discussione collettiva su come è stato affrontato il lavoro proposto in <a href="../Appls/ButtonLedDitributed/deliverable1Bo2017.html" target="lecture">deliverable1Bo2017.html</a>, con particolare
+    riferimento ai possibili approcci (bottom-up/top-down, technolgy dependent/model-based) e alle
+    ipotesi tecnologie Java e JavaScript.
+Approfondimento del requisito dello SETP2 (led blinking con comando di STOP) e di come l'analisi del problema
+    possa condurre alla individuazione di abstraction gaps: introduzione dell'idea di
+    TimedAction e di ReactiveAction.
+    
+</td>    
+<tr><td>20/04/2017 (11-14)</td><td>Lab2</td> 
+<td>
+Anslisi (Sprint review) dei prodtti realizzati dagli studenti individualmente o in gruppi
+e pianificazione (individuale o di gruppo) delle attività successive in base a quanto realizzato.
+</td>    
+<tr><td>21/04/2017 (11-13)</td><td>Aula 06</td> 
+<td>
+Analisi del lavoro di laboratorio nella ottica della analisi del problema:
+    <a href="../../../it.unibo.bls17.naive/docs/blsLabAnalysis.pdf"   target="lecture">blsLabAnalysis.pdf</a>
+        
+    Proposta di nuovi case-study: 1) <a href="../Lab/Lab2016/GameFromRicci.html">Game2017.html</a>
+
+<!--    
+    Come affrontare la realizzazione di questi concetti in Javascript.
+    
+-->
+</td>      
+    
+<tr><td><b>Week 9</b></td></tr>    
+<tr><td>26/04/2017 (17-19)</td><td>Aula 4.2</td> 
+<td>
+Struttura, interazione e comportamento: le azioni. 
+Discussione sulla differenza tra istruzioni, espressioni, azioni con riferimento ai comuni linguaggi e stili di programmazione.    
+Introduzione al concetto di azione in stile dichiarativo (linguaggio tuProlog).
+Verso nuovi concetti: ObservableActions, TimedActions e ReactiveActions nel meta-modello qa (si veda <a href="../../../it.unibo.qactors/report/qactors/qactors2.pdf"   target="lecture">qactors2.pdf</a> sezione 7 ).
+    
+
+</td>    
+<tr><td>27/04/2017 (11-14)</td><td>Lab2</td> 
+<td>
+    Compilazione del modulo di 
+    <a href="https://docs.google.com/forms/d/1KtquiSSKeloHnZgcCvPZcwyVyxLr6F3UnNPN24Herjk/">Planning</a>
+      
+Il ButtonLedSystem con Button su Raspberry e Led su PC o su Arduino. 
+Analisi del problema (<a href="../../../it.unibo.bls17.naive/docs/buttonAnalysis.pdf"   target="lecture">buttonAnalysis.pdf</a>) come parte fondamentale di uno Sprint Planning <a href="../Survey/SCRUM/scrumEntry.html">SCRUM</a>.
+    Verso un possibile product backlog basato su un modello qa del button  (si veda  <a href="../../../it.unibo.bls17.qa/src/blsRaspBlink2017.qa"   target="lecture">blsRaspBlink2017.qa</a>).
+     
+</td>    
+<tr><td>28/04/2017 (11-13)</td><td>Aula 06</td> 
+<td>
+Esecuzione di azioni tramite console: si veda <a href="../../../it.unibo.qactors/report/qactors/qactors2.pdf"   target="lecture">qactors2.pdf</a> sezione 8 )
+Esperimenti:
+    1) <a href="../../../it.unibo.qactors.tests/src/it/unibo/actionobsexecutor/ActionObservableFibonacci.java" target="lecture">ActionObservableFibonacci.java</a> e <a href="../../../it.unibo.qactors.tests/src/actorOpdemo.qa" target="lecture">actorOpdemo.qa</a>
+   2)  <a href="../../../it.unibo.qactors.tests/src/it/unibo/actiontimedexecutor/ActionFibonacciTimed.java" target="lecture">ActionFibonacciTimed.java</a> e <a href="../../../it.unibo.qactors.tests/src/actionTimedDemo.qa" target="lecture">actionTimedDemo.qa</a>  
+3) <a href="../../../it.unibo.qactors.tests/src/it/unibo/actionreactiveexecutor/ActionReactiveFibonacci.java" target="lecture">ActionReactiveFibonacci.java</a> e <a href="../../../it.unibo.qactors.tests/src/actionReactiveDemo.qa" target="lecture">actionReactiveDemo.qa</a>    
+</td>  
+    
+    
+<tr><td><b>Week 10</b></td></tr>    
+<tr><td>03/05/2017 (17-19)</td><td>Aula 4.2</td> 
+<td>
+    Da un modello qa del BLS  (si veda  <a href="../../../it.unibo.bls17.qa/src/blsRaspBlink2017.qa"   target="lecture">blsRaspBlink2017.qa</a>) a un sistema reale basato su TCP e su MQTT.
+    Uso di regole Prolog per la configurazione (e il funzionamento) di un sistema.
+    <ol>
+     <h5>Button Raspberry (it.unibo.bls2016.qa) </h5>   
+<li> <a href="../../../it.unibo.bls2016.qa/src/blsRaspButton2017.qa" target="lecture">blsRaspButton2017.qa</a></li>
+<li> <a href="../../../it.unibo.bls2016.qa/src/it/unibo/buttongpio/Buttongpio.java" target="lecture">Buttongpio.java</a></li>
+<li> <a href="../../../it.unibo.bls2016.qa/src/it/unibo/bls/raspberry/components/DeviceButtonPi4J.java" target="lecture">DeviceButtonPi4J.java</a></li>
+     <h5>Button Web (it.unibo.bls2016.qa)</h5>   
+        
+  <li>  <a href="../../../it.unibo.bls2016.qa/src/bls0Web.qa" target="lecture">bls0Web.qa</a></li>
+       
+        
+    
+    
+<!--    
+     Remote commands (web gui)
+    I Button su Raspberry. Il sistema ButtonLed su Arduino e su sistemi mist: PC, Raspberry, Arduinio.
+    Applicazione con radar
+    Applicazione sonar array
+    Streams (RxJava)
+   
+    
+<li> <a href="../../../it.unibo.ruggeri/src/ex2Nat.qa" target="lecture">ex2Nat.qa</a></li>       
+<li> <a href="../../../it.unibo.ruggeri/src/ex2Nat.qa" target="lecture">blsRaspButtonEvent.qa</a></li>       
+<li>C:\Didattica\STUDENTI\RuggeriFederico\hl2exe-unity-actor-simulator-examples-c89bd246c480\ActorSimulatorExamples</li> 
+-->
+    
+ <!--   
+-->
+</td>    
+<tr><td>04/05/2017 (11-14)</td><td>Lab2</td> 
+<td>
+        Lavoro da svolgere: 
+    <ol>
+    <li>realizzare un sistema in cui un Button su Raspberry accende un Led su un altro Raspberry
+    attraverso un server MQTT </li>
+    <li>proponendo un (modello di) progetto prima di impostare il codice realizzativo
+        (si veda <a href="../../../it.unibo.bls17.naive/docs/blsIOT.pdf"   target="lecture">blsIOT.pdf.pdf</a> )
+        </li>
+    <li>mostrando il progetto in un report HTML (locale al workspace) costruito in modo incrementale
+        e in modo il più possibile automatizzato</li>    
+    </ol>
+Si veda (project <i>it.unibo.qactor.mqtt it.unibo.bls2016.qa</i>)
+   <li><a href="../../../it.unibo.bls17.naive/docs/blsQaMqtt.pdf"   target="lecture">blsQaMqtt.pdf</a></li>
+  <li> <a href="../../../it.unibo.bls2016.qa/src/blsRaspButtonMqtt.qa" target="lecture">blsRaspButtonMqtt.qa</a></li>
+    <li> <a href="../../../it.unibo.bls2016.qa/src/blsRaspLedMqtt.qa" target="lecture">blsRaspLedMqtt.qa</a></li>
+             
+    </ol>
+ Sperimentazione del risultato:
+    <a href="../../../it.unibo.bls2016.qa/build/distributions/it.unibo.ctxBlsRaspLedMqtt.MainCtxBlsRaspLedMqtt-1.0.zip" target="lecture">it.unibo.ctxBlsRaspLedMqtt.MainCtxBlsRaspLedMqtt-1.0.zip</a>
+
+    Primi esprimenti di uso del framework Xtext
+</td>    
+<tr><td>05/05/2017 (11-13)</td><td>Aula 06</td> 
+<td>
+     Prima  <a href="../Readings/Xtext/IntroXtext2013.pdf" target="lecture">
+    Introduzione</a> al <a href="../Xtext/XtextEntry.html" target="lecture">framework Xtext</a>: 
+    dall'esempio-base alla definizione di un <a href="../../../it.unibo.xtext.docs.site/backup/SiteXtextInitial.txt" target="lecture"> semplice metamodello custom</a> con 
+    <a href="../Readings/Xtext/CustomGenXtext.pdf" target="lecture">
+    generazione automatica di codice</a> espressa con linguaggio  <a href="../Readings/Xtext/XtendUserGuide.pdf"  target="lecture">Xtend</a>.
+    
+    <a href="../Readings/Xtext/IntroXtext2013.pdf" target="lecture">Richiami</a> sui livelli di UML,<a href="../NatMolBook/content/book/uml211/ecore.html" target="lecture">Ecore</a>. EMOF e <a href="../NatMolBook/content/book/uml/layerUml.html" target="lecture">Mof</a>.
+    
+<!--    
+    Il problema della <a href="../Readings/Xtext/UMLHarelRumpe.pdf" target="lecture"> semantica</a> dei linguaggi.
+    
+
+    Dalle regole grammaticali in EBNF alla generazione di modelli ECore per i
+    nodi dell'Abstract Syntax Tree. Il rapporto tra Ecore, EMof e MOF di UML2.
+    Introduzione ai concetti del meta-meta-modello ECore come enti primitivi per la definizione di metamodelli custom.
+    <a href="../Lab/Lab2016/xtextIntroAndExamples.html" target="lecture">Lab12)Working with Xtext</a>.
+ -->   
+</td>  
+    
+    
+<tr><td><b>Week 11</b></td></tr>    
+<tr><td>10/05/2017 (17-19)</td><td>Aula 4.2</td> 
+<td>
+    Panoramica su conoscenza di base indispensabili per la costruzione di software factories con XText: 1) <a href="../Readings/linguaggiAll.pdf" target="lecture">linguaggi e macchine</a> in informatica.
+    2) Il problema della <a href="../Readings/Xtext/UMLHarelRumpe.pdf" target="lecture"> semantica dei linguaggi</a>.   
+    3) Richiami sul linguaggio Prolog (si veda <a href="../Readings/Prolog/AnIntroductionToProlog.pdf" target="lecture">AnIntroductionToProlog.pdf</a>).
+        
+    Il progetto <i>it.unibo.xtext.docs.site</i> come esempio di software factory (si veda <a href="../../../it.unibo.xtext.docs.site/latex/emfXtext/CustomGenXtext2017.pdf"   target="lecture">CustomGenXtext2017.pdf</a> ).
+<!--    
+    Il caso delle <a href="../Projects/Exp/expEntry.html" target="lecture">
+    espressioni con sensori</a> : dalla nozione classica di espressione espressa in notazione
+    infissa (con le <a href="../../../it.unibo.xtext.exp/src/it/unibo/xtext/Exp.xtext"  target="lecture">regole
+    di produzione</a> generalmente usate dai linguaggi di programmazione) alla interpretazione di una
+    espressione come sistema distribuito. 
+-->
+    <!--
+    Discussione sul case-study: 1) <a href="../../../it.unibo.qactor.game/docs/site/game2017.html"  target="lecture">Game2017.html</a>
+-->
+        
+
+</td>    
+<tr><td>11/05/2017 (11-14)</td><td>Lab2</td> 
+<td>
+    Costruzione passo-passo di una software factory per il progetto <i>it.unibo.xtext.docs.site</i>.
+</td>    
+<tr><td>12/05/2017 (11-13)</td><td>Aula 06</td> 
+<td>
+    Estensione del metamodello <a href="../../../it.unibo.xtext.docs.site/src/it/unibo/xtext/docs/Site.xtext" target="lecture"> Site.xtext</a> per permettere la specifica di azioni da parte di un QActor. Impostazione di un generatore di codice per le azioni
+    come modo per esprimere la loro semantica operazionale, con riferimento a Java.
+    Proposta di possibili estensioni: 1) esprimere la semantica delle azioni <i>forward</i> e <i>receiveMsg</i> 
+    in termini di publish-subscribe MQTT.
+    2) Realizzare una software factory che realizzi la semantica del metamodello in JavaScript. 
+    
+    Proposta di un nuovo case study (<tt>radarSonar</tt>) :
+    <hr/>
+    REQUISITI: si vuole realizzare un sistema software capace di presentare su un personal computer convenzionale
+    l'immagine grafica di uno schermo radar (detto <tt>radarGui</tt>).
+    
+    Il sistema deve fare in modo che su <tt>radarGui</tt> venga visualizzata l'informazione acquisita
+    da un sonar <tt>HC-SR04</tt> connesso a un RaspberryPi o a un Arduinio.
+     
+    L'immagine risultante potrebbe essere del tipo mostrato nella figura 
+    <a href="../../../it.unibo.qactor.radar/docs/site/images/radarMy.jpg"  target="lecture">radar image</a>
+    in cui viene visulizzato un punto a distanza <tt>24 cm</tt> in direzione <tt>0.0</tt>. 
+    
+    <tt>radarGui</tt> deve permettere di visualizzare punti a distanza comprensa tra <tt>cm 0</tt> e <tt>cm 80</tt> lungo 
+        direazioni comprese tra <tt>0</tt> e <tt>180</tt>, utilizzando il quadrante di destra della figura. 
+    
+    La software house dispone già realizzato un prototipo di <tt>radarGui</tt> mediante il progetto <i>it.unibo.qactor.radar</i>.
+    <hr/>
+     Obiettivo: impostare un processo di produzione top-down basato sull'uso di modelli eseguibi (si ricordi la
+    lezione del 12 Aprile  <a href="../../../it.unibo.bls17.naive/docs/blsQaDistrEv.pdf"   target="lecture">blsQaDistrEv.pdf</a> e quella del 27 Aprile <a href="../../../it.unibo.bls17.naive/docs/buttonAnalysis.pdf"   target="lecture">buttonAnalysis.pdf</a>).
+</td>  
+    
+    
+<tr><td><b>Week 12</b></td></tr>    
+<tr><td>17/05/2017 (17-19)</td><td>Aula 4.2</td> 
+<td>
+    Sviluppo el software top-down basato su modelli: discussione sul case-study <tt>radarSonar</tt>.
+    Analisi dei requisiti e modellazione del dominio: 
+    analis del <a href="../../../it.unibo.qactor.radar/sites/radargui/docs/index.html"   target="lecture">modello del sotto-sistema radagui</a> proposto dalla software house (con tracciabilità dei requsiti).
+    Discusssione su possibili modelli di sonar:
+    
+    <a href="../../../it.unibo.radar.sonars/sites/sonarMock/docs/index.html"   target="lecture">sonarMock</a>
+     <a href="../../../it.unibo.radar.sonars/sites/sonarRasp/docs/index.html"   target="lecture">sonarRasp</a>
+    <a href="../../../it.unibo.radar.sonars/sites/sonarPublisher/docs/index.html"   target="lecture">sonarPublisher</a>
+    <a href="../../../it.unibo.radar.sonars/sites/sonarMockWithPublisher/docs/index.html"   target="lecture">sonarMockWithPublisher</a>
+     <a href="../../../it.unibo.radar.sonars/sites/sonarRaspWithPublisher/docs/index.html"   target="lecture">sonarRaspWithPublisher</a>
+    Prima architettura logica del sistema: richiami sul percorso logico-memtodologico che
+    induce all'uso di modelli eseguibili espressi da meta-modelli custom (basati su Ecore/Xtext) 
+    quali ad esempio i QActor.
+
+</td>    
+<tr><td>18/05/2017 (11-14)</td><td>Lab2</td> 
+<td>
+Realizzazione del case-study <tt>radarSonar</tt> con sonar simulati. 
+    
+L'impatto del Prolog nella costruzione di sistemi software (si veda <a href="../Readings/Prolog/AnIntroductionToProlog.pdf" target="lecture">AnIntroductionToProlog.pdf</a>).
+Realizzazione del case-study <tt>radarSonar</tt> con sonar reali <tt>HC-SR04</tt> connessi a un Raspberry.  
+    
+    
+Verso la costruzione di semplici <a href="../Robots/robotEntry.html" target="lecture">differental drive robot (ddr)</a>.
+
+     <a href="../Projects/Robots/robotProjectsEntry.html" target="lecture">Costi e (Meta-)requisiti di riferimento</a>.
+</td>    
+<tr><td>19/05/2017 (11-13)</td><td>Aula 06</td> 
+<td>
+    Da sistemi software a configurazione statica a sistemi software estednibili dinamicamente. Il concetto di
+    <tt>standalone Context</tt> nel mdetamodello qa. Proposta di una case study: determinare i numeri <tt>N, N>2</tt> primi con
+    il metodo del Crivello di  <a href="https://en.wikipedia.org/wiki/Eratosthenes">Eratostene</a> realizato come un sistema software distribuito riconfigurabile.
+      
+</td>
+  
+    
+<tr><td><b>Week 13</b></td></tr>    
+<tr><td>24/05/2017 (17-19)</td><td>Aula 4.2</td> 
+<td>
+    <!-- Introduzione al Reactive Programming: il sonar come generatore di uno stream.
+
+
+    <a href="../Appls/MotorDrive/motorDriveEntry.html" target="lecture">motorDrive</a>
+    
+ -->    
+Esempio di     
+<a href="../Projects/Robots/robotProjectsEntry.html" target="lecture"> uso del software di base per i ddr </a> e di una possibile applicazione. 
+    Estensione del metamodello QActor per il dominio dei  <a href="../Robots/robotEntry.html" target="lecture">differental drive robot</a>:
+    il <a href="../../../../lab2014Bo/it.unibo.xtext.qactor.robot/src/it/unibo/xtext/qactor/Robot.xtext" target="lecture">metamodello ddr</a>.
+    
+    Dai QActor ai QRobots:  <a href="../../../it.unibo.qactors/report/qactors/qactors3.pdf"   target="lecture">qactors3.pdf</a>
+    dalla sezione 10.
+</td>    
+<tr><td>25/05/2017 (11-14)</td><td>Lab2</td> 
+<td>
+Dai componenti-base a un robot ddr nano: impostazione bottom-up
+    del software di base per l'uso di attuatori e sensori.    
+</td>    
+<tr><td>26/05/2017 (11-13)</td><td>Aula 06</td> 
+<td>
+    Dall'hardware al software: impostazione top-down di una applicazione 
+    basata su ddr robots.
+    
+     
+</td>  
+
+<tr><td><b>Week 14</b></td></tr>    
+<tr><td>31/05/2017 (17-19)</td><td>Aula 4.2</td> 
+<td>
+    Introduzione all'uso di Unity come ambeinte virtuale per la sperimentazione
+    della logica di business di applicazioni IOT.
+</td>    
+<tr><td>01/06/2017 (11-14)</td><td>Lab2</td> 
+<td>
+    Assemblaggio e sperimentazione di differential drive robots fisici
+</td>    
+<tr><td>02/05/2017 (11-13)</td><td>Aula 06</td> 
+<td>
+    FESTA NAZIONALE
+</td>      
+
+<tr><td><b>Week 15</b></td></tr>    
+<tr><td>07/06/2017 (17-19)</td><td>Aula 4.2</td> 
+<td>
+    Il problema della costruzione dinamica di comportamenti da parte di 'robot intelligenti'.
+    Il robot come esecutore (interprete) di piani definiti in modo statico e/o dinamico.
+    Presentazione dei plugin versione <tt>1.4.0</tt> e delle relative librerie.   
+    Presentazione dell'esperianza di Dario Paquali e Federico Ruggeri nel contesto delle attivtà progettuali
+</td>    
+<tr><td>08/06/2017 (11-14)</td><td>Lab2</td> 
+<td>
+ Sperimentazione con i plugin versione <tt>1.4.0</tt> e messa a punto dei    
+    <a href="../imgs/robot/iss2017Bo1.jpg" target="lecture">robot fisici</a>.
+    Presentazione di una possibile scena  Unity per il tema finale su diverse piattaforme. Si veda il progetto
+    <i>it.unibo.qactor.robot.rover.control</i> directory <a href="../../../it.unibo.qactor.robot.rover.control/unity/" target="lecture">unity</a>.
+</td>    
+<tr><td>09/05/2017 (11-13)</td><td>Aula 06</td> 
+<td>
+       Rilettura dell'<a href="entry.html" target="lecture">overview del corso</a> a consuntivo del lavoro svolto.
+Proposta dl <a href="TemaFinaleLMBO2017.html" target="lecture">tema finale</a> e definizione del calendario dei colloqui orali.
+</td> 
+    
+<tr><td><b>Updates</b></td></tr>    
+<tr><td>15/06/2017 (11-14)</td><td>Lab2</td> 
+<td>
+    <ol>
+    <li>Pubblicata versione 1.4.1 dei plugin dei qactor che usa la  <a href="http://doc.akka.io/docs/akka/2.5.1/java.html" target="lecture">nuova versione di Akka</a>
+        <pre>akka-actor_2.11', version: '2.5.1' </pre>
+        Questa versione considera <tt>UntypedActor</tt> deprecated e vuole invece <tt>UntypedAbstractActor</tt>
+        </li>
+    <li>Modificata la libreria <tt>qa18Akka.jar</tt> (progetto <i>it.unibo.qactors</i>) e <tt>uniboQactorRobot.jar</tt>
+        (progetto <i>it.unibo.qactor.robot</i>)  in modo da usare la nuova versione di Akka e per introdurre
+        ottimizzazioni nella ricezione dei messaggi.
+        </br/>RICORDARSI DI ELIMINARE I FILE gradle PER FARLI RIGENERARE</li>
+    <li>Introdotta nel progetto <i>it.unibo.qactor.robot.rover.control</i> una nuova versione di una scena Unity
+        (file <tt>unity/Windows/virtualRobot.zip</tt>)
+        che dovrebbe eliminare problemi legati alla ricesione di eventi <tt>sonarDetect</tt>
+        emessi dal robot virtuale</li>
+    <li><tt>TODO</tt>: generazione di scene Unity per Linux e Mac, una volta che la versione Windows viene giudicata OK</li>
+    <li>PRENOTATO Lab2 tutti i giovedi dalle 11 alle 17 (tranne il 22/06 che parte dalle 14) per possibili
+    incontri/colloqui come da AlmaEsami</li>
+    </ol>
+     
+</td>    
+ </div>
+    
+
+
+    
+
+<div id="bottom">
+By AN  Unibo-DISI    
+</div>
+    
+</div>
+</div>    
+ 
+</body></html>
