@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="../css/plainStyle.css">
+<link rel="stylesheet" type="text/css" href="../css/robotTabStyle.css">   
+<script type="text/javascript" src="../css/issStyle.js"></script>
+<head>
+
+<title>Tema ISS 2017</title></head><body>
+    
+<div class="container wrapper"> 
+
+<div id="top">
+<h1>Ingegneria dei sistemi Software: Final Task 2016/17</h1>
+<p></p>
+</div> 
+
+
+    
+<div class="wrapper">
+    
+ 
+    
+ 
+<div id="main">
+<p>
+<h2>The environment</h2>    
+
+A differential drive robot (called from now on <b>robot</b>) is equipped with a sonar put in its front. The robot works in a pyhisical environment like that reported in the following picture:<br/><br/>
+<center><img src="../imgs/robot/tf2017a.jpg" width="418" height="326"/></center>
+<br/><br/>
+ This scene is taken from a Unity-based system.
+    
+ The two sonars are situated along a straight line along the <tt>W-E</tt> direction and each sonar is modeled as an active device that emits (in <i>QActor</i> semantics) events of the form:
+    <pre>
+    sonar  : sonar(SONARNAME, TARGETNAME, DISTANCE)
+    </pre>
+    At some distance <tt>dx, 0&lt;dx&lt;dm</tt> (<tt>dm</tt> prefixed, <tt>dx</tt> unknown) from the sonar line,  there are fixed and mobile obstacles like those shown in the scene. The <tt>MobileObstacle</tt> moves backwards and forwards along the <tt>N-S</tt> direction with a speed such as it completes its periodic movement in a prefixed time <tt>ot</tt> (<tt>0&lt;ot&lt;5</tt> seconds).
+<h2>The robot gaol</h2>    
+The robot should travel along a straight line from a point <tt>A</tt> set to a distance <tt>da</tt> in front of <tt>sonar1</tt> to a point <tt>B</tt> in front of <tt>sonar2</tt>, at a distance approximarely equal to <tt>da</tt>. For example:
+<br/><br/>
+<center><img src="../imgs/robot/tf2017b.jpg" width="418" height="326"/></center>
+<br/><br/>   
+The starting point <tt>A</tt> is set by the final users at any distance <tt>0&lt;da&lt;dm</tt>. 
+    
+The software controlling the robot must be able to detect fixed and mobile obstacles and select some alternative path to reach its destination. For example:
+<br/><br/>
+    <center>
+    <table>
+    <tr><td><center><img src="../imgs/robot/tf2017c.jpg" width="316" height="244"/></center></td>
+        <td><center><img src="../imgs/robot/tf2017d.jpg" width="316" height="244"/></center></td></tr>
+    </table>
+    </center>
+      
+    <h3 id="h3">Functional Requirements: STEP 1</h3>
+    Design and build a (prototype of a) software system that:
+    
+    <ol>
+    <li>starts the robot (already put in <tt>A</tt>) when the user sends to it a <tt>start</tt> command by using a remote console;</li>
+    <li>drives the robot along a straight path from <tt>A</tt> to <tt>B</tt> if no onstacle is detected;</li>
+    <li>avoids the mobile obstacle by waiting (when detected) that the obstacle disappears from the robot's front;</li>
+    <li>avoids the fixed obstacles by finding some alternative path to reach its goal;</li>
+    <li><tt>stops</tt> the robot if an <tt>alarm</tt> event occurs.</li>
+    </ol>
+ 
+    <h3 id="h3">Functional Requirements: STEP 2 (optional)</h3>
+    <i id="i">After completion of the first step</i>, extend the system built at step1 so that a human user can take the control at any time after robot starting. In this case:
+    <ol>
+     <li>the robot must <tt>stop</tt> its journey and execute movement commands sent by the user via the console. Obviously the robot should avoid to hit obstacles;</li>
+        <li>among these commands, the user can tell the robot to return in <i id="i">autonomous way</i> to its starting point along the same path already covered, by avoiding to hit (mobile) obstacles.</li>
+    </ol>
+    
+ 
+    <h2>Important to remember</h2>    
+    <ul>
+    <li>Express in explicit way the technological hypothesis assumed during the problem analysis phase</li>
+    <li>Express in explicit way the process methodology assumend (SCRUM, MDSD, 'mixed', etc) and motivate the choice</li>
+    <li>Highlight the abstraction gap (if any)</li>
+    <li>Motivate the usage of 'custom' tools </li>
+    <li>Estimate the development effort and the development risks before starting the coding</li>
+    <li>Deal with the problems of testing and of requirement traceability</li>
+    <li>If the work was done in a team, briefly discusss how the cooperative work has been set up</li>
+    <li>Identify what parts of the work can contribute to improve the development of future software projects/applications </li> 
+    <li>Provide the list of 'projects' completed (in individual way)  during the course and a reference list of the learning matarial 'really' consulted </li>
+    <li>Provide your own (individual) final vision (if any) related to the problem of software development</li>
+     </ul>
+
+</p><p>
+   
+
+</p>
+    
+
+</div>
+    
+
+
+    
+
+<div id="bottom">
+By AN  Unibo-DISI    
+</div>
+    
+</div>
+</div>    
+ 
+</body></html>
