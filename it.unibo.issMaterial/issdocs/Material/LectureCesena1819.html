@@ -1,0 +1,456 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+<link rel="stylesheet" type="text/css" href="../css/plainStyle.css">
+<link rel="stylesheet" type="text/css" href="../css/robotTabStyle.css">   
+<script type="text/javascript" src="../css/issStyle.js"></script>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<head>
+
+<title>LecturesCE1718</title></head><body>
+    
+<div class="container wrapper"> 
+
+<div id="top">
+<h3 id="h2">81614 - LABORATORIO DI SISTEMI SOFTWARE 2018/19</h2>
+<p><a href="http://www.ingegneriarchitettura.unibo.it/it/corsi/insegnamenti/insegnamento/2017/412677">SITO WEB di Ateneo</a></p>
+</div> 
+
+
+    
+<div class="wrapper">
+    
+    
+ 
+    
+ 
+<div id="main">
+<p>
+    <a href="Overview.html#Goals" target="lecture"></a>
+<table id="robots">
+<tr><th>Day</th> <th>Loc</th><th>Argument</th>   </tr>
+<!--
+Week1
+-->
+<tr><td><b>Week 1</b></td></tr>    
+    
+<tr><td>19/09/2018 (14-17)</td><td>Aula 2.10/Lab31</td> 
+<td>
+    <p>
+     <a href="entry.html" target="lecture">Introduzione al corso</a>, ai <a href="entry.html#Prereq" target="lecture">prerequisiti</a> 
+e ai suo <a href="entry.html#Goals" target="lecture">obiettivi</a>.
+    Il ruolo del laureato magistrale tra innovazione tecnolgica e gestione dei processi di produzione del software.
+</p><p>
+Il sito GIT con il materiale del corso
+    <tt>https://github.com/anatali/iss2018  </tt>. <!--  ssh://isslm2014@137.204.107.21:80/labstudISSDISI 
+Una <a href="../iss2015Html/courseISSMap/iss2015Intro.cmap.html" target="lecture">mappa di contenuti</a>
+-->Le
+    <a href="entry.html#Lab" target="lecture">attività di laboratorio</a> nel dominio IOT
+    (<a href="entry.html#buildrobot" target="lecture">building a robot</a> 
+Il materiale didattico: <a href="../NatMolBook/bookEntry.html" target="lecture">dispense online</a>
+    e <a href="entry.html#Books" target="lecture">testi consigliati</a>.
+    
+</p><p>    
+<!--Presentazione dei <a href="../Tools/tools.html" target="lecture">tools</a> di base 
+della sezione <a href="../Download/dowloadEntry.html" target="lecture">download</a> del sito
+e dei <a href="../Robots/robotEntry.html" target="lecture">dispositivi custom</a> per le esercitazioni.-->
+Il ruolo del lavoro individuale e di gruppo nello sviluppo di casi di studio proposti durante le <a href="../Lab/Lab2016/Starting2016.html" target="lecture">attività di laboratorio</a>.
+    <!--(per le <a href="Overview.html#Work" target="lecture">attività</a> di <a href="../Appls/applsEntry.html" target="lecture">laboratorio</a>). -->
+
+    </p><p>
+Modalita' di <a href="http://www.ingegneriarchitettura.unibo.it/it/corsi/insegnamenti/insegnamento/2017/412677" target="lecture">verifica dell'apprendimento</a> e 
+ruolo dei deliverable intermedi connessi ai casi di studio.  
+    
+Presentazione di un <a href="./TemaFinaleLMBO2018.pdf"  target="lecture">esempio di Tema finale</a>.
+Criteri di valutazione del lavoro svolto.
+ </p><p>
+    
+Compilazione del 
+<a href="https://docs.google.com/forms/d/1HevTsP0H4iIG70RArz85s8EQtSJPTevIVZO6lIgNO9k/viewform" target="lecture">questionario on line</a>. 
+ 
+
+
+    
+
+</p>
+    </td></tr>
+	
+	
+<tr><td>20/09/2018 (13-16)</td><td>Lab31</td> 
+<td>
+<p>
+La problematica della  <a href="entry.html#Goals" target="lecture">costruzione del software bottom-up e top-down </a>(technology-aware e
+technology-independent).
+</p><p>
+    Installazione e sperimentation dei tools base per il laboratorio. Impostazione di un progetto Eclipse a partire
+    da una specifica GRADLE. Si veda <a href="../Lab/Lab2016/Starting2016.html" target="code">Lab1) Starting2016</a>).
+ </p><p>
+ IOT ai minimi termini: <a href="../Appls/ButtonLed/buttonLed.html" target="lecture">un sistema ButtonLed </a> e 
+ <a href="../Appls/ButtonLed/blsOverview.pdf" target="lecture">un un possibile spazio di lavoro</a>
+ 
+ 
+ </p><p>
+	Il sistema ButtonLed system con Led e Button come device fisici su RaspberryPi
+    <a href="../Lab/Lab2016/BLSRaspberry.html" target="lecture">BLS with a RaspberryPi</a>. 
+ </p><p>
+Da Raspberry/Arduino ai differental drive robot  <a href="../Robots/robotEntry.html" target="lecture">built</a> or 
+(<a href="https://www.makeblock.com/steam-kits/mbot" target="lecture">buyed (Mbot)</a>).
+</p>
+</td></tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+Week2
+-->
+<tr><td><b>Week 2</b></td></tr>    
+<tr><td>27/09/2017 (13-16)</td><td>Lab2</td> 
+<td> 
+    <p>
+La problematica della  <a href="entry.html#Goals" target="lecture">costruzione del software bottom-up e top-down</a>.
+</p><p>
+Case study1: <a href="entry.html#case2017study1">AndroidSensors</a>: <i>looks at the accelometer data and <ib>emits an alarm signal</b> if a value is higher than a prefixed value</i>.
+</p><p>
+    
+    Installazione e sperimentation dei tools base per il laboratorio. Impostazione di un progetto Eclipse a partire
+    da una specifica GRADLE. Si veda <a href="../Lab/Lab2016/Starting2016.html" target="code">Lab1) Starting2016</a>).
+</p><p>
+Introduzione al <a href="../../../it.unibo.qactors/report/qactors/qactors2017a.pdf" target="code">linguaggio custom qa</a> ( QActor) e alla sua software factory. 
+    </p>
+ 
+</td></tr>  
+<tr><td>28/09/2017 (14-17)</td><td>Lab2</td> 
+<td> <p> 
+Primi esperimenti con il <a href="../../../it.unibo.qactors/report/qactors/qactors2017a.pdf" target="code">linguaggio custom qa</a>. </p><p>
+Impostazione non formale di una prima architettura logica per il Case study1: <a href="./entry.html#case2017study1" target="lecture">AndroidSensors</a>.
+    .</p><p>
+    </p>
+</td></tr>
+
+<!--
+Week3
+-->
+<tr><td><b>Week 3</b></td></tr>    
+<tr><td>04/10/2017 (13-16)</td><td>Lab2</td> 
+<td><!--  C:\Users\anatali\StudioProjects\it.unibo.android.basePlus\app -->
+Introduzione allo spazio di lavoro in riferimento allo stato dall'arte:
+<a href="../Lab/Lab2016/introDesign2017a.pdf" target="lecture">introDesign2017a.pdf</a> (Interaction)
+</td></tr>  
+<tr><td>05/10/2017 (14-17)</td><td>Lab2</td> 
+<td>  Sviluppo passo-passo di un modello per il Case study1: <a href="./entry.html#case2017study1" target="lecture">AndroidSensors</a>. Dal modello logico su singolo nodo ad un sistema distribuito su nodi omogeni Java.
+</td></tr>    
+ 
+    
+<!--
+Week4
+-->
+<tr><td><b>Week 4</b></td></tr>    
+<tr><td>11/10/2017 (13-16)</td><td>Lab2</td> 
+<td> Dal modello logico per il Case study1: <a href="./entry.html#case2017study1" target="lecture">AndroidSensors</a> ad un sistema reale con sensore su Android.
+Attivazione sincrona e asincrona di azioni applicative nel metamodello <tt>qa</tt> : introduzione.
+<br/>
+    <a href="../../../it.unibo.lss17/src/acceleromFromAndroid.qa" target="code">acceleromFromAndroid.qa</a>
+<br/>
+    <a href="../../../it.unibo.aceelerom/backup/app-release.apk" target="code">app-release.apk</a>
+</td></tr>  
+<tr><td>12/10/2017 (14-17)</td><td>Lab2</td> 
+<td>   
+    Trasformazione del prototipo del Case study1: <a href="./entry.html#case2017study1" target="lecture">AndroidSensors</a> ad un sistema distribuito su singolo PC e su diversi PC.
+    Approndimento sul codice generato dalla qa software factory (si veda
+    <a href="../../../it.unibo.qactors/report/qactors/qactors2017b.pdf" target="code">qactors2017b.pdf</a> sezione 1.3, 1.4)
+    Discussione sulle azioni asincrone alla luce dei modelli di riferimento ad attori e event-driven.
+</td></tr>   
+
+    
+<!--
+Week5
+-->
+    <tr><td><b>Week 5</b></td></tr>    
+<tr><td>18/10/2017 (13-16)</td><td>Lab2</td> 
+<td> Il prototipo del Case study1: <a href="./entry.html#case2017study1" target="lecture">AndroidSensors</a>
+    con eccelerometro su Anroid.
+     <a href="../../../it.unibo.qactors/report/qactors/qactors2017b.pdf" target="code">qactors2017b.pdf</a>: sezione 7.
+</td></tr>  
+<tr><td>19/10/2017 (14-17)</td><td>Lab2</td> 
+<td> Discussione sul lavoro svolto. Verso un sistema WoT: modelli
+    logici del sistema: <a href="../Lab/Lab2016/introDesign2017a.pdf" target="lecture">introDesign2017a.pdf (WOT)</a> 
+    Introduzione al concetto di Domain Driven Design: <a href="../Lab/Lab2016/introDesign2017a.pdf" target="lecture">introDesign2017a.pdf (DDD)</a>.
+    Un modello di sistema software ispirato al modello WOT: si veda   <a href="../../../it.unibo.qactors/report/qactors/qactors2017b.pdf" target="lecture">qactors2017b.pdf</a>: sezione 8.
+</td></tr>   
+
+<!--
+Week6
+-->
+    <tr><td><b>Week 6</b></td></tr>    
+<tr><td>25/10/2017 (13-16)</td><td>Lab2</td> 
+<td> 
+    Modelli qa per la integrazione di sistemi eterogeni: si veda   <a href="../../../it.unibo.qactors/report/qactors/qactors2017c.pdf" target="lecture">qactors2017c.pdf</a>: sezione 8.
+    Un sistena software nel campo IOT ispirato al modello WOT: si veda   <a href="../../../it.unibo.qactors/report/qactors/qactors2017c.pdf" target="lecture">qactors2017c.pdf</a>: sezione 9.
+<br/>
+    Un tuffo verso il basso livello: il sistema ButtonLed system con Led e Button come device fisici su RaspberryPi
+    <a href="../Lab/Lab2016/BLSRaspberry.html" target="lecture">BLS with a RaspberryPi</a>.
+       <br/>
+     Note sulla programmazione in Javascript a Node.js: <a href="./eventProgramming1.pdf"  target="lecture">eventProgramming1.pdf</a>
+    <br/>
+
+</td></tr>  
+<tr><td>26/10/2017 (14-17)</td><td>Lab2</td> 
+<td> 
+    Processi di produzione top-down basato sull'uso di modelli eseguibi: un video 'metaforico' <a href="https://www.youtube.com/watch?v=0fKBhvDjuy0" target="lecture">poweOfTwo</a> (da 5.30).
+    <br/>
+     
+    <hr/>
+    Proposta di un nuovo case study (<tt>radarSonar</tt>) :<br/>
+        REQUISITI: si vuole realizzare un sistema software capace di presentare su un personal computer convenzionale
+    l'immagine grafica di uno schermo radar (detto <tt>radarGui</tt>).
+    
+    Il sistema deve fare in modo che su <tt>radarGui</tt> venga visualizzata l'informazione acquisita
+    da un sonar <tt>HC-SR04</tt> connesso a un RaspberryPi o a un Arduinio.
+     
+    L'immagine risultante potrebbe essere del tipo mostrato nella figura 
+    <a href="../../../it.unibo.qactor.radar/docs/site/images/radarMy.jpg"  target="lecture">radar image</a>
+    in cui viene visulizzato un punto a distanza <tt>24 cm</tt> in direzione <tt>0.0</tt>. 
+    
+    <tt>radarGui</tt> deve permettere di visualizzare punti a distanza comprensa tra <tt>cm 0</tt> e <tt>cm 80</tt> lungo 
+        direazioni comprese tra <tt>0</tt> e <tt>180</tt>, utilizzando il quadrante di destra della figura. 
+    
+    La software house ha già realizzato un prototipo di <tt>radarGui</tt> mediante il progetto <i>it.unibo.qactor.radar</i> fornendo un modello esguibile dle sistema <a href="../../../it.unibo.qactor.radar/sites/radargui/docs/index.html"   target="lecture">modello del sotto-sistema radagui</a> proposto dalla software house (con tracciabilità dei requsiti).
+    <hr/>
+    Un approccio bottm-up: discusssione su possibili modelli di sonar:
+    
+    <a href="../../../it.unibo.radar.sonars/sites/sonarMock/docs/index.html"   target="lecture">sonarMock</a>
+     <a href="../../../it.unibo.radar.sonars/sites/sonarRasp/docs/index.html"   target="lecture">sonarRasp</a>
+    <a href="../../../it.unibo.radar.sonars/sites/sonarPublisher/docs/index.html"   target="lecture">sonarPublisher</a>
+ <br/>
+    Di nuovo top-down: verso il concetto di <a href="https://martinfowler.com/bliki/BoundedContext.html" target="lecture">BoundedContext</a>.
+</td></tr> 
+    
+<!--
+Week 7
+-->
+    <tr><td><b>Week 7</b></td></tr>    
+<tr><td>02/11/2017 (14-17)</td><td>Lab2</td> 
+<td>  
+    Utilizzo di dispositivi reali: il sonar HC-SR04 su RaspberryPi. Si veda   <a href="../../../it.unibo.qactors/report/qactors/qactors2017d.pdf" target="lecture">qactors2017d.pdf</a>: sezione 10.
+    Il sistema radar . Si veda i progetti <i>it.unibo.qactor.radar</i> e <i>it.unibo.qactor.radar.sonoar</i>.
+    <br/>
+    Utilizzo di dispositivi virtuali in ambiente (modifcato) UNITY. Si veda   <a href="../../../it.unibo.qactors/report/qactors/qactors2017d.pdf" target="lecture">qactors2017d.pdf</a>: sezione 11.
+    Introduzione all'ambiente Unity modificato per la interazione con  QActor. Si veda   <a href="https://github.com/anatali/lss0/tree/master/it.unibo.qa.integrator/unity/cesena2017/virtualRobot.zip" target="lecture">virtualRobot.zip</a> e 
+     <a href="https://github.com/anatali/lss0/tree/master/it.unibo.qa.integrator/src/testRover.qa" target="lecture">testRover.qa</a>
+    
+    
+     
+</td></tr>       
+    
+<!--
+Week8
+-->
+    <tr><td><b>Week 8</b></td></tr>    
+<tr><td>08/11/2017 (14-17)</td><td>Lab2</td> 
+<td> 
+    
+    Realizzazione e sperimentazione del <a href="../Lab/Lab2016/radar2016.html" target="lecture">sistema radar</a>
+    con sonar simulati e reali.
+        <a href="../../../it.unibo.radar.sonars/sites/sonarMock/docs/index.html"   target="lecture">sonarMock</a>
+     <a href="../../../it.unibo.radar.sonars/sites/sonarRasp/docs/index.html"   target="lecture">sonarRasp</a>
+    <a href="../../../it.unibo.radar.sonars/sites/sonarPublisher/docs/index.html"   target="lecture">sonarPublisher</a>
+
+    Evoluzione della architettura logica dal concentrato al distribuito. Messaggi ed eventi come elemento
+    primario per la interoperabilità dei componenti.
+    <br/>
+</td></tr>  
+<tr><td>09/11/2017 (13-16)</td><td>Lab2</td> 
+    <td>
+    Richiami sulle guide-SAM per l'uso del RaspberryPi: <a href="../Lab/CARD/rpi_sd.pdf" target="lecture">rpi_sd.pdf</a> e <a href="../Lab/CARD/guida_rpi.pdf" target="lecture">guida_rpi.pdf</a>.
+        Il sistema ButtonLd in un approccio bottom-up: <a href="../Lab/Lab2016/BLSRaspberry.html"target="lecture">BLSRaspberry.html</a> evidenziando una
+<a href="../Lab/Lab2016/img/BLSBlinkAtiAct.jpg"target="lecture">architettura object-oriented low-level</a>        
+        <br/><br/>
+    
+    <!-- Si veda <a href="../Lab/Lab2016/BLSWorkflow.html">BLSWorkflow.html</a>. -->
+    Proposta di un deliverable basato su un primo <a href="./TemplateInitial.tex"  target="lecture">template Latex</a>
+    (che utilizza le risorse riportate in <a href="../Lab/DOWNL/kitISLatex.zip" target="lecture">kitISLatex.zip</a>)
+  
+</td></tr>       
+    
+<!--
+Week9
+-->
+    <tr><td><b>Week 9</b></td></tr>    
+<tr><td>15/11/2017 (13-16)</td><td>Lab2</td> 
+<td> Sul riuso del software per ereditarietà tra classi o per iniziezione di componenti: il caso di dispositivi di input (Button) e di attuatori (Led). Dispositivi logici e fisici e loro possibili relazioni: richiamo al pattern bridge.
+    Il ruolo della pianificazione del testing durante la fase di analisi, anche come strumento per le specifica della semantica delle interfacce. Richiami su JUnit come strumento per la esecuzione automatica di test. Uso di gradle per la crezione di report di testig nella fase di build. Introduzione all'uso di jacoco come esempio strumento per l'analisi di copertura di codice da parte dei test.
+    La ripartizione delle responsabilità applicative (business logic) ai componenti di un sistema: i controller.
+    La transizione da oggetti che operano in locale ad enti (attori) che operano in sistemi distribuiti.
+</td></tr>  
+<tr><td>16/11/2017 (14-17)</td><td>Lab2</td> 
+<td>  Dai modelli ai sisemi concreti: il caso del ButtonLed con diversi tipi di dispostivi concreti. Iniezione di componenti testati ad oggetti entro attori qa.
+</td></tr>    
+     
+<!--
+Week10
+-->
+    <tr><td><b>Week 10</b></td></tr>    
+<tr><td>22/30/2017 (14-17)</td><td>Lab2</td> 
+<td> 
+Overview sulla costruzione top-dwon del software orientata al riuso di componenti testati.
+    <a href="../Lab/Lab2016/introDesign2017a.pdf" target="lecture">introDesign2017a.pdf</a> (Software Components)
+Dai requisiti alla architettura logica: il ruolo di funzioni, oggetti e qactor.
+    Accensione di un Led attraverso un server HTTP. Associazione di un web server ad un contesto qactor attraverso
+il flag <tt>-httpserver</tt>.
+</td></tr>  
+<tr><td>23/11/2017 (13-16)</td><td>Lab2</td> 
+<td> 
+    Il ruolo degli eventi nella integrazione di componenti software <a href="./E80Bls" target="lecture">E80Bls.pdf</a> <br/>
+    Il sistema ButtonLed dal modello alla implementazione:
+    <a href="C:\repoGitHub/it.unibo.qa.nodeserver/src/blsCustom.qa" target="lecture">blsCustom.qa</a><br/>
+    Evoluzione del sistema per nuovi requisiti: blink the led  
+    <a href="C:\repoGitHub/it.unibo.qa.nodeserver/src/blsHlBlink.qa" target="lecture">blsHlBlink.qa</a><br/>
+
+</td></tr>
+
+<!--
+Week11
+-->
+    <tr><td><b>Week 10</b></td></tr>    
+<tr><td>29/30/2017 (14-17)</td><td>Lab2</td> 
+<td>     
+    
+    Progettazione e costruzione per componenti: approcci bottom-up (technology dependent) vs. approcci top-down (domain oriented)<a href="./E80Bls.pdf"></a>. Il modello qa di un sistema  ButonLed come intergratore di oggetti convenzionali <a href="C:\repoGitHub/it.unibo.qa.nodeserver/src/blsHLCustom.qa" target="lecture">blsHLCustom.qa</a>.
+     Evoluzione del sistema: possibilità di gestre il Led attraverso un sistenma Web-based. Il ruolo del flag <tt>-httpserver</tt> e cenni alla sua implementazione.
+    
+    <br/>Interoperabilità tra modelli qa e sistemi realizzati con altre tecnologie: il caso di Unity.  
+   
+</td></tr>  
+<tr><td>30/11/2017 (13-16)</td><td>Lab2</td> 
+<td>  
+    verso Web of Things: Un led che blinks in modo rreattivo ad allarmi gestito attraverso un browser.
+    <a href="C:\repoGitHub/it.unibo.qa.nodeserver/src/blsHlBlinkReactiveWeb.qa" target="lecture">blsHlBlinkReactiveWeb.qa</a>
+    
+    Impostazione di un server HTTP scritto in Node.js
+     <a href="C:\repoGitHub/it.unibo.qa.nodeserver/src/nodeServerActivator.qa" target="lecture">nodeServerActivator.qa</a>
+      <a href="C:\repoGitHub/it.unibo.qa.nodeserver/src/nodeServerActivator.qa" target="lecture">nodeServerActivator.qa</a>   
+     <a href="C:\repoGitHub/it.unibo.qa.nodeserver/src/httpClient.qa" target="lecture">httpClient.qa</a>   
+   
+    <br/>
+    
+    Verso sistemi distribuiti eterogenei.
+    Accensione di un Led attraverso un server HTTP realizzato in Node.js
+    <!-- Il sistema ButtonLed: progettazione bottomUp e topDown in locale e in ditribuito. Impostazione di
+    una architettura logica bsata su modelli qa e derivazione/impostazione del codice per sistemi distribuiti
+    eterogeni. -->
+     Si veda <a href="../Appls/ButtonLed/blsJavaScript17.pdf" target="lecture">blsJavaScript17.pdf</a> e  <a href="./eventProgramming1.pdf"  target="lecture">eventProgramming1.pdf</a>
+
+</td></tr>
+ 
+<!--
+Week12
+-->
+    <tr><td><b>Week 11</b></td></tr>    
+<tr><td>06/12/2017 (14-17)</td><td>Lab2</td> 
+<td> 
+    Analisi di un sistema radar distribuito: modello della architettura logica. Dal modello logico a un modello QActor di porgetto di un sistema dinamicamente estndibile. La tecnologia publish-subscribe basata  MQTT come alternativa al supporto
+    di interazione dei QActor. Il progetto it.unibo.qactor.rada e il sistema <a href="../../../it.unibo.qactor.radar/src/radarguiMqtt.qa">radarguiMqtt.qa</a>
+    
+</td></tr>  
+<tr><td>07/12/2017 (13-16)</td><td>Lab2</td> 
+<td>  
+Dalla analisi del problema ad un primo prototipo eseguibile: il caso del sistema radar che determinano il passaggio di attori/robot con riferimento a un modo virtuale in Unity. 
+<br/>    
+    Discussione sul concetto di robot, sonar e sulla architettura di sistema. 
+    Note sulla compilazione del template di progetto.
+</td></tr>
+    
+<!--
+Week13
+-->
+    <tr><td><b>Week 12</b></td></tr>    
+<tr><td>13/12/2017 (14-17)</td><td>Lab2</td> 
+<td> 
+              Prima  <a href="../Readings/Xtext/IntroXtext2013.pdf" target="lecture">
+    Introduzione</a> al <a href="../Xtext/XtextEntry.html" target="lecture">framework Xtext</a>: 
+    dall'esempio-base alla definizione di un <a href="../../../it.unibo.xtext.docs.site/backup/SiteXtextInitial.txt" target="lecture"> semplice metamodello custom</a> con 
+    <a href="../Readings/Xtext/CustomGenXtext.pdf" target="lecture">
+    generazione automatica di codice</a> espressa con linguaggio  <a href="../Readings/Xtext/XtendUserGuide.pdf"  target="lecture">Xtend</a>.
+    
+    <a href="../Readings/Xtext/IntroXtext2013.pdf" target="lecture">Richiami</a> sui livelli di UML,<a href="../NatMolBook/content/book/uml211/ecore.html" target="lecture">Ecore</a>. EMOF e <a href="../NatMolBook/content/book/uml/layerUml.html" target="lecture">Mof</a>.
+    <br/>Definzione di un sistema di telecontrollo di un robot in un mondo virtuale.
+<br/>
+   
+</td></tr>  
+<tr><td>14/12/2017 (13-16)</td><td>Lab2</td> 
+<td> 
+        Estensione del metamodello QActor per il dominio dei  <a href="../Robots/robotEntry.html" target="lecture">differental drive robot</a>:
+    il <a href="../../../../lab2014Bo/it.unibo.xtext.qactor.robot/src/it/unibo/xtext/qactor/Robot.xtext" target="lecture">metamodello ddr</a>.
+<br/>
+    Il problema della configurazione di dispositivi fisici. Il caso dei <a href="../Robots/robotEntry.html" target="lecture">differental drive robot (ddr)</a> (<a href="../imgs/robot/iss2017Bo1.jpg" target="lecture">robot fisici</a>). Un metamodello che facilita l'uso del software di base.
+<br/>
+    Si veda  <a href="../../../it.unibo.qactors/report/qactors/qactors2017e.pdf" target="lecture">qactors2017e.pdf</a> realtiva alla versione <tt>1.5.8</tt>  della software factory relativa ai linguaggi/metamodelli <tt>qa, ddr, baseddr</tt>.
+<br/>
+Esempio operativo di un sistema software che pilota un robot fisico sensibile ad ostacoli  ed eventi che nascono in un mondo virtuale: il progetto <a href="../../../it.unibo.qactor.robot.avatar/src/avatar.ddr" target="code">it.unibo.qactor.robot.avatar</a>.
+</td></tr>    
+    
+<!--
+Week14
+-->
+    <tr><td><b>Week 13</b></td></tr>    
+<tr><td>20/12/2017 (14-17)</td><td>Lab2</td> 
+<td> Panoramica sul  <a href="entry.html" target="lecture">lavoro svolto</a>.   <a href="../Projects/Robots/RobotNano0.jpg" target="lecture"></a> <a href="../Projects/Robots/onTheRobotDSL.html" target="lecture"></a>
+    <br/>
+    
+    Riferimenti a lavori correlati:
+    <a href="../Readings/wot/AvatarArchitectureIot.pdf" target="lecture">Towards An Avatar Architecture for the Web of Things</a>
+    
+    <a href="../Readings/wot/ThingML_%20A%20Generative%20Approach%20to%20Engineer%20Heterogeneous%20and%20Distributed%20Systems.pdf" target="lecture">ThingML: A Generative Approach to Engineer Heterogeneous and Distributed Systems</a>
+
+    <br/>
+    Definizione di un <a href="./TemaFinaleLMBO2017.html"  target="lecture">Tema finale di Riferimento</a>  e di temi finali proposti dagli studenti e di un possibile caledario dei colloqui orali.
+    <br/>
+    Pecorelli, Bottaazi, Berganozzi : self care. Sensori elaborazione dei dati e invio dati
+    <br/>Bendetti Roberti 
+    <br/>
+    Sistema autenticazione pervasiva RFID. Problema traumatologico.
+    <!--
+    http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=7958482 https://github.com/TelluIoT/ThingML
+    https://github.com/madkira/thingmleditor  https://hub.docker.com/r/madkira/thingmleditor/
+    
+    docker pull madkira/thingmleditor
+    docker run -ti --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v [path_where_you_clone]/thingml:/home/developer -v [path_where_you_clone]:/workspace madkira/thingmleditor
+
+docker run -ti --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v thingml:/home/developer -v thingml:/workspace/thingmleditor ae8f3c3964a0
+-->
+</td></tr>  
+    <!--
+<tr><td>21/12/2017 (13-16)</td><td>Lab2</td> 
+<td>  
+</td></tr>    
+    -->
+</div>
+    
+
+
+    
+
+<div id="bottom">
+By AN  Unibo-DISI    
+</div>
+    
+</div>
+</div>    
+ 
+</body></html>
