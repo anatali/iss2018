@@ -121,6 +121,11 @@ Week2
   </p><p>
      Richiami su processi di sviluppo agili basati su
     <a href="../Survey/SCRUM/scrumEntry.html"  target="lecture">SCRUM</a>.
+ </p><p>
+    Discussione sulla architetture logica di un ButtonLed System (BLS). Il Button come ente Observable. 
+	Discussione sulla (non) opportunità di definire il Led come ente Observer. Introduzione del componente Control.
+	Discussione sulla interazione Button-Control-Led con enti considerati oggetti convenzionali.
+	Inpostazione delle interfacce dei componenti e dei TestPlan
 <!--
  </p><p>
 	Il sistema ButtonLed system con Led e Button come device fisici su RaspberryPi
@@ -131,19 +136,36 @@ Week2
  
 -->
 
-   Installazione e sperimentation dei tools base per il laboratorio. Impostazione di un progetto Eclipse a partire
-    da una specifica GRADLE. Si veda <a href="../Lab/Lab2016/Starting2016.html" target="code">Lab1) Starting2016</a>).
+
 
     </p>
  
 </td></tr>  
 <tr><td>27/09/2018 (13-16)</td><td>Lab3.1</td> 
-<td> <p> Da Raspberry/Arduino ai differential drive robot: <a href="../Robots/robotEntry.html" target="lecture">build</a> or 
+<td> 
+<p>
+Realizzazione di un sistenma BLS a oggetti in Java
+</p><p>
+1) Definzione di un sistena basato su Button/Led come Mock Objects (MainBlsMockBase) ed esecuzione dei test pianificati.
+</p><p>
+2) Evoluzione del sistema precedente in modo che Button/Led siano oggetti virtuali rappresentati mediante GUI (MainBlsGuiBase) 
+ed esecuzione dei test pianificati.
+</p><p>
+3) Evoluzione del  Button come ente osservabile che usa una implementazione (MainBlsGui) 
+ed esecuzione dei test pianificati.
+</p><p>
+4) Evoluzione del sistema precedente in modo che Button/Led siano oggetti fisici.
+<!--
+   Installazione e sperimentation dei tools base per il laboratorio. Impostazione di un progetto Eclipse a partire
+    da una specifica GRADLE. Si veda <a href="../Lab/Lab2016/Starting2016.html" target="code">Lab1) Starting2016</a>).
+
+	<p> Da Raspberry/Arduino ai differential drive robot: <a href="../Robots/robotEntry.html" target="lecture">build</a> or 
 (<a href="https://www.makeblock.com/steam-kits/mbot" target="lecture">buy (Mbot)</a>).
   </p><p>
-
+Il supporto qaakka18.jar
     </p><p>
     </p>
+	-->
 </td></tr>
 
 
